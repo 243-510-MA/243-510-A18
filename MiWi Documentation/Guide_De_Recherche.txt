@@ -1,0 +1,14 @@
+General Information :
+
+-------------------------------Transceiver------------------------------------------------------------------------ 
+		- Module characteristics (voltage range, temperature range etc..) -> PDF MiWi_Transceiver / page 1
+		- Block Diagram and Device Overview                               -> PDF MiWi_Transceiver / page 3
+		- Pin out and Interface MRF24J40MA (transceiver)                  -> PDF MiWi_Transceiver / page 4
+
+
+-----------------------------MiWi Demo Board-----------------------------------------------------------------------
+                - Shémas de la board (Pin out etc..)                              -> PDF MiWi_DemoKit / page 20 
+
+Fonctionnement d'un module :
+
+Fonctionnement de plusieurs modules ensemble :
