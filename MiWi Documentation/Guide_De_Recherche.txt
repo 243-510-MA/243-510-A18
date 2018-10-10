@@ -7,7 +7,8 @@ General Information :
 
 
 -----------------------------MiWi Demo Board-----------------------------------------------------------------------
-                - Shémas de la board (Pin out etc..)                              -> PDF MiWi_DemoKit / page 20 
+                - Shémas de la board(Pinout etc..)                                -> PDF MiWi_DemoKit / page 20 
+                - Pin OUT du PIC (Liste des pins IO/SPI/I2C/EUSART)               -> PDF PIC18F46J50 / page 16 à 28                                                
 
 Fonctionnement d'un module :
 
