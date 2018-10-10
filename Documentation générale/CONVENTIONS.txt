@@ -1,0 +1,117 @@
+﻿//-----------------------------------------------------//
+
+			Convention de programmation
+			
+//-----------------------------------------------------//
+
+1. Les Variables
+
+	PAS D'ITERATEUR GLOBAL
+	PAS D'ITERATEUR GLOBAL
+	PAS D'ITERATEUR GLOBAL
+	
+	Pour faire un iterateur, initialiser l'iterateur dans la boucle
+		Ex: 
+			for(uint8_t i; i<12; i++){
+				//Do Stuff//
+			}
+		//De cette maniere, la variable i disparait lorsque la boucle est terminee.
+		//Si l'iterateur est necessaire plus tard, il ne doit pas s'appeler i,j,k,l,m,etc. Il doit avoir un nom descriptif
+	
+	a. Comment nommer une variable
+		
+		-Une variable ne commence pas par une majuscule ou un chiffre
+		-Donner un nom descriptif à la variable.
+		-Si la variable est compose de plusieurs mots, à partir du 2e mot, la premiere lettre est majuscule.
+			Ex: uint8_t compteurDeJour = 0;
+		-Toujours initialiser une variable à un chiffre même si ce dernier est 0
+		-Ne pas faire de variables globales sauf rare exception.
+			Si besoins d'une variable qui ne s'efface pas dans une fonction, il suffit de la déclarer static.
+				Ex: 
+					void fonctionUtile(void){
+						static uint8_t exampleVariable = 0;
+						//Do Stuff//
+					}
+					//dans cet exemple, la variable exampleVariable sera initialiser à 0 lors de la premier exécution
+					//de la fonction. Par la suite, elle ne sera pas reinitiliser et sera égale à la valeur qu'elle avait lors
+					//de la derniere execution de la fonction.
+					
+		-Si une variable doit être globale ajouter "nomDuFichier"_ devant le nom de la variable.
+			Ex: uint8_t calendrier_compteurDeJour = 0;
+				//ici la variable compteurDeJour est utilise dans le fichier de fonctions calendrier.
+					
+	
+2. Les Fonctions
+
+	a. Comment nommer une fonction
+	
+		-Une fonction ne commence pas par une majuscule ou un chiffre.
+		-Donner un nom descriptif à la fonction.
+		-Éviter les fonction dans le fichier principal, faire les fonctions dans les fichier .h et .c
+	
+3. Les Fichiers .h et .c
+	
+	a. Le fichier .h
+		-Sera le seul fichier qui sera inclu dans le Fichier principal
+		-le .c est inclu dans le .h (#include)
+		-sert à faire les prototypes des fonctions
+		-inclue une documentation de ce que les fonctions font
+			Ex:
+				#include fonctions.c
+				
+				float bitsToVolt(uint16_t numericValue);
+				/*{ Convertit la numericValue vers la Tension
+					Retourne la Tension 0 a 5V en float
+				}*/
+				
+	b. Le fichier .c
+		-Contient tout le code des fonctions
+		-Est inclu dans le .h
+			Ex:
+				float bitsToVolt(uint16_t numericValue){
+					float volt=0;
+					volt = (numericValue*5)/4095.0;
+					return volt;
+				}
+				
+4. Les Indentations
+
+//les fonctions (incluant le main sont collée completement à droite.
+
+void main(void){
+
+	//les instructions qui sont directement dans une fonction sont 1 "tab" plus loin que le main
+	int example=0;
+	
+   
+    while (1){   
+		//Instructions d'une boucle sont un "tab" plus loins que le while
+		example=1;
+    }
+}  
+					
+5. Les accolades
+
+	Les accolades peuvent être à côté de la déclaration
+	Ex:
+	
+	float bitsToVolt(uint16_t numericValue){
+		float volt=0;
+		volt = (numericValue*5)/4095.0;
+		return volt;
+	}
+	
+	les accolades peuvent aussi être sous la déclaration
+	Ex:
+	
+	float bitsToVolt(uint16_t numericValue)
+	{
+		float volt=0;
+		volt = (numericValue*5)/4095.0;
+		return volt;
+	}
+			
+		
+		
+		
+		
