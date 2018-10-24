@@ -20,17 +20,19 @@
 
 //*************************************************************************
 
-#define DEVICEMODE PAN // Choisir ici
+#define DEVICEMODE CACA // Choisir ici
 
 //*************************************************************************
 
 void main(void)
 {
+    SYSTEM_Initialize();
+    
     Network(DEVICEMODE);
     
     LED0 = LED1 = LED2 = 0;
     
-
+    
     
     if(DEVICEMODE == PAN)
     {
