@@ -1,0 +1,10 @@
+Nécéssité des plaquettes:
+
+Plaquette Controler Pan:
+
+
+PIC18F46J50
+plaquette MRF miwi
+EEPROM
+Real Time Clock
+
