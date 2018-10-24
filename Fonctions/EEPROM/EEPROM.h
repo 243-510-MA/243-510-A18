@@ -33,7 +33,7 @@ typedef union{
 		uint8_t temperature6;
 	}frame;
 	uint8_t array[14];
-} ;
+}dataCapteur;
 
 
 void eepromWrite(uint32_t writeAddress,uint8_t data);
@@ -88,22 +88,22 @@ uint32_t eepromReadLastAddress(void);
 	
 
 
-savedData eepromReadSavedData(uint32_t startAddress);
+dataCapteur eepromReaddataCapteur(uint32_t startAddress);
 /*{
 	@Lit un timeStamp de donnee enregistres a l'adresse specifier
 	
 	Input:	startAddress (adresse de depart pour la lecture)
 	
-	Output: data (de type savedData, formater min/heure/jour/mois/annee/hum1..3/temp1...6) 	
+	Output: data (de type dataCapteur, formater min/heure/jour/mois/annee/hum1..3/temp1...6) 	
 	
 }*/	
 
-void eepromWriteDataToSave(uint32_t writeStartAddress, savedData data);
+void eepromWriteDataToSave(uint32_t writeStartAddress, dataCapteur data);
 /*{
 	@Enregistre un timeStamp de donnee enregistres a l'adresse specifier
 	
 	Input:	writeStartAddress (adresse ou commencer l'ecriture)
-			data (de type savedData, formater min/heure/jour/mois/annee/hum1..3/temp1...6)
+			data (de type dataCapteur, formater min/heure/jour/mois/annee/hum1..3/temp1...6)
 	
 	Output: none 	
 			

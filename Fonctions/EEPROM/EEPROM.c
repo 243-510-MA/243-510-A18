@@ -91,8 +91,8 @@ uint32_t eepromReadLastAddress(void){
 }
 
 //Lit un timeStamp de donnee enregistres a l'adresse specifier
-savedData eepromReadSavedData(uint32_t startAddress){
-	savedData data;
+dataCapteur eepromReaddataCapteur(uint32_t startAddress){
+	dataCapteur data;
 	cSEeprom=0;
 	SPIPut2(0x03);//read instruction 
 	//24 bit Address
@@ -109,8 +109,8 @@ savedData eepromReadSavedData(uint32_t startAddress){
 }	
 
 //Enregistre un timeStamp de donnee enregistres a l'adresse specifier
-void eepromWriteDataToSave(uint32_t writeStartAddress, savedData data){
-	savedData data;
+void eepromWriteDataToSave(uint32_t writeStartAddress, dataCapteur data){
+	dataCapteur data;
 	cSEeprom=0;
 	SPIPut2(0x06);//write enable 
 	cSEeprom=1;
