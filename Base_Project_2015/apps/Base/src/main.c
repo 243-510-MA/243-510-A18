@@ -20,7 +20,7 @@
 
 //*************************************************************************
 
-#define DEVICEMODE CACA // Choisir ici
+#define DEVICEMODE PAN // Choisir ici
 
 //*************************************************************************
 
@@ -28,13 +28,13 @@ void main(void)
 {
     SYSTEM_Initialize();
     
-    Network(DEVICEMODE);
+//    Network(DEVICEMODE);
     
     LED0 = LED1 = LED2 = 0;
     
     
     
-    if(DEVICEMODE == PAN)
+   /* if(DEVICEMODE == PAN)
     {
         Pan();     
     }   
@@ -61,5 +61,5 @@ void main(void)
     if(DEVICEMODE == STUDENT)
     {
         Student();
-    }
+    }*/
 }
