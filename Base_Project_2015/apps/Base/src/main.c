@@ -10,6 +10,7 @@
 #include "teacher.h"
 #include "door_unlock.h"
 #include "projector_screen.h"
+#include "CapteurI2C.h"
 
 
 #define PAN 0                       //Controls the projector, red light, buzzer and motion sensor (such many thing, wow)
@@ -27,6 +28,13 @@
 void main(void)
 {
     SYSTEM_Initialize();
+    
+    while(1){
+        sprintf((char *)&LCDText, (char*)"Temp : %.2f", readTemperatureC());
+        sprintf((char *)&LCDText[16], (char*)"WetNES : %.2f", readHumidity());
+        LCD_Update();
+    }
+    
     
 //    Network(DEVICEMODE);
     

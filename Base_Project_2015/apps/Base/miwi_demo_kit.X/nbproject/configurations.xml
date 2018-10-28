@@ -38,6 +38,7 @@
       <itemPath>../src/teacher.h</itemPath>
       <itemPath>../src/student.h</itemPath>
       <itemPath>../src/projector_screen.h</itemPath>
+      <itemPath>../src/CapteurI2C.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -74,6 +75,7 @@
       <itemPath>../src/network.c</itemPath>
       <itemPath>../src/soft_i2c.c</itemPath>
       <itemPath>../src/soft_i2c.h</itemPath>
+      <itemPath>../src/CapteurI2C.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

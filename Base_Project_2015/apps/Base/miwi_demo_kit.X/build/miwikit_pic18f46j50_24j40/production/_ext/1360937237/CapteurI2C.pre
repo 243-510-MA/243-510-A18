@@ -1,5 +1,17 @@
 
-# 1 "../src/soft_i2c.c"
+# 1 "../src/CapteurI2C.c"
+
+# 11 "../src/CapteurI2C.h"
+float readHumidity();
+float readTemperatureC();
+float readTemperatureF();
+
+float readTemperatureRaw();
+int shiftIn(int _numBits);
+void sendCommandSHT(int _command);
+void waitForResultSHT();
+int getData16SHT();
+void skipCrcSHT();
 
 # 26 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8981,94 +8993,197 @@ uint16_t Val;
 # 122
 void SYSTEM_Initialize(void);
 
-# 11 "../src/soft_i2c.c"
-unsigned char i2cReadByte(void)
+# 9 "../src/CapteurI2C.c"
+float readTemperatureC()
 {
-unsigned char inByte, n;
-i2cHighSda();
-for (n=0; n<8; n++)
+int _val;
+float _temperature;
+
+
+const float D1 = -40.0;
+const float D2 = 0.01;
+
+
+_val = readTemperatureRaw();
+
+
+_temperature = (_val * D2) + D1;
+
+return (_temperature);
+}
+
+# 30
+float readTemperatureF()
+{
+int _val;
+float _temperature;
+
+
+const float D1 = -40.0;
+const float D2 = 0.018;
+
+
+_val = readTemperatureRaw();
+
+
+_temperature = (_val * D2) + D1;
+
+return (_temperature);
+}
+
+# 51
+float readHumidity()
+{
+int _val;
+float _linearHumidity;
+float _correctedHumidity;
+float _temperature;
+
+
+const float C1 = -4.0;
+const float C2 = 0.0405;
+const float C3 = -0.0000028;
+const float T1 = 0.01;
+const float T2 = 0.00008;
+
+
+int _gHumidCmd = 0b00000101;
+
+
+sendCommandSHT(_gHumidCmd);
+waitForResultSHT();
+_val = getData16SHT();
+skipCrcSHT();
+
+
+_linearHumidity = C1 + C2 * _val + C3 * _val * _val;
+
+
+_temperature = readTemperatureC();
+
+
+_correctedHumidity = (_temperature - 25.0 ) * (T1 + T2 * _val) + _linearHumidity;
+
+return (_correctedHumidity);
+}
+
+# 92
+float readTemperatureRaw()
+{
+int _val;
+
+
+int _gTempCmd = 0b00000011;
+
+sendCommandSHT(_gTempCmd);
+waitForResultSHT();
+_val = getData16SHT();
+skipCrcSHT();
+
+return (_val);
+}
+
+# 109
+int shiftIn(int _numBits)
+{
+int ret = 0;
+int i;
+
+for (i=0; i<_numBits; ++i)
 {
 i2cHighScl();
-
-if (PORTAbits.RA2)
-inByte = (inByte << 1) | 0x01;
-else
-inByte = inByte << 1;
+_delay((unsigned long)((10)*(16000000/4000.0)));
+ret = ret*2 + PORTAbits.RA2;
 i2cLowScl();
 }
-return(inByte);
+
+return(ret);
 }
 
-void i2cWriteByte(unsigned char outByte)
+# 127
+void sendCommandSHT(int _command)
 {
-unsigned char n;
-for(n=0; n<8; n++)
-{
-if(outByte&0x80)
+int ack;
+
+
+
 i2cHighSda();
-else
+i2cHighScl();
+i2cLowSda();
+i2cLowScl();
+i2cHighScl();
+i2cHighSda();
+i2cLowScl();
+
+
+i2cWriteByte(_command);
+
+
+i2cHighScl();
+i2cHighSda();
+ack = PORTAbits.RA2;
+if (ack != 0) {
+
+}
+i2cLowScl();
+ack = PORTAbits.RA2;
+if (ack != 1) {
+
+}
+}
+
+# 160
+void waitForResultSHT(){
+int i;
+int ack;
+
+i2cHighSda();
+
+for(i= 0; i < 100; ++i)
+{
+_delay((unsigned long)((10)*(16000000/4000.0)));
+ack = PORTAbits.RA2;
+
+if (ack == 0) {
+break;
+}
+}
+
+if (ack == 1) {
+
+}
+}
+
+# 183
+int getData16SHT()
+{
+int val;
+
+
+i2cHighSda();
+
+val = shiftIn(8);
+val *= 256;
+
+
+i2cHighSda();
 i2cLowSda();
 i2cHighScl();
 i2cLowScl();
-outByte = outByte << 1;
-}
+
+
 i2cHighSda();
+val |= shiftIn(8);
+
+return val;
 }
 
-void i2cNack(void)
+# 208
+void skipCrcSHT()
 {
-i2cHighScl();
-i2cLowScl();
-}
-
-void i2cAck(void)
-{
-i2cLowSda();
-i2cHighScl();
-i2cLowScl();
-i2cHighSda();
-}
 
 
-void i2c_start(void)
-{
-i2cLowScl();
 i2cHighSda();
 i2cHighScl();
-i2cLowSda();
 i2cLowScl();
-}
-
-void i2cStop(void)
-{
-i2cLowScl();
-i2cLowSda();
-i2cHighScl();
-i2cHighSda();
-}
-
-void i2cHighSda(void)
-{
-TRISAbits.TRISA2 = 1;
-_delay((unsigned long)((5)*(16000000/4000000.0)));
-}
-
-void i2cLowSda(void)
-{
-PORTAbits.RA2 = 0;
-TRISAbits.TRISA2 = 0;
-_delay((unsigned long)((5)*(16000000/4000000.0)));
-}
-
-void i2cHighScl(void)
-{
-TRISAbits.TRISA3 = 1;
-_delay((unsigned long)((5)*(16000000/4000000.0)));
-}
-
-void i2cLowScl(void)
-{
-PORTAbits.RA3 = 0;
-TRISAbits.TRISA3 = 0;
-_delay((unsigned long)((5)*(16000000/4000000.0)));
 }
