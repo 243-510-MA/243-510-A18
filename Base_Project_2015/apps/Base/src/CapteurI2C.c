@@ -83,9 +83,6 @@ float readHumidity()
   return (_correctedHumidity);
 }
 
-
-/* ================  Private methods ================ */
-
 /**
  * Reads the current raw temperature value
  */
@@ -114,7 +111,7 @@ int shiftIn(int _numBits)
   for (i=0; i<_numBits; ++i)
   {
      i2cHighScl();
-     __delay_ms(10);  // I don't know why I need this, but without it I don't get my 8 lsb of temp
+     __delay_ms(5);  // I don't know why I need this, but without it I don't get my 8 lsb of temp
      ret = ret*2 + SDA_PIN;
      i2cLowScl();
   }
@@ -146,12 +143,12 @@ void sendCommandSHT(int _command)
   i2cHighSda();
   ack = SDA_PIN;
   if (ack != 0) {
-    //Serial.println("Ack Error 0");
+      //Erreur ACK
   }
   i2cLowScl();
   ack = SDA_PIN;
   if (ack != 1) {
-    //Serial.println("Ack Error 1");
+      //Erreur ACK
   }
 }
 
@@ -165,7 +162,7 @@ void waitForResultSHT(){
 
   for(i= 0; i < 100; ++i)
   {
-    __delay_ms(10);
+    __delay_ms(5);
     ack = SDA_PIN;
 
     if (ack == 0) {
