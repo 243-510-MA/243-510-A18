@@ -40,7 +40,7 @@ void main(void)
     LED0 = LED1 = LED2 = 0;
     
     
-/* 
+
     Network(DEVICEMODE);
  
     if(DEVICEMODE == PAN)
@@ -71,5 +71,5 @@ void main(void)
     {
         Student();
     }
- */
+ 
 }
