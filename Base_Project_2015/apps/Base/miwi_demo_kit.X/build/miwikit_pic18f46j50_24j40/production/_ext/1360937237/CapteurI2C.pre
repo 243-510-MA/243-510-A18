@@ -8,22 +8,23 @@ float readTemperatureF();
 
 float readTemperatureRaw();
 int shiftIn(int _numBits);
+int shiftInCRC();
 void sendCommandSHT(int _command);
 void waitForResultSHT();
-int getData16SHT();
+int getData16SHT(int *val, char *CRC);
 void skipCrcSHT();
 
-# 26 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 50 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h"
+# 50 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h"
 extern volatile unsigned char RPOR0 @ 0xEC6;
 
 asm("RPOR0 equ 0EC6h");
@@ -8711,7 +8712,7 @@ extern volatile __bit nWRITE1 @ (((unsigned) &SSP1STAT)*8) + 2;
 
 extern volatile __bit nWRITE2 @ (((unsigned) &SSP2STAT)*8) + 2;
 
-# 18 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h"
+# 18 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h"
 __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
 __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 
@@ -8750,10 +8751,10 @@ void i2cLowSda(void);
 void i2cHighScl(void);
 void i2cLowScl(void);
 
-# 4 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
 typedef unsigned size_t;
 
-# 7 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -8762,17 +8763,17 @@ extern void * __va_start(void);
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 43 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
 struct __prbuf
 {
 char * ptr;
 void (* func)(char);
 };
 
-# 29 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\errno.h"
+# 29 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\errno.h"
 extern int errno;
 
-# 12 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\conio.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\conio.h"
 extern void init_uart(void);
 
 extern char getch(void);
@@ -8786,7 +8787,7 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 88 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -8813,10 +8814,10 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 12 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
-# 13 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -8993,7 +8994,25 @@ uint16_t Val;
 # 122
 void SYSTEM_Initialize(void);
 
-# 9 "../src/CapteurI2C.c"
+# 5 "../src/CapteurI2C.c"
+char crcTable[] = {0,49,98,83,196,245,166,151,185,136,219,234,125,76,31,46,
+67,114,33,16,135,182,229,212,250,203,152,169,62,15,92,109,
+134,183,228,213,66,115,32,17,63,14,93,108,251,202,153,168,
+197,244,167,150,1,48,99,82,124,77,30,47,184,137,218,235,
+61,12,95,110,249,200,155,170,132,181,230,215,64,113,34,19,
+126,79,28,45,186,139,216,233,199,246,165,148,3,50,97,80,
+187,138,217,232,127,78,29,44,2,51,96,81,198,247,164,149,
+248,201,154,171,60,13,94,111,65,112,35,18,133,180,231,214,
+122,75,24,41,190,143,220,237,195,242,161,144,7,54,101,84,
+57,8,91,106,253,204,159,174,128,177,226,211,68,117,38,23,
+252,205,158,175,56,9,90,107,69,116,39,22,129,176,227,210,
+191,142,221,236,123,74,25,40,6,55,100,85,194,243,160,145,
+71,118,37,20,131,178,225,208,254,207,156,173,58,11,88,105,
+4,53,102,87,192,241,162,147,189,140,223,238,121,72,27,42,
+193,240,163,146,5,52,103,86,120,73,26,43,188,141,222,239,
+130,179,224,209,70,119,36,21,59,10,89,104,255,206,157,172};
+
+# 25
 float readTemperatureC()
 {
 int _val;
@@ -9012,7 +9031,7 @@ _temperature = (_val * D2) + D1;
 return (_temperature);
 }
 
-# 30
+# 46
 float readTemperatureF()
 {
 int _val;
@@ -9031,7 +9050,7 @@ _temperature = (_val * D2) + D1;
 return (_temperature);
 }
 
-# 51
+# 67
 float readHumidity()
 {
 int _val;
@@ -9046,14 +9065,15 @@ const float C3 = -0.0000028;
 const float T1 = 0.01;
 const float T2 = 0.00008;
 
-
+# 88
 int _gHumidCmd = 0b00000101;
 
+char crc=0;
 
 sendCommandSHT(_gHumidCmd);
 waitForResultSHT();
-_val = getData16SHT();
-skipCrcSHT();
+getData16SHT(&_val, &crc);
+
 
 
 _linearHumidity = C1 + C2 * _val + C3 * _val * _val;
@@ -9067,23 +9087,35 @@ _correctedHumidity = (_temperature - 25.0 ) * (T1 + T2 * _val) + _linearHumidity
 return (_correctedHumidity);
 }
 
-# 89
+# 112
 float readTemperatureRaw()
 {
 int _val;
+char crc;
+char calcCRC = 0;
 
 
 int _gTempCmd = 0b00000011;
 
 sendCommandSHT(_gTempCmd);
 waitForResultSHT();
-_val = getData16SHT();
-skipCrcSHT();
+getData16SHT(&_val, &crc);
+
+calcCRC = _gTempCmd;
+calcCRC = crcTable[calcCRC];
+
+calcCRC = calcCRC ^ (_val/256);
+calcCRC = crcTable[calcCRC];
+
+calcCRC = calcCRC ^ (_val&255);
+calcCRC = crcTable[calcCRC];
+
+
 
 return (_val);
 }
 
-# 106
+# 141
 int shiftIn(int _numBits)
 {
 int ret = 0;
@@ -9100,7 +9132,23 @@ i2cLowScl();
 return(ret);
 }
 
-# 124
+int shiftInCRC()
+{
+int ret = 0;
+int i;
+
+for (i=7; i>0; --i)
+{
+i2cHighScl();
+
+ret = ret/2 + (PORTAbits.RA2*128);
+i2cLowScl();
+}
+
+return(ret);
+}
+
+# 175
 void sendCommandSHT(int _command)
 {
 int ack;
@@ -9131,7 +9179,7 @@ if (ack != 1) {
 }
 }
 
-# 156
+# 207
 void waitForResultSHT(){
 int i;
 int ack;
@@ -9153,42 +9201,40 @@ if (ack == 1) {
 }
 }
 
-# 180
-int getData16SHT()
+# 231
+int getData16SHT(int *val, char *CRC)
 {
-int val;
-short CRC;
 
 
 i2cHighSda();
 
-val = shiftIn(8);
-val *= 256;
+*val = shiftIn(8);
+*val *= 256;
 
 
 i2cAck();
 
-# 199
-i2cHighSda();
-val |= shiftIn(8);
-
-
-
-i2cAck();
 
 i2cHighSda();
+*val |= shiftIn(8);
 
-CRC = shiftIn(8);
+
 
 i2cAck();
 
-# 219
+i2cHighSda();
+
+*CRC = shiftInCRC();
+
+i2cAck();
+
+# 264
 i2cStop();
 
-return val;
+return 0;
 }
 
-# 226
+# 271
 void skipCrcSHT()
 {
 

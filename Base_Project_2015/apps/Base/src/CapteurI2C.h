@@ -16,9 +16,10 @@ float readTemperatureF();
 
 float readTemperatureRaw();
 int shiftIn(int _numBits);
+int shiftInCRC();
 void sendCommandSHT(int _command);
 void waitForResultSHT();
-int getData16SHT();
+int getData16SHT(int *val, char *CRC);
 void skipCrcSHT();
 
 #endif	/* CAPTEURI2C_H */
