@@ -111,8 +111,8 @@ int shiftIn(int _numBits)
   for (i=0; i<_numBits; ++i)
   {
      i2cHighScl();
-     __delay_ms(5);  // I don't know why I need this, but without it I don't get my 8 lsb of temp
-     ret = ret*2 + SDA_PIN;
+     //__delay_us(5);  // I don't know why I need this, but without it I don't get my 8 lsb of temp
+     ret = ret*2 + SDA_PIN; //Le *2 shift le registre vers la gauche et insere l'état de sda
      i2cLowScl();
   }
 
@@ -126,7 +126,6 @@ void sendCommandSHT(int _command)
   int ack;
 
   // Transmission Start
-
   i2cHighSda();
   i2cHighScl();
   i2cLowSda();
@@ -160,9 +159,9 @@ void waitForResultSHT(){
 
   i2cHighSda();
 
-  for(i= 0; i < 100; ++i)
+  for(i= 0; i < 3200; ++i)
   {
-    __delay_ms(5);
+    __delay_us(100);
     ack = SDA_PIN;
 
     if (ack == 0) {
@@ -175,11 +174,13 @@ void waitForResultSHT(){
   }
 }
 
+
 /**
  */
 int getData16SHT()
 {
   int val;
+  short CRC;
 
   // Get the most significant bits
   i2cHighSda();
@@ -188,14 +189,34 @@ int getData16SHT()
   val *= 256;
 
   // Send the required ack
-  i2cHighSda();
+  i2cAck();
+  /*i2cHighSda();
   i2cLowSda();
   i2cHighScl();
-  i2cLowScl();
+  i2cLowScl();*/
 
   // Get the least significant bits
   i2cHighSda();
   val |= shiftIn(8);
+  
+#ifdef USECRC
+  
+  i2cAck();
+  
+  i2cHighSda();
+          
+  CRC = shiftIn(8);
+  
+  i2cAck();
+  
+#else
+  
+  i2cNack();
+  
+#endif
+  
+  
+  i2cStop();
 
   return val;
 }

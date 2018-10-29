@@ -56,7 +56,7 @@ void i2cAck(void)
 }
 
 
-void i2c_start(void)
+void i2cStart(void)
 {
    i2cLowScl();
    i2cHighSda();

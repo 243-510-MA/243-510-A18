@@ -6869,12 +6869,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 786 ]
 }
 "59
-[v _i2c_start `(v ~T0 @X0 1 ef ]
+[v _i2cStart `(v ~T0 @X0 1 ef ]
 "60
 {
-[; ;soft_i2c.c: 59: void i2c_start(void)
+[; ;soft_i2c.c: 59: void i2cStart(void)
 [; ;soft_i2c.c: 60: {
-[e :U _i2c_start ]
+[e :U _i2cStart ]
 [f ]
 [; ;soft_i2c.c: 61: i2cLowScl();
 "61

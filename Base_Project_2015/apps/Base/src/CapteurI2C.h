@@ -8,6 +8,8 @@
 #ifndef CAPTEURI2C_H
 #define	CAPTEURI2C_H
 
+#define USECRC
+
 float readHumidity();
 float readTemperatureC();
 float readTemperatureF();

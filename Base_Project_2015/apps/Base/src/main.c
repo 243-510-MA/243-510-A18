@@ -25,9 +25,11 @@
 
 //*************************************************************************
 
+
 void main(void)
 {
     SYSTEM_Initialize();
+    
     
     while(1){
         sprintf((char *)&LCDText, (char*)"Temp : %.2f", readTemperatureC());
@@ -35,14 +37,13 @@ void main(void)
         LCD_Update();
     }
     
-    
-//    Network(DEVICEMODE);
-    
     LED0 = LED1 = LED2 = 0;
     
     
-    
-   /* if(DEVICEMODE == PAN)
+/* 
+    Network(DEVICEMODE);
+ 
+    if(DEVICEMODE == PAN)
     {
         Pan();     
     }   
@@ -69,5 +70,6 @@ void main(void)
     if(DEVICEMODE == STUDENT)
     {
         Student();
-    }*/
+    }
+ */
 }
