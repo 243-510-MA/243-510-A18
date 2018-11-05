@@ -47,6 +47,7 @@
       <itemPath>../src/codes library.h</itemPath>
       <itemPath>../src/network.h</itemPath>
       <itemPath>../src/self_test.h</itemPath>
+      <itemPath>../src/eusart2.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -90,6 +91,7 @@
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/network.c</itemPath>
+      <itemPath>../src/eusart2.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

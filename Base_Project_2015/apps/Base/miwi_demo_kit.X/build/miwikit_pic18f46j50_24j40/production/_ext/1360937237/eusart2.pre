@@ -1,18 +1,5 @@
 
-# 1 "../src/CapteurI2C.c"
-
-# 13 "../src/CapteurI2C.h"
-float readHumidity();
-float readTemperatureC();
-float readTemperatureF();
-
-float readTemperatureRaw();
-int shiftIn(int _numBits);
-int shiftInCRC();
-void sendCommandSHT(int _command);
-void waitForResultSHT();
-int getData16SHT(int *val, char *CRC);
-void skipCrcSHT();
+# 1 "../src/eusart2.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8739,81 +8726,6 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 18 "../src/soft_i2c.h"
-unsigned char i2cReadByte(void);
-void i2cWriteByte(unsigned char);
-void i2cNack(void);
-void i2cAck(void);
-void i2cStart(void);
-void i2cStop(void);
-void i2cHighSda(void);
-void i2cLowSda(void);
-void i2cHighScl(void);
-void i2cLowScl(void);
-
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
-typedef unsigned size_t;
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\errno.h"
-extern int errno;
-
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
@@ -8907,339 +8819,159 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 43 "../src/system_config/miwikit_pic18f46j50_24j40\lcd.h"
-extern uint8_t LCDText[16*2+1];
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
+typedef unsigned size_t;
 
-void LCD_Initialize(void);
-void LCD_Update(void);
-void LCD_Erase(void);
-void LCD_BacklightON(void);
-void LCD_BacklightOFF(void);
-void LCD_Display(char *, uint8_t, bool);
-void LCDWriteLine(uint16_t number, char *line);
-void UserInterruptHandler(void);
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
+typedef void * va_list[1];
 
-# 27 "../src/system_config/miwikit_pic18f46j50_24j40\eeprom.h"
-void EEPROMRead(uint8_t *Dest, uint8_t Addr , uint8_t count);
-void Read_MAC_Address(void);
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
 
-# 27 "../src/system_config/miwikit_pic18f46j50_24j40\serial_flash.h"
-void SSTRead(uint8_t *Dest, uint8_t *Addr , uint8_t count);
-void SSTWrite(uint8_t *Src, uint8_t *Addr, uint8_t count);
-void SSTGetID(uint8_t *Dest);
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
 
-# 71 "../src/system_config/miwikit_pic18f46j50_24j40\symbol.h"
-typedef union _MIWI_TICK
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
+struct __prbuf
 {
-uint32_t Val;
-struct _MIWI_TICK_bytes
-{
-uint8_t b0;
-uint8_t b1;
-uint8_t b2;
-uint8_t b3;
-} byte;
-uint8_t v[4];
-struct _MIWI_TICK_words
-{
-uint16_t w0;
-uint16_t w1;
-} word;
-} MIWI_TICK;
+char * ptr;
+void (* func)(char);
+};
 
-void InitSymbolTimer(void);
-MIWI_TICK MiWi_TickGet(void);
+# 29 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\errno.h"
+extern int errno;
 
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\conio.h"
+extern void init_uart(void);
 
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
 
-extern volatile uint8_t timerExtension1,timerExtension2;
+extern __bit kbhit(void);
 
-# 47 "../src/system_config/miwikit_pic18f46j50_24j40\delay.h"
-void DELAY_10us( uint32_t tenMicroSecondCounter );
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
 
-# 68
-void DELAY_ms( uint16_t ms );
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
 
-# 32 "../src/system_config/miwikit_pic18f46j50_24j40\button.h"
-MIWI_TICK switch0PressTime;
-MIWI_TICK switch1PressTime;
 
-uint8_t BUTTON_Pressed(void);
 
-# 29 "../src/system_config/miwikit_pic18f46j50_24j40\spi.h"
-void SPIPut(uint8_t v);
-uint8_t SPIGet(void);
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
 
-void SPIPut2(uint8_t v);
-uint8_t SPIGet2(void);
 
-# 54 "../src/system_config/miwikit_pic18f46j50_24j40\system.h"
-typedef union
-{
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
 
-uint8_t v[4];
-uint16_t w[2];
-uint32_t Val;
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 
-}API_UINT32_UNION;
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
 
-typedef union
-{
+# 98 "../src/eusart2.h"
+void EUSART2_Initialize(void);
 
-uint8_t v[2];
-uint16_t Val;
+# 146
+bool EUSART2_is_tx_ready(void);
 
-}API_UINT16_UNION;
+# 194
+bool EUSART2_is_rx_ready(void);
 
-# 122
-void SYSTEM_Initialize(void);
+# 241
+bool EUSART2_is_tx_done(void);
 
-# 5 "../src/CapteurI2C.c"
-char crcTable[] = {0,49,98,83,196,245,166,151,185,136,219,234,125,76,31,46,
-67,114,33,16,135,182,229,212,250,203,152,169,62,15,92,109,
-134,183,228,213,66,115,32,17,63,14,93,108,251,202,153,168,
-197,244,167,150,1,48,99,82,124,77,30,47,184,137,218,235,
-61,12,95,110,249,200,155,170,132,181,230,215,64,113,34,19,
-126,79,28,45,186,139,216,233,199,246,165,148,3,50,97,80,
-187,138,217,232,127,78,29,44,2,51,96,81,198,247,164,149,
-248,201,154,171,60,13,94,111,65,112,35,18,133,180,231,214,
-122,75,24,41,190,143,220,237,195,242,161,144,7,54,101,84,
-57,8,91,106,253,204,159,174,128,177,226,211,68,117,38,23,
-252,205,158,175,56,9,90,107,69,116,39,22,129,176,227,210,
-191,142,221,236,123,74,25,40,6,55,100,85,194,243,160,145,
-71,118,37,20,131,178,225,208,254,207,156,173,58,11,88,105,
-4,53,102,87,192,241,162,147,189,140,223,238,121,72,27,42,
-193,240,163,146,5,52,103,86,120,73,26,43,188,141,222,239,
-130,179,224,209,70,119,36,21,59,10,89,104,255,206,157,172};
+# 261
+uint8_t EUSART2_Read(void);
 
-# 25
-float readTemperatureC()
-{
-int _val;
-float _temperature;
+# 281
+void EUSART2_Write(uint8_t txData);
 
-
-const float D1 = -40.0;
-const float D2 = 0.01;
-
-
-_val = readTemperatureRaw();
-
-
-_temperature = (_val * D2) + D1;
-
-return (_temperature);
-}
-
-# 46
-float readTemperatureF()
-{
-int _val;
-float _temperature;
-
-
-const float D1 = -40.0;
-const float D2 = 0.018;
-
-
-_val = readTemperatureRaw();
-
-
-_temperature = (_val * D2) + D1;
-
-return (_temperature);
-}
-
-# 67
-float readHumidity()
-{
-int _val;
-float _linearHumidity;
-float _correctedHumidity;
-float _temperature;
-
-
-const float C1 = -4.0;
-const float C2 = 0.0405;
-const float C3 = -0.0000028;
-const float T1 = 0.01;
-const float T2 = 0.00008;
-
-# 88
-int _gHumidCmd = 0b00000101;
-
-char crc=0;
-
-sendCommandSHT(_gHumidCmd);
-waitForResultSHT();
-getData16SHT(&_val, &crc);
-
-
-
-_linearHumidity = C1 + C2 * _val + C3 * _val * _val;
-
-
-_temperature = readTemperatureC();
-
-
-_correctedHumidity = (_temperature - 25.0 ) * (T1 + T2 * _val) + _linearHumidity;
-
-return (_correctedHumidity);
-}
-
-# 112
-float readTemperatureRaw()
-{
-int _val;
-char crc;
-char calcCRC = 0;
-
-
-int _gTempCmd = 0b00000011;
-
-sendCommandSHT(_gTempCmd);
-waitForResultSHT();
-getData16SHT(&_val, &crc);
-
-calcCRC = _gTempCmd;
-calcCRC = crcTable[calcCRC];
-
-calcCRC = calcCRC ^ (_val/256);
-calcCRC = crcTable[calcCRC];
-
-calcCRC = calcCRC ^ (_val&255);
-calcCRC = crcTable[calcCRC];
-
-
-
-return (_val);
-}
-
-# 141
-int shiftIn(int _numBits)
-{
-int ret = 0;
-int i;
-
-for (i=0; i<_numBits; ++i)
-{
-i2cHighScl();
-
-ret = ret*2 + PORTAbits.RA2;
-i2cLowScl();
-}
-
-return(ret);
-}
-
-int shiftInCRC()
-{
-int ret = 0;
-int i;
-
-for (i=7; i>=0; i--)
-{
-i2cHighScl();
-
-ret = ret/2 + (PORTAbits.RA2*128);
-i2cLowScl();
-}
-
-return(ret);
-}
-
-# 175
-void sendCommandSHT(int _command)
-{
-int ack;
-
-
-i2cHighSda();
-i2cHighScl();
-i2cLowSda();
-i2cLowScl();
-i2cHighScl();
-i2cHighSda();
-i2cLowScl();
-
-
-i2cWriteByte(_command);
-
-
-i2cHighScl();
-i2cHighSda();
-ack = PORTAbits.RA2;
-if (ack != 0) {
-
-}
-i2cLowScl();
-ack = PORTAbits.RA2;
-if (ack != 1) {
-
-}
-}
-
-# 207
-void waitForResultSHT(){
-int i;
-int ack;
-
-i2cHighSda();
-
-for(i= 0; i < 3200; ++i)
-{
-_delay((unsigned long)((100)*(16000000/4000000.0)));
-ack = PORTAbits.RA2;
-
-if (ack == 0) {
-break;
-}
-}
-
-if (ack == 1) {
-
-}
-}
-
-# 231
-int getData16SHT(int *val, char *CRC)
+# 56 "../src/eusart2.c"
+void EUSART2_Initialize(void)
 {
 
 
-i2cHighSda();
 
-*val = shiftIn(8);
-*val *= 256;
+BAUDCON2 = 0x08;
 
 
-i2cAck();
+RCSTA2 = 0x90;
 
 
-i2cHighSda();
-*val |= shiftIn(8);
+TXSTA2 = 0x26;
 
 
+SPBRG2 = 0xCF;
 
-i2cAck();
 
-i2cHighSda();
+SPBRGH2 = 0x00;
 
-*CRC = shiftInCRC();
 
-i2cAck();
-
-# 264
-i2cStop();
-
-return 0;
 }
 
-# 271
-void skipCrcSHT()
+bool EUSART2_is_tx_ready(void)
+{
+return (bool)(PIR3bits.TX2IF && TXSTA2bits.TXEN);
+}
+
+bool EUSART2_is_rx_ready(void)
+{
+return PIR3bits.RC2IF;
+}
+
+bool EUSART2_is_tx_done(void)
+{
+return TXSTA2bits.TRMT;
+}
+
+uint8_t EUSART2_Read(void)
+{
+while(!PIR3bits.RC2IF)
+{
+}
+
+
+if(1 == RCSTA2bits.OERR)
 {
 
 
-i2cHighSda();
-i2cHighScl();
-i2cLowScl();
+RCSTA2bits.CREN = 0;
+RCSTA2bits.CREN = 1;
 }
+
+return RCREG2;
+}
+
+void EUSART2_Write(uint8_t txData)
+{
+while(0 == PIR3bits.TX2IF)
+{
+}
+
+TXREG2 = txData;
+}
+
+char getch(void)
+{
+return EUSART2_Read();
+}
+
+void putch(char txData)
+{
+EUSART2_Write(txData);
+}
+

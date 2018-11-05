@@ -1,13 +1,60 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"74 ../src/system_config/miwikit_pic18f46j50_24j40\symbol.h
-[s S769 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S769 _MIWI_TICK_bytes b0 b1 b2 b3 ]
-"82
-[s S770 `ui 1 `ui 1 ]
-[n S770 _MIWI_TICK_words w0 w1 ]
-"71
-[u S768 `ul 1 `S769 1 `uc -> 4 `i `S770 1 ]
-[n S768 _MIWI_TICK Val byte v word ]
+"5105 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[v _BAUDCON2 `Vuc ~T0 @X0 0 e@3964 ]
+"8381
+[v _RCSTA2 `Vuc ~T0 @X0 0 e@3996 ]
+"9364
+[v _TXSTA2 `Vuc ~T0 @X0 0 e@4008 ]
+"9531
+[v _SPBRG2 `Vuc ~T0 @X0 0 e@4011 ]
+"5228
+[v _SPBRGH2 `Vuc ~T0 @X0 0 e@3965 ]
+"9149
+[s S398 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S398 . RTCCIF TMR3GIF CTMUIF TMR4IF TX2IF RC2IF BCL2IF SSP2IF ]
+"9159
+[s S399 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S399 . . RXBNIF . TXBNIF ]
+"9148
+[u S397 `S398 1 `S399 1 ]
+[n S397 . . . ]
+"9166
+[v _PIR3bits `VS397 ~T0 @X0 0 e@4004 ]
+"9370
+[s S408 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S408 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"9380
+[s S409 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S409 . TX9D2 TRMT2 BRGH2 SENDB2 SYNC2 TXEN2 TX92 CSRC2 ]
+"9390
+[s S410 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
+[n S410 . TXD82 . TX8_92 ]
+"9369
+[u S407 `S408 1 `S409 1 `S410 1 ]
+[n S407 . . . . ]
+"9396
+[v _TXSTA2bits `VS407 ~T0 @X0 0 e@4008 ]
+"8387
+[s S365 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S365 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"8397
+[s S366 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S366 . RX9D2 OERR2 FERR2 ADDEN2 CREN2 SREN2 RX92 SPEN2 ]
+"8407
+[s S367 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
+[n S367 . RCD82 . RC8_92 ]
+"8412
+[s S368 :6 `uc 1 :1 `uc 1 ]
+[n S368 . . RC92 ]
+"8386
+[u S364 `S365 1 `S366 1 `S367 1 `S368 1 ]
+[n S364 . . . . . ]
+"8417
+[v _RCSTA2bits `VS364 ~T0 @X0 0 e@3996 ]
+"9511
+[v _RCREG2 `Vuc ~T0 @X0 0 e@4010 ]
+"9491
+[v _TXREG2 `Vuc ~T0 @X0 0 e@4009 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -6524,6 +6571,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -6554,92 +6630,196 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;miwikit_pic18f46j50_24j40\lcd.h: 43: extern uint8_t LCDText[16*2+1];
-[; ;miwikit_pic18f46j50_24j40\lcd.h: 45: void LCD_Initialize(void);
-[; ;miwikit_pic18f46j50_24j40\lcd.h: 46: void LCD_Update(void);
-[; ;miwikit_pic18f46j50_24j40\lcd.h: 47: void LCD_Erase(void);
-[; ;miwikit_pic18f46j50_24j40\lcd.h: 48: void LCD_BacklightON(void);
-[; ;miwikit_pic18f46j50_24j40\lcd.h: 49: void LCD_BacklightOFF(void);
-[; ;miwikit_pic18f46j50_24j40\lcd.h: 50: void LCD_Display(char *, uint8_t, bool);
-[; ;miwikit_pic18f46j50_24j40\lcd.h: 51: void LCDWriteLine(uint16_t number, char *line);
-[; ;miwikit_pic18f46j50_24j40\lcd.h: 52: void UserInterruptHandler(void);
-[; ;miwikit_pic18f46j50_24j40\eeprom.h: 27: void EEPROMRead(uint8_t *Dest, uint8_t Addr , uint8_t count);
-[; ;miwikit_pic18f46j50_24j40\eeprom.h: 28: void Read_MAC_Address(void);
-[; ;miwikit_pic18f46j50_24j40\serial_flash.h: 27: void SSTRead(uint8_t *Dest, uint8_t *Addr , uint8_t count);
-[; ;miwikit_pic18f46j50_24j40\serial_flash.h: 28: void SSTWrite(uint8_t *Src, uint8_t *Addr, uint8_t count);
-[; ;miwikit_pic18f46j50_24j40\serial_flash.h: 29: void SSTGetID(uint8_t *Dest);
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 71: typedef union _MIWI_TICK
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 72: {
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 73: uint32_t Val;
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 74: struct _MIWI_TICK_bytes
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 75: {
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 76: uint8_t b0;
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 77: uint8_t b1;
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 78: uint8_t b2;
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 79: uint8_t b3;
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 80: } byte;
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 81: uint8_t v[4];
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 82: struct _MIWI_TICK_words
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 83: {
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 84: uint16_t w0;
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 85: uint16_t w1;
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 86: } word;
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 87: } MIWI_TICK;
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 89: void InitSymbolTimer(void);
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 90: MIWI_TICK MiWi_TickGet(void);
-[; ;miwikit_pic18f46j50_24j40\symbol.h: 94: extern volatile uint8_t timerExtension1,timerExtension2;
-[; ;miwikit_pic18f46j50_24j40\delay.h: 47: void DELAY_10us( uint32_t tenMicroSecondCounter );
-[; ;miwikit_pic18f46j50_24j40\delay.h: 68: void DELAY_ms( uint16_t ms );
-"32 ../src/system_config/miwikit_pic18f46j50_24j40\button.h
-[v _switch0PressTime `S768 ~T0 @X0 1 e ]
-[; ;miwikit_pic18f46j50_24j40\button.h: 32: MIWI_TICK switch0PressTime;
-"33
-[v _switch1PressTime `S768 ~T0 @X0 1 e ]
-[; ;miwikit_pic18f46j50_24j40\button.h: 33: MIWI_TICK switch1PressTime;
-[; ;miwikit_pic18f46j50_24j40\button.h: 35: uint8_t BUTTON_Pressed(void);
-[; ;miwikit_pic18f46j50_24j40\spi.h: 29: void SPIPut(uint8_t v);
-[; ;miwikit_pic18f46j50_24j40\spi.h: 30: uint8_t SPIGet(void);
-[; ;miwikit_pic18f46j50_24j40\spi.h: 32: void SPIPut2(uint8_t v);
-[; ;miwikit_pic18f46j50_24j40\spi.h: 33: uint8_t SPIGet2(void);
-[; ;miwikit_pic18f46j50_24j40\system.h: 54: typedef union
-[; ;miwikit_pic18f46j50_24j40\system.h: 55: {
-[; ;miwikit_pic18f46j50_24j40\system.h: 57: uint8_t v[4];
-[; ;miwikit_pic18f46j50_24j40\system.h: 58: uint16_t w[2];
-[; ;miwikit_pic18f46j50_24j40\system.h: 59: uint32_t Val;
-[; ;miwikit_pic18f46j50_24j40\system.h: 61: }API_UINT32_UNION;
-[; ;miwikit_pic18f46j50_24j40\system.h: 63: typedef union
-[; ;miwikit_pic18f46j50_24j40\system.h: 64: {
-[; ;miwikit_pic18f46j50_24j40\system.h: 66: uint8_t v[2];
-[; ;miwikit_pic18f46j50_24j40\system.h: 67: uint16_t Val;
-[; ;miwikit_pic18f46j50_24j40\system.h: 69: }API_UINT16_UNION;
-[; ;miwikit_pic18f46j50_24j40\system.h: 122: void SYSTEM_Initialize(void);
-[; ;miwi_nvm.c: 747: extern char bogusVar;
+[; ;eusart2.h: 98: void EUSART2_Initialize(void);
+[; ;eusart2.h: 146: bool EUSART2_is_tx_ready(void);
+[; ;eusart2.h: 194: bool EUSART2_is_rx_ready(void);
+[; ;eusart2.h: 241: bool EUSART2_is_tx_done(void);
+[; ;eusart2.h: 261: uint8_t EUSART2_Read(void);
+[; ;eusart2.h: 281: void EUSART2_Write(uint8_t txData);
+"56 ../src/eusart2.c
+[v _EUSART2_Initialize `(v ~T0 @X0 1 ef ]
+"57
+{
+[; ;eusart2.c: 56: void EUSART2_Initialize(void)
+[; ;eusart2.c: 57: {
+[e :U _EUSART2_Initialize ]
+[f ]
+[; ;eusart2.c: 61: BAUDCON2 = 0x08;
+"61
+[e = _BAUDCON2 -> -> 8 `i `uc ]
+[; ;eusart2.c: 64: RCSTA2 = 0x90;
+"64
+[e = _RCSTA2 -> -> 144 `i `uc ]
+[; ;eusart2.c: 67: TXSTA2 = 0x26;
+"67
+[e = _TXSTA2 -> -> 38 `i `uc ]
+[; ;eusart2.c: 70: SPBRG2 = 0xCF;
+"70
+[e = _SPBRG2 -> -> 207 `i `uc ]
+[; ;eusart2.c: 73: SPBRGH2 = 0x00;
+"73
+[e = _SPBRGH2 -> -> 0 `i `uc ]
+[; ;eusart2.c: 76: }
+"76
+[e :UE 768 ]
+}
+"78
+[v _EUSART2_is_tx_ready `(uc ~T0 @X0 1 ef ]
+"79
+{
+[; ;eusart2.c: 78: bool EUSART2_is_tx_ready(void)
+[; ;eusart2.c: 79: {
+[e :U _EUSART2_is_tx_ready ]
+[f ]
+[; ;eusart2.c: 80: return (bool)(PIR3bits.TX2IF && TXSTA2bits.TXEN);
+"80
+[e ) -> -> && != -> . . _PIR3bits 0 4 `i -> -> -> 0 `i `Vuc `i != -> . . _TXSTA2bits 0 5 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[e $UE 769  ]
+[; ;eusart2.c: 81: }
+"81
+[e :UE 769 ]
+}
+"83
+[v _EUSART2_is_rx_ready `(uc ~T0 @X0 1 ef ]
+"84
+{
+[; ;eusart2.c: 83: bool EUSART2_is_rx_ready(void)
+[; ;eusart2.c: 84: {
+[e :U _EUSART2_is_rx_ready ]
+[f ]
+[; ;eusart2.c: 85: return PIR3bits.RC2IF;
+"85
+[e ) . . _PIR3bits 0 5 ]
+[e $UE 770  ]
+[; ;eusart2.c: 86: }
+"86
+[e :UE 770 ]
+}
+"88
+[v _EUSART2_is_tx_done `(uc ~T0 @X0 1 ef ]
+"89
+{
+[; ;eusart2.c: 88: bool EUSART2_is_tx_done(void)
+[; ;eusart2.c: 89: {
+[e :U _EUSART2_is_tx_done ]
+[f ]
+[; ;eusart2.c: 90: return TXSTA2bits.TRMT;
+"90
+[e ) . . _TXSTA2bits 0 1 ]
+[e $UE 771  ]
+[; ;eusart2.c: 91: }
+"91
+[e :UE 771 ]
+}
+"93
+[v _EUSART2_Read `(uc ~T0 @X0 1 ef ]
+"94
+{
+[; ;eusart2.c: 93: uint8_t EUSART2_Read(void)
+[; ;eusart2.c: 94: {
+[e :U _EUSART2_Read ]
+[f ]
+[; ;eusart2.c: 95: while(!PIR3bits.RC2IF)
+"95
+[e $U 773  ]
+[e :U 774 ]
+[; ;eusart2.c: 96: {
+"96
+{
+"97
+}
+[e :U 773 ]
+"95
+[e $ ! != -> . . _PIR3bits 0 5 `i -> -> -> 0 `i `Vuc `i 774  ]
+[e :U 775 ]
+[; ;eusart2.c: 97: }
+[; ;eusart2.c: 100: if(1 == RCSTA2bits.OERR)
+"100
+[e $ ! == -> 1 `i -> . . _RCSTA2bits 0 1 `i 776  ]
+[; ;eusart2.c: 101: {
+"101
+{
+[; ;eusart2.c: 104: RCSTA2bits.CREN = 0;
+"104
+[e = . . _RCSTA2bits 0 4 -> -> 0 `i `uc ]
+[; ;eusart2.c: 105: RCSTA2bits.CREN = 1;
+"105
+[e = . . _RCSTA2bits 0 4 -> -> 1 `i `uc ]
+"106
+}
+[e :U 776 ]
+[; ;eusart2.c: 106: }
+[; ;eusart2.c: 108: return RCREG2;
+"108
+[e ) _RCREG2 ]
+[e $UE 772  ]
+[; ;eusart2.c: 109: }
+"109
+[e :UE 772 ]
+}
+"111
+[v _EUSART2_Write `(v ~T0 @X0 1 ef1`uc ]
+"112
+{
+[; ;eusart2.c: 111: void EUSART2_Write(uint8_t txData)
+[; ;eusart2.c: 112: {
+[e :U _EUSART2_Write ]
+"111
+[v _txData `uc ~T0 @X0 1 r1 ]
+"112
+[f ]
+[; ;eusart2.c: 113: while(0 == PIR3bits.TX2IF)
+"113
+[e $U 778  ]
+[e :U 779 ]
+[; ;eusart2.c: 114: {
+"114
+{
+"115
+}
+[e :U 778 ]
+"113
+[e $ == -> 0 `i -> . . _PIR3bits 0 4 `i 779  ]
+[e :U 780 ]
+[; ;eusart2.c: 115: }
+[; ;eusart2.c: 117: TXREG2 = txData;
+"117
+[e = _TXREG2 _txData ]
+[; ;eusart2.c: 118: }
+"118
+[e :UE 777 ]
+}
+"120
+[v _getch `(uc ~T0 @X0 1 ef ]
+"121
+{
+[; ;eusart2.c: 120: char getch(void)
+[; ;eusart2.c: 121: {
+[e :U _getch ]
+[f ]
+[; ;eusart2.c: 122: return EUSART2_Read();
+"122
+[e ) ( _EUSART2_Read ..  ]
+[e $UE 781  ]
+[; ;eusart2.c: 123: }
+"123
+[e :UE 781 ]
+}
+"125
+[v _putch `(v ~T0 @X0 1 ef1`uc ]
+"126
+{
+[; ;eusart2.c: 125: void putch(char txData)
+[; ;eusart2.c: 126: {
+[e :U _putch ]
+"125
+[v _txData `uc ~T0 @X0 1 r1 ]
+"126
+[f ]
+[; ;eusart2.c: 127: EUSART2_Write(txData);
+"127
+[e ( _EUSART2_Write (1 _txData ]
+[; ;eusart2.c: 128: }
+"128
+[e :UE 782 ]
+}
