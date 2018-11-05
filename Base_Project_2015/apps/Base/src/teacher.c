@@ -123,6 +123,11 @@ void Teacher(void)
                 LED1 = 1;
                 MiApp_FlushTx();
                 MiApp_WriteData(PROJECTOR_ON);
+                MiApp_WriteData(0x37);
+                MiApp_WriteData(0x38);
+                MiApp_WriteData(0x36);
+                MiApp_WriteData(0x39);
+                MiApp_WriteData(0x3A);
                 MiApp_WriteData(myShortAddress.v[0]);
                 MiApp_WriteData(myShortAddress.v[1]);
                 MiApp_BroadcastPacket(false);

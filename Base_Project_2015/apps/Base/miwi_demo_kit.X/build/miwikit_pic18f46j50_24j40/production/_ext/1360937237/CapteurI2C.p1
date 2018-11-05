@@ -7282,11 +7282,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "160
 [v _i `i ~T0 @X0 1 a ]
 [; ;CapteurI2C.c: 160: int i;
-[; ;CapteurI2C.c: 162: for (i=7; i>0; --i)
+[; ;CapteurI2C.c: 162: for (i=7; i>=0; i--)
 "162
 {
 [e = _i -> 7 `i ]
-[e $ > _i -> 0 `i 783  ]
+[e $ >= _i -> 0 `i 783  ]
 [e $U 784  ]
 "163
 [e :U 783 ]
@@ -7304,8 +7304,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "168
 }
 "162
-[e =- _i -> 1 `i ]
-[e $ > _i -> 0 `i 783  ]
+[e -- _i -> 1 `i ]
+[e $ >= _i -> 0 `i 783  ]
 [e :U 784 ]
 "168
 }

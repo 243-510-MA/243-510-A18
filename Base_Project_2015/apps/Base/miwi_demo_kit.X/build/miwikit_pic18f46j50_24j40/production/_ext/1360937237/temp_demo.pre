@@ -9382,7 +9382,7 @@ bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
 # 950
 extern RECEIVED_MESSAGE rxMessage;
 
-# 37 "../src/temp_demo.c"
+# 38 "../src/temp_demo.c"
 unsigned short tempAverage = 0;
 uint8_t CurrentNodeIndex = 0;
 
@@ -9397,7 +9397,7 @@ uint8_t TempValue;
 };
 struct TempPacket NodeTemp[10];
 
-# 69
+# 70
 void TempDemo(void)
 {
 bool Run_Demo = 1;
@@ -9406,15 +9406,15 @@ double temp;
 MIWI_TICK tick1, tick2, tick3;
 uint8_t switch_val;
 
-# 81
+# 82
 LCD_BacklightON();
 LCD_Display((char *)"   Microchip       Temp Demo  ", 0, 1);
 LCD_BacklightOFF();
 
-# 89
+# 90
 VBGResult = Read_VBGVoltage();
 
-# 95
+# 96
 NodeTemp[0].NodeAddress[0] = myShortAddress.v[0];
 NodeTemp[0].NodeAddress[1] = myShortAddress.v[1];
 
@@ -9453,6 +9453,14 @@ LCD_BacklightOFF();
 tick1 = MiWi_TickGet();
 while(Run_Demo)
 {
+myShortAddress.v[0] = 0xAA;
+myShortAddress.v[1] = 0xBB;
+{TxData = 11;};
+TxBuffer[TxData++] = tempAverage;
+TxBuffer[TxData++] = myShortAddress.v[0];
+TxBuffer[TxData++] = myShortAddress.v[1];
+MiApp_BroadcastPacket(0);
+
 if(MiApp_MessageAvailable())
 {
 if(rxMessage.Payload[0] == 4)
@@ -9492,10 +9500,10 @@ tick3 = MiWi_TickGet();
 if (((tick2.Val - tick1.Val) > (((uint32_t)(16000000)/32) * 5)))
 {
 
-# 186
+# 195
 temp = ReadTempSensor(VBGResult);
 
-# 196
+# 205
 tempAverage = 0;
 tempAverage = (uint8_t)temp;
 
@@ -9516,7 +9524,7 @@ TxBuffer[TxData++] = myShortAddress.v[1];
 
 NodeTemp[0].TempValue = (uint8_t)tempAverage;
 
-# 223
+# 232
 MiApp_BroadcastPacket(0);
 
 
@@ -9525,7 +9533,7 @@ MiApp_BroadcastPacket(0);
 tick1 = MiWi_TickGet();
 }
 
-# 239
+# 248
 if(MiApp_MessageAvailable())
 {
 uint8_t i;
@@ -9567,7 +9575,7 @@ MiApp_DiscardMessage();
 }
 }
 
-# 297
+# 306
 uint8_t ReadTempSensor(uint16_t VBGResult)
 {
 uint16_t tempValue;
@@ -9585,7 +9593,7 @@ ADCON1 = 0xBD;
 PIR1bits.ADIF = 0;
 PIE1bits.ADIE = 0;
 
-# 330
+# 339
 do
 {
 ADCON0bits.ADON = 1;
@@ -9623,7 +9631,7 @@ return (uint8_t)tempHere;
 
 }
 
-# 384
+# 393
 uint16_t Read_VBGVoltage(void)
 {
 ADCON0 = 0x3D;
@@ -9644,7 +9652,7 @@ ANCON1bits.VBGEN = 0;
 return ADRES;
 }
 
-# 421
+# 430
 void PrintTempLCD(void)
 {
 int temp;

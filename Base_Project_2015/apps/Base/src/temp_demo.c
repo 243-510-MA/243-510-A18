@@ -25,6 +25,7 @@
 #include "system_config.h"
 #include "miwi/miwi_api.h"
 
+
 #define TEMP_SECOND_INTERVAL        5
 #define DISPLAY_CYCLE_INTERVAL      4
 #define EXIT_DEMO_TIMEOUT           6
@@ -130,6 +131,14 @@ void TempDemo(void)
             tick1 = MiWi_TickGet();
             while(Run_Demo)
             {
+                myShortAddress.v[0] = 0xAA;
+                myShortAddress.v[1] = 0xBB;
+                MiApp_FlushTx();
+                MiApp_WriteData(tempAverage);
+                MiApp_WriteData(myShortAddress.v[0]);
+                MiApp_WriteData(myShortAddress.v[1]);
+                MiApp_BroadcastPacket(false);
+                
                 if(MiApp_MessageAvailable())
                 {
                     if(rxMessage.Payload[0] == ACK_PKT)          
