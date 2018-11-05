@@ -27,11 +27,28 @@
 
 //*************************************************************************
 
-
+//EUSART2 TX SUR PIN 5 AKA RP24 AKA I07
 void main(void)
 {
     SYSTEM_Initialize();
     
+    EECON2 = 0x55;
+    
+    EECON2 = 0xAA;
+    
+    PPSCON = 0x00;
+            
+    RPOR24 = 0X05;
+    
+    EECON2 = 0x55;
+    
+    EECON2 = 0xAA;
+
+    if(RPOR24 == 0X05){
+        LATAbits.LA6 = 1;
+        LATAbits.LA7 = 1;
+        
+    }
     
     while(1){
         EUSART2_Write('C');
