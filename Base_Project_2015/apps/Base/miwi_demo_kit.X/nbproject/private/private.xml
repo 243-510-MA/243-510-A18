@@ -5,11 +5,16 @@
         <group>
             <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/teacher.c</file>
             <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/temp_demo.h</file>
+            <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/Board_Capteur.h</file>
             <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/temp_demo.c</file>
+            <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/Board_Capteur.c</file>
+            <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/self_test.c</file>
             <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/network.c</file>
             <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/student.c</file>
             <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/framework/driver/mrf_miwi/src/drv_mrf_miwi_24j40.c</file>
+            <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/range_demo.c</file>
             <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/codes%20library.h</file>
+            <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/soft_i2c.c</file>
             <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/framework/miwi/miwi_api.h</file>
             <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/pan.c</file>
             <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/main.c</file>
@@ -17,6 +22,8 @@
             <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/framework/driver/mrf_miwi/drv_mrf_miwi_24j40.h</file>
             <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/system_config/miwikit_pic18f46j50_24j40/system.h</file>
             <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/framework/miwi/src/miwi_mesh.c</file>
+            <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/soft_i2c.h</file>
+            <file>file:/C:/Users/e1575639/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/pan.h</file>
         </group>
     </open-files>
 </project-private>

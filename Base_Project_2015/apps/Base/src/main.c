@@ -1,5 +1,3 @@
-//MAIN
-
 #include "system.h"
 #include "codes library.h"
 #include "system_config.h"
@@ -13,17 +11,19 @@
 #include "CapteurI2C.h"
 #include "temp_demo.h"
 #include "driver/mrf_miwi/drv_mrf_miwi.h"
+#include "Board_Capteur.h"
 
 
 #define PAN 0                       //Controls the projector, red light, buzzer and motion sensor (such many thing, wow)
 #define DOOR_UNLOCK 1               //Unlock the door (duh)
 #define PROJECTOR_SCREEN 2          //DROP DA PROJECTOR
 #define TEACHER 3                   //Mista ze teacha
-#define STUDENT 4                   //You little shit
-#define Humide 5                   //You little shit
+#define STUDENT 4                  
+#define MODULE_TH 5 
+
 //*************************************************************************
 
-#define DEVICEMODE TEACHER // Choisir ici
+#define DEVICEMODE MODULE_TH // Choisir ici
 uint8_t TxHumide[17] = {0x0A, 0xF0 , 0x0A, 0xF0 ,0x0A, 0xF0 , 0x0A, 0xF0 , 0x0A, 0xF0 ,0x0A, 0xF0 ,0x0A, 0xF0 , 0x0A, 0xF0 ,0x0A};
 //*************************************************************************
 
@@ -31,7 +31,6 @@ uint8_t TxHumide[17] = {0x0A, 0xF0 , 0x0A, 0xF0 ,0x0A, 0xF0 , 0x0A, 0xF0 , 0x0A,
 void main(void)
 {
     SYSTEM_Initialize();
-    
    /* 
     while(1){
         sprintf((char *)&LCDText, (char*)"Temp : %.2f", readTemperatureC());
@@ -42,7 +41,6 @@ void main(void)
     LED0 = LED1 = LED2 = 0;
     */
     
- 
     Network(DEVICEMODE);
  
     if(DEVICEMODE == PAN)
@@ -51,33 +49,8 @@ void main(void)
     }   
 
 
-    if(DEVICEMODE == DOOR_UNLOCK)
+    if(DEVICEMODE == MODULE_TH)
     {
-        DoorUnlock();
-    }
-
-
-    if(DEVICEMODE == PROJECTOR_SCREEN)
-    {
-        ProjectorScreen();
-    }
-
-
-    if(DEVICEMODE == TEACHER)
-    {
-        Teacher();
-    }
-
-
-    if(DEVICEMODE == STUDENT)
-    {
-        Student();
-    }
-    
-    if(DEVICEMODE == Humide)
-    {
-        
         TempDemo();
-    }
- 
+    }   
 }

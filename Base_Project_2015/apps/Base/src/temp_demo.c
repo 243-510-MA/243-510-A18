@@ -35,6 +35,9 @@
 #define TEMP_PKT                    3
 #define ACK_PKT                     4
 
+#define Adrs_0                      0xAA   // Changer Adrs_0 et Adrs_1 selon le module
+#define Adrs_1                      0xBB
+
 unsigned short tempAverage = 0;
 uint8_t CurrentNodeIndex = 0;
 
@@ -51,240 +54,266 @@ struct TempPacket NodeTemp[10];
 
 
 
-/*********************************************************************
-* Function:         void TempDemo(void)
-*
-* PreCondition:     none
-*
-* Input:            none
-*
-* Output:           none
-*
-* Side Effects:	    none
-*
-* Overview:         Following routine reads the on board Tempature Sensor and Broadcasts
-*                   it to the Network and Dispays other Nodes connected to it's Temp Value. 
-*
-* Note:			    
-**********************************************************************/
-void TempDemo(void)
-{
-    bool Run_Demo = true;
-    uint16_t VBGResult;
-    double temp;
-    MIWI_TICK tick1, tick2, tick3;
-    uint8_t switch_val;
-    
-    
-	/*******************************************************************/
-    // Dispaly Temp Demo Splach Screen
-    /*******************************************************************/	
-    LCD_BacklightON();
-    LCD_Display((char *)"   Microchip       Temp Demo  ", 0, true);
-    LCD_BacklightOFF();
-        
-    /*******************************************************************/
-    // Read Band Gap Voltage(1.2V), Since this is Battery Powered application 
-    // for the ADC Temp readings for proper calculation of Temp.
-    /*******************************************************************/
-    VBGResult = Read_VBGVoltage();
-
-    /*******************************************************************/
-    // Initialize Temp Data Packet
-    // NodeTemp[0] = Self
-    /*******************************************************************/
-    NodeTemp[0].NodeAddress[0] = myShortAddress.v[0];
-    NodeTemp[0].NodeAddress[1] = myShortAddress.v[1];
-    
-    /*******************************************************************/
-    // Read Start tickcount
-    /*******************************************************************/	
-    tick1 = MiWi_TickGet();
-    tick3 = tick1;
-    
-    while(Run_Demo)
-    {
-        /*******************************************************************/
-        // Read current tickcount
-        /*******************************************************************/
-		tick2 = MiWi_TickGet();
-		
-        /*******************************************************************/
-        // Check if User wants to Exit Demo
-        /*******************************************************************/
-        switch_val = BUTTON_Pressed();
-	if((switch_val == SW1) || (switch_val == SW2))
-        {
-            /*******************************************************************/
-        	// Send Exit Demo Request Packet and exit Temp Demo
-        	/*******************************************************************/ 
-            MiApp_FlushTx();    
-            MiApp_WriteData(EXIT_PKT);
-            MiApp_BroadcastPacket(false);
-            LCD_BacklightON();
-            LCD_Display((char *)"   Exiting....     Temp Demo  ", 0, true);
-            LCD_BacklightOFF();
-            
-            /*******************************************************************/
-            // Wait for ACK Packet or Timeout
-            /*******************************************************************/
-            tick1 = MiWi_TickGet();
-            while(Run_Demo)
-            {
-                myShortAddress.v[0] = 0xAA;
-                myShortAddress.v[1] = 0xBB;
-                MiApp_FlushTx();
-                MiApp_WriteData(tempAverage);
-                MiApp_WriteData(myShortAddress.v[0]);
-                MiApp_WriteData(myShortAddress.v[1]);
-                MiApp_BroadcastPacket(false);
-                
-                if(MiApp_MessageAvailable())
-                {
-                    if(rxMessage.Payload[0] == ACK_PKT)          
-                        Run_Demo = false;
-                        
-                    MiApp_DiscardMessage();
-                }
-                if ((MiWi_TickGetDiff(tick2,tick1) > (ONE_SECOND * EXIT_DEMO_TIMEOUT)))
-                    Run_Demo = false;
-                    
-                tick2 = MiWi_TickGet();
-            }  
-        } 
-            
-        /*******************************************************************/
-        // Rotate through Displaying All Node Temp's
-        /*******************************************************************/
-        if ((MiWi_TickGetDiff(tick2,tick3) > (ONE_SECOND * DISPLAY_CYCLE_INTERVAL)))
-        {
-    		if((ConnectionTable[CurrentNodeIndex].status.bits.isValid))
-    		{
-    		    CurrentNodeIndex++;
-    		}    
-    		else
-    		{
-    		    CurrentNodeIndex = 0;
-    		}    
-    		
-    		PrintTempLCD();
-    		
-    		tick3 = MiWi_TickGet();
-        }      
-		
-        /*******************************************************************/
-        // Read the Temp every TEMP_SECOND_INTERVAL
-        /*******************************************************************/
-        if ((MiWi_TickGetDiff(tick2,tick1) > (ONE_SECOND * TEMP_SECOND_INTERVAL)))
-        {
-			
-            /*******************************************************************/
-            // Power-up Temperature Sensor
-            /*******************************************************************/
-            //LATAbits.LATA0 = 1;
-            //DELAY_ms(2);         // Delay 2 ms after powering up the temperature sensor
-            
-            /*******************************************************************/
-            // Toggle LED1 Every Temp Read Cycle
-            /*******************************************************************/
-            //LED0 ^= 1;
-            
-            /*******************************************************************/
-            // Take specified number of Temp Readings
-            /*******************************************************************/
-            temp = ReadTempSensor(VBGResult);
-
-            /*******************************************************************/
-            // Turn Temp Sensor Off
-            /*******************************************************************/
-            //LATAbits.LATA0 = 0;
-
-            /*******************************************************************/
-            // Calculate Average Temp
-            /*******************************************************************/			
-            tempAverage = 0;
-            tempAverage = (uint8_t)temp;
-			
-            /*******************************************************************/
-            // Reset TX Buffer Pointer
-            /*******************************************************************/			
-            MiApp_FlushTx();
-            
-            /*******************************************************************/
-            // Write this Nodes temperature value and Address to the TX Buffer
-            /*******************************************************************/
-            MiApp_WriteData(TEMP_PKT);
-            MiApp_WriteData((uint8_t) tempAverage);
-            MiApp_WriteData(myShortAddress.v[0]);
-            MiApp_WriteData(myShortAddress.v[1]);
-
-            
-            // Update NodeTemp Structure
-            NodeTemp[0].TempValue = (uint8_t)tempAverage;
-					
-           /*******************************************************************/
-           // Broadcast Node Tempature across Network.
-           /*******************************************************************/
-           // Function MiApp_BroadcastPacket is used to broadcast a message
-           // The only parameter is the boolean to indicate if we need to
-           // secure the frame
-           /*******************************************************************/
-           MiApp_BroadcastPacket(false);
-
-            /*******************************************************************/
-            // Read New Start tickcount
-            /*******************************************************************/
-            tick1 = MiWi_TickGet();
-	}
-
-        /*******************************************************************/
-        // Check for Incomming Recieve Packet.
-        /*******************************************************************/
-        // Function MiApp_MessageAvailable returns a boolean to indicate if 
-        // a packet has been received by the transceiver. If a packet has 
-        // been received, all information will be stored in the rxFrame, 
-        // structure of RECEIVED_MESSAGE.
-        /*******************************************************************/
-        if(MiApp_MessageAvailable())
-        {
-            uint8_t i;
-            
-            /*******************************************************************/
-            // Check if Exit Demo Packet
-            /*******************************************************************/
-            if(rxMessage.Payload[0] == EXIT_PKT)
-            {
-            MiApp_DiscardMessage();
-            MiApp_FlushTx();
-            MiApp_WriteData(ACK_PKT);
-            MiApp_UnicastConnection(0, false);
-            Run_Demo = false;
-            LCD_BacklightON();
-            LCD_Display((char *)"   Exiting....     Temp Demo  ", 0, true);
-            LCD_BacklightOFF();
-            }
-            
-            /*******************************************************************/
-            // Check if Message from know Connection
-            /*******************************************************************/
-            for(i = 0; i < CONNECTION_SIZE; i++)
-            {
-                    if((ConnectionTable[i].status.bits.isValid) && (ConnectionTable[i].AltAddress.v[0] == rxMessage.Payload[2]) && (ConnectionTable[i].AltAddress.v[1] == rxMessage.Payload[3]))
-                    {
-                            if(rxMessage.Payload[0] == TEMP_PKT)
-                            {
-                                    // Update the Remote Nodes Temp value
-                                NodeTemp[i+1].TempValue = rxMessage.Payload[1];
-                                NodeTemp[i+1].NodeAddress[0] = rxMessage.Payload[2];
-                                NodeTemp[i+1].NodeAddress[1] = rxMessage.Payload[3];
-                            }	
-                    }
-            }
-
-            MiApp_DiscardMessage();
-        }
-    }   
-}
+///*********************************************************************
+//* Function:         void TempDemo(void)
+//*
+//* PreCondition:     none
+//*
+//* Input:            none
+//*
+//* Output:           none
+//*
+//* Side Effects:	    none
+//*
+//* Overview:         Following routine reads the on board Tempature Sensor and Broadcasts
+//*                   it to the Network and Dispays other Nodes connected to it's Temp Value. 
+//*
+//* Note:			    
+//**********************************************************************/
+//void TempDemo(void)
+//{
+//    bool Run_Demo = true;
+//    uint16_t VBGResult;
+//    double temp;
+//    MIWI_TICK tick1, tick2, tick3;
+//    uint8_t switch_val;
+//    
+//    
+//	/*******************************************************************/
+//    // Dispaly Temp Demo Splach Screen
+//    /*******************************************************************/	
+//    LCD_BacklightON();
+//    LCD_Display((char *)"   Microchip       Temp Demo  ", 0, true);
+//    LCD_BacklightOFF();
+//        
+//    /*******************************************************************/
+//    // Read Band Gap Voltage(1.2V), Since this is Battery Powered application 
+//    // for the ADC Temp readings for proper calculation of Temp.
+//    /*******************************************************************/
+//    VBGResult = Read_VBGVoltage();
+//
+//    /*******************************************************************/
+//    // Initialize Temp Data Packet
+//    // NodeTemp[0] = Self
+//    /*******************************************************************/
+//    NodeTemp[0].NodeAddress[0] = myShortAddress.v[0];
+//    NodeTemp[0].NodeAddress[1] = myShortAddress.v[1];
+//    
+//    /*******************************************************************/
+//    // Read Start tickcount
+//    /*******************************************************************/	
+//    tick1 = MiWi_TickGet();
+//    tick3 = tick1;
+//    
+//    while(Run_Demo)
+//    {
+//        /*******************************************************************/
+//        // Read current tickcount
+//        /*******************************************************************/
+//		tick2 = MiWi_TickGet();
+//		
+//        /*******************************************************************/
+//        // Check if User wants to Exit Demo
+//        /*******************************************************************/
+//        switch_val = BUTTON_Pressed();
+//	if((switch_val == SW1) || (switch_val == SW2))
+//        {
+//            /*******************************************************************/
+//        	// Send Exit Demo Request Packet and exit Temp Demo
+//        	/*******************************************************************/ 
+//            MiApp_FlushTx();    
+//            MiApp_WriteData(EXIT_PKT);
+//            MiApp_BroadcastPacket(false);
+//            LCD_BacklightON();
+//            LCD_Display((char *)"   Exiting....     Temp Demo  ", 0, true);
+//            LCD_BacklightOFF();
+//            
+//            /*******************************************************************/
+//            // Wait for ACK Packet or Timeout
+//            /*******************************************************************/
+//            tick1 = MiWi_TickGet();
+//            while(Run_Demo)
+//            {
+//                MiApp_FlushTx();
+//                MiApp_WriteData(Adrs_0);
+//                MiApp_WriteData(Adrs_1);
+//                MiApp_WriteData(0x20);
+//                MiApp_WriteData(0x20);
+//                MiApp_WriteData(0x20);
+//                MiApp_WriteData(0x20);
+//                MiApp_WriteData(0x20);
+//                MiApp_WriteData(0x20);
+//                MiApp_WriteData(tempAverage);
+//                MiApp_WriteData(tempAverage);
+//                MiApp_WriteData(tempAverage);
+//                MiApp_WriteData(tempAverage);
+//                MiApp_WriteData(tempAverage);
+//                MiApp_WriteData(tempAverage);
+//                MiApp_WriteData(tempAverage);
+//
+//                MiApp_BroadcastPacket(false);
+//                
+//                if(MiApp_MessageAvailable())
+//                {
+//                    if(rxMessage.Payload[0] == ACK_PKT)          
+//                        Run_Demo = false;
+//                        
+//                    MiApp_DiscardMessage();
+//                }
+//                if ((MiWi_TickGetDiff(tick2,tick1) > (ONE_SECOND * EXIT_DEMO_TIMEOUT)))
+//                    Run_Demo = false;
+//                    
+//                tick2 = MiWi_TickGet();
+//            }  
+//        } 
+//            
+//        /*******************************************************************/
+//        // Rotate through Displaying All Node Temp's
+//        /*******************************************************************/
+//        if ((MiWi_TickGetDiff(tick2,tick3) > (ONE_SECOND * DISPLAY_CYCLE_INTERVAL)))
+//        {
+//    		if((ConnectionTable[CurrentNodeIndex].status.bits.isValid))
+//    		{
+//    		    CurrentNodeIndex++;
+//    		}    
+//    		else
+//    		{
+//    		    CurrentNodeIndex = 0;
+//    		}    
+//    		
+//    		PrintTempLCD();
+//    		
+//    		tick3 = MiWi_TickGet();
+//        }      
+//		
+//        /*******************************************************************/
+//        // Read the Temp every TEMP_SECOND_INTERVAL
+//        /*******************************************************************/
+//        if ((MiWi_TickGetDiff(tick2,tick1) > (ONE_SECOND * TEMP_SECOND_INTERVAL)))
+//        {
+//			
+//            /*******************************************************************/
+//            // Power-up Temperature Sensor
+//            /*******************************************************************/
+//            //LATAbits.LATA0 = 1;
+//            //DELAY_ms(2);         // Delay 2 ms after powering up the temperature sensor
+//            
+//            /*******************************************************************/
+//            // Toggle LED1 Every Temp Read Cycle
+//            /*******************************************************************/
+//            //LED0 ^= 1;
+//            
+//            /*******************************************************************/
+//            // Take specified number of Temp Readings
+//            /*******************************************************************/
+//            temp = ReadTempSensor(VBGResult);
+//
+//            /*******************************************************************/
+//            // Turn Temp Sensor Off
+//            /*******************************************************************/
+//            //LATAbits.LATA0 = 0;
+//
+//            /*******************************************************************/
+//            // Calculate Average Temp
+//            /*******************************************************************/			
+//            tempAverage = 0;
+//            tempAverage = (uint8_t)temp;
+//			
+//            /*******************************************************************/
+//            // Reset TX Buffer Pointer
+//            /*******************************************************************/			
+//            MiApp_FlushTx();
+//            
+//            /*******************************************************************/
+//            // Write this Nodes temperature value and Address to the TX Buffer
+//            /*******************************************************************/
+//            MiApp_WriteData(Adrs_0);
+//            MiApp_WriteData(Adrs_1);
+//            MiApp_WriteData(0xAA);
+//
+//            MiApp_WriteData(0x20);
+//            MiApp_WriteData(0x20);
+//            MiApp_WriteData(0x20);
+//            MiApp_WriteData(0x20);
+//            MiApp_WriteData(0x20);
+//            MiApp_WriteData(tempAverage);
+//            MiApp_WriteData(tempAverage);
+//            MiApp_WriteData(tempAverage);
+//            MiApp_WriteData(tempAverage);
+//            MiApp_WriteData(tempAverage);
+//            MiApp_WriteData(tempAverage);
+//            MiApp_WriteData(tempAverage);
+//            MiApp_WriteData((uint8_t) tempAverage);
+//            MiApp_WriteData(myShortAddress.v[0]);
+//            MiApp_WriteData(myShortAddress.v[1]);
+//
+//            
+//            // Update NodeTemp Structure
+//            NodeTemp[0].TempValue = (uint8_t)tempAverage;
+//					
+//           /*******************************************************************/
+//           // Broadcast Node Tempature across Network.
+//           /*******************************************************************/
+//           // Function MiApp_BroadcastPacket is used to broadcast a message
+//           // The only parameter is the boolean to indicate if we need to
+//           // secure the frame
+//           /*******************************************************************/
+//           MiApp_BroadcastPacket(false);
+//
+//            /*******************************************************************/
+//            // Read New Start tickcount
+//            /*******************************************************************/
+//            tick1 = MiWi_TickGet();
+//	}
+//
+//        /*******************************************************************/
+//        // Check for Incomming Recieve Packet.
+//        /*******************************************************************/
+//        // Function MiApp_MessageAvailable returns a boolean to indicate if 
+//        // a packet has been received by the transceiver. If a packet has 
+//        // been received, all information will be stored in the rxFrame, 
+//        // structure of RECEIVED_MESSAGE.
+//        /*******************************************************************/
+//        if(MiApp_MessageAvailable())
+//        {
+//            uint8_t i;
+//            
+//            /*******************************************************************/
+//            // Check if Exit Demo Packet
+//            /*******************************************************************/
+//            if(rxMessage.Payload[0] == EXIT_PKT)
+//            {
+//            MiApp_DiscardMessage();
+//            MiApp_FlushTx();
+//            MiApp_WriteData(ACK_PKT);
+//            MiApp_UnicastConnection(0, false);
+//            Run_Demo = false;
+//            LCD_BacklightON();
+//            LCD_Display((char *)"   Exiting....     Temp Demo  ", 0, true);
+//            LCD_BacklightOFF();
+//            }
+//            
+//            /*******************************************************************/
+//            // Check if Message from know Connection
+//            /*******************************************************************/
+//            for(i = 0; i < CONNECTION_SIZE; i++)
+//            {
+//                    if((ConnectionTable[i].status.bits.isValid) && (ConnectionTable[i].AltAddress.v[0] == rxMessage.Payload[2]) && (ConnectionTable[i].AltAddress.v[1] == rxMessage.Payload[3]))
+//                    {
+//                            if(rxMessage.Payload[0] == TEMP_PKT)
+//                            {
+//                                    // Update the Remote Nodes Temp value
+//                                NodeTemp[i+1].TempValue = rxMessage.Payload[1];
+//                                NodeTemp[i+1].NodeAddress[0] = rxMessage.Payload[2];
+//                                NodeTemp[i+1].NodeAddress[1] = rxMessage.Payload[3];
+//                            }	
+//                    }
+//            }
+//
+//            MiApp_DiscardMessage();
+//        }
+//    }   
+//}
 
 
 /*********************************************************************
@@ -303,112 +332,112 @@ void TempDemo(void)
 *
 * Note:			    
 **********************************************************************/
-uint8_t ReadTempSensor(uint16_t VBGResult)
-{
-    uint16_t tempValue;
-    double temp;
-    uint8_t tempHere;
-    uint8_t i = 0;
-    float tempAverage = 0;
-    uint8_t tempArray[NUM_TEMP_SAMPLES];
-    
-     
-    // Configure the ADC register settings
-    ADCON0 = 0x04;
-    ADCON1 = 0xBD;
-    
-    PIR1bits.ADIF = 0;
-    PIE1bits.ADIE = 0;
-/*
-	ADCON0bits.ADON = 1;
-	DELAY_10us(10);					// Wait Acquisition time
-	
-	ADCON0bits.GO = 1;	
-	while(ADCON0bits.DONE);
- 
- 	tempValue = ADRES;
-	ADCON0bits.ADON = 0;
-	 	   
-	temp = (1200.0/VBGResult);
-	temp = (temp * tempValue);				
-	temp = (temp - 500.0)/10.0;
-
-    return (uint8_t) temp;
-*/	
-   
-    do
-    {
-    	ADCON0bits.ADON = 1;
-    	DELAY_10us(10);					// Wait Acquisition time
-    	
-    	ADCON0bits.GO = 1;	
-    	while(ADCON0bits.DONE);
-        
-    	temp = (1200.0/VBGResult);
-    	tempValue = ADRES;
-    	temp = (temp * tempValue);				
-    	temp = (temp - 500.0)/10.0;
-    	
-    	tempArray[i] = (uint8_t) temp;
-    
-        ADCON0bits.ADON = 0;
-        DELAY_10us(1);
-        i++;
-	} while(i < NUM_TEMP_SAMPLES);
-	
-
-    for(i = 0; i<NUM_TEMP_SAMPLES; i++)
-    {
-        tempAverage = (tempAverage + tempArray[i]);
-    }
-    tempAverage = (tempAverage/NUM_TEMP_SAMPLES);
-    tempHere = (uint8_t) tempAverage;
-    tempAverage = (tempAverage - tempHere) * 10;
-    
-    if(tempAverage >= 5)
-        tempHere = tempHere + 1;
-        
-    return (uint8_t)tempHere;
-
-
-}
-
-    				
-/*********************************************************************
-* Function:         uint16_t Read_VBGVoltage(void)
-*
-* PreCondition:     none
-*
-* Input:            none
-*
-* Output:           ADRES
-*
-* Side Effects:	    none
-*
-* Overview:         Reads the band gap voltage and compares with reference voltage
-*                   to arrive at the current voltage level
-*
-* Note:			    
-**********************************************************************/
-uint16_t Read_VBGVoltage(void)
-{
-    ADCON0 = 0x3D;				// Configures the channel as VBG
-    ADCON1 = 0xBD;				// Program the acquisition time
-    ANCON1bits.VBGEN = 1;		// Enable Band gap reference voltage
-    
-    DELAY_10us(1000);			//Wait for the Band Gap Settling time
-    
-    PIR1bits.ADIF = 0;
-    PIE1bits.ADIE = 0;			//Disable ADC interrupts
-    							//This routine uses the polling based mechanism
-    ADCON0bits.GO = 1;		    //Start A/D conversion    
-    while(ADCON0bits.DONE);
-    
-    ADCON0bits.ADON = 0;	    // Turn ADC OFF
-    ANCON1bits.VBGEN = 0;	    // Disable Bandgap
-    
-    return ADRES;
-}
+//uint8_t ReadTempSensor(uint16_t VBGResult)
+//{
+//    uint16_t tempValue;
+//    double temp;
+//    uint8_t tempHere;
+//    uint8_t i = 0;
+//    float tempAverage = 0;
+//    uint8_t tempArray[NUM_TEMP_SAMPLES];
+//    
+//     
+//    // Configure the ADC register settings
+//    ADCON0 = 0x04;
+//    ADCON1 = 0xBD;
+//    
+//    PIR1bits.ADIF = 0;
+//    PIE1bits.ADIE = 0;
+///*
+//	ADCON0bits.ADON = 1;
+//	DELAY_10us(10);					// Wait Acquisition time
+//	
+//	ADCON0bits.GO = 1;	
+//	while(ADCON0bits.DONE);
+// 
+// 	tempValue = ADRES;
+//	ADCON0bits.ADON = 0;
+//	 	   
+//	temp = (1200.0/VBGResult);
+//	temp = (temp * tempValue);				
+//	temp = (temp - 500.0)/10.0;
+//
+//    return (uint8_t) temp;
+//*/	
+//   
+//    do
+//    {
+//    	ADCON0bits.ADON = 1;
+//    	DELAY_10us(10);					// Wait Acquisition time
+//    	
+//    	ADCON0bits.GO = 1;	
+//    	while(ADCON0bits.DONE);
+//        
+//    	temp = (1200.0/VBGResult);
+//    	tempValue = ADRES;
+//    	temp = (temp * tempValue);				
+//    	temp = (temp - 500.0)/10.0;
+//    	
+//    	tempArray[i] = (uint8_t) temp;
+//    
+//        ADCON0bits.ADON = 0;
+//        DELAY_10us(1);
+//        i++;
+//	} while(i < NUM_TEMP_SAMPLES);
+//	
+//
+//    for(i = 0; i<NUM_TEMP_SAMPLES; i++)
+//    {
+//        tempAverage = (tempAverage + tempArray[i]);
+//    }
+//    tempAverage = (tempAverage/NUM_TEMP_SAMPLES);
+//    tempHere = (uint8_t) tempAverage;
+//    tempAverage = (tempAverage - tempHere) * 10;
+//    
+//    if(tempAverage >= 5)
+//        tempHere = tempHere + 1;
+//        
+//    return (uint8_t)tempHere;
+//
+//
+//}
+//
+//    				
+///*********************************************************************
+//* Function:         uint16_t Read_VBGVoltage(void)
+//*
+//* PreCondition:     none
+//*
+//* Input:            none
+//*
+//* Output:           ADRES
+//*
+//* Side Effects:	    none
+//*
+//* Overview:         Reads the band gap voltage and compares with reference voltage
+//*                   to arrive at the current voltage level
+//*
+//* Note:			    
+//**********************************************************************/
+//uint16_t Read_VBGVoltage(void)
+//{
+//    ADCON0 = 0x3D;				// Configures the channel as VBG
+//    ADCON1 = 0xBD;				// Program the acquisition time
+//    ANCON1bits.VBGEN = 1;		// Enable Band gap reference voltage
+//    
+//    DELAY_10us(1000);			//Wait for the Band Gap Settling time
+//    
+//    PIR1bits.ADIF = 0;
+//    PIE1bits.ADIE = 0;			//Disable ADC interrupts
+//    							//This routine uses the polling based mechanism
+//    ADCON0bits.GO = 1;		    //Start A/D conversion    
+//    while(ADCON0bits.DONE);
+//    
+//    ADCON0bits.ADON = 0;	    // Turn ADC OFF
+//    ANCON1bits.VBGEN = 0;	    // Disable Bandgap
+//    
+//    return ADRES;
+//}
 
 
 /*********************************************************************
