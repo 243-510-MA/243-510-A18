@@ -14,7 +14,6 @@
 #include "CapteurI2C.h"
 #include "eusart2.h"
 
-
 #define PAN 0                       //Controls the projector, red light, buzzer and motion sensor (such many thing, wow)
 #define DOOR_UNLOCK 1               //Unlock the door (duh)
 #define PROJECTOR_SCREEN 2          //DROP DA PROJECTOR
@@ -29,30 +28,40 @@
 
 //EUSART2 TX SUR PIN 5 AKA RP24 AKA I07
 void main(void)
-{
-    SYSTEM_Initialize();
+{ 
+    
+    INTCONbits.GIE = 0;
     
     EECON2 = 0x55;
     
     EECON2 = 0xAA;
     
-    PPSCON = 0x00;
+    PPSCON = 0;
             
-    RPOR24 = 0X05;
+    RPOR24 = 0x05;
     
     EECON2 = 0x55;
     
     EECON2 = 0xAA;
+    
+    PPSCONbits.IOLOCK = 1;
+    
+    RCSTA2bits.SPEN = 1;
+    
+    TRISDbits.TRISD7 = 0;
+    
+    EUSART2_Initialize();
+    
+    SYSTEM_Initialize();
 
-    if(RPOR24 == 0X05){
-        LATAbits.LA6 = 1;
-        LATAbits.LA7 = 1;
-        
-    }
+
+    
+    
+
     
     while(1){
-        EUSART2_Write('C');
-        
+        printf("Hello");
+        LATAbits.LA6 = !LATAbits.LA6;
         
         /*sprintf((char *)&LCDText, (char*)"Temp : %.2f", readTemperatureC());
         sprintf((char *)&LCDText[16], (char*)"WetNES : %.2f", readHumidity());
