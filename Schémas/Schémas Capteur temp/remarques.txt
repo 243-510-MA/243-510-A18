@@ -1,6 +1,4 @@
 1. disposition des pièces (erreurs que je n'aurais pas vues ?)
-2. pads pickit et choix header
-3. choix header 3 pins (de quel coté on les mets ou si on prend des angulaires)
+2. choix header
 4. trous de fixation
 5. trace des dels
-6. board 62mm par 65mm
