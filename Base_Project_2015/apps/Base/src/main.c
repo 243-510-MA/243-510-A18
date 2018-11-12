@@ -31,34 +31,22 @@ void main(void)
     //BOUGEZ PAS SA DE LA MERCI BYE
     if(DEVICEMODE == PAN){
         EUSART2_Initialize();
+        
     }
     
     SYSTEM_Initialize();
 
     
-    while(1){
-        printf("Hello");
-        
-        /*sprintf((char *)&LCDText, (char*)"Temp : %.2f", readTemperatureC());
-        sprintf((char *)&LCDText[16], (char*)"WetNES : %.2f", readHumidity());
-        LCD_Update();*/
-        __delay_ms(100);
-    }
-    
     LED0 = LED1 = LED2 = 0;
     
     
-
+/*
     Network(DEVICEMODE);
  
     if(DEVICEMODE == PAN)
     {
         Pan();     
     } 
-    if(DEVICEMODE == PAN)
-    {
-        Pan();     
-    }  
-
+ */
 }
 
