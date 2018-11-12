@@ -8882,25 +8882,112 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 98 "../src/eusart2.h"
+# 43 "../src/system_config/miwikit_pic18f46j50_24j40\lcd.h"
+extern uint8_t LCDText[16*2+1];
+
+void LCD_Initialize(void);
+void LCD_Update(void);
+void LCD_Erase(void);
+void LCD_BacklightON(void);
+void LCD_BacklightOFF(void);
+void LCD_Display(char *, uint8_t, bool);
+void LCDWriteLine(uint16_t number, char *line);
+void UserInterruptHandler(void);
+
+# 27 "../src/system_config/miwikit_pic18f46j50_24j40\eeprom.h"
+void EEPROMRead(uint8_t *Dest, uint8_t Addr , uint8_t count);
+void Read_MAC_Address(void);
+
+# 27 "../src/system_config/miwikit_pic18f46j50_24j40\serial_flash.h"
+void SSTRead(uint8_t *Dest, uint8_t *Addr , uint8_t count);
+void SSTWrite(uint8_t *Src, uint8_t *Addr, uint8_t count);
+void SSTGetID(uint8_t *Dest);
+
+# 71 "../src/system_config/miwikit_pic18f46j50_24j40\symbol.h"
+typedef union _MIWI_TICK
+{
+uint32_t Val;
+struct _MIWI_TICK_bytes
+{
+uint8_t b0;
+uint8_t b1;
+uint8_t b2;
+uint8_t b3;
+} byte;
+uint8_t v[4];
+struct _MIWI_TICK_words
+{
+uint16_t w0;
+uint16_t w1;
+} word;
+} MIWI_TICK;
+
+void InitSymbolTimer(void);
+MIWI_TICK MiWi_TickGet(void);
+
+
+
+extern volatile uint8_t timerExtension1,timerExtension2;
+
+# 47 "../src/system_config/miwikit_pic18f46j50_24j40\delay.h"
+void DELAY_10us( uint32_t tenMicroSecondCounter );
+
+# 68
+void DELAY_ms( uint16_t ms );
+
+# 32 "../src/system_config/miwikit_pic18f46j50_24j40\button.h"
+MIWI_TICK switch0PressTime;
+MIWI_TICK switch1PressTime;
+
+uint8_t BUTTON_Pressed(void);
+
+# 29 "../src/system_config/miwikit_pic18f46j50_24j40\spi.h"
+void SPIPut(uint8_t v);
+uint8_t SPIGet(void);
+
+void SPIPut2(uint8_t v);
+uint8_t SPIGet2(void);
+
+# 54 "../src/system_config/miwikit_pic18f46j50_24j40\system.h"
+typedef union
+{
+
+uint8_t v[4];
+uint16_t w[2];
+uint32_t Val;
+
+}API_UINT32_UNION;
+
+typedef union
+{
+
+uint8_t v[2];
+uint16_t Val;
+
+}API_UINT16_UNION;
+
+# 122
+void SYSTEM_Initialize(void);
+
+# 99 "../src/eusart2.h"
 void EUSART2_Initialize(void);
 
-# 146
+# 147
 bool EUSART2_is_tx_ready(void);
 
-# 194
+# 195
 bool EUSART2_is_rx_ready(void);
 
-# 241
+# 242
 bool EUSART2_is_tx_done(void);
 
-# 261
+# 262
 uint8_t EUSART2_Read(void);
 
-# 281
+# 282
 void EUSART2_Write(uint8_t txData);
 
-# 56 "../src/eusart2.c"
+# 57 "../src/eusart2.c"
 void EUSART2_Initialize(void)
 {
 
@@ -8920,7 +9007,25 @@ SPBRG2 = 0xCF;
 
 SPBRGH2 = 0x00;
 
+INTCONbits.GIE = 0;
 
+EECON2 = 0x55;
+
+EECON2 = 0xAA;
+
+PPSCON = 0;
+
+RPOR24 = 0x05;
+
+EECON2 = 0x55;
+
+EECON2 = 0xAA;
+
+PPSCONbits.IOLOCK = 1;
+
+RCSTA2bits.SPEN = 1;
+
+TRISDbits.TRISD7 = 0;
 }
 
 bool EUSART2_is_tx_ready(void)

@@ -1,4 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"74 ../src/system_config/miwikit_pic18f46j50_24j40\symbol.h
+[s S769 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S769 _MIWI_TICK_bytes b0 b1 b2 b3 ]
+"82
+[s S770 `ui 1 `ui 1 ]
+[n S770 _MIWI_TICK_words w0 w1 ]
+"71
+[u S768 `ul 1 `S769 1 `uc -> 4 `i `S770 1 ]
+[n S768 _MIWI_TICK Val byte v word ]
 "5105 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
 [v _BAUDCON2 `Vuc ~T0 @X0 0 e@3964 ]
 "8381
@@ -9,6 +18,59 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SPBRG2 `Vuc ~T0 @X0 0 e@4011 ]
 "5228
 [v _SPBRGH2 `Vuc ~T0 @X0 0 e@3965 ]
+"16012
+[s S743 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S743 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"16022
+[s S744 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S744 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"16032
+[s S745 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S745 . . GIEL GIEH ]
+"16011
+[u S742 `S743 1 `S744 1 `S745 1 ]
+[n S742 . . . . ]
+"16038
+[v _INTCONbits `VS742 ~T0 @X0 0 e@4082 ]
+"9344
+[v _EECON2 `Vuc ~T0 @X0 0 e@4007 ]
+"309
+[v _PPSCON `Vuc ~T0 @X0 0 e@3839 ]
+"197
+[v _RPOR24 `Vuc ~T0 @X0 0 e@3806 ]
+"315
+[s S2 :1 `uc 1 ]
+[n S2 . IOLOCK ]
+"314
+[u S1 `S2 1 ]
+[n S1 . . ]
+"319
+[v _PPSCONbits `VS1 ~T0 @X0 0 e@3839 ]
+"8387
+[s S365 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S365 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"8397
+[s S366 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S366 . RX9D2 OERR2 FERR2 ADDEN2 CREN2 SREN2 RX92 SPEN2 ]
+"8407
+[s S367 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
+[n S367 . RCD82 . RC8_92 ]
+"8412
+[s S368 :6 `uc 1 :1 `uc 1 ]
+[n S368 . . RC92 ]
+"8386
+[u S364 `S365 1 `S366 1 `S367 1 `S368 1 ]
+[n S364 . . . . . ]
+"8417
+[v _RCSTA2bits `VS364 ~T0 @X0 0 e@3996 ]
+"7973
+[s S345 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S345 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"7972
+[u S344 `S345 1 ]
+[n S344 . . ]
+"7984
+[v _TRISDbits `VS344 ~T0 @X0 0 e@3989 ]
 "9149
 [s S398 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S398 . RTCCIF TMR3GIF CTMUIF TMR4IF TX2IF RC2IF BCL2IF SSP2IF ]
@@ -34,23 +96,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S407 . . . . ]
 "9396
 [v _TXSTA2bits `VS407 ~T0 @X0 0 e@4008 ]
-"8387
-[s S365 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S365 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
-"8397
-[s S366 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S366 . RX9D2 OERR2 FERR2 ADDEN2 CREN2 SREN2 RX92 SPEN2 ]
-"8407
-[s S367 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
-[n S367 . RCD82 . RC8_92 ]
-"8412
-[s S368 :6 `uc 1 :1 `uc 1 ]
-[n S368 . . RC92 ]
-"8386
-[u S364 `S365 1 `S366 1 `S367 1 `S368 1 ]
-[n S364 . . . . . ]
-"8417
-[v _RCSTA2bits `VS364 ~T0 @X0 0 e@3996 ]
 "9511
 [v _RCREG2 `Vuc ~T0 @X0 0 e@4010 ]
 "9491
@@ -6630,196 +6675,285 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;eusart2.h: 98: void EUSART2_Initialize(void);
-[; ;eusart2.h: 146: bool EUSART2_is_tx_ready(void);
-[; ;eusart2.h: 194: bool EUSART2_is_rx_ready(void);
-[; ;eusart2.h: 241: bool EUSART2_is_tx_done(void);
-[; ;eusart2.h: 261: uint8_t EUSART2_Read(void);
-[; ;eusart2.h: 281: void EUSART2_Write(uint8_t txData);
-"56 ../src/eusart2.c
+[; ;miwikit_pic18f46j50_24j40\lcd.h: 43: extern uint8_t LCDText[16*2+1];
+[; ;miwikit_pic18f46j50_24j40\lcd.h: 45: void LCD_Initialize(void);
+[; ;miwikit_pic18f46j50_24j40\lcd.h: 46: void LCD_Update(void);
+[; ;miwikit_pic18f46j50_24j40\lcd.h: 47: void LCD_Erase(void);
+[; ;miwikit_pic18f46j50_24j40\lcd.h: 48: void LCD_BacklightON(void);
+[; ;miwikit_pic18f46j50_24j40\lcd.h: 49: void LCD_BacklightOFF(void);
+[; ;miwikit_pic18f46j50_24j40\lcd.h: 50: void LCD_Display(char *, uint8_t, bool);
+[; ;miwikit_pic18f46j50_24j40\lcd.h: 51: void LCDWriteLine(uint16_t number, char *line);
+[; ;miwikit_pic18f46j50_24j40\lcd.h: 52: void UserInterruptHandler(void);
+[; ;miwikit_pic18f46j50_24j40\eeprom.h: 27: void EEPROMRead(uint8_t *Dest, uint8_t Addr , uint8_t count);
+[; ;miwikit_pic18f46j50_24j40\eeprom.h: 28: void Read_MAC_Address(void);
+[; ;miwikit_pic18f46j50_24j40\serial_flash.h: 27: void SSTRead(uint8_t *Dest, uint8_t *Addr , uint8_t count);
+[; ;miwikit_pic18f46j50_24j40\serial_flash.h: 28: void SSTWrite(uint8_t *Src, uint8_t *Addr, uint8_t count);
+[; ;miwikit_pic18f46j50_24j40\serial_flash.h: 29: void SSTGetID(uint8_t *Dest);
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 71: typedef union _MIWI_TICK
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 72: {
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 73: uint32_t Val;
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 74: struct _MIWI_TICK_bytes
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 75: {
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 76: uint8_t b0;
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 77: uint8_t b1;
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 78: uint8_t b2;
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 79: uint8_t b3;
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 80: } byte;
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 81: uint8_t v[4];
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 82: struct _MIWI_TICK_words
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 83: {
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 84: uint16_t w0;
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 85: uint16_t w1;
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 86: } word;
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 87: } MIWI_TICK;
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 89: void InitSymbolTimer(void);
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 90: MIWI_TICK MiWi_TickGet(void);
+[; ;miwikit_pic18f46j50_24j40\symbol.h: 94: extern volatile uint8_t timerExtension1,timerExtension2;
+[; ;miwikit_pic18f46j50_24j40\delay.h: 47: void DELAY_10us( uint32_t tenMicroSecondCounter );
+[; ;miwikit_pic18f46j50_24j40\delay.h: 68: void DELAY_ms( uint16_t ms );
+"32 ../src/system_config/miwikit_pic18f46j50_24j40\button.h
+[v _switch0PressTime `S768 ~T0 @X0 1 e ]
+[; ;miwikit_pic18f46j50_24j40\button.h: 32: MIWI_TICK switch0PressTime;
+"33
+[v _switch1PressTime `S768 ~T0 @X0 1 e ]
+[; ;miwikit_pic18f46j50_24j40\button.h: 33: MIWI_TICK switch1PressTime;
+[; ;miwikit_pic18f46j50_24j40\button.h: 35: uint8_t BUTTON_Pressed(void);
+[; ;miwikit_pic18f46j50_24j40\spi.h: 29: void SPIPut(uint8_t v);
+[; ;miwikit_pic18f46j50_24j40\spi.h: 30: uint8_t SPIGet(void);
+[; ;miwikit_pic18f46j50_24j40\spi.h: 32: void SPIPut2(uint8_t v);
+[; ;miwikit_pic18f46j50_24j40\spi.h: 33: uint8_t SPIGet2(void);
+[; ;miwikit_pic18f46j50_24j40\system.h: 54: typedef union
+[; ;miwikit_pic18f46j50_24j40\system.h: 55: {
+[; ;miwikit_pic18f46j50_24j40\system.h: 57: uint8_t v[4];
+[; ;miwikit_pic18f46j50_24j40\system.h: 58: uint16_t w[2];
+[; ;miwikit_pic18f46j50_24j40\system.h: 59: uint32_t Val;
+[; ;miwikit_pic18f46j50_24j40\system.h: 61: }API_UINT32_UNION;
+[; ;miwikit_pic18f46j50_24j40\system.h: 63: typedef union
+[; ;miwikit_pic18f46j50_24j40\system.h: 64: {
+[; ;miwikit_pic18f46j50_24j40\system.h: 66: uint8_t v[2];
+[; ;miwikit_pic18f46j50_24j40\system.h: 67: uint16_t Val;
+[; ;miwikit_pic18f46j50_24j40\system.h: 69: }API_UINT16_UNION;
+[; ;miwikit_pic18f46j50_24j40\system.h: 122: void SYSTEM_Initialize(void);
+[; ;eusart2.h: 99: void EUSART2_Initialize(void);
+[; ;eusart2.h: 147: bool EUSART2_is_tx_ready(void);
+[; ;eusart2.h: 195: bool EUSART2_is_rx_ready(void);
+[; ;eusart2.h: 242: bool EUSART2_is_tx_done(void);
+[; ;eusart2.h: 262: uint8_t EUSART2_Read(void);
+[; ;eusart2.h: 282: void EUSART2_Write(uint8_t txData);
+"57 ../src/eusart2.c
 [v _EUSART2_Initialize `(v ~T0 @X0 1 ef ]
-"57
+"58
 {
-[; ;eusart2.c: 56: void EUSART2_Initialize(void)
-[; ;eusart2.c: 57: {
+[; ;eusart2.c: 57: void EUSART2_Initialize(void)
+[; ;eusart2.c: 58: {
 [e :U _EUSART2_Initialize ]
 [f ]
-[; ;eusart2.c: 61: BAUDCON2 = 0x08;
-"61
+[; ;eusart2.c: 62: BAUDCON2 = 0x08;
+"62
 [e = _BAUDCON2 -> -> 8 `i `uc ]
-[; ;eusart2.c: 64: RCSTA2 = 0x90;
-"64
+[; ;eusart2.c: 65: RCSTA2 = 0x90;
+"65
 [e = _RCSTA2 -> -> 144 `i `uc ]
-[; ;eusart2.c: 67: TXSTA2 = 0x26;
-"67
+[; ;eusart2.c: 68: TXSTA2 = 0x26;
+"68
 [e = _TXSTA2 -> -> 38 `i `uc ]
-[; ;eusart2.c: 70: SPBRG2 = 0xCF;
-"70
+[; ;eusart2.c: 71: SPBRG2 = 0xCF;
+"71
 [e = _SPBRG2 -> -> 207 `i `uc ]
-[; ;eusart2.c: 73: SPBRGH2 = 0x00;
-"73
+[; ;eusart2.c: 74: SPBRGH2 = 0x00;
+"74
 [e = _SPBRGH2 -> -> 0 `i `uc ]
-[; ;eusart2.c: 76: }
+[; ;eusart2.c: 76: INTCONbits.GIE = 0;
 "76
-[e :UE 768 ]
-}
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;eusart2.c: 78: EECON2 = 0x55;
 "78
+[e = _EECON2 -> -> 85 `i `uc ]
+[; ;eusart2.c: 80: EECON2 = 0xAA;
+"80
+[e = _EECON2 -> -> 170 `i `uc ]
+[; ;eusart2.c: 82: PPSCON = 0;
+"82
+[e = _PPSCON -> -> 0 `i `uc ]
+[; ;eusart2.c: 84: RPOR24 = 0x05;
+"84
+[e = _RPOR24 -> -> 5 `i `uc ]
+[; ;eusart2.c: 86: EECON2 = 0x55;
+"86
+[e = _EECON2 -> -> 85 `i `uc ]
+[; ;eusart2.c: 88: EECON2 = 0xAA;
+"88
+[e = _EECON2 -> -> 170 `i `uc ]
+[; ;eusart2.c: 90: PPSCONbits.IOLOCK = 1;
+"90
+[e = . . _PPSCONbits 0 0 -> -> 1 `i `uc ]
+[; ;eusart2.c: 92: RCSTA2bits.SPEN = 1;
+"92
+[e = . . _RCSTA2bits 0 7 -> -> 1 `i `uc ]
+[; ;eusart2.c: 94: TRISDbits.TRISD7 = 0;
+"94
+[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+[; ;eusart2.c: 95: }
+"95
+[e :UE 773 ]
+}
+"97
 [v _EUSART2_is_tx_ready `(uc ~T0 @X0 1 ef ]
-"79
+"98
 {
-[; ;eusart2.c: 78: bool EUSART2_is_tx_ready(void)
-[; ;eusart2.c: 79: {
+[; ;eusart2.c: 97: bool EUSART2_is_tx_ready(void)
+[; ;eusart2.c: 98: {
 [e :U _EUSART2_is_tx_ready ]
 [f ]
-[; ;eusart2.c: 80: return (bool)(PIR3bits.TX2IF && TXSTA2bits.TXEN);
-"80
+[; ;eusart2.c: 99: return (bool)(PIR3bits.TX2IF && TXSTA2bits.TXEN);
+"99
 [e ) -> -> && != -> . . _PIR3bits 0 4 `i -> -> -> 0 `i `Vuc `i != -> . . _TXSTA2bits 0 5 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[e $UE 769  ]
-[; ;eusart2.c: 81: }
-"81
-[e :UE 769 ]
+[e $UE 774  ]
+[; ;eusart2.c: 100: }
+"100
+[e :UE 774 ]
 }
-"83
+"102
 [v _EUSART2_is_rx_ready `(uc ~T0 @X0 1 ef ]
-"84
+"103
 {
-[; ;eusart2.c: 83: bool EUSART2_is_rx_ready(void)
-[; ;eusart2.c: 84: {
+[; ;eusart2.c: 102: bool EUSART2_is_rx_ready(void)
+[; ;eusart2.c: 103: {
 [e :U _EUSART2_is_rx_ready ]
 [f ]
-[; ;eusart2.c: 85: return PIR3bits.RC2IF;
-"85
+[; ;eusart2.c: 104: return PIR3bits.RC2IF;
+"104
 [e ) . . _PIR3bits 0 5 ]
-[e $UE 770  ]
-[; ;eusart2.c: 86: }
-"86
-[e :UE 770 ]
+[e $UE 775  ]
+[; ;eusart2.c: 105: }
+"105
+[e :UE 775 ]
 }
-"88
+"107
 [v _EUSART2_is_tx_done `(uc ~T0 @X0 1 ef ]
-"89
+"108
 {
-[; ;eusart2.c: 88: bool EUSART2_is_tx_done(void)
-[; ;eusart2.c: 89: {
+[; ;eusart2.c: 107: bool EUSART2_is_tx_done(void)
+[; ;eusart2.c: 108: {
 [e :U _EUSART2_is_tx_done ]
 [f ]
-[; ;eusart2.c: 90: return TXSTA2bits.TRMT;
-"90
+[; ;eusart2.c: 109: return TXSTA2bits.TRMT;
+"109
 [e ) . . _TXSTA2bits 0 1 ]
-[e $UE 771  ]
-[; ;eusart2.c: 91: }
-"91
-[e :UE 771 ]
+[e $UE 776  ]
+[; ;eusart2.c: 110: }
+"110
+[e :UE 776 ]
 }
-"93
+"112
 [v _EUSART2_Read `(uc ~T0 @X0 1 ef ]
-"94
+"113
 {
-[; ;eusart2.c: 93: uint8_t EUSART2_Read(void)
-[; ;eusart2.c: 94: {
+[; ;eusart2.c: 112: uint8_t EUSART2_Read(void)
+[; ;eusart2.c: 113: {
 [e :U _EUSART2_Read ]
 [f ]
-[; ;eusart2.c: 95: while(!PIR3bits.RC2IF)
-"95
-[e $U 773  ]
-[e :U 774 ]
-[; ;eusart2.c: 96: {
-"96
-{
-"97
-}
-[e :U 773 ]
-"95
-[e $ ! != -> . . _PIR3bits 0 5 `i -> -> -> 0 `i `Vuc `i 774  ]
-[e :U 775 ]
-[; ;eusart2.c: 97: }
-[; ;eusart2.c: 100: if(1 == RCSTA2bits.OERR)
-"100
-[e $ ! == -> 1 `i -> . . _RCSTA2bits 0 1 `i 776  ]
-[; ;eusart2.c: 101: {
-"101
-{
-[; ;eusart2.c: 104: RCSTA2bits.CREN = 0;
-"104
-[e = . . _RCSTA2bits 0 4 -> -> 0 `i `uc ]
-[; ;eusart2.c: 105: RCSTA2bits.CREN = 1;
-"105
-[e = . . _RCSTA2bits 0 4 -> -> 1 `i `uc ]
-"106
-}
-[e :U 776 ]
-[; ;eusart2.c: 106: }
-[; ;eusart2.c: 108: return RCREG2;
-"108
-[e ) _RCREG2 ]
-[e $UE 772  ]
-[; ;eusart2.c: 109: }
-"109
-[e :UE 772 ]
-}
-"111
-[v _EUSART2_Write `(v ~T0 @X0 1 ef1`uc ]
-"112
-{
-[; ;eusart2.c: 111: void EUSART2_Write(uint8_t txData)
-[; ;eusart2.c: 112: {
-[e :U _EUSART2_Write ]
-"111
-[v _txData `uc ~T0 @X0 1 r1 ]
-"112
-[f ]
-[; ;eusart2.c: 113: while(0 == PIR3bits.TX2IF)
-"113
+[; ;eusart2.c: 114: while(!PIR3bits.RC2IF)
+"114
 [e $U 778  ]
 [e :U 779 ]
-[; ;eusart2.c: 114: {
-"114
-{
+[; ;eusart2.c: 115: {
 "115
+{
+"116
 }
 [e :U 778 ]
-"113
-[e $ == -> 0 `i -> . . _PIR3bits 0 4 `i 779  ]
+"114
+[e $ ! != -> . . _PIR3bits 0 5 `i -> -> -> 0 `i `Vuc `i 779  ]
 [e :U 780 ]
-[; ;eusart2.c: 115: }
-[; ;eusart2.c: 117: TXREG2 = txData;
-"117
-[e = _TXREG2 _txData ]
-[; ;eusart2.c: 118: }
-"118
-[e :UE 777 ]
-}
+[; ;eusart2.c: 116: }
+[; ;eusart2.c: 119: if(1 == RCSTA2bits.OERR)
+"119
+[e $ ! == -> 1 `i -> . . _RCSTA2bits 0 1 `i 781  ]
+[; ;eusart2.c: 120: {
 "120
-[v _getch `(uc ~T0 @X0 1 ef ]
-"121
 {
-[; ;eusart2.c: 120: char getch(void)
-[; ;eusart2.c: 121: {
-[e :U _getch ]
-[f ]
-[; ;eusart2.c: 122: return EUSART2_Read();
-"122
-[e ) ( _EUSART2_Read ..  ]
-[e $UE 781  ]
-[; ;eusart2.c: 123: }
+[; ;eusart2.c: 123: RCSTA2bits.CREN = 0;
 "123
-[e :UE 781 ]
+[e = . . _RCSTA2bits 0 4 -> -> 0 `i `uc ]
+[; ;eusart2.c: 124: RCSTA2bits.CREN = 1;
+"124
+[e = . . _RCSTA2bits 0 4 -> -> 1 `i `uc ]
+"125
 }
-"125
-[v _putch `(v ~T0 @X0 1 ef1`uc ]
-"126
-{
-[; ;eusart2.c: 125: void putch(char txData)
-[; ;eusart2.c: 126: {
-[e :U _putch ]
-"125
-[v _txData `uc ~T0 @X0 1 r1 ]
-"126
-[f ]
-[; ;eusart2.c: 127: EUSART2_Write(txData);
+[e :U 781 ]
+[; ;eusart2.c: 125: }
+[; ;eusart2.c: 127: return RCREG2;
 "127
-[e ( _EUSART2_Write (1 _txData ]
+[e ) _RCREG2 ]
+[e $UE 777  ]
 [; ;eusart2.c: 128: }
 "128
+[e :UE 777 ]
+}
+"130
+[v _EUSART2_Write `(v ~T0 @X0 1 ef1`uc ]
+"131
+{
+[; ;eusart2.c: 130: void EUSART2_Write(uint8_t txData)
+[; ;eusart2.c: 131: {
+[e :U _EUSART2_Write ]
+"130
+[v _txData `uc ~T0 @X0 1 r1 ]
+"131
+[f ]
+[; ;eusart2.c: 132: while(0 == PIR3bits.TX2IF)
+"132
+[e $U 783  ]
+[e :U 784 ]
+[; ;eusart2.c: 133: {
+"133
+{
+"134
+}
+[e :U 783 ]
+"132
+[e $ == -> 0 `i -> . . _PIR3bits 0 4 `i 784  ]
+[e :U 785 ]
+[; ;eusart2.c: 134: }
+[; ;eusart2.c: 136: TXREG2 = txData;
+"136
+[e = _TXREG2 _txData ]
+[; ;eusart2.c: 137: }
+"137
 [e :UE 782 ]
+}
+"139
+[v _getch `(uc ~T0 @X0 1 ef ]
+"140
+{
+[; ;eusart2.c: 139: char getch(void)
+[; ;eusart2.c: 140: {
+[e :U _getch ]
+[f ]
+[; ;eusart2.c: 141: return EUSART2_Read();
+"141
+[e ) ( _EUSART2_Read ..  ]
+[e $UE 786  ]
+[; ;eusart2.c: 142: }
+"142
+[e :UE 786 ]
+}
+"144
+[v _putch `(v ~T0 @X0 1 ef1`uc ]
+"145
+{
+[; ;eusart2.c: 144: void putch(char txData)
+[; ;eusart2.c: 145: {
+[e :U _putch ]
+"144
+[v _txData `uc ~T0 @X0 1 r1 ]
+"145
+[f ]
+[; ;eusart2.c: 146: EUSART2_Write(txData);
+"146
+[e ( _EUSART2_Write (1 _txData ]
+[; ;eusart2.c: 147: }
+"147
+[e :UE 787 ]
 }

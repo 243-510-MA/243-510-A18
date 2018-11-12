@@ -55,6 +55,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
+#include "system.h"
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 

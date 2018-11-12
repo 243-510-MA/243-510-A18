@@ -50,6 +50,7 @@
 #include "eusart2.h"
 
 
+
 /**
   Section: EUSART2 APIs
 */
@@ -72,7 +73,25 @@ void EUSART2_Initialize(void)
     // 
     SPBRGH2 = 0x00;
 
-
+    INTCONbits.GIE = 0;
+    
+    EECON2 = 0x55;
+    
+    EECON2 = 0xAA;
+    
+    PPSCON = 0;
+            
+    RPOR24 = 0x05;
+    
+    EECON2 = 0x55;
+    
+    EECON2 = 0xAA;
+    
+    PPSCONbits.IOLOCK = 1;
+    
+    RCSTA2bits.SPEN = 1;
+    
+    TRISDbits.TRISD7 = 0;
 }
 
 bool EUSART2_is_tx_ready(void)
