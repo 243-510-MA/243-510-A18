@@ -1,18 +1,19 @@
 //MAIN
 
-#include "stdio.h"
 #include "system.h"
 #include "codes library.h"
 #include "system_config.h"
 #include "miwi/miwi_api.h"
 #include "network.h"
 #include "pan.h"
+#include "fermier.h"
 #include "student.h"
 #include "teacher.h"
 #include "door_unlock.h"
 #include "projector_screen.h"
 #include "CapteurI2C.h"
-#include "eusart2.h"
+#include "temp_demo.h"
+#include "driver/mrf_miwi/drv_mrf_miwi.h"
 
 
 #define PAN 0                       //Controls the projector, red light, buzzer and motion sensor (such many thing, wow)
@@ -20,11 +21,12 @@
 #define PROJECTOR_SCREEN 2          //DROP DA PROJECTOR
 #define TEACHER 3                   //Mista ze teacha
 #define STUDENT 4                   //You little shit
-
+#define Humide 5                   //You little shit
+#define FERMIER 6
 //*************************************************************************
 
-#define DEVICEMODE PAN // Choisir ici
-
+#define DEVICEMODE 6  // Choisir ici
+uint8_t TxHumide[17] = {0x0A, 0xF0 , 0x0A, 0xF0 ,0x0A, 0xF0 , 0x0A, 0xF0 , 0x0A, 0xF0 ,0x0A, 0xF0 ,0x0A, 0xF0 , 0x0A, 0xF0 ,0x0A};
 //*************************************************************************
 
 
@@ -32,25 +34,22 @@ void main(void)
 {
     SYSTEM_Initialize();
     
-    
+   /* 
     while(1){
-        EUSART2_Write('C');
-        
-        
-        /*sprintf((char *)&LCDText, (char*)"Temp : %.2f", readTemperatureC());
+        sprintf((char *)&LCDText, (char*)"Temp : %.2f", readTemperatureC());
         sprintf((char *)&LCDText[16], (char*)"WetNES : %.2f", readHumidity());
-        LCD_Update();*/
-        __delay_ms(100);
+        LCD_Update();
     }
     
-    LED0 = LED1 = LED2 = 0;
+   LED0 = LED1 = LED2 = 0;
+     */
     
-    
-/* 
+ 
     Network(DEVICEMODE);
  
     if(DEVICEMODE == PAN)
     {
+         LED0 = LED1 = LED2 = 0;
         Pan();     
     }   
 
@@ -77,5 +76,16 @@ void main(void)
     {
         Student();
     }
- */
+   
+     if(DEVICEMODE == Humide)
+    {
+        TempDemo();
+    }
+    
+    if(DEVICEMODE == FERMIER)
+    {
+        
+        fermier();
+    }
+ 
 }

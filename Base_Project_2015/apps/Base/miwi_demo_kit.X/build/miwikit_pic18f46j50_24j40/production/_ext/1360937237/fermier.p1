@@ -8,33 +8,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71
 [u S768 `ul 1 `S769 1 `uc -> 4 `i `S770 1 ]
 [n S768 _MIWI_TICK Val byte v word ]
-"45 ../src/temp_demo.c
-[s S805 `uc -> 2 `i `uc 1 ]
-[n S805 TempPacket NodeAddress TempValue ]
-"48 ../src/system_config/miwikit_pic18f46j50_24j40\lcd.h
-[v _LCD_BacklightON `(v ~T0 @X0 0 ef ]
+"47 ../src/system_config/miwikit_pic18f46j50_24j40\lcd.h
+[v _LCD_Erase `(v ~T0 @X0 0 ef ]
 "50
 [v _LCD_Display `(v ~T0 @X0 0 ef3`*uc`uc`uc ]
-"49
-[v _LCD_BacklightOFF `(v ~T0 @X0 0 ef ]
-"29 ../src/temp_demo.h
-[v _Read_VBGVoltage `(ui ~T0 @X0 0 ef ]
-"64 ../src/system_config/miwikit_pic18f46j50_24j40\system.h
-[u S772 `uc -> 2 `i `ui 1 ]
-[n S772 . v Val ]
-"209 ../../../framework\miwi/miwi_mesh.h
-[v _myShortAddress `S772 ~T0 @X0 0 e ]
-"90 ../src/system_config/miwikit_pic18f46j50_24j40\symbol.h
-[v _MiWi_TickGet `(S768 ~T0 @X0 0 ef ]
+"194 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"43 ../src/system_config/miwikit_pic18f46j50_24j40\lcd.h
+[v _LCDText `uc ~T0 @X0 -> 0 `x e ]
+"46
+[v _LCD_Update `(v ~T0 @X0 0 ef ]
 "35 ../src/system_config/miwikit_pic18f46j50_24j40\button.h
 [v _BUTTON_Pressed `(uc ~T0 @X0 0 ef ]
-"207 ../../../framework\miwi/miwi_mesh.h
-[v _TxData `uc ~T0 @X0 0 e ]
-"206
-[v _TxBuffer `uc ~T0 @X0 -> 0 `x e ]
-"552 ../../../framework\miwi/miwi_api.h
-[v _MiApp_BroadcastPacket `(uc ~T0 @X0 0 ef1`uc ]
-"710
+"710 ../../../framework\miwi/miwi_api.h
 [v _MiApp_MessageAvailable `(uc ~T0 @X0 0 ef ]
 "649
 [s S804 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -42,146 +28,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 "646
 [u S803 `uc 1 `S804 1 ]
 [n S803 . Val bits ]
-"644
+"64 ../src/system_config/miwikit_pic18f46j50_24j40\system.h
+[u S772 `uc -> 2 `i `ui 1 ]
+[n S772 . v Val ]
+"644 ../../../framework\miwi/miwi_api.h
 [s S802 `S803 1 `S772 1 `*uc 1 `*uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S802 . flags SourcePANID SourceAddress Payload PayloadSize PacketRSSI PacketLQI ]
 "950
 [v _rxMessage `S802 ~T0 @X0 0 e ]
 "752
 [v _MiApp_DiscardMessage `(v ~T0 @X0 0 ef ]
-"54
-[s S797 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S797 _CONNECTION_STAUTS_bits RXOnWhenIdle directConnection longAddressValid shortAddressValid FinishJoin isFamily filler isValid ]
-"51
-[u S796 `uc 1 `S797 1 ]
-[n S796 __CONNECTION_STATUS Val bits ]
-"78
-[s S798 `S772 1 `S772 1 `uc -> 8 `i `S796 1 `uc -> -> 1 `i `ux ]
-[n S798 __CONNECTION_ENTRY PANID AltAddress Address status PeerInfo ]
-"93
-[v _ConnectionTable `S798 ~T0 @X0 -> 0 `x e ]
-"31 ../src/temp_demo.h
-[v _PrintTempLCD `(v ~T0 @X0 0 ef ]
-"30
-[v _ReadTempSensor `(uc ~T0 @X0 0 ef1`ui ]
-"591 ../../../framework\miwi/miwi_api.h
-[v _MiApp_UnicastConnection `(uc ~T0 @X0 0 ef2`uc`uc ]
-"11881 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
-"11784
-[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
-"8615
-[s S374 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S374 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF PMPIF ]
-"8625
-[s S375 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S375 . . SSPIF TXIF RCIF ]
-"8631
-[s S376 :7 `uc 1 :1 `uc 1 ]
-[n S376 . . PSPIF ]
-"8614
-[u S373 `S374 1 `S375 1 `S376 1 ]
-[n S373 . . . . ]
-"8636
-[v _PIR1bits `VS373 ~T0 @X0 0 e@3998 ]
-"8523
-[s S370 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S370 . TMR1IE TMR2IE CCP1IE SSP1IE TX1IE RC1IE ADIE PMPIE ]
-"8533
-[s S371 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S371 . . SSPIE TXIE RCIE ]
-"8539
-[s S372 :7 `uc 1 :1 `uc 1 ]
-[n S372 . . PSPIE ]
-"8522
-[u S369 `S370 1 `S371 1 `S372 1 ]
-[n S369 . . . . ]
-"8544
-[v _PIE1bits `VS369 ~T0 @X0 0 e@3997 ]
-"11887
-[s S525 :1 `uc 1 :1 `uc 1 ]
-[n S525 . . GO_NOT_DONE ]
-"11891
-[s S526 :1 `uc 1 :1 `uc 1 :4 `uc 1 :2 `uc 1 ]
-[n S526 . ADON GO_nDONE CHS VCFG ]
-"11897
-[s S527 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S527 . . GO_DONE CHS0 CHS1 CHS2 CHS3 VCFG0 VCFG1 ]
-"11907
-[s S528 :1 `uc 1 :1 `uc 1 ]
-[n S528 . . DONE ]
-"11911
-[s S529 :1 `uc 1 :1 `uc 1 ]
-[n S529 . . GO ]
-"11915
-[s S530 :1 `uc 1 :1 `uc 1 ]
-[n S530 . . NOT_DONE ]
-"11919
-[s S531 :1 `uc 1 :1 `uc 1 ]
-[n S531 . . nDONE ]
-"11923
-[s S532 :1 `uc 1 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
-[n S532 . . GODONE . ADCAL ]
-"11886
-[u S524 `S525 1 `S526 1 `S527 1 `S528 1 `S529 1 `S530 1 `S531 1 `S532 1 ]
-[n S524 . . . . . . . . . ]
-"11930
-[v _ADCON0bits `VS524 ~T0 @X0 0 e@4034 ]
-"47 ../src/system_config/miwikit_pic18f46j50_24j40\delay.h
-[v _DELAY_10us `(v ~T0 @X0 0 ef1`ul ]
-"12025 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[v _ADRES `Vus ~T0 @X0 0 e@4035 ]
-"2413
-[s S88 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S88 . PCFG8 PCFG9 PCFG10 PCFG11 PCFG12 . VBG2EN VBGEN ]
-"2423
-[s S89 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S89 . . PCFG14 PCFG15 ]
-"2412
-[u S87 `S88 1 `S89 1 ]
-[n S87 . . . ]
-"2429
-[v _ANCON1bits `VS87 ~T0 @X0 0 e@3913 ]
-"47 ../src/system_config/miwikit_pic18f46j50_24j40\lcd.h
-[v _LCD_Erase `(v ~T0 @X0 0 ef ]
-"194 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"43 ../src/system_config/miwikit_pic18f46j50_24j40\lcd.h
-[v _LCDText `uc ~T0 @X0 -> 0 `x e ]
-"46
-[v _LCD_Update `(v ~T0 @X0 0 ef ]
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;temp_demo.h: 28: void TempDemo(void);
-[; ;temp_demo.h: 29: uint16_t Read_VBGVoltage(void);
-[; ;temp_demo.h: 30: uint8_t ReadTempSensor(uint16_t VBGResult);
-[; ;temp_demo.h: 31: void PrintTempLCD(void);
+[; ;fermier.h: 27: void fermier(void);
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -6729,6 +6586,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 43: extern uint8_t LCDText[16*2+1];
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 45: void LCD_Initialize(void);
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 46: void LCD_Update(void);
@@ -7065,674 +6950,210 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;miwi_api.h: 899: bool MiApp_InitChannelHopping( uint32_t ChannelMap);
 [; ;miwi_api.h: 941: bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
 [; ;miwi_api.h: 950: extern RECEIVED_MESSAGE rxMessage;
-"38 ../src/temp_demo.c
-[v _tempAverage `us ~T0 @X0 1 e ]
-[i _tempAverage
--> -> 0 `i `us
-]
-[; ;temp_demo.c: 38: unsigned short tempAverage = 0;
-"39
-[v _CurrentNodeIndex `uc ~T0 @X0 1 e ]
-[i _CurrentNodeIndex
--> -> 0 `i `uc
-]
-[; ;temp_demo.c: 39: uint8_t CurrentNodeIndex = 0;
-[; ;temp_demo.c: 42: extern bool NetFreezerEnable;
-[; ;temp_demo.c: 43: extern uint8_t role;
-[; ;temp_demo.c: 45: struct TempPacket
-[; ;temp_demo.c: 46: {
-[; ;temp_demo.c: 47: uint8_t NodeAddress[2];
-[; ;temp_demo.c: 48: uint8_t TempValue;
-[; ;temp_demo.c: 49: };
-"50
-[v _NodeTemp `S805 ~T0 @X0 -> 10 `i e ]
-[; ;temp_demo.c: 50: struct TempPacket NodeTemp[10];
-"70
-[v _TempDemo `(v ~T0 @X0 1 ef ]
-"71
+"9 ../src/fermier.c
+[v _fermier `(v ~T0 @X0 1 ef ]
+"10
 {
-[; ;temp_demo.c: 70: void TempDemo(void)
-[; ;temp_demo.c: 71: {
-[e :U _TempDemo ]
+[; ;fermier.c: 9: void fermier(void)
+[; ;fermier.c: 10: {
+[e :U _fermier ]
 [f ]
-"72
-[v _Run_Demo `uc ~T0 @X0 1 a ]
-[; ;temp_demo.c: 72: bool Run_Demo = 1;
-[e = _Run_Demo -> -> 1 `i `uc ]
-"73
-[v _VBGResult `ui ~T0 @X0 1 a ]
-"74
-[v _temp `d ~T0 @X0 1 a ]
-"75
-[v _tick1 `S768 ~T0 @X0 1 a ]
-[v _tick2 `S768 ~T0 @X0 1 a ]
-[v _tick3 `S768 ~T0 @X0 1 a ]
-"76
+"11
 [v _switch_val `uc ~T0 @X0 1 a ]
-[; ;temp_demo.c: 73: uint16_t VBGResult;
-[; ;temp_demo.c: 74: double temp;
-[; ;temp_demo.c: 75: MIWI_TICK tick1, tick2, tick3;
-[; ;temp_demo.c: 76: uint8_t switch_val;
-[; ;temp_demo.c: 82: LCD_BacklightON();
-"82
-[e ( _LCD_BacklightON ..  ]
-[; ;temp_demo.c: 83: LCD_Display((char *)"   Microchip       Temp Demo  ", 0, 1);
-"83
+[; ;fermier.c: 11: uint8_t switch_val = 0;
+[e = _switch_val -> -> 0 `i `uc ]
+"12
+[v _ConnectionEntry `uc ~T0 @X0 0 e ]
+"13
+[v _Tx_Packet `uc ~T0 @X0 1 a ]
+[; ;fermier.c: 12: extern uint8_t ConnectionEntry;
+[; ;fermier.c: 13: bool Tx_Packet = 1;
+[e = _Tx_Packet -> -> 1 `i `uc ]
+"14
+[v _rssi `uc ~T0 @X0 1 a ]
+[; ;fermier.c: 14: uint8_t rssi = 0;
+[e = _rssi -> -> 0 `i `uc ]
+"15
+[v _memoire `uc ~T0 @X0 1 a ]
+[; ;fermier.c: 15: uint8_t memoire = 0;
+[e = _memoire -> -> 0 `i `uc ]
+"16
+[v _Pkt_Loss_Cnt `uc ~T0 @X0 1 a ]
+[; ;fermier.c: 16: uint8_t Pkt_Loss_Cnt = 0;
+[e = _Pkt_Loss_Cnt -> -> 0 `i `uc ]
+"17
+[v _questionnaire `uc ~T0 @X0 1 a ]
+[; ;fermier.c: 17: uint8_t questionnaire = 0;
+[e = _questionnaire -> -> 0 `i `uc ]
+"18
+[v _temp `uc ~T0 @X0 1 a ]
+[; ;fermier.c: 18: uint8_t temp = 0;
+[e = _temp -> -> 0 `i `uc ]
+"19
+[v _reponseb `uc ~T0 @X0 1 a ]
+[; ;fermier.c: 19: uint8_t reponseb = 0;
+[e = _reponseb -> -> 0 `i `uc ]
+"20
+[v _reponsec `uc ~T0 @X0 1 a ]
+[; ;fermier.c: 20: uint8_t reponsec = 0;
+[e = _reponsec -> -> 0 `i `uc ]
+"21
+[v _reponsed `uc ~T0 @X0 1 a ]
+[; ;fermier.c: 21: uint8_t reponsed = 0;
+[e = _reponsed -> -> 0 `i `uc ]
+[; ;fermier.c: 22: LCD_Erase();
+"22
+[e ( _LCD_Erase ..  ]
+[; ;fermier.c: 23: LCD_Display((char *)" FERMIER DEVICE ", 0, 1);
+"23
 [e ( _LCD_Display (3 , , -> :s 1C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;temp_demo.c: 84: LCD_BacklightOFF();
-"84
-[e ( _LCD_BacklightOFF ..  ]
-[; ;temp_demo.c: 90: VBGResult = Read_VBGVoltage();
-"90
-[e = _VBGResult ( _Read_VBGVoltage ..  ]
-[; ;temp_demo.c: 96: NodeTemp[0].NodeAddress[0] = myShortAddress.v[0];
-"96
-[e = *U + &U . *U + &U _NodeTemp * -> -> -> 0 `i `ui `ux -> -> # *U &U _NodeTemp `ui `ux 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U + &U _NodeTemp * -> -> -> 0 `i `ui `ux -> -> # *U &U _NodeTemp `ui `ux 0 `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
-[; ;temp_demo.c: 97: NodeTemp[0].NodeAddress[1] = myShortAddress.v[1];
-"97
-[e = *U + &U . *U + &U _NodeTemp * -> -> -> 0 `i `ui `ux -> -> # *U &U _NodeTemp `ui `ux 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U + &U _NodeTemp * -> -> -> 0 `i `ui `ux -> -> # *U &U _NodeTemp `ui `ux 0 `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
-[; ;temp_demo.c: 102: tick1 = MiWi_TickGet();
-"102
-[e = _tick1 ( _MiWi_TickGet ..  ]
-[; ;temp_demo.c: 103: tick3 = tick1;
-"103
-[e = _tick3 _tick1 ]
-[; ;temp_demo.c: 105: while(Run_Demo)
-"105
-[e $U 807  ]
-[e :U 808 ]
-[; ;temp_demo.c: 106: {
-"106
+[; ;fermier.c: 25: while(1)
+"25
+[e :U 807 ]
+[; ;fermier.c: 26: {
+"26
 {
-[; ;temp_demo.c: 110: tick2 = MiWi_TickGet();
-"110
-[e = _tick2 ( _MiWi_TickGet ..  ]
-[; ;temp_demo.c: 115: switch_val = BUTTON_Pressed();
-"115
-[e = _switch_val ( _BUTTON_Pressed ..  ]
-[; ;temp_demo.c: 116: if((switch_val == 1) || (switch_val == 2))
-"116
-[e $ ! || == -> _switch_val `i -> 1 `i == -> _switch_val `i -> 2 `i 810  ]
-[; ;temp_demo.c: 117: {
-"117
-{
-[; ;temp_demo.c: 121: {TxData = 11;};
-"121
-{
-[e = _TxData -> -> 11 `i `uc ]
-}
-[; ;temp_demo.c: 122: TxBuffer[TxData++] = 1;
-"122
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 1 `i `uc ]
-[; ;temp_demo.c: 123: MiApp_BroadcastPacket(0);
-"123
-[e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
-[; ;temp_demo.c: 124: LCD_BacklightON();
-"124
-[e ( _LCD_BacklightON ..  ]
-[; ;temp_demo.c: 125: LCD_Display((char *)"   Exiting....     Temp Demo  ", 0, 1);
-"125
-[e ( _LCD_Display (3 , , -> :s 2C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;temp_demo.c: 126: LCD_BacklightOFF();
-"126
-[e ( _LCD_BacklightOFF ..  ]
-[; ;temp_demo.c: 131: tick1 = MiWi_TickGet();
-"131
-[e = _tick1 ( _MiWi_TickGet ..  ]
-[; ;temp_demo.c: 132: while(Run_Demo)
-"132
-[e $U 811  ]
-[e :U 812 ]
-[; ;temp_demo.c: 133: {
-"133
-{
-[; ;temp_demo.c: 134: if(MiApp_MessageAvailable())
-"134
-[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 814  ]
-[; ;temp_demo.c: 135: {
-"135
-{
-[; ;temp_demo.c: 136: if(rxMessage.Payload[0] == 4)
-"136
-[e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 4 `i 815  ]
-[; ;temp_demo.c: 137: Run_Demo = 0;
-"137
-[e = _Run_Demo -> -> 0 `i `uc ]
-[e :U 815 ]
-[; ;temp_demo.c: 139: MiApp_DiscardMessage();
-"139
-[e ( _MiApp_DiscardMessage ..  ]
-"140
-}
-[e :U 814 ]
-[; ;temp_demo.c: 140: }
-[; ;temp_demo.c: 141: if (((tick2.Val - tick1.Val) > (((uint32_t)(16000000)/32) * 6)))
-"141
-[e $ ! > - . _tick2 0 . _tick1 0 * / -> -> 16000000 `l `ul -> -> -> 32 `i `l `ul -> -> -> 6 `i `l `ul 816  ]
-[; ;temp_demo.c: 142: Run_Demo = 0;
-"142
-[e = _Run_Demo -> -> 0 `i `uc ]
-[e :U 816 ]
-[; ;temp_demo.c: 144: tick2 = MiWi_TickGet();
-"144
-[e = _tick2 ( _MiWi_TickGet ..  ]
-"145
-}
-[e :U 811 ]
-"132
-[e $ != -> _Run_Demo `i -> -> -> 0 `i `uc `i 812  ]
-[e :U 813 ]
-"146
-}
+[; ;fermier.c: 28: sprintf((char *)&LCDText, (char*)"SW1: DONNEE1    ");
+"28
+[e ( _sprintf (1 , &U _LCDText -> -> :s 2C `*uc `*Cuc ]
+[; ;fermier.c: 29: LCD_Update();
+"29
+[e ( _LCD_Update ..  ]
+[; ;fermier.c: 34: while(switch_val == 0)
+"34
+[e $U 809  ]
 [e :U 810 ]
-[; ;temp_demo.c: 145: }
-[; ;temp_demo.c: 146: }
-[; ;temp_demo.c: 151: if (((tick2.Val - tick3.Val) > (((uint32_t)(16000000)/32) * 4)))
-"151
-[e $ ! > - . _tick2 0 . _tick3 0 * / -> -> 16000000 `l `ul -> -> -> 32 `i `l `ul -> -> -> 4 `i `l `ul 817  ]
-[; ;temp_demo.c: 152: {
-"152
+[; ;fermier.c: 35: {
+"35
 {
-[; ;temp_demo.c: 153: if((ConnectionTable[CurrentNodeIndex].status.bits.isValid))
-"153
-[e $ ! != -> . . . *U + &U _ConnectionTable * -> _CurrentNodeIndex `ux -> -> # *U &U _ConnectionTable `ui `ux 3 1 7 `i -> -> -> 0 `i `uc `i 818  ]
-[; ;temp_demo.c: 154: {
-"154
-{
-[; ;temp_demo.c: 155: CurrentNodeIndex++;
-"155
-[e ++ _CurrentNodeIndex -> -> 1 `i `uc ]
-"156
+[; ;fermier.c: 36: switch_val = BUTTON_Pressed();
+"36
+[e = _switch_val ( _BUTTON_Pressed ..  ]
+"37
 }
-[; ;temp_demo.c: 156: }
-[e $U 819  ]
-"157
+[e :U 809 ]
+"34
+[e $ == -> _switch_val `i -> 0 `i 810  ]
+[e :U 811 ]
+[; ;fermier.c: 37: }
+[; ;fermier.c: 45: if(switch_val == 1)
+"45
+[e $ ! == -> _switch_val `i -> 1 `i 812  ]
+[; ;fermier.c: 46: {
+"46
+{
+[; ;fermier.c: 47: switch_val = 0;
+"47
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;fermier.c: 48: sprintf((char *)&LCDText, (char*)"LECTURE DONNEE    ");
+"48
+[e ( _sprintf (1 , &U _LCDText -> -> :s 3C `*uc `*Cuc ]
+[; ;fermier.c: 49: LCD_Update();
+"49
+[e ( _LCD_Update ..  ]
+[; ;fermier.c: 51: while(switch_val == 0)
+"51
+[e $U 813  ]
+[e :U 814 ]
+[; ;fermier.c: 52: {
+"52
+{
+[; ;fermier.c: 54: questionnaire=1;
+"54
+[e = _questionnaire -> -> 1 `i `uc ]
+[; ;fermier.c: 55: switch_val = 0;
+"55
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;fermier.c: 61: if(questionnaire==1 && switch_val == 0)
+"61
+[e $ ! && == -> _questionnaire `i -> 1 `i == -> _switch_val `i -> 0 `i 816  ]
+[; ;fermier.c: 62: {
+"62
+{
+[; ;fermier.c: 63: switch_val = BUTTON_Pressed();
+"63
+[e = _switch_val ( _BUTTON_Pressed ..  ]
+[; ;fermier.c: 64: sprintf((char *)&LCDText, (char*)"T: %d C   ",temp);
+"64
+[e ( _sprintf (1 , (. , &U _LCDText -> -> :s 4C `*uc `*Cuc -> _temp `i ]
+[; ;fermier.c: 65: LCD_Update();
+"65
+[e ( _LCD_Update ..  ]
+[; ;fermier.c: 66: { unsigned long _dcnt; unsigned long _ms; _ms = 100; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+"66
+{
+[v __dcnt `ul ~T0 @X0 1 a ]
+[v __ms `ul ~T0 @X0 1 a ]
+[e = __ms -> -> -> 100 `i `l `ul ]
+[e $U 817  ]
 [e :U 818 ]
-[; ;temp_demo.c: 157: else
-[; ;temp_demo.c: 158: {
-"158
 {
-[; ;temp_demo.c: 159: CurrentNodeIndex = 0;
-"159
-[e = _CurrentNodeIndex -> -> 0 `i `uc ]
-"160
-}
-[e :U 819 ]
-[; ;temp_demo.c: 160: }
-[; ;temp_demo.c: 162: PrintTempLCD();
-"162
-[e ( _PrintTempLCD ..  ]
-[; ;temp_demo.c: 164: tick3 = MiWi_TickGet();
-"164
-[e = _tick3 ( _MiWi_TickGet ..  ]
-"165
+[e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
+[e $U 820  ]
+[e :U 821 ]
+[e :U 820 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 821  ]
+[e :U 822 ]
+[e -- __ms -> -> -> 1 `i `l `ul ]
 }
 [e :U 817 ]
-[; ;temp_demo.c: 165: }
-[; ;temp_demo.c: 170: if (((tick2.Val - tick1.Val) > (((uint32_t)(16000000)/32) * 5)))
-"170
-[e $ ! > - . _tick2 0 . _tick1 0 * / -> -> 16000000 `l `ul -> -> -> 32 `i `l `ul -> -> -> 5 `i `l `ul 820  ]
-[; ;temp_demo.c: 171: {
-"171
-{
-[; ;temp_demo.c: 187: temp = ReadTempSensor(VBGResult);
-"187
-[e = _temp -> ( _ReadTempSensor (1 _VBGResult `d ]
-[; ;temp_demo.c: 197: tempAverage = 0;
-"197
-[e = _tempAverage -> -> 0 `i `us ]
-[; ;temp_demo.c: 198: tempAverage = (uint8_t)temp;
-"198
-[e = _tempAverage -> -> _temp `uc `us ]
-[; ;temp_demo.c: 203: {TxData = 11;};
-"203
-{
-[e = _TxData -> -> 11 `i `uc ]
+[e $ != __ms -> -> 0 `i `ul 818  ]
+[e :U 819 ]
 }
-[; ;temp_demo.c: 208: myShortAddress.v[0] = 0xA1;
-"208
-[e = *U + &U . _myShortAddress 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux -> -> 161 `i `uc ]
-[; ;temp_demo.c: 209: myShortAddress.v[1] = 0xB1;
-"209
-[e = *U + &U . _myShortAddress 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux -> -> 177 `i `uc ]
-[; ;temp_demo.c: 211: TxBuffer[TxData++] = 0x01;
-"211
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 1 `i `uc ]
-[; ;temp_demo.c: 212: TxBuffer[TxData++] = (uint8_t) tempAverage;
-"212
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> _tempAverage `uc ]
-[; ;temp_demo.c: 213: TxBuffer[TxData++] = myShortAddress.v[0];
-"213
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
-[; ;temp_demo.c: 214: TxBuffer[TxData++] = myShortAddress.v[1];
-"214
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
-[; ;temp_demo.c: 220: NodeTemp[0].TempValue = (uint8_t)tempAverage;
-"220
-[e = . *U + &U _NodeTemp * -> -> -> 0 `i `ui `ux -> -> # *U &U _NodeTemp `ui `ux 1 -> _tempAverage `uc ]
-[; ;temp_demo.c: 229: MiApp_BroadcastPacket(0);
-"229
-[e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
-[; ;temp_demo.c: 234: tick1 = MiWi_TickGet();
-"234
-[e = _tick1 ( _MiWi_TickGet ..  ]
-"235
+[; ;fermier.c: 67: if(MiApp_MessageAvailable())
+"67
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 823  ]
+[; ;fermier.c: 68: {
+"68
+{
+[; ;fermier.c: 69: if(rxMessage.Payload[0] == 0x01)
+"69
+[e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 1 `i 824  ]
+[; ;fermier.c: 70: {
+"70
+{
+[; ;fermier.c: 71: temp=rxMessage.Payload[1] ;
+"71
+[e = _temp *U + . _rxMessage 3 * -> -> 1 `i `x -> -> # *U . _rxMessage 3 `i `x ]
+"72
 }
-[e :U 820 ]
-[; ;temp_demo.c: 235: }
-[; ;temp_demo.c: 245: if(MiApp_MessageAvailable())
-"245
-[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 821  ]
-[; ;temp_demo.c: 246: {
-"246
-{
-"247
-[v _i `uc ~T0 @X0 1 a ]
-[; ;temp_demo.c: 247: uint8_t i;
-[; ;temp_demo.c: 252: if(rxMessage.Payload[0] == 1)
-"252
-[e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 1 `i 822  ]
-[; ;temp_demo.c: 253: {
-"253
-{
-[; ;temp_demo.c: 254: MiApp_DiscardMessage();
-"254
-[e ( _MiApp_DiscardMessage ..  ]
-[; ;temp_demo.c: 255: {TxData = 11;};
-"255
-{
-[e = _TxData -> -> 11 `i `uc ]
-}
-[; ;temp_demo.c: 256: TxBuffer[TxData++] = 4;
-"256
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 4 `i `uc ]
-[; ;temp_demo.c: 257: MiApp_UnicastConnection(0, 0);
-"257
-[e ( _MiApp_UnicastConnection (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;temp_demo.c: 258: Run_Demo = 0;
-"258
-[e = _Run_Demo -> -> 0 `i `uc ]
-[; ;temp_demo.c: 259: LCD_BacklightON();
-"259
-[e ( _LCD_BacklightON ..  ]
-[; ;temp_demo.c: 260: LCD_Display((char *)"   Exiting....     Temp Demo  ", 0, 1);
-"260
-[e ( _LCD_Display (3 , , -> :s 3C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;temp_demo.c: 261: LCD_BacklightOFF();
-"261
-[e ( _LCD_BacklightOFF ..  ]
-"262
-}
-[e :U 822 ]
-[; ;temp_demo.c: 262: }
-[; ;temp_demo.c: 267: for(i = 0; i < 10; i++)
-"267
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 10 `i 823  ]
-[e $U 824  ]
-"268
-[e :U 823 ]
-[; ;temp_demo.c: 268: {
-{
-[; ;temp_demo.c: 269: if((ConnectionTable[i].status.bits.isValid) && (ConnectionTable[i].AltAddress.v[0] == rxMessage.Payload[2]) && (ConnectionTable[i].AltAddress.v[1] == rxMessage.Payload[3]))
-"269
-[e $ ! && && != -> . . . *U + &U _ConnectionTable * -> _i `ux -> -> # *U &U _ConnectionTable `ui `ux 3 1 7 `i -> -> -> 0 `i `uc `i == -> *U + &U . . *U + &U _ConnectionTable * -> _i `ux -> -> # *U &U _ConnectionTable `ui `ux 1 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U + &U _ConnectionTable * -> _i `ux -> -> # *U &U _ConnectionTable `ui `ux 1 0 `ui `ux `i -> *U + . _rxMessage 3 * -> -> 2 `i `x -> -> # *U . _rxMessage 3 `i `x `i == -> *U + &U . . *U + &U _ConnectionTable * -> _i `ux -> -> # *U &U _ConnectionTable `ui `ux 1 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U + &U _ConnectionTable * -> _i `ux -> -> # *U &U _ConnectionTable `ui `ux 1 0 `ui `ux `i -> *U + . _rxMessage 3 * -> -> 3 `i `x -> -> # *U . _rxMessage 3 `i `x `i 826  ]
-[; ;temp_demo.c: 270: {
-"270
-{
-[; ;temp_demo.c: 271: if(rxMessage.Payload[0] == 3)
-"271
-[e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 3 `i 827  ]
-[; ;temp_demo.c: 272: {
-"272
-{
-[; ;temp_demo.c: 274: NodeTemp[i+1].TempValue = rxMessage.Payload[1];
-"274
-[e = . *U + &U _NodeTemp * -> -> + -> _i `i -> 1 `i `ui `ux -> -> # *U &U _NodeTemp `ui `ux 1 *U + . _rxMessage 3 * -> -> 1 `i `x -> -> # *U . _rxMessage 3 `i `x ]
-[; ;temp_demo.c: 275: NodeTemp[i+1].NodeAddress[0] = rxMessage.Payload[2];
-"275
-[e = *U + &U . *U + &U _NodeTemp * -> -> + -> _i `i -> 1 `i `ui `ux -> -> # *U &U _NodeTemp `ui `ux 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U + &U _NodeTemp * -> -> + -> _i `i -> 1 `i `ui `ux -> -> # *U &U _NodeTemp `ui `ux 0 `ui `ux *U + . _rxMessage 3 * -> -> 2 `i `x -> -> # *U . _rxMessage 3 `i `x ]
-[; ;temp_demo.c: 276: NodeTemp[i+1].NodeAddress[1] = rxMessage.Payload[3];
-"276
-[e = *U + &U . *U + &U _NodeTemp * -> -> + -> _i `i -> 1 `i `ui `ux -> -> # *U &U _NodeTemp `ui `ux 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U + &U _NodeTemp * -> -> + -> _i `i -> 1 `i `ui `ux -> -> # *U &U _NodeTemp `ui `ux 0 `ui `ux *U + . _rxMessage 3 * -> -> 3 `i `x -> -> # *U . _rxMessage 3 `i `x ]
-"277
-}
-[e :U 827 ]
-"278
-}
-[e :U 826 ]
-"279
-}
-"267
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 10 `i 823  ]
 [e :U 824 ]
-"279
-}
-[; ;temp_demo.c: 277: }
-[; ;temp_demo.c: 278: }
-[; ;temp_demo.c: 279: }
-[; ;temp_demo.c: 281: MiApp_DiscardMessage();
-"281
+[; ;fermier.c: 72: }
+[; ;fermier.c: 74: MiApp_DiscardMessage();
+"74
 [e ( _MiApp_DiscardMessage ..  ]
-"282
+"75
 }
-[e :U 821 ]
-"283
+[e :U 823 ]
+"77
 }
-[e :U 807 ]
-"105
-[e $ != -> _Run_Demo `i -> -> -> 0 `i `uc `i 808  ]
-[e :U 809 ]
-[; ;temp_demo.c: 282: }
-[; ;temp_demo.c: 283: }
-[; ;temp_demo.c: 284: }
-"284
-[e :UE 806 ]
+[e :U 816 ]
+"78
 }
-"303
-[v _ReadTempSensor `(uc ~T0 @X0 1 ef1`ui ]
-"304
-{
-[; ;temp_demo.c: 303: uint8_t ReadTempSensor(uint16_t VBGResult)
-[; ;temp_demo.c: 304: {
-[e :U _ReadTempSensor ]
-"303
-[v _VBGResult `ui ~T0 @X0 1 r1 ]
-"304
-[f ]
-"305
-[v _tempValue `ui ~T0 @X0 1 a ]
-"306
-[v _temp `d ~T0 @X0 1 a ]
-"307
-[v _tempHere `uc ~T0 @X0 1 a ]
-"308
-[v _i `uc ~T0 @X0 1 a ]
-[; ;temp_demo.c: 305: uint16_t tempValue;
-[; ;temp_demo.c: 306: double temp;
-[; ;temp_demo.c: 307: uint8_t tempHere;
-[; ;temp_demo.c: 308: uint8_t i = 0;
-[e = _i -> -> 0 `i `uc ]
-[v _tempAverage `f ~T0 @X0 1 a ]
-[; ;temp_demo.c: 309: float tempAverage = 0;
-"309
-[e = _tempAverage -> -> 0 `i `f ]
-"310
-[v _tempArray `uc ~T0 @X0 -> 4 `i a ]
-[; ;temp_demo.c: 310: uint8_t tempArray[4];
-[; ;temp_demo.c: 314: ADCON0 = 0x04;
-"314
-[e = _ADCON0 -> -> 4 `i `uc ]
-[; ;temp_demo.c: 315: ADCON1 = 0xBD;
-"315
-[e = _ADCON1 -> -> 189 `i `uc ]
-[; ;temp_demo.c: 317: PIR1bits.ADIF = 0;
-"317
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;temp_demo.c: 318: PIE1bits.ADIE = 0;
-"318
-[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
-[; ;temp_demo.c: 336: do
-"336
-[e :U 831 ]
-[; ;temp_demo.c: 337: {
-"337
-{
-[; ;temp_demo.c: 338: ADCON0bits.ADON = 1;
-"338
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;temp_demo.c: 339: DELAY_10us(10);
-"339
-[e ( _DELAY_10us (1 -> -> -> 10 `i `l `ul ]
-[; ;temp_demo.c: 341: ADCON0bits.GO = 1;
-"341
-[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
-[; ;temp_demo.c: 342: while(ADCON0bits.DONE);
-"342
-[e $U 832  ]
-[e :U 833 ]
-[e :U 832 ]
-[e $ != -> . . _ADCON0bits 3 1 `i -> -> -> 0 `i `Vuc `i 833  ]
-[e :U 834 ]
-[; ;temp_demo.c: 344: temp = (1200.0/VBGResult);
-"344
-[e = _temp / .1200.0 -> _VBGResult `d ]
-[; ;temp_demo.c: 345: tempValue = ADRES;
-"345
-[e = _tempValue -> _ADRES `ui ]
-[; ;temp_demo.c: 346: temp = (temp * tempValue);
-"346
-[e = _temp * _temp -> _tempValue `d ]
-[; ;temp_demo.c: 347: temp = (temp - 500.0)/10.0;
-"347
-[e = _temp / - _temp .500.0 .10.0 ]
-[; ;temp_demo.c: 349: tempArray[i] = (uint8_t) temp;
-"349
-[e = *U + &U _tempArray * -> _i `ux -> -> # *U &U _tempArray `ui `ux -> _temp `uc ]
-[; ;temp_demo.c: 351: ADCON0bits.ADON = 0;
-"351
-[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
-[; ;temp_demo.c: 352: DELAY_10us(1);
-"352
-[e ( _DELAY_10us (1 -> -> -> 1 `i `l `ul ]
-[; ;temp_demo.c: 353: i++;
-"353
-[e ++ _i -> -> 1 `i `uc ]
-"354
+[e :U 813 ]
+"51
+[e $ == -> _switch_val `i -> 0 `i 814  ]
+[e :U 815 ]
+"80
 }
-[; ;temp_demo.c: 354: } while(i < 4);
-[e $ < -> _i `i -> 4 `i 831  ]
-[e :U 830 ]
-[; ;temp_demo.c: 357: for(i = 0; i<4; i++)
-"357
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 4 `i 835  ]
-[e $U 836  ]
-"358
-[e :U 835 ]
-[; ;temp_demo.c: 358: {
-{
-[; ;temp_demo.c: 359: tempAverage = (tempAverage + tempArray[i]);
-"359
-[e = _tempAverage + _tempAverage -> *U + &U _tempArray * -> _i `ux -> -> # *U &U _tempArray `ui `ux `f ]
-"360
+[e :U 812 ]
+"81
 }
-"357
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 4 `i 835  ]
-[e :U 836 ]
-"360
-}
-[; ;temp_demo.c: 360: }
-[; ;temp_demo.c: 361: tempAverage = (tempAverage/4);
-"361
-[e = _tempAverage / _tempAverage -> -> 4 `i `f ]
-[; ;temp_demo.c: 362: tempHere = (uint8_t) tempAverage;
-"362
-[e = _tempHere -> _tempAverage `uc ]
-[; ;temp_demo.c: 363: tempAverage = (tempAverage - tempHere) * 10;
-"363
-[e = _tempAverage * - _tempAverage -> _tempHere `f -> -> 10 `i `f ]
-[; ;temp_demo.c: 365: if(tempAverage >= 5)
-"365
-[e $ ! >= _tempAverage -> -> 5 `i `f 838  ]
-[; ;temp_demo.c: 366: tempHere = tempHere + 1;
-"366
-[e = _tempHere -> + -> _tempHere `i -> 1 `i `uc ]
-[e :U 838 ]
-[; ;temp_demo.c: 368: return (uint8_t)tempHere;
-"368
-[e ) _tempHere ]
-[e $UE 828  ]
-[; ;temp_demo.c: 371: }
-"371
-[e :UE 828 ]
-}
-"390
-[v _Read_VBGVoltage `(ui ~T0 @X0 1 ef ]
-"391
-{
-[; ;temp_demo.c: 390: uint16_t Read_VBGVoltage(void)
-[; ;temp_demo.c: 391: {
-[e :U _Read_VBGVoltage ]
-[f ]
-[; ;temp_demo.c: 392: ADCON0 = 0x3D;
-"392
-[e = _ADCON0 -> -> 61 `i `uc ]
-[; ;temp_demo.c: 393: ADCON1 = 0xBD;
-"393
-[e = _ADCON1 -> -> 189 `i `uc ]
-[; ;temp_demo.c: 394: ANCON1bits.VBGEN = 1;
-"394
-[e = . . _ANCON1bits 0 7 -> -> 1 `i `uc ]
-[; ;temp_demo.c: 396: DELAY_10us(1000);
-"396
-[e ( _DELAY_10us (1 -> -> -> 1000 `i `l `ul ]
-[; ;temp_demo.c: 398: PIR1bits.ADIF = 0;
-"398
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;temp_demo.c: 399: PIE1bits.ADIE = 0;
-"399
-[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
-[; ;temp_demo.c: 401: ADCON0bits.GO = 1;
-"401
-[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
-[; ;temp_demo.c: 402: while(ADCON0bits.DONE);
-"402
-[e $U 840  ]
-[e :U 841 ]
-[e :U 840 ]
-[e $ != -> . . _ADCON0bits 3 1 `i -> -> -> 0 `i `Vuc `i 841  ]
-[e :U 842 ]
-[; ;temp_demo.c: 404: ADCON0bits.ADON = 0;
-"404
-[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
-[; ;temp_demo.c: 405: ANCON1bits.VBGEN = 0;
-"405
-[e = . . _ANCON1bits 0 7 -> -> 0 `i `uc ]
-[; ;temp_demo.c: 407: return ADRES;
-"407
-[e ) -> _ADRES `ui ]
-[e $UE 839  ]
-[; ;temp_demo.c: 408: }
-"408
-[e :UE 839 ]
-}
-"427
-[v _PrintTempLCD `(v ~T0 @X0 1 ef ]
-"428
-{
-[; ;temp_demo.c: 427: void PrintTempLCD(void)
-[; ;temp_demo.c: 428: {
-[e :U _PrintTempLCD ]
-[f ]
-"429
-[v _temp `i ~T0 @X0 1 a ]
-"430
-[v _tempF `uc ~T0 @X0 1 a ]
-[; ;temp_demo.c: 429: int temp;
-[; ;temp_demo.c: 430: uint8_t tempF;
-[; ;temp_demo.c: 432: LCD_Erase();
-"432
-[e ( _LCD_Erase ..  ]
-[; ;temp_demo.c: 434: if(CurrentNodeIndex == 0)
-"434
-[e $ ! == -> _CurrentNodeIndex `i -> 0 `i 844  ]
-[; ;temp_demo.c: 435: {
-"435
-{
-[; ;temp_demo.c: 436: sprintf((char *)LCDText, (char*)"   Local Temp   ");
-"436
-[e ( _sprintf (1 , &U _LCDText -> -> :s 4C `*uc `*Cuc ]
-"437
-}
-[; ;temp_demo.c: 437: }
-[e $U 845  ]
-"438
-[e :U 844 ]
-[; ;temp_demo.c: 438: else
-[; ;temp_demo.c: 439: {
-"439
-{
-[; ;temp_demo.c: 440: sprintf((char *)LCDText, (char*)"  Remote Temp  ");
-"440
-[e ( _sprintf (1 , &U _LCDText -> -> :s 5C `*uc `*Cuc ]
-"441
-}
-[e :U 845 ]
-[; ;temp_demo.c: 441: }
-[; ;temp_demo.c: 443: sprintf((char *)&LCDText[16], (char*)"%02x%02x:",NodeTemp[CurrentNodeIndex].NodeAddress[1],NodeTemp[CurrentNodeIndex].NodeAddress[0]);
-"443
-[e ( _sprintf (1 , , (. , &U *U + &U _LCDText * -> -> -> 16 `i `ui `ux -> -> # *U &U _LCDText `ui `ux -> -> :s 6C `*uc `*Cuc -> *U + &U . *U + &U _NodeTemp * -> _CurrentNodeIndex `ux -> -> # *U &U _NodeTemp `ui `ux 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U + &U _NodeTemp * -> _CurrentNodeIndex `ux -> -> # *U &U _NodeTemp `ui `ux 0 `ui `ux `i -> *U + &U . *U + &U _NodeTemp * -> _CurrentNodeIndex `ux -> -> # *U &U _NodeTemp `ui `ux 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U + &U _NodeTemp * -> _CurrentNodeIndex `ux -> -> # *U &U _NodeTemp `ui `ux 0 `ui `ux `i ]
-[; ;temp_demo.c: 445: if(NodeTemp[CurrentNodeIndex].TempValue == 255)
-"445
-[e $ ! == -> . *U + &U _NodeTemp * -> _CurrentNodeIndex `ux -> -> # *U &U _NodeTemp `ui `ux 1 `i -> 255 `i 846  ]
-[; ;temp_demo.c: 446: {
-"446
-{
-[; ;temp_demo.c: 447: sprintf((char*)&LCDText[23], (char*) " - ");
-"447
-[e ( _sprintf (1 , &U *U + &U _LCDText * -> -> -> 23 `i `ui `ux -> -> # *U &U _LCDText `ui `ux -> -> :s 7C `*uc `*Cuc ]
-"448
-}
-[; ;temp_demo.c: 448: }
-[e $U 847  ]
-"449
-[e :U 846 ]
-[; ;temp_demo.c: 449: else
-[; ;temp_demo.c: 450: {
-"450
-{
-[; ;temp_demo.c: 451: sprintf((char *)&LCDText[21], (char*)" %d", NodeTemp[CurrentNodeIndex].TempValue);
-"451
-[e ( _sprintf (1 , (. , &U *U + &U _LCDText * -> -> -> 21 `i `ui `ux -> -> # *U &U _LCDText `ui `ux -> -> :s 8C `*uc `*Cuc -> . *U + &U _NodeTemp * -> _CurrentNodeIndex `ux -> -> # *U &U _NodeTemp `ui `ux 1 `i ]
-[; ;temp_demo.c: 452: sprintf((char *)&LCDText[24], (char*)"C");
-"452
-[e ( _sprintf (1 , &U *U + &U _LCDText * -> -> -> 24 `i `ui `ux -> -> # *U &U _LCDText `ui `ux -> -> :s 9C `*uc `*Cuc ]
-[; ;temp_demo.c: 454: temp = NodeTemp[CurrentNodeIndex].TempValue;
-"454
-[e = _temp -> . *U + &U _NodeTemp * -> _CurrentNodeIndex `ux -> -> # *U &U _NodeTemp `ui `ux 1 `i ]
-[; ;temp_demo.c: 455: temp = temp * 9;
-"455
-[e = _temp * _temp -> 9 `i ]
-[; ;temp_demo.c: 456: temp = temp / 5;
-"456
-[e = _temp / _temp -> 5 `i ]
-[; ;temp_demo.c: 457: temp = temp + 32;
-"457
-[e = _temp + _temp -> 32 `i ]
-[; ;temp_demo.c: 458: tempF = (uint8_t) temp;
-"458
-[e = _tempF -> _temp `uc ]
-[; ;temp_demo.c: 459: sprintf((char *)&LCDText[25], (char*)"/ %d", tempF);
-"459
-[e ( _sprintf (1 , (. , &U *U + &U _LCDText * -> -> -> 25 `i `ui `ux -> -> # *U &U _LCDText `ui `ux -> -> :s 10C `*uc `*Cuc -> _tempF `i ]
-[; ;temp_demo.c: 460: sprintf((char *)&LCDText[29], (char*)"F");
-"460
-[e ( _sprintf (1 , &U *U + &U _LCDText * -> -> -> 29 `i `ui `ux -> -> # *U &U _LCDText `ui `ux -> -> :s 11C `*uc `*Cuc ]
-"461
-}
-[e :U 847 ]
-[; ;temp_demo.c: 461: }
-[; ;temp_demo.c: 463: LCD_Update();
-"463
-[e ( _LCD_Update ..  ]
-[; ;temp_demo.c: 464: }
-"464
-[e :UE 843 ]
+[e :U 806 ]
+"25
+[e $U 807  ]
+[e :U 808 ]
+[; ;fermier.c: 75: }
+[; ;fermier.c: 77: }
+[; ;fermier.c: 78: }
+[; ;fermier.c: 80: }
+[; ;fermier.c: 81: }
+[; ;fermier.c: 82: }
+"82
+[e :UE 805 ]
 }
 [p f _sprintf 16484269 ]
-[a 10C 47 32 37 100 0 ]
-[a 8C 32 37 100 0 ]
-[a 11C 70 0 ]
-[a 9C 67 0 ]
-[a 6C 37 48 50 120 37 48 50 120 58 0 ]
-[a 7C 32 45 32 0 ]
-[a 5C 32 32 82 101 109 111 116 101 32 84 101 109 112 32 32 0 ]
-[a 2C 32 32 32 69 120 105 116 105 110 103 46 46 46 46 32 32 32 32 32 84 101 109 112 32 68 101 109 111 32 32 0 ]
-[a 3C 32 32 32 69 120 105 116 105 110 103 46 46 46 46 32 32 32 32 32 84 101 109 112 32 68 101 109 111 32 32 0 ]
-[a 1C 32 32 32 77 105 99 114 111 99 104 105 112 32 32 32 32 32 32 32 84 101 109 112 32 68 101 109 111 32 32 0 ]
-[a 4C 32 32 32 76 111 99 97 108 32 84 101 109 112 32 32 32 0 ]
+[a 1C 32 70 69 82 77 73 69 82 32 68 69 86 73 67 69 32 0 ]
+[a 4C 84 58 32 37 100 32 67 32 32 32 0 ]
+[a 3C 76 69 67 84 85 82 69 32 68 79 78 78 69 69 32 32 32 32 0 ]
+[a 2C 83 87 49 58 32 68 79 78 78 69 69 49 32 32 32 32 0 ]

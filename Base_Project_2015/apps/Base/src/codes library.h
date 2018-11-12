@@ -14,3 +14,5 @@
 #define Reponse_B            0x91
 #define Reponse_C            0x92
 #define Reponse_D            0x93
+
+#define CAPTEUR1             0x01

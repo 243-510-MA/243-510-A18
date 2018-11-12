@@ -33,6 +33,7 @@
 #define EXIT_PKT                    1
 #define TEMP_PKT                    3
 #define ACK_PKT                     4
+#define CAPTEUR1                    0x01
 
 unsigned short tempAverage = 0;
 uint8_t CurrentNodeIndex = 0;
@@ -204,10 +205,15 @@ void TempDemo(void)
             /*******************************************************************/
             // Write this Nodes temperature value and Address to the TX Buffer
             /*******************************************************************/
-            MiApp_WriteData(TEMP_PKT);
+            myShortAddress.v[0] = 0xA1;
+            myShortAddress.v[1] = 0xB1;
+            
+            MiApp_WriteData(CAPTEUR1);
             MiApp_WriteData((uint8_t) tempAverage);
             MiApp_WriteData(myShortAddress.v[0]);
             MiApp_WriteData(myShortAddress.v[1]);
+            
+            
 
             
             // Update NodeTemp Structure
