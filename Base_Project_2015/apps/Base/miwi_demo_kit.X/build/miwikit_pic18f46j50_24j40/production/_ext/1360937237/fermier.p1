@@ -6990,97 +6990,101 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;fermier.c: 18: uint8_t temp = 0;
 [e = _temp -> -> 0 `i `uc ]
 "19
-[v _reponseb `uc ~T0 @X0 1 a ]
-[; ;fermier.c: 19: uint8_t reponseb = 0;
-[e = _reponseb -> -> 0 `i `uc ]
+[v _address `uc ~T0 @X0 1 a ]
+[; ;fermier.c: 19: uint8_t address = 0;
+[e = _address -> -> 0 `i `uc ]
 "20
-[v _reponsec `uc ~T0 @X0 1 a ]
-[; ;fermier.c: 20: uint8_t reponsec = 0;
-[e = _reponsec -> -> 0 `i `uc ]
+[v _reponseb `uc ~T0 @X0 1 a ]
+[; ;fermier.c: 20: uint8_t reponseb = 0;
+[e = _reponseb -> -> 0 `i `uc ]
 "21
-[v _reponsed `uc ~T0 @X0 1 a ]
-[; ;fermier.c: 21: uint8_t reponsed = 0;
-[e = _reponsed -> -> 0 `i `uc ]
-[; ;fermier.c: 22: LCD_Erase();
+[v _reponsec `uc ~T0 @X0 1 a ]
+[; ;fermier.c: 21: uint8_t reponsec = 0;
+[e = _reponsec -> -> 0 `i `uc ]
 "22
-[e ( _LCD_Erase ..  ]
-[; ;fermier.c: 23: LCD_Display((char *)" FERMIER DEVICE ", 0, 1);
+[v _reponsed `uc ~T0 @X0 1 a ]
+[; ;fermier.c: 22: uint8_t reponsed = 0;
+[e = _reponsed -> -> 0 `i `uc ]
+[; ;fermier.c: 23: LCD_Erase();
 "23
+[e ( _LCD_Erase ..  ]
+[; ;fermier.c: 24: LCD_Display((char *)" FERMIER DEVICE ", 0, 1);
+"24
 [e ( _LCD_Display (3 , , -> :s 1C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;fermier.c: 25: while(1)
-"25
-[e :U 807 ]
-[; ;fermier.c: 26: {
+[; ;fermier.c: 26: while(1)
 "26
+[e :U 807 ]
+[; ;fermier.c: 27: {
+"27
 {
-[; ;fermier.c: 28: sprintf((char *)&LCDText, (char*)"SW1: DONNEE1    ");
-"28
-[e ( _sprintf (1 , &U _LCDText -> -> :s 2C `*uc `*Cuc ]
-[; ;fermier.c: 29: LCD_Update();
+[; ;fermier.c: 29: sprintf((char *)&LCDText, (char*)"SW1: DONNEE1    ");
 "29
+[e ( _sprintf (1 , &U _LCDText -> -> :s 2C `*uc `*Cuc ]
+[; ;fermier.c: 30: LCD_Update();
+"30
 [e ( _LCD_Update ..  ]
-[; ;fermier.c: 34: while(switch_val == 0)
-"34
+[; ;fermier.c: 35: while(switch_val == 0)
+"35
 [e $U 809  ]
 [e :U 810 ]
-[; ;fermier.c: 35: {
-"35
-{
-[; ;fermier.c: 36: switch_val = BUTTON_Pressed();
+[; ;fermier.c: 36: {
 "36
-[e = _switch_val ( _BUTTON_Pressed ..  ]
+{
+[; ;fermier.c: 37: switch_val = BUTTON_Pressed();
 "37
+[e = _switch_val ( _BUTTON_Pressed ..  ]
+"38
 }
 [e :U 809 ]
-"34
+"35
 [e $ == -> _switch_val `i -> 0 `i 810  ]
 [e :U 811 ]
-[; ;fermier.c: 37: }
-[; ;fermier.c: 45: if(switch_val == 1)
-"45
-[e $ ! == -> _switch_val `i -> 1 `i 812  ]
-[; ;fermier.c: 46: {
+[; ;fermier.c: 38: }
+[; ;fermier.c: 46: if(switch_val == 1)
 "46
-{
-[; ;fermier.c: 47: switch_val = 0;
+[e $ ! == -> _switch_val `i -> 1 `i 812  ]
+[; ;fermier.c: 47: {
 "47
-[e = _switch_val -> -> 0 `i `uc ]
-[; ;fermier.c: 48: sprintf((char *)&LCDText, (char*)"LECTURE DONNEE    ");
+{
+[; ;fermier.c: 48: switch_val = 0;
 "48
-[e ( _sprintf (1 , &U _LCDText -> -> :s 3C `*uc `*Cuc ]
-[; ;fermier.c: 49: LCD_Update();
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;fermier.c: 49: sprintf((char *)&LCDText, (char*)"LECTURE DONNEE    ");
 "49
+[e ( _sprintf (1 , &U _LCDText -> -> :s 3C `*uc `*Cuc ]
+[; ;fermier.c: 50: LCD_Update();
+"50
 [e ( _LCD_Update ..  ]
-[; ;fermier.c: 51: while(switch_val == 0)
-"51
+[; ;fermier.c: 52: while(switch_val == 0)
+"52
 [e $U 813  ]
 [e :U 814 ]
-[; ;fermier.c: 52: {
-"52
+[; ;fermier.c: 53: {
+"53
 {
-[; ;fermier.c: 54: questionnaire=1;
-"54
-[e = _questionnaire -> -> 1 `i `uc ]
-[; ;fermier.c: 55: switch_val = 0;
+[; ;fermier.c: 55: questionnaire=1;
 "55
+[e = _questionnaire -> -> 1 `i `uc ]
+[; ;fermier.c: 56: switch_val = 0;
+"56
 [e = _switch_val -> -> 0 `i `uc ]
-[; ;fermier.c: 61: if(questionnaire==1 && switch_val == 0)
-"61
+[; ;fermier.c: 58: if(questionnaire==1 && switch_val == 0)
+"58
 [e $ ! && == -> _questionnaire `i -> 1 `i == -> _switch_val `i -> 0 `i 816  ]
-[; ;fermier.c: 62: {
-"62
+[; ;fermier.c: 59: {
+"59
 {
-[; ;fermier.c: 63: switch_val = BUTTON_Pressed();
-"63
+[; ;fermier.c: 60: switch_val = BUTTON_Pressed();
+"60
 [e = _switch_val ( _BUTTON_Pressed ..  ]
-[; ;fermier.c: 64: sprintf((char *)&LCDText, (char*)"T: %d C   ",temp);
-"64
-[e ( _sprintf (1 , (. , &U _LCDText -> -> :s 4C `*uc `*Cuc -> _temp `i ]
-[; ;fermier.c: 65: LCD_Update();
-"65
+[; ;fermier.c: 61: sprintf((char *)&LCDText[21], (char*)"/ %d  %02x", temp,address);
+"61
+[e ( _sprintf (1 , , (. , &U *U + &U _LCDText * -> -> -> 21 `i `ui `ux -> -> # *U &U _LCDText `ui `ux -> -> :s 4C `*uc `*Cuc -> _temp `i -> _address `i ]
+[; ;fermier.c: 63: LCD_Update();
+"63
 [e ( _LCD_Update ..  ]
-[; ;fermier.c: 66: { unsigned long _dcnt; unsigned long _ms; _ms = 100; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-"66
+[; ;fermier.c: 64: { unsigned long _dcnt; unsigned long _ms; _ms = 100; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+"64
 {
 [v __dcnt `ul ~T0 @X0 1 a ]
 [v __ms `ul ~T0 @X0 1 a ]
@@ -7100,60 +7104,63 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != __ms -> -> 0 `i `ul 818  ]
 [e :U 819 ]
 }
-[; ;fermier.c: 67: if(MiApp_MessageAvailable())
-"67
+[; ;fermier.c: 65: if(MiApp_MessageAvailable())
+"65
 [e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 823  ]
+[; ;fermier.c: 66: {
+"66
+{
+[; ;fermier.c: 67: if(rxMessage.Payload[0] == 0x01)
+"67
+[e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 1 `i 824  ]
 [; ;fermier.c: 68: {
 "68
 {
-[; ;fermier.c: 69: if(rxMessage.Payload[0] == 0x01)
+[; ;fermier.c: 69: temp=rxMessage.Payload[1] ;
 "69
-[e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 1 `i 824  ]
-[; ;fermier.c: 70: {
-"70
-{
-[; ;fermier.c: 71: temp=rxMessage.Payload[1] ;
-"71
 [e = _temp *U + . _rxMessage 3 * -> -> 1 `i `x -> -> # *U . _rxMessage 3 `i `x ]
-"72
+[; ;fermier.c: 70: address= rxMessage.Payload[2] && rxMessage.Payload[3] ;
+"70
+[e = _address -> -> && != -> *U + . _rxMessage 3 * -> -> 2 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> -> -> 0 `i `uc `i != -> *U + . _rxMessage 3 * -> -> 3 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> -> -> 0 `i `uc `i `i `uc ]
+"71
 }
 [e :U 824 ]
-[; ;fermier.c: 72: }
-[; ;fermier.c: 74: MiApp_DiscardMessage();
-"74
+[; ;fermier.c: 71: }
+[; ;fermier.c: 73: MiApp_DiscardMessage();
+"73
 [e ( _MiApp_DiscardMessage ..  ]
-"75
+"74
 }
 [e :U 823 ]
-"77
+"76
 }
 [e :U 816 ]
-"78
+"77
 }
 [e :U 813 ]
-"51
+"52
 [e $ == -> _switch_val `i -> 0 `i 814  ]
 [e :U 815 ]
-"80
+"79
 }
 [e :U 812 ]
-"81
+"80
 }
 [e :U 806 ]
-"25
+"26
 [e $U 807  ]
 [e :U 808 ]
-[; ;fermier.c: 75: }
+[; ;fermier.c: 74: }
+[; ;fermier.c: 76: }
 [; ;fermier.c: 77: }
-[; ;fermier.c: 78: }
+[; ;fermier.c: 79: }
 [; ;fermier.c: 80: }
 [; ;fermier.c: 81: }
-[; ;fermier.c: 82: }
-"82
+"81
 [e :UE 805 ]
 }
 [p f _sprintf 16484269 ]
+[a 4C 47 32 37 100 32 32 37 48 50 120 0 ]
 [a 1C 32 70 69 82 77 73 69 82 32 68 69 86 73 67 69 32 0 ]
-[a 4C 84 58 32 37 100 32 67 32 32 32 0 ]
 [a 3C 76 69 67 84 85 82 69 32 68 79 78 78 69 69 32 32 32 32 0 ]
 [a 2C 83 87 49 58 32 68 79 78 78 69 69 49 32 32 32 32 0 ]

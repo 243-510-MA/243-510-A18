@@ -16,6 +16,7 @@ void fermier(void)
     uint8_t Pkt_Loss_Cnt = 0;
     uint8_t questionnaire = 0;
     uint8_t temp = 0;
+    uint8_t address = 0;
     uint8_t reponseb = 0;
     uint8_t reponsec = 0;
     uint8_t reponsed = 0;
@@ -53,15 +54,12 @@ void fermier(void)
                     //switch_val = BUTTON_Pressed();
                     questionnaire=1;
                     switch_val = 0;
-                
-                
-                
-                   
-                    
+
                             if(questionnaire==1 && switch_val == 0)
                             {
                                 switch_val = BUTTON_Pressed();
-                                sprintf((char *)&LCDText, (char*)"T: %d C   ",temp);
+                                sprintf((char *)&LCDText[21], (char*)"/ %d  %02x", temp,address);
+                               // sprintf((char *)&LCDText, (char*)"T: %d C   ",temp);
                                 LCD_Update();
                                 delay_ms(100);
                                 if(MiApp_MessageAvailable())
@@ -69,6 +67,7 @@ void fermier(void)
                                     if(rxMessage.Payload[0] == CAPTEUR1)
                                     {
                                         temp=rxMessage.Payload[1] ;
+                                        address= rxMessage.Payload[2] && rxMessage.Payload[3] ;
                                     }
                                    
                                 MiApp_DiscardMessage();
