@@ -8,71 +8,122 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71
 [u S768 `ul 1 `S769 1 `uc -> 4 `i `S770 1 ]
 [n S768 _MIWI_TICK Val byte v word ]
-"17 ../src/CapteurI2C.h
-[v _readTemperatureRaw `(f ~T0 @X0 0 ef1`*i ]
-"20
-[v _sendCommandSHT `(v ~T0 @X0 0 ef1`i ]
-"21
-[v _waitForResultSHT `(v ~T0 @X0 0 ef ]
-"22
-[v _getData16SHT `(i ~T0 @X0 0 ef2`*i`*uc ]
-"26 ../src/soft_i2c.h
-[v _i2cHighScl `(v ~T0 @X0 0 ef ]
-"5799 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[s S266 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S266 . RA0 RA1 RA2 RA3 . RA5 RA6 RA7 ]
-"5809
-[s S267 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S267 . AN0 AN1 AN2 AN3 . AN4 OSC2 OSC1 ]
-"5819
-[s S268 :5 `uc 1 :1 `uc 1 ]
-[n S268 . . NOT_SS1 ]
-"5823
-[s S269 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S269 . C1INA C2INA VREF_MINUS VREF_PLUS . nSS1 CLKO CLKI ]
-"5833
-[s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S270 . PMA6 PMA7 CVREF_MINUS C1INB . HLVDIN ]
-"5841
-[s S271 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S271 . RP0 RP1 C2INB . RCV ]
-"5848
-[s S272 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
-[n S272 . ULPWU . RP2 ]
-"5853
-[s S273 :1 `uc 1 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S273 . ULPWUIN . LVDIN . RJPU ]
-"5798
-[u S265 `S266 1 `S267 1 `S268 1 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 ]
-[n S265 . . . . . . . . . ]
-"5861
-[v _PORTAbits `VS265 ~T0 @X0 0 e@3968 ]
-"27 ../src/soft_i2c.h
-[v _i2cLowScl `(v ~T0 @X0 0 ef ]
-"24
-[v _i2cHighSda `(v ~T0 @X0 0 ef ]
-"25
-[v _i2cLowSda `(v ~T0 @X0 0 ef ]
-"19
-[v _i2cWriteByte `(v ~T0 @X0 0 ef1`uc ]
-[v F7025 `(v ~T0 @X0 1 tf1`ul ]
-"164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
-[v __delay `JF7025 ~T0 @X0 0 e ]
-[p i __delay ]
-"21 ../src/soft_i2c.h
-[v _i2cAck `(v ~T0 @X0 0 ef ]
-"23
-[v _i2cStop `(v ~T0 @X0 0 ef ]
-[; ;CapteurI2C.h: 13: float readHumidity(int *error);
-[; ;CapteurI2C.h: 14: float readTemperatureC(int *error);
-[; ;CapteurI2C.h: 15: float readTemperatureF();
-[; ;CapteurI2C.h: 17: float readTemperatureRaw(int *error);
-[; ;CapteurI2C.h: 18: int shiftIn(int _numBits);
-[; ;CapteurI2C.h: 19: int shiftInCRC();
-[; ;CapteurI2C.h: 20: void sendCommandSHT(int _command);
-[; ;CapteurI2C.h: 21: void waitForResultSHT();
-[; ;CapteurI2C.h: 22: int getData16SHT(int *val, char *CRC);
-[; ;CapteurI2C.h: 23: void skipCrcSHT();
+"194 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"43 ../src/system_config/miwikit_pic18f46j50_24j40\lcd.h
+[v _LCDText `uc ~T0 @X0 -> 0 `x e ]
+"46
+[v _LCD_Update `(v ~T0 @X0 0 ef ]
+"207 ../../../framework\miwi/miwi_mesh.h
+[v _TxData `uc ~T0 @X0 0 e ]
+"206
+[v _TxBuffer `uc ~T0 @X0 -> 0 `x e ]
+"552 ../../../framework\miwi/miwi_api.h
+[v _MiApp_BroadcastPacket `(uc ~T0 @X0 0 ef1`uc ]
+"11881 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
+"11784
+[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
+"8615
+[s S374 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S374 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF PMPIF ]
+"8625
+[s S375 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S375 . . SSPIF TXIF RCIF ]
+"8631
+[s S376 :7 `uc 1 :1 `uc 1 ]
+[n S376 . . PSPIF ]
+"8614
+[u S373 `S374 1 `S375 1 `S376 1 ]
+[n S373 . . . . ]
+"8636
+[v _PIR1bits `VS373 ~T0 @X0 0 e@3998 ]
+"8523
+[s S370 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S370 . TMR1IE TMR2IE CCP1IE SSP1IE TX1IE RC1IE ADIE PMPIE ]
+"8533
+[s S371 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S371 . . SSPIE TXIE RCIE ]
+"8539
+[s S372 :7 `uc 1 :1 `uc 1 ]
+[n S372 . . PSPIE ]
+"8522
+[u S369 `S370 1 `S371 1 `S372 1 ]
+[n S369 . . . . ]
+"8544
+[v _PIE1bits `VS369 ~T0 @X0 0 e@3997 ]
+"11887
+[s S525 :1 `uc 1 :1 `uc 1 ]
+[n S525 . . GO_NOT_DONE ]
+"11891
+[s S526 :1 `uc 1 :1 `uc 1 :4 `uc 1 :2 `uc 1 ]
+[n S526 . ADON GO_nDONE CHS VCFG ]
+"11897
+[s S527 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S527 . . GO_DONE CHS0 CHS1 CHS2 CHS3 VCFG0 VCFG1 ]
+"11907
+[s S528 :1 `uc 1 :1 `uc 1 ]
+[n S528 . . DONE ]
+"11911
+[s S529 :1 `uc 1 :1 `uc 1 ]
+[n S529 . . GO ]
+"11915
+[s S530 :1 `uc 1 :1 `uc 1 ]
+[n S530 . . NOT_DONE ]
+"11919
+[s S531 :1 `uc 1 :1 `uc 1 ]
+[n S531 . . nDONE ]
+"11923
+[s S532 :1 `uc 1 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
+[n S532 . . GODONE . ADCAL ]
+"11886
+[u S524 `S525 1 `S526 1 `S527 1 `S528 1 `S529 1 `S530 1 `S531 1 `S532 1 ]
+[n S524 . . . . . . . . . ]
+"11930
+[v _ADCON0bits `VS524 ~T0 @X0 0 e@4034 ]
+"47 ../src/system_config/miwikit_pic18f46j50_24j40\delay.h
+[v _DELAY_10us `(v ~T0 @X0 0 ef1`ul ]
+"12025 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[v _ADRES `Vus ~T0 @X0 0 e@4035 ]
+"2413
+[s S88 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S88 . PCFG8 PCFG9 PCFG10 PCFG11 PCFG12 . VBG2EN VBGEN ]
+"2423
+[s S89 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S89 . . PCFG14 PCFG15 ]
+"2412
+[u S87 `S88 1 `S89 1 ]
+[n S87 . . . ]
+"2429
+[v _ANCON1bits `VS87 ~T0 @X0 0 e@3913 ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -6589,16 +6640,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;soft_i2c.h: 18: unsigned char i2cReadByte(void);
-[; ;soft_i2c.h: 19: void i2cWriteByte(unsigned char);
-[; ;soft_i2c.h: 20: void i2cNack(void);
-[; ;soft_i2c.h: 21: void i2cAck(void);
-[; ;soft_i2c.h: 22: void i2cStart(void);
-[; ;soft_i2c.h: 23: void i2cStop(void);
-[; ;soft_i2c.h: 24: void i2cHighSda(void);
-[; ;soft_i2c.h: 25: void i2cLowSda(void);
-[; ;soft_i2c.h: 26: void i2cHighScl(void);
-[; ;soft_i2c.h: 27: void i2cLowScl(void);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -6630,34 +6671,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 43: extern uint8_t LCDText[16*2+1];
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 45: void LCD_Initialize(void);
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 46: void LCD_Update(void);
@@ -6717,887 +6730,534 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;miwikit_pic18f46j50_24j40\system.h: 67: uint16_t Val;
 [; ;miwikit_pic18f46j50_24j40\system.h: 69: }API_UINT16_UNION;
 [; ;miwikit_pic18f46j50_24j40\system.h: 122: void SYSTEM_Initialize(void);
-"5 ../src/CapteurI2C.c
-[v _crcTable `uc ~T0 @X0 -> 0 `x e ]
-[i _crcTable
-:U ..
--> -> 0 `i `uc
--> -> 49 `i `uc
--> -> 98 `i `uc
--> -> 83 `i `uc
--> -> 196 `i `uc
--> -> 245 `i `uc
--> -> 166 `i `uc
--> -> 151 `i `uc
--> -> 185 `i `uc
--> -> 136 `i `uc
--> -> 219 `i `uc
--> -> 234 `i `uc
--> -> 125 `i `uc
--> -> 76 `i `uc
--> -> 31 `i `uc
--> -> 46 `i `uc
-"6
--> -> 67 `i `uc
--> -> 114 `i `uc
--> -> 33 `i `uc
--> -> 16 `i `uc
--> -> 135 `i `uc
--> -> 182 `i `uc
--> -> 229 `i `uc
--> -> 212 `i `uc
--> -> 250 `i `uc
--> -> 203 `i `uc
--> -> 152 `i `uc
--> -> 169 `i `uc
--> -> 62 `i `uc
--> -> 15 `i `uc
--> -> 92 `i `uc
--> -> 109 `i `uc
-"7
--> -> 134 `i `uc
--> -> 183 `i `uc
--> -> 228 `i `uc
--> -> 213 `i `uc
--> -> 66 `i `uc
--> -> 115 `i `uc
--> -> 32 `i `uc
--> -> 17 `i `uc
--> -> 63 `i `uc
--> -> 14 `i `uc
--> -> 93 `i `uc
--> -> 108 `i `uc
--> -> 251 `i `uc
--> -> 202 `i `uc
--> -> 153 `i `uc
--> -> 168 `i `uc
-"8
--> -> 197 `i `uc
--> -> 244 `i `uc
--> -> 167 `i `uc
--> -> 150 `i `uc
--> -> 1 `i `uc
--> -> 48 `i `uc
--> -> 99 `i `uc
--> -> 82 `i `uc
--> -> 124 `i `uc
--> -> 77 `i `uc
--> -> 30 `i `uc
--> -> 47 `i `uc
--> -> 184 `i `uc
--> -> 137 `i `uc
--> -> 218 `i `uc
--> -> 235 `i `uc
-"9
--> -> 61 `i `uc
--> -> 12 `i `uc
--> -> 95 `i `uc
--> -> 110 `i `uc
--> -> 249 `i `uc
--> -> 200 `i `uc
--> -> 155 `i `uc
--> -> 170 `i `uc
--> -> 132 `i `uc
--> -> 181 `i `uc
--> -> 230 `i `uc
--> -> 215 `i `uc
--> -> 64 `i `uc
--> -> 113 `i `uc
--> -> 34 `i `uc
--> -> 19 `i `uc
-"10
--> -> 126 `i `uc
--> -> 79 `i `uc
--> -> 28 `i `uc
--> -> 45 `i `uc
--> -> 186 `i `uc
--> -> 139 `i `uc
--> -> 216 `i `uc
--> -> 233 `i `uc
--> -> 199 `i `uc
--> -> 246 `i `uc
--> -> 165 `i `uc
--> -> 148 `i `uc
--> -> 3 `i `uc
--> -> 50 `i `uc
--> -> 97 `i `uc
--> -> 80 `i `uc
+[; ;drv_mrf_miwi_24j40.h: 31: typedef union
+[; ;drv_mrf_miwi_24j40.h: 32: {
+[; ;drv_mrf_miwi_24j40.h: 33: uint8_t Val;
+[; ;drv_mrf_miwi_24j40.h: 34: struct
+[; ;drv_mrf_miwi_24j40.h: 35: {
+[; ;drv_mrf_miwi_24j40.h: 36: uint8_t RF_TXIF :1;
+[; ;drv_mrf_miwi_24j40.h: 37: uint8_t :2;
+[; ;drv_mrf_miwi_24j40.h: 38: uint8_t RF_RXIF :1;
+[; ;drv_mrf_miwi_24j40.h: 39: uint8_t SECIF :1;
+[; ;drv_mrf_miwi_24j40.h: 40: uint8_t :4;
+[; ;drv_mrf_miwi_24j40.h: 41: }bits;
+[; ;drv_mrf_miwi_24j40.h: 42: } MRF24J40_IFREG;
+[; ;drv_mrf_miwi_24j40.h: 44: typedef union
+[; ;drv_mrf_miwi_24j40.h: 45: {
+[; ;drv_mrf_miwi_24j40.h: 46: uint8_t Val;
+[; ;drv_mrf_miwi_24j40.h: 47: struct
+[; ;drv_mrf_miwi_24j40.h: 48: {
+[; ;drv_mrf_miwi_24j40.h: 49: uint8_t TX_BUSY : 1;
+[; ;drv_mrf_miwi_24j40.h: 50: uint8_t TX_PENDING_ACK : 1;
+[; ;drv_mrf_miwi_24j40.h: 51: uint8_t TX_FAIL : 1;
+[; ;drv_mrf_miwi_24j40.h: 52: uint8_t RX_SECURITY : 1;
+[; ;drv_mrf_miwi_24j40.h: 53: uint8_t RX_IGNORE_SECURITY : 1;
+[; ;drv_mrf_miwi_24j40.h: 54: uint8_t RX_BUFFERED : 1;
+[; ;drv_mrf_miwi_24j40.h: 55: uint8_t SEC_IF : 1;
+[; ;drv_mrf_miwi_24j40.h: 56: } bits;
+[; ;drv_mrf_miwi_24j40.h: 57: } MRF24J40_STATUS;
+[; ;drv_mrf_miwi.h: 84: typedef union _DRIVER_UINT8_UNION_
+[; ;drv_mrf_miwi.h: 85: {
+[; ;drv_mrf_miwi.h: 86: uint8_t Val;
+[; ;drv_mrf_miwi.h: 87: struct
+[; ;drv_mrf_miwi.h: 88: {
+[; ;drv_mrf_miwi.h: 89: uint8_t b0:1;
+[; ;drv_mrf_miwi.h: 90: uint8_t b1:1;
+[; ;drv_mrf_miwi.h: 91: uint8_t b2:1;
+[; ;drv_mrf_miwi.h: 92: uint8_t b3:1;
+[; ;drv_mrf_miwi.h: 93: uint8_t b4:1;
+[; ;drv_mrf_miwi.h: 94: uint8_t b5:1;
+[; ;drv_mrf_miwi.h: 95: uint8_t b6:1;
+[; ;drv_mrf_miwi.h: 96: uint8_t b7:1;
+[; ;drv_mrf_miwi.h: 97: } bits;
+[; ;drv_mrf_miwi.h: 99: } DRIVER_UINT8_UNION;
+[; ;drv_mrf_miwi.h: 106: typedef struct
+[; ;drv_mrf_miwi.h: 107: {
+[; ;drv_mrf_miwi.h: 108: union
+[; ;drv_mrf_miwi.h: 109: {
+[; ;drv_mrf_miwi.h: 110: uint8_t Val;
+[; ;drv_mrf_miwi.h: 111: struct
+[; ;drv_mrf_miwi.h: 112: {
+[; ;drv_mrf_miwi.h: 113: uint8_t packetType : 2;
+[; ;drv_mrf_miwi.h: 118: uint8_t broadcast : 1;
+[; ;drv_mrf_miwi.h: 119: uint8_t secEn : 1;
+[; ;drv_mrf_miwi.h: 120: uint8_t repeat : 1;
+[; ;drv_mrf_miwi.h: 121: uint8_t ackReq : 1;
+[; ;drv_mrf_miwi.h: 122: uint8_t destPrsnt : 1;
+[; ;drv_mrf_miwi.h: 123: uint8_t sourcePrsnt : 1;
+[; ;drv_mrf_miwi.h: 124: } bits;
+[; ;drv_mrf_miwi.h: 125: } flags;
+[; ;drv_mrf_miwi.h: 127: uint8_t *DestAddress;
+[; ;drv_mrf_miwi.h: 129: bool altDestAddr;
+[; ;drv_mrf_miwi.h: 130: bool altSrcAddr;
+[; ;drv_mrf_miwi.h: 131: API_UINT16_UNION DestPANID;
+[; ;drv_mrf_miwi.h: 134: } MAC_TRANS_PARAM;
+[; ;drv_mrf_miwi.h: 142: typedef struct
+[; ;drv_mrf_miwi.h: 143: {
+[; ;drv_mrf_miwi.h: 144: union
+[; ;drv_mrf_miwi.h: 145: {
+[; ;drv_mrf_miwi.h: 146: uint8_t Val;
+[; ;drv_mrf_miwi.h: 147: struct
+[; ;drv_mrf_miwi.h: 148: {
+[; ;drv_mrf_miwi.h: 149: uint8_t packetType :2;
+[; ;drv_mrf_miwi.h: 154: uint8_t broadcast :1;
+[; ;drv_mrf_miwi.h: 155: uint8_t secEn :1;
+[; ;drv_mrf_miwi.h: 156: uint8_t repeat :1;
+[; ;drv_mrf_miwi.h: 157: uint8_t ackReq :1;
+[; ;drv_mrf_miwi.h: 158: uint8_t destPrsnt :1;
+[; ;drv_mrf_miwi.h: 159: uint8_t sourcePrsnt :1;
+[; ;drv_mrf_miwi.h: 160: } bits;
+[; ;drv_mrf_miwi.h: 161: } flags;
+[; ;drv_mrf_miwi.h: 163: uint8_t * SourceAddress;
+[; ;drv_mrf_miwi.h: 164: uint8_t * Payload;
+[; ;drv_mrf_miwi.h: 165: uint8_t PayloadLen;
+[; ;drv_mrf_miwi.h: 166: uint8_t RSSIValue;
+[; ;drv_mrf_miwi.h: 167: uint8_t LQIValue;
+[; ;drv_mrf_miwi.h: 169: bool altSourceAddress;
+[; ;drv_mrf_miwi.h: 170: API_UINT16_UNION SourcePANID;
+[; ;drv_mrf_miwi.h: 172: } MAC_RECEIVED_PACKET;
+[; ;drv_mrf_miwi.h: 179: typedef struct
+[; ;drv_mrf_miwi.h: 180: {
+[; ;drv_mrf_miwi.h: 181: union
+[; ;drv_mrf_miwi.h: 182: {
+[; ;drv_mrf_miwi.h: 183: uint8_t Val;
+[; ;drv_mrf_miwi.h: 184: struct
+[; ;drv_mrf_miwi.h: 185: {
+[; ;drv_mrf_miwi.h: 186: uint8_t RepeaterMode :1;
+[; ;drv_mrf_miwi.h: 187: uint8_t CCAEnable :1;
+[; ;drv_mrf_miwi.h: 188: uint8_t NetworkFreezer :1;
+[; ;drv_mrf_miwi.h: 189: uint8_t PAddrLength :4;
+[; ;drv_mrf_miwi.h: 190: } bits;
+[; ;drv_mrf_miwi.h: 191: } actionFlags;
+[; ;drv_mrf_miwi.h: 193: uint8_t *PAddress;
+[; ;drv_mrf_miwi.h: 195: } MACINIT_PARAM;
+[; ;drv_mrf_miwi.h: 197: extern MAC_RECEIVED_PACKET MACRxPacket;
+[; ;drv_mrf_miwi.h: 239: bool MiMAC_SetChannel(uint8_t channel, uint8_t offsetFreq);
+[; ;drv_mrf_miwi.h: 274: bool MiMAC_SetPower(uint8_t outputPower);
+[; ;drv_mrf_miwi.h: 313: bool MiMAC_SetAltAddress(uint8_t *Address, uint8_t *PANID);
+[; ;drv_mrf_miwi.h: 345: bool MiMAC_Init(MACINIT_PARAM initValue);
+[; ;drv_mrf_miwi.h: 380: uint8_t MiMAC_ChannelAssessment(uint8_t AssessmentMode);
+[; ;drv_mrf_miwi.h: 418: void MiMAC_DiscardPacket(void);
+[; ;drv_mrf_miwi.h: 458: bool MiMAC_ReceivedPacket(void);
+[; ;drv_mrf_miwi.h: 494: bool MiMAC_SendPacket(MAC_TRANS_PARAM transParam, uint8_t *MACPayload, uint8_t MACPayloadLen);
+[; ;drv_mrf_miwi.h: 538: bool MiMAC_PowerState(uint8_t PowerState);
+[; ;drv_mrf_miwi.h: 549: void UserInterruptHandler(void);
+[; ;miwi_mesh.h: 44: void MiWiTasks(void);
+[; ;miwi_mesh.h: 45: uint8_t findNextNetworkEntry(void);
+[; ;miwi_mesh.h: 46: void ClearNetworkTable(void);
+[; ;miwi_mesh.h: 47: uint8_t SearchForLongAddress(void);
+[; ;miwi_mesh.h: 48: uint8_t SearchForShortAddress(void);
+[; ;miwi_mesh.h: 49: void SendIndirectPacket(uint8_t *Address, uint8_t *AltAddress, bool isAltAddress);
+[; ;miwi_mesh.h: 50: uint8_t AddNodeToNetworkTable(void);
+[; ;miwi_mesh.h: 51: void DiscoverNodeByEUI(void);
+[; ;miwi_mesh.h: 52: void OpenSocket(void);
+[; ;miwi_mesh.h: 53: bool isSameAddress( uint8_t *Address1,  uint8_t *Address2);
+[; ;miwi_mesh.h: 54: void DumpConnection(uint8_t index);
+[; ;miwi_mesh.h: 55: bool UnicastShortAddress(uint8_t *DestAddress);
+[; ;miwi_mesh.h: 125: typedef union _MIWI_STATE_MACHINE
+[; ;miwi_mesh.h: 126: {
+[; ;miwi_mesh.h: 127: uint16_t Val;
+[; ;miwi_mesh.h: 128: struct {
+[; ;miwi_mesh.h: 129: uint8_t searchingForNetwork :1;
+[; ;miwi_mesh.h: 130: uint8_t memberOfNetwork :1;
+[; ;miwi_mesh.h: 131: uint8_t RxHasUserData :1;
+[; ;miwi_mesh.h: 132: uint8_t MiWiAckInProgress :1;
+[; ;miwi_mesh.h: 133: uint8_t saveConnection :1;
+[; ;miwi_mesh.h: 134: uint8_t EUISearching :1;
+[; ;miwi_mesh.h: 135: uint8_t DataRequesting :1;
+[; ;miwi_mesh.h: 136: uint8_t Resynning :1;
+[; ;miwi_mesh.h: 137: uint8_t Sleeping :1;
+[; ;miwi_mesh.h: 138: } bits;
+[; ;miwi_mesh.h: 139: } MIWI_STATE_MACHINE;
+[; ;miwi_mesh.h: 142: typedef struct _OPEN_SOCKET
+[; ;miwi_mesh.h: 143: {
+[; ;miwi_mesh.h: 144: union _OPEN_SOCKET_STATUS
+[; ;miwi_mesh.h: 145: {
+[; ;miwi_mesh.h: 146: struct _OPEN_SOCKET_STATUS_bits
+[; ;miwi_mesh.h: 147: {
+[; ;miwi_mesh.h: 148: uint8_t matchFound :1;
+[; ;miwi_mesh.h: 149: uint8_t requestIsOpen :1;
+[; ;miwi_mesh.h: 150: uint8_t itIsMe :1;
+[; ;miwi_mesh.h: 151: } bits;
+[; ;miwi_mesh.h: 152: uint8_t Val;
+[; ;miwi_mesh.h: 153: } status;
+[; ;miwi_mesh.h: 154: uint8_t socketHandle;
+[; ;miwi_mesh.h: 155: API_UINT16_UNION ShortAddress1;
+[; ;miwi_mesh.h: 157: uint8_t LongAddress1[8];
+[; ;miwi_mesh.h: 159: uint8_t AdditionalNodeID1[1];
+[; ;miwi_mesh.h: 162: API_UINT16_UNION ShortAddress2;
+[; ;miwi_mesh.h: 163: uint8_t LongAddress2[8];
+[; ;miwi_mesh.h: 165: MIWI_TICK socketStart;
+[; ;miwi_mesh.h: 166: } OPEN_SOCKET;
+[; ;miwi_mesh.h: 174: typedef struct
+[; ;miwi_mesh.h: 175: {
+[; ;miwi_mesh.h: 176: MIWI_TICK TickStart;
+[; ;miwi_mesh.h: 179: API_UINT16_UNION DestPANID;
+[; ;miwi_mesh.h: 181: uint8_t DestAddress[8];
+[; ;miwi_mesh.h: 182: union
+[; ;miwi_mesh.h: 183: {
+[; ;miwi_mesh.h: 184: uint8_t Val;
+[; ;miwi_mesh.h: 185: struct
+[; ;miwi_mesh.h: 186: {
+[; ;miwi_mesh.h: 187: uint8_t isValid : 1;
+[; ;miwi_mesh.h: 188: uint8_t isBroadcast : 1;
+[; ;miwi_mesh.h: 189: uint8_t isCommand : 1;
+[; ;miwi_mesh.h: 190: uint8_t isSecured : 1;
+[; ;miwi_mesh.h: 191: uint8_t isAltAddr : 1;
+[; ;miwi_mesh.h: 192: } bits;
+[; ;miwi_mesh.h: 193: } flags;
+[; ;miwi_mesh.h: 194: uint8_t PayLoadSize;
+[; ;miwi_mesh.h: 198: uint8_t PayLoad[40+11];
+[; ;miwi_mesh.h: 200: } INDIRECT_MESSAGE;
+[; ;miwi_mesh.h: 205: extern MIWI_STATE_MACHINE MiWiStateMachine;
+[; ;miwi_mesh.h: 206: extern uint8_t TxBuffer[];
+[; ;miwi_mesh.h: 207: extern uint8_t TxData;
+[; ;miwi_mesh.h: 208: extern API_UINT16_UNION myPANID;
+[; ;miwi_mesh.h: 209: extern API_UINT16_UNION myShortAddress;
+[; ;miwi_mesh.h: 210: extern uint8_t myParent;
+[; ;miwi_mesh.h: 211: extern uint8_t tempLongAddress[8];
+[; ;miwi_mesh.h: 212: extern API_UINT16_UNION tempShortAddress;
+[; ;miwi_mesh.h: 213: extern OPEN_SOCKET openSocketInfo;
+[; ;miwi_api.h: 51: typedef union __CONNECTION_STATUS
+[; ;miwi_api.h: 52: {
+[; ;miwi_api.h: 53: uint8_t Val;
+[; ;miwi_api.h: 54: struct _CONNECTION_STAUTS_bits
+[; ;miwi_api.h: 55: {
+[; ;miwi_api.h: 56: uint8_t RXOnWhenIdle :1;
+[; ;miwi_api.h: 57: uint8_t directConnection :1;
+[; ;miwi_api.h: 58: uint8_t longAddressValid :1;
+[; ;miwi_api.h: 59: uint8_t shortAddressValid :1;
+[; ;miwi_api.h: 60: uint8_t FinishJoin :1;
+[; ;miwi_api.h: 61: uint8_t isFamily :1;
+[; ;miwi_api.h: 62: uint8_t filler :1;
+[; ;miwi_api.h: 63: uint8_t isValid :1;
+[; ;miwi_api.h: 64: } bits;
+[; ;miwi_api.h: 65: } CONNECTION_STATUS;
+[; ;miwi_api.h: 78: typedef struct __CONNECTION_ENTRY
+[; ;miwi_api.h: 79: {
+[; ;miwi_api.h: 81: API_UINT16_UNION PANID;
+[; ;miwi_api.h: 82: API_UINT16_UNION AltAddress;
+[; ;miwi_api.h: 84: uint8_t Address[8];
+[; ;miwi_api.h: 86: CONNECTION_STATUS status;
+[; ;miwi_api.h: 89: uint8_t PeerInfo[1];
+[; ;miwi_api.h: 91: } CONNECTION_ENTRY;
+[; ;miwi_api.h: 93: extern CONNECTION_ENTRY ConnectionTable[10];
+[; ;miwi_api.h: 95: extern uint8_t currentChannel;
+[; ;miwi_api.h: 136: bool MiApp_ProtocolInit(bool bNetworkFreezer);
+[; ;miwi_api.h: 178: bool MiApp_SetChannel(uint8_t Channel);
+[; ;miwi_api.h: 236: bool MiApp_StartConnection( uint8_t Mode, uint8_t ScanDuration, uint32_t ChannelMap);
+[; ;miwi_api.h: 246: typedef struct
+[; ;miwi_api.h: 247: {
+[; ;miwi_api.h: 248: uint8_t Channel;
+[; ;miwi_api.h: 249: uint8_t Address[8];
+[; ;miwi_api.h: 250: API_UINT16_UNION PANID;
+[; ;miwi_api.h: 251: uint8_t RSSIValue;
+[; ;miwi_api.h: 252: uint8_t LQIValue;
+[; ;miwi_api.h: 253: union
+[; ;miwi_api.h: 254: {
+[; ;miwi_api.h: 255: uint8_t Val;
+[; ;miwi_api.h: 256: struct
+[; ;miwi_api.h: 257: {
+[; ;miwi_api.h: 258: uint8_t Role: 2;
+[; ;miwi_api.h: 259: uint8_t Sleep: 1;
+[; ;miwi_api.h: 260: uint8_t SecurityEn: 1;
+[; ;miwi_api.h: 261: uint8_t RepeatEn: 1;
+[; ;miwi_api.h: 262: uint8_t AllowJoin: 1;
+[; ;miwi_api.h: 263: uint8_t Direct: 1;
+[; ;miwi_api.h: 264: uint8_t altSrcAddr: 1;
+[; ;miwi_api.h: 265: } bits;
+[; ;miwi_api.h: 266: } Capability;
+[; ;miwi_api.h: 268: uint8_t PeerInfo[1];
+[; ;miwi_api.h: 270: } ACTIVE_SCAN_RESULT;
+[; ;miwi_api.h: 273: extern ACTIVE_SCAN_RESULT ActiveScanResults[4];
+[; ;miwi_api.h: 320: uint8_t MiApp_SearchConnection(uint8_t ScanDuration, uint32_t ChannelMap);
+[; ;miwi_api.h: 374: uint8_t MiApp_EstablishConnection(uint8_t ActiveScanIndex, uint8_t Mode);
+[; ;miwi_api.h: 411: void MiApp_RemoveConnection(uint8_t ConnectionIndex);
+[; ;miwi_api.h: 457: void MiApp_ConnectionMode(uint8_t Mode);
+[; ;miwi_api.h: 552: bool MiApp_BroadcastPacket(bool SecEn );
+[; ;miwi_api.h: 591: bool MiApp_UnicastConnection(uint8_t ConnectionIndex, bool SecEn);
+[; ;miwi_api.h: 631: bool MiApp_UnicastAddress(uint8_t *DestinationAddress, bool PermanentAddr, bool SecEn);
+[; ;miwi_api.h: 643: typedef struct
+[; ;miwi_api.h: 644: {
+[; ;miwi_api.h: 645: union
+[; ;miwi_api.h: 646: {
+[; ;miwi_api.h: 647: uint8_t Val;
+[; ;miwi_api.h: 648: struct
+[; ;miwi_api.h: 649: {
+[; ;miwi_api.h: 650: uint8_t broadcast: 2;
+[; ;miwi_api.h: 651: uint8_t ackReq: 1;
+[; ;miwi_api.h: 652: uint8_t secEn: 1;
+[; ;miwi_api.h: 653: uint8_t repeat: 1;
+[; ;miwi_api.h: 654: uint8_t command: 1;
+[; ;miwi_api.h: 655: uint8_t srcPrsnt: 1;
+[; ;miwi_api.h: 656: uint8_t altSrcAddr: 1;
+[; ;miwi_api.h: 657: } bits;
+[; ;miwi_api.h: 658: } flags;
+[; ;miwi_api.h: 660: API_UINT16_UNION SourcePANID;
+[; ;miwi_api.h: 661: uint8_t *SourceAddress;
+[; ;miwi_api.h: 662: uint8_t *Payload;
+[; ;miwi_api.h: 663: uint8_t PayloadSize;
+[; ;miwi_api.h: 664: uint8_t PacketRSSI;
+[; ;miwi_api.h: 665: uint8_t PacketLQI;
+[; ;miwi_api.h: 667: } RECEIVED_MESSAGE;
+[; ;miwi_api.h: 710: bool MiApp_MessageAvailable(void);
+[; ;miwi_api.h: 752: void MiApp_DiscardMessage(void);
+[; ;miwi_api.h: 800: uint8_t MiApp_NoiseDetection(uint32_t ChannelMap, uint8_t ScanDuration, uint8_t DetectionMode,  uint8_t *NoiseLevel);
+[; ;miwi_api.h: 858: uint8_t MiApp_TransceiverPowerState(uint8_t Mode);
+[; ;miwi_api.h: 899: bool MiApp_InitChannelHopping( uint32_t ChannelMap);
+[; ;miwi_api.h: 941: bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
+[; ;miwi_api.h: 950: extern RECEIVED_MESSAGE rxMessage;
+[; ;CapteurI2C.h: 13: float readHumidity(int *error);
+[; ;CapteurI2C.h: 14: float readTemperatureC(int *error);
+[; ;CapteurI2C.h: 15: float readTemperatureF();
+[; ;CapteurI2C.h: 17: float readTemperatureRaw(int *error);
+[; ;CapteurI2C.h: 18: int shiftIn(int _numBits);
+[; ;CapteurI2C.h: 19: int shiftInCRC();
+[; ;CapteurI2C.h: 20: void sendCommandSHT(int _command);
+[; ;CapteurI2C.h: 21: void waitForResultSHT();
+[; ;CapteurI2C.h: 22: int getData16SHT(int *val, char *CRC);
+[; ;CapteurI2C.h: 23: void skipCrcSHT();
+[; ;Board_Capteur.h: 10: uint16_t Read_Voltage_Sensor(void);
+[; ;Board_Capteur.h: 11: int8_t ReadTemperatureSensor(uint16_t Result);
+"9 ../src/Board_Capteur.c
+[v _Board_Capteur_Loop `(i ~T0 @X0 1 ef ]
+{
+[; ;Board_Capteur.c: 9: int Board_Capteur_Loop(){
+[e :U _Board_Capteur_Loop ]
+[f ]
+[; ;Board_Capteur.c: 11: sprintf((char *)&LCDText, (char*)"CACACAC");
 "11
--> -> 187 `i `uc
--> -> 138 `i `uc
--> -> 217 `i `uc
--> -> 232 `i `uc
--> -> 127 `i `uc
--> -> 78 `i `uc
--> -> 29 `i `uc
--> -> 44 `i `uc
--> -> 2 `i `uc
--> -> 51 `i `uc
--> -> 96 `i `uc
--> -> 81 `i `uc
--> -> 198 `i `uc
--> -> 247 `i `uc
--> -> 164 `i `uc
--> -> 149 `i `uc
+[e ( _sprintf (1 , &U _LCDText -> -> :s 1C `*uc `*Cuc ]
+[; ;Board_Capteur.c: 12: LCD_Update();
 "12
--> -> 248 `i `uc
--> -> 201 `i `uc
--> -> 154 `i `uc
--> -> 171 `i `uc
--> -> 60 `i `uc
--> -> 13 `i `uc
--> -> 94 `i `uc
--> -> 111 `i `uc
--> -> 65 `i `uc
--> -> 112 `i `uc
--> -> 35 `i `uc
--> -> 18 `i `uc
--> -> 133 `i `uc
--> -> 180 `i `uc
--> -> 231 `i `uc
--> -> 214 `i `uc
-"13
--> -> 122 `i `uc
--> -> 75 `i `uc
--> -> 24 `i `uc
--> -> 41 `i `uc
--> -> 190 `i `uc
--> -> 143 `i `uc
--> -> 220 `i `uc
--> -> 237 `i `uc
--> -> 195 `i `uc
--> -> 242 `i `uc
--> -> 161 `i `uc
--> -> 144 `i `uc
--> -> 7 `i `uc
--> -> 54 `i `uc
--> -> 101 `i `uc
--> -> 84 `i `uc
+[e ( _LCD_Update ..  ]
+[; ;Board_Capteur.c: 14: while(1)
 "14
--> -> 57 `i `uc
--> -> 8 `i `uc
--> -> 91 `i `uc
--> -> 106 `i `uc
--> -> 253 `i `uc
--> -> 204 `i `uc
--> -> 159 `i `uc
--> -> 174 `i `uc
--> -> 128 `i `uc
--> -> 177 `i `uc
--> -> 226 `i `uc
--> -> 211 `i `uc
--> -> 68 `i `uc
--> -> 117 `i `uc
--> -> 38 `i `uc
--> -> 23 `i `uc
+[e :U 807 ]
+[; ;Board_Capteur.c: 15: {
 "15
--> -> 252 `i `uc
--> -> 205 `i `uc
--> -> 158 `i `uc
--> -> 175 `i `uc
--> -> 56 `i `uc
--> -> 9 `i `uc
--> -> 90 `i `uc
--> -> 107 `i `uc
--> -> 69 `i `uc
--> -> 116 `i `uc
--> -> 39 `i `uc
--> -> 22 `i `uc
--> -> 129 `i `uc
--> -> 176 `i `uc
--> -> 227 `i `uc
--> -> 210 `i `uc
-"16
--> -> 191 `i `uc
--> -> 142 `i `uc
--> -> 221 `i `uc
--> -> 236 `i `uc
--> -> 123 `i `uc
--> -> 74 `i `uc
--> -> 25 `i `uc
--> -> 40 `i `uc
--> -> 6 `i `uc
--> -> 55 `i `uc
--> -> 100 `i `uc
--> -> 85 `i `uc
--> -> 194 `i `uc
--> -> 243 `i `uc
--> -> 160 `i `uc
--> -> 145 `i `uc
+{
+[; ;Board_Capteur.c: 17: {TxData = 11;};
 "17
--> -> 71 `i `uc
--> -> 118 `i `uc
--> -> 37 `i `uc
--> -> 20 `i `uc
--> -> 131 `i `uc
--> -> 178 `i `uc
--> -> 225 `i `uc
--> -> 208 `i `uc
--> -> 254 `i `uc
--> -> 207 `i `uc
--> -> 156 `i `uc
--> -> 173 `i `uc
--> -> 58 `i `uc
--> -> 11 `i `uc
--> -> 88 `i `uc
--> -> 105 `i `uc
+{
+[e = _TxData -> -> 11 `i `uc ]
+}
+[; ;Board_Capteur.c: 18: TxBuffer[TxData++] = 1;
 "18
--> -> 4 `i `uc
--> -> 53 `i `uc
--> -> 102 `i `uc
--> -> 87 `i `uc
--> -> 192 `i `uc
--> -> 241 `i `uc
--> -> 162 `i `uc
--> -> 147 `i `uc
--> -> 189 `i `uc
--> -> 140 `i `uc
--> -> 223 `i `uc
--> -> 238 `i `uc
--> -> 121 `i `uc
--> -> 72 `i `uc
--> -> 27 `i `uc
--> -> 42 `i `uc
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 1 `i `uc ]
+[; ;Board_Capteur.c: 19: TxBuffer[TxData++] = 0xfe;
 "19
--> -> 193 `i `uc
--> -> 240 `i `uc
--> -> 163 `i `uc
--> -> 146 `i `uc
--> -> 5 `i `uc
--> -> 52 `i `uc
--> -> 103 `i `uc
--> -> 86 `i `uc
--> -> 120 `i `uc
--> -> 73 `i `uc
--> -> 26 `i `uc
--> -> 43 `i `uc
--> -> 188 `i `uc
--> -> 141 `i `uc
--> -> 222 `i `uc
--> -> 239 `i `uc
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 254 `i `uc ]
+[; ;Board_Capteur.c: 20: TxBuffer[TxData++] = 0xfe;
 "20
--> -> 130 `i `uc
--> -> 179 `i `uc
--> -> 224 `i `uc
--> -> 209 `i `uc
--> -> 70 `i `uc
--> -> 119 `i `uc
--> -> 36 `i `uc
--> -> 21 `i `uc
--> -> 59 `i `uc
--> -> 10 `i `uc
--> -> 89 `i `uc
--> -> 104 `i `uc
--> -> 255 `i `uc
--> -> 206 `i `uc
--> -> 157 `i `uc
--> -> 172 `i `uc
-..
-]
-[; ;CapteurI2C.c: 5: char crcTable[] = {0,49,98,83,196,245,166,151,185,136,219,234,125,76,31,46,
-[; ;CapteurI2C.c: 6: 67,114,33,16,135,182,229,212,250,203,152,169,62,15,92,109,
-[; ;CapteurI2C.c: 7: 134,183,228,213,66,115,32,17,63,14,93,108,251,202,153,168,
-[; ;CapteurI2C.c: 8: 197,244,167,150,1,48,99,82,124,77,30,47,184,137,218,235,
-[; ;CapteurI2C.c: 9: 61,12,95,110,249,200,155,170,132,181,230,215,64,113,34,19,
-[; ;CapteurI2C.c: 10: 126,79,28,45,186,139,216,233,199,246,165,148,3,50,97,80,
-[; ;CapteurI2C.c: 11: 187,138,217,232,127,78,29,44,2,51,96,81,198,247,164,149,
-[; ;CapteurI2C.c: 12: 248,201,154,171,60,13,94,111,65,112,35,18,133,180,231,214,
-[; ;CapteurI2C.c: 13: 122,75,24,41,190,143,220,237,195,242,161,144,7,54,101,84,
-[; ;CapteurI2C.c: 14: 57,8,91,106,253,204,159,174,128,177,226,211,68,117,38,23,
-[; ;CapteurI2C.c: 15: 252,205,158,175,56,9,90,107,69,116,39,22,129,176,227,210,
-[; ;CapteurI2C.c: 16: 191,142,221,236,123,74,25,40,6,55,100,85,194,243,160,145,
-[; ;CapteurI2C.c: 17: 71,118,37,20,131,178,225,208,254,207,156,173,58,11,88,105,
-[; ;CapteurI2C.c: 18: 4,53,102,87,192,241,162,147,189,140,223,238,121,72,27,42,
-[; ;CapteurI2C.c: 19: 193,240,163,146,5,52,103,86,120,73,26,43,188,141,222,239,
-[; ;CapteurI2C.c: 20: 130,179,224,209,70,119,36,21,59,10,89,104,255,206,157,172};
-"25
-[v _readTemperatureC `(f ~T0 @X0 1 ef1`*i ]
-"26
-{
-[; ;CapteurI2C.c: 25: float readTemperatureC(int *error)
-[; ;CapteurI2C.c: 26: {
-[e :U _readTemperatureC ]
-"25
-[v _error `*i ~T0 @X0 1 r1 ]
-"26
-[f ]
-"27
-[v __val `i ~T0 @X0 1 a ]
-"28
-[v __temperature `f ~T0 @X0 1 a ]
-[v _D1 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 27: int _val;
-[; ;CapteurI2C.c: 28: float _temperature;
-[; ;CapteurI2C.c: 31: const float D1 = -40.0;
-"31
-[e = _D1 -> -U .40.0 `f ]
-"32
-[v _D2 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 32: const float D2 = 0.01;
-[e = _D2 -> .0.01 `f ]
-"34
-[v _err `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 34: int err = 0;
-[e = _err -> 0 `i ]
-[; ;CapteurI2C.c: 36: _val = readTemperatureRaw(&err);
-"36
-[e = __val -> ( _readTemperatureRaw (1 &U _err `i ]
-[; ;CapteurI2C.c: 39: _temperature = (_val * D2) + D1;
-"39
-[e = __temperature + * -> __val `f _D2 _D1 ]
-[; ;CapteurI2C.c: 41: return (_temperature);
-"41
-[e ) __temperature ]
-[e $UE 773  ]
-[; ;CapteurI2C.c: 42: }
-"42
-[e :UE 773 ]
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 254 `i `uc ]
+[; ;Board_Capteur.c: 21: TxBuffer[TxData++] = 0xfe;
+"21
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 254 `i `uc ]
+[; ;Board_Capteur.c: 22: MiApp_BroadcastPacket(0);
+"22
+[e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
+"59
 }
-"47
-[v _readTemperatureF `(f ~T0 @X0 1 ef ]
-"48
-{
-[; ;CapteurI2C.c: 47: float readTemperatureF()
-[; ;CapteurI2C.c: 48: {
-[e :U _readTemperatureF ]
-[f ]
-"49
-[v __val `i ~T0 @X0 1 a ]
-"50
-[v __temperature `f ~T0 @X0 1 a ]
-[v _D1 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 49: int _val;
-[; ;CapteurI2C.c: 50: float _temperature;
-[; ;CapteurI2C.c: 53: const float D1 = -40.0;
-"53
-[e = _D1 -> -U .40.0 `f ]
-"54
-[v _D2 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 54: const float D2 = 0.018;
-[e = _D2 -> .0.018 `f ]
-"56
-[v _err `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 56: int err=0;
-[e = _err -> 0 `i ]
-[; ;CapteurI2C.c: 58: _val = readTemperatureRaw(err);
-"58
-[e = __val -> ( _readTemperatureRaw (1 -> _err `*i `i ]
-[; ;CapteurI2C.c: 61: _temperature = (_val * D2) + D1;
-"61
-[e = __temperature + * -> __val `f _D2 _D1 ]
-[; ;CapteurI2C.c: 63: return (_temperature);
-"63
-[e ) __temperature ]
-[e $UE 774  ]
-[; ;CapteurI2C.c: 64: }
-"64
-[e :UE 774 ]
+[e :U 806 ]
+"14
+[e $U 807  ]
+[e :U 808 ]
+[; ;Board_Capteur.c: 59: }
+[; ;Board_Capteur.c: 60: }
+"60
+[e :UE 805 ]
 }
-"69
-[v _readHumidity `(f ~T0 @X0 1 ef1`*i ]
-"70
-{
-[; ;CapteurI2C.c: 69: float readHumidity(int *error)
-[; ;CapteurI2C.c: 70: {
-[e :U _readHumidity ]
-"69
-[v _error `*i ~T0 @X0 1 r1 ]
-"70
-[f ]
-"71
-[v __val `i ~T0 @X0 1 a ]
-"72
-[v __linearHumidity `f ~T0 @X0 1 a ]
-"73
-[v __correctedHumidity `f ~T0 @X0 1 a ]
-"74
-[v __temperature `f ~T0 @X0 1 a ]
-"77
-[v _C1 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 71: int _val;
-[; ;CapteurI2C.c: 72: float _linearHumidity;
-[; ;CapteurI2C.c: 73: float _correctedHumidity;
-[; ;CapteurI2C.c: 74: float _temperature;
-[; ;CapteurI2C.c: 77: const float C1 = -4.0;
-[e = _C1 -> -U .4.0 `f ]
 "78
-[v _C2 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 78: const float C2 = 0.0405;
-[e = _C2 -> .0.0405 `f ]
+[v _ReadTemperatureSensor `(c ~T0 @X0 1 ef1`ui ]
 "79
-[v _C3 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 79: const float C3 = -0.0000028;
-[e = _C3 -> -U .0.0000028 `f ]
+{
+[; ;Board_Capteur.c: 78: int8_t ReadTemperatureSensor(uint16_t ADC_READING)
+[; ;Board_Capteur.c: 79: {
+[e :U _ReadTemperatureSensor ]
+"78
+[v _ADC_READING `ui ~T0 @X0 1 r1 ]
+"79
+[f ]
 "80
-[v _T1 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 80: const float T1 = 0.01;
-[e = _T1 -> .0.01 `f ]
+[v _tempValue `i ~T0 @X0 1 a ]
 "81
-[v _T2 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 81: const float T2 = 0.00008;
-[e = _T2 -> .0.00008 `f ]
+[v _temp `d ~T0 @X0 1 a ]
+"82
+[v _tempHere `c ~T0 @X0 1 a ]
+"83
+[v _i `uc ~T0 @X0 1 a ]
+[; ;Board_Capteur.c: 80: int16_t tempValue;
+[; ;Board_Capteur.c: 81: double temp;
+[; ;Board_Capteur.c: 82: int8_t tempHere;
+[; ;Board_Capteur.c: 83: uint8_t i = 0;
+[e = _i -> -> 0 `i `uc ]
+"84
+[v _tempAverage `f ~T0 @X0 1 a ]
+[; ;Board_Capteur.c: 84: float tempAverage = 0;
+[e = _tempAverage -> -> 0 `i `f ]
+"85
+[v _tempArray `c ~T0 @X0 -> 4 `i a ]
+[; ;Board_Capteur.c: 85: int8_t tempArray[4];
+[; ;Board_Capteur.c: 89: ADCON0 = 0x04;
+"89
+[e = _ADCON0 -> -> 4 `i `uc ]
+[; ;Board_Capteur.c: 90: ADCON1 = 0xBD;
 "90
-[v __gHumidCmd `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 90: int _gHumidCmd = 0b00000101;
-[e = __gHumidCmd -> 5 `i ]
+[e = _ADCON1 -> -> 189 `i `uc ]
+[; ;Board_Capteur.c: 92: PIR1bits.ADIF = 0;
 "92
-[v _crc `uc ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 92: char crc=0;
-[e = _crc -> -> 0 `i `uc ]
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;Board_Capteur.c: 93: PIE1bits.ADIE = 0;
 "93
-[v _calcCRC `uc ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 93: char calcCRC = 0;
-[e = _calcCRC -> -> 0 `i `uc ]
-[; ;CapteurI2C.c: 95: sendCommandSHT(_gHumidCmd);
+[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
+[; ;Board_Capteur.c: 95: do
 "95
-[e ( _sendCommandSHT (1 __gHumidCmd ]
-[; ;CapteurI2C.c: 96: waitForResultSHT();
+[e :U 812 ]
+[; ;Board_Capteur.c: 96: {
 "96
-[e ( _waitForResultSHT ..  ]
-[; ;CapteurI2C.c: 97: getData16SHT(&_val, &crc);
+{
+[; ;Board_Capteur.c: 97: ADCON0bits.ADON = 1;
 "97
-[e ( _getData16SHT (2 , &U __val &U _crc ]
-[; ;CapteurI2C.c: 99: calcCRC = _gHumidCmd;
-"99
-[e = _calcCRC -> __gHumidCmd `uc ]
-[; ;CapteurI2C.c: 100: calcCRC = crcTable[calcCRC];
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+[; ;Board_Capteur.c: 98: DELAY_10us(10);
+"98
+[e ( _DELAY_10us (1 -> -> -> 10 `i `l `ul ]
+[; ;Board_Capteur.c: 100: ADCON0bits.GO = 1;
 "100
-[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
-[; ;CapteurI2C.c: 102: calcCRC = calcCRC ^ (_val/256);
-"102
-[e = _calcCRC -> ^ -> _calcCRC `i / __val -> 256 `i `uc ]
-[; ;CapteurI2C.c: 103: calcCRC = crcTable[calcCRC];
+[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
+[; ;Board_Capteur.c: 101: while(ADCON0bits.DONE);
+"101
+[e $U 813  ]
+[e :U 814 ]
+[e :U 813 ]
+[e $ != -> . . _ADCON0bits 3 1 `i -> -> -> 0 `i `Vuc `i 814  ]
+[e :U 815 ]
+[; ;Board_Capteur.c: 103: temp = (1200.0/ADC_READING);
 "103
-[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
-[; ;CapteurI2C.c: 105: calcCRC = calcCRC ^ (_val&255);
+[e = _temp / .1200.0 -> _ADC_READING `d ]
+[; ;Board_Capteur.c: 104: tempValue = ADRES;
+"104
+[e = _tempValue -> _ADRES `i ]
+[; ;Board_Capteur.c: 105: temp = (temp * tempValue);
 "105
-[e = _calcCRC -> ^ -> _calcCRC `i & __val -> 255 `i `uc ]
-[; ;CapteurI2C.c: 106: calcCRC = crcTable[calcCRC];
+[e = _temp * _temp -> _tempValue `d ]
+[; ;Board_Capteur.c: 106: temp = (temp - 500.0)/10.0;
 "106
-[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
-[; ;CapteurI2C.c: 108: if(calcCRC != crc){
+[e = _temp / - _temp .500.0 .10.0 ]
+[; ;Board_Capteur.c: 108: tempArray[i] = (int8_t) temp;
 "108
-[e $ ! != -> _calcCRC `i -> _crc `i 776  ]
-{
-[; ;CapteurI2C.c: 109: error = 1;
-"109
-[e = _error -> -> 1 `i `*i ]
-[; ;CapteurI2C.c: 110: return(0);
+[e = *U + &U _tempArray * -> _i `ux -> -> # *U &U _tempArray `ui `ux -> _temp `c ]
+[; ;Board_Capteur.c: 110: ADCON0bits.ADON = 0;
 "110
-[e ) -> -> 0 `i `f ]
-[e $UE 775  ]
+[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
+[; ;Board_Capteur.c: 111: DELAY_10us(1);
 "111
+[e ( _DELAY_10us (1 -> -> -> 1 `i `l `ul ]
+[; ;Board_Capteur.c: 112: i++;
+"112
+[e ++ _i -> -> 1 `i `uc ]
+"113
 }
-[e :U 776 ]
-[; ;CapteurI2C.c: 111: }
-[; ;CapteurI2C.c: 115: _linearHumidity = C1 + C2 * _val + C3 * _val * _val;
-"115
-[e = __linearHumidity + + _C1 * _C2 -> __val `f * * _C3 -> __val `f -> __val `f ]
+[; ;Board_Capteur.c: 113: } while(i < 4);
+[e $ < -> _i `i -> 4 `i 812  ]
+[e :U 811 ]
+[; ;Board_Capteur.c: 116: for(i = 0; i<4; i++)
+"116
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 4 `i 816  ]
+[e $U 817  ]
 "117
-[v _err `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 117: int err=0;
-[e = _err -> 0 `i ]
-[; ;CapteurI2C.c: 119: _temperature = readTemperatureC(&err);
+[e :U 816 ]
+[; ;Board_Capteur.c: 117: {
+{
+[; ;Board_Capteur.c: 118: tempAverage = (tempAverage + tempArray[i]);
+"118
+[e = _tempAverage + _tempAverage -> *U + &U _tempArray * -> _i `ux -> -> # *U &U _tempArray `ui `ux `f ]
 "119
-[e = __temperature ( _readTemperatureC (1 &U _err ]
-[; ;CapteurI2C.c: 122: _correctedHumidity = (_temperature - 25.0 ) * (T1 + T2 * _val) + _linearHumidity;
+}
+"116
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 4 `i 816  ]
+[e :U 817 ]
+"119
+}
+[; ;Board_Capteur.c: 119: }
+[; ;Board_Capteur.c: 120: tempAverage = (tempAverage/4);
+"120
+[e = _tempAverage / _tempAverage -> -> 4 `i `f ]
+[; ;Board_Capteur.c: 121: tempHere = (int8_t) tempAverage;
+"121
+[e = _tempHere -> _tempAverage `c ]
+[; ;Board_Capteur.c: 122: tempAverage = (tempAverage - tempHere) * 10;
 "122
-[e = __correctedHumidity -> + * - -> __temperature `d .25.0 -> + _T1 * _T2 -> __val `f `d -> __linearHumidity `d `f ]
-[; ;CapteurI2C.c: 124: return (_correctedHumidity);
+[e = _tempAverage * - _tempAverage -> _tempHere `f -> -> 10 `i `f ]
+[; ;Board_Capteur.c: 124: if(tempAverage >= 5)
 "124
-[e ) __correctedHumidity ]
-[e $UE 775  ]
-[; ;CapteurI2C.c: 125: }
+[e $ ! >= _tempAverage -> -> 5 `i `f 819  ]
+[; ;Board_Capteur.c: 125: tempHere = tempHere + 1;
 "125
-[e :UE 775 ]
+[e = _tempHere -> + -> _tempHere `i -> 1 `i `c ]
+[e :U 819 ]
+[; ;Board_Capteur.c: 127: return (int8_t)tempHere;
+"127
+[e ) _tempHere ]
+[e $UE 809  ]
+[; ;Board_Capteur.c: 130: }
+"130
+[e :UE 809 ]
 }
-"130
-[v _readTemperatureRaw `(f ~T0 @X0 1 ef1`*i ]
-"131
-{
-[; ;CapteurI2C.c: 130: float readTemperatureRaw(int *error)
-[; ;CapteurI2C.c: 131: {
-[e :U _readTemperatureRaw ]
-"130
-[v _error `*i ~T0 @X0 1 r1 ]
-"131
-[f ]
-"132
-[v __val `i ~T0 @X0 1 a ]
-"133
-[v _crc `uc ~T0 @X0 1 a ]
-"134
-[v _calcCRC `uc ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 132: int _val;
-[; ;CapteurI2C.c: 133: char crc;
-[; ;CapteurI2C.c: 134: char calcCRC = 0;
-[e = _calcCRC -> -> 0 `i `uc ]
-"137
-[v __gTempCmd `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 137: int _gTempCmd = 0b00000011;
-[e = __gTempCmd -> 3 `i ]
-[; ;CapteurI2C.c: 139: sendCommandSHT(_gTempCmd);
-"139
-[e ( _sendCommandSHT (1 __gTempCmd ]
-[; ;CapteurI2C.c: 140: waitForResultSHT();
-"140
-[e ( _waitForResultSHT ..  ]
-[; ;CapteurI2C.c: 141: getData16SHT(&_val, &crc);
-"141
-[e ( _getData16SHT (2 , &U __val &U _crc ]
-[; ;CapteurI2C.c: 143: calcCRC = _gTempCmd;
-"143
-[e = _calcCRC -> __gTempCmd `uc ]
-[; ;CapteurI2C.c: 144: calcCRC = crcTable[calcCRC];
-"144
-[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
-[; ;CapteurI2C.c: 146: calcCRC = calcCRC ^ (_val/256);
-"146
-[e = _calcCRC -> ^ -> _calcCRC `i / __val -> 256 `i `uc ]
-[; ;CapteurI2C.c: 147: calcCRC = crcTable[calcCRC];
-"147
-[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
-[; ;CapteurI2C.c: 149: calcCRC = calcCRC ^ (_val&255);
 "149
-[e = _calcCRC -> ^ -> _calcCRC `i & __val -> 255 `i `uc ]
-[; ;CapteurI2C.c: 150: calcCRC = crcTable[calcCRC];
+[v _Read_Voltage_Sensor `(ui ~T0 @X0 1 ef ]
 "150
-[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
-[; ;CapteurI2C.c: 152: if(calcCRC != crc){
+{
+[; ;Board_Capteur.c: 149: uint16_t Read_Voltage_Sensor(void)
+[; ;Board_Capteur.c: 150: {
+[e :U _Read_Voltage_Sensor ]
+[f ]
+[; ;Board_Capteur.c: 151: ADCON0 = 0x3D;
+"151
+[e = _ADCON0 -> -> 61 `i `uc ]
+[; ;Board_Capteur.c: 152: ADCON1 = 0xBD;
 "152
-[e $ ! != -> _calcCRC `i -> _crc `i 778  ]
-{
-[; ;CapteurI2C.c: 153: error = 1;
+[e = _ADCON1 -> -> 189 `i `uc ]
+[; ;Board_Capteur.c: 153: ANCON1bits.VBGEN = 1;
 "153
-[e = _error -> -> 1 `i `*i ]
-[; ;CapteurI2C.c: 154: return(0);
-"154
-[e ) -> -> 0 `i `f ]
-[e $UE 777  ]
+[e = . . _ANCON1bits 0 7 -> -> 1 `i `uc ]
+[; ;Board_Capteur.c: 155: DELAY_10us(1000);
 "155
-}
-[e :U 778 ]
-[; ;CapteurI2C.c: 155: }
-[; ;CapteurI2C.c: 157: return (_val);
+[e ( _DELAY_10us (1 -> -> -> 1000 `i `l `ul ]
+[; ;Board_Capteur.c: 157: PIR1bits.ADIF = 0;
 "157
-[e ) -> __val `f ]
-[e $UE 777  ]
-[; ;CapteurI2C.c: 158: }
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;Board_Capteur.c: 158: PIE1bits.ADIE = 0;
 "158
-[e :UE 777 ]
-}
-"162
-[v _shiftIn `(i ~T0 @X0 1 ef1`i ]
+[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
+[; ;Board_Capteur.c: 160: ADCON0bits.GO = 1;
+"160
+[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
+[; ;Board_Capteur.c: 161: while(ADCON0bits.DONE);
+"161
+[e $U 821  ]
+[e :U 822 ]
+[e :U 821 ]
+[e $ != -> . . _ADCON0bits 3 1 `i -> -> -> 0 `i `Vuc `i 822  ]
+[e :U 823 ]
+[; ;Board_Capteur.c: 163: ADCON0bits.ADON = 0;
 "163
-{
-[; ;CapteurI2C.c: 162: int shiftIn(int _numBits)
-[; ;CapteurI2C.c: 163: {
-[e :U _shiftIn ]
-"162
-[v __numBits `i ~T0 @X0 1 r1 ]
-"163
-[f ]
+[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
+[; ;Board_Capteur.c: 164: ANCON1bits.VBGEN = 0;
 "164
-[v _ret `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 164: int ret = 0;
-[e = _ret -> 0 `i ]
-"165
-[v _i `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 165: int i;
-[; ;CapteurI2C.c: 167: for (i=0; i<_numBits; ++i)
+[e = . . _ANCON1bits 0 7 -> -> 0 `i `uc ]
+[; ;Board_Capteur.c: 166: return ADRES;
+"166
+[e ) -> _ADRES `ui ]
+[e $UE 820  ]
+[; ;Board_Capteur.c: 167: }
 "167
-{
-[e = _i -> 0 `i ]
-[e $U 783  ]
-"168
-[e :U 780 ]
-[; ;CapteurI2C.c: 168: {
-{
-[; ;CapteurI2C.c: 169: i2cHighScl();
-"169
-[e ( _i2cHighScl ..  ]
-[; ;CapteurI2C.c: 171: ret = ret*2 + PORTAbits.RA2;
-"171
-[e = _ret + * _ret -> 2 `i -> . . _PORTAbits 0 2 `i ]
-[; ;CapteurI2C.c: 172: i2cLowScl();
-"172
-[e ( _i2cLowScl ..  ]
-"173
+[e :UE 820 ]
 }
-"167
-[e =+ _i -> 1 `i ]
-[e :U 783 ]
-[e $ < _i __numBits 780  ]
-[e :U 781 ]
-"173
-}
-[; ;CapteurI2C.c: 173: }
-[; ;CapteurI2C.c: 175: return(ret);
-"175
-[e ) _ret ]
-[e $UE 779  ]
-[; ;CapteurI2C.c: 176: }
-"176
-[e :UE 779 ]
-}
-"178
-[v _shiftInCRC `(i ~T0 @X0 1 ef ]
-"179
-{
-[; ;CapteurI2C.c: 178: int shiftInCRC()
-[; ;CapteurI2C.c: 179: {
-[e :U _shiftInCRC ]
-[f ]
-"180
-[v _ret `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 180: int ret = 0;
-[e = _ret -> 0 `i ]
-"181
-[v _i `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 181: int i;
-[; ;CapteurI2C.c: 183: for (i=7; i>=0; i--)
-"183
-{
-[e = _i -> 7 `i ]
-[e $ >= _i -> 0 `i 785  ]
-[e $U 786  ]
-"184
-[e :U 785 ]
-[; ;CapteurI2C.c: 184: {
-{
-[; ;CapteurI2C.c: 185: i2cHighScl();
-"185
-[e ( _i2cHighScl ..  ]
-[; ;CapteurI2C.c: 187: ret = ret/2 + (PORTAbits.RA2*128);
-"187
-[e = _ret + / _ret -> 2 `i * -> . . _PORTAbits 0 2 `i -> 128 `i ]
-[; ;CapteurI2C.c: 188: i2cLowScl();
-"188
-[e ( _i2cLowScl ..  ]
-"189
-}
-"183
-[e -- _i -> 1 `i ]
-[e $ >= _i -> 0 `i 785  ]
-[e :U 786 ]
-"189
-}
-[; ;CapteurI2C.c: 189: }
-[; ;CapteurI2C.c: 191: return(ret);
-"191
-[e ) _ret ]
-[e $UE 784  ]
-[; ;CapteurI2C.c: 192: }
-"192
-[e :UE 784 ]
-}
-"196
-[v _sendCommandSHT `(v ~T0 @X0 1 ef1`i ]
-"197
-{
-[; ;CapteurI2C.c: 196: void sendCommandSHT(int _command)
-[; ;CapteurI2C.c: 197: {
-[e :U _sendCommandSHT ]
-"196
-[v __command `i ~T0 @X0 1 r1 ]
-"197
-[f ]
-"198
-[v _ack `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 198: int ack;
-[; ;CapteurI2C.c: 201: i2cHighSda();
-"201
-[e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 202: i2cHighScl();
-"202
-[e ( _i2cHighScl ..  ]
-[; ;CapteurI2C.c: 203: i2cLowSda();
-"203
-[e ( _i2cLowSda ..  ]
-[; ;CapteurI2C.c: 204: i2cLowScl();
-"204
-[e ( _i2cLowScl ..  ]
-[; ;CapteurI2C.c: 205: i2cHighScl();
-"205
-[e ( _i2cHighScl ..  ]
-[; ;CapteurI2C.c: 206: i2cHighSda();
-"206
-[e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 207: i2cLowScl();
-"207
-[e ( _i2cLowScl ..  ]
-[; ;CapteurI2C.c: 210: i2cWriteByte(_command);
-"210
-[e ( _i2cWriteByte (1 -> __command `uc ]
-[; ;CapteurI2C.c: 213: i2cHighScl();
-"213
-[e ( _i2cHighScl ..  ]
-[; ;CapteurI2C.c: 214: i2cHighSda();
-"214
-[e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 215: ack = PORTAbits.RA2;
-"215
-[e = _ack -> . . _PORTAbits 0 2 `i ]
-[; ;CapteurI2C.c: 216: if (ack != 0) {
-"216
-[e $ ! != _ack -> 0 `i 789  ]
-{
-"218
-}
-[e :U 789 ]
-[; ;CapteurI2C.c: 218: }
-[; ;CapteurI2C.c: 219: i2cLowScl();
-"219
-[e ( _i2cLowScl ..  ]
-[; ;CapteurI2C.c: 220: ack = PORTAbits.RA2;
-"220
-[e = _ack -> . . _PORTAbits 0 2 `i ]
-[; ;CapteurI2C.c: 221: if (ack != 1) {
-"221
-[e $ ! != _ack -> 1 `i 790  ]
-{
-"223
-}
-[e :U 790 ]
-[; ;CapteurI2C.c: 223: }
-[; ;CapteurI2C.c: 224: }
-"224
-[e :UE 788 ]
-}
-"228
-[v _waitForResultSHT `(v ~T0 @X0 1 ef ]
-{
-[; ;CapteurI2C.c: 228: void waitForResultSHT(){
-[e :U _waitForResultSHT ]
-[f ]
-"229
-[v _i `i ~T0 @X0 1 a ]
-"230
-[v _ack `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 229: int i;
-[; ;CapteurI2C.c: 230: int ack;
-[; ;CapteurI2C.c: 232: i2cHighSda();
-"232
-[e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 234: for(i= 0; i < 3200; ++i)
-"234
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 3200 `i 792  ]
-[e $U 793  ]
-"235
-[e :U 792 ]
-[; ;CapteurI2C.c: 235: {
-{
-[; ;CapteurI2C.c: 236: _delay((unsigned long)((100)*(16000000/4000000.0)));
-"236
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-[; ;CapteurI2C.c: 237: ack = PORTAbits.RA2;
-"237
-[e = _ack -> . . _PORTAbits 0 2 `i ]
-[; ;CapteurI2C.c: 239: if (ack == 0) {
-"239
-[e $ ! == _ack -> 0 `i 795  ]
-{
-[; ;CapteurI2C.c: 240: break;
-"240
-[e $U 793  ]
-"241
-}
-[e :U 795 ]
-"242
-}
-"234
-[e =+ _i -> 1 `i ]
-[e $ < _i -> 3200 `i 792  ]
-[e :U 793 ]
-"242
-}
-[; ;CapteurI2C.c: 241: }
-[; ;CapteurI2C.c: 242: }
-[; ;CapteurI2C.c: 244: if (ack == 1) {
-"244
-[e $ ! == _ack -> 1 `i 796  ]
-{
-"246
-}
-[e :U 796 ]
-[; ;CapteurI2C.c: 246: }
-[; ;CapteurI2C.c: 247: }
-"247
-[e :UE 791 ]
-}
-"252
-[v _getData16SHT `(i ~T0 @X0 1 ef2`*i`*uc ]
-"253
-{
-[; ;CapteurI2C.c: 252: int getData16SHT(int *val, char *CRC)
-[; ;CapteurI2C.c: 253: {
-[e :U _getData16SHT ]
-"252
-[v _val `*i ~T0 @X0 1 r1 ]
-[v _CRC `*uc ~T0 @X0 1 r2 ]
-"253
-[f ]
-[; ;CapteurI2C.c: 256: i2cHighSda();
-"256
-[e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 258: *val = shiftIn(8);
-"258
-[e = *U _val ( _shiftIn (1 -> 8 `i ]
-[; ;CapteurI2C.c: 259: *val *= 256;
-"259
-[e =* *U _val -> 256 `i ]
-[; ;CapteurI2C.c: 262: i2cAck();
-"262
-[e ( _i2cAck ..  ]
-[; ;CapteurI2C.c: 265: i2cHighSda();
-"265
-[e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 266: *val |= shiftIn(8);
-"266
-[e =| *U _val ( _shiftIn (1 -> 8 `i ]
-[; ;CapteurI2C.c: 270: i2cAck();
-"270
-[e ( _i2cAck ..  ]
-[; ;CapteurI2C.c: 272: i2cHighSda();
-"272
-[e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 274: *CRC = shiftInCRC();
-"274
-[e = *U _CRC -> ( _shiftInCRC ..  `uc ]
-[; ;CapteurI2C.c: 276: i2cAck();
-"276
-[e ( _i2cAck ..  ]
-[; ;CapteurI2C.c: 285: i2cStop();
-"285
-[e ( _i2cStop ..  ]
-[; ;CapteurI2C.c: 287: return 0;
-"287
-[e ) -> 0 `i ]
-[e $UE 797  ]
-[; ;CapteurI2C.c: 288: }
-"288
-[e :UE 797 ]
-}
-"292
-[v _skipCrcSHT `(v ~T0 @X0 1 ef ]
-"293
-{
-[; ;CapteurI2C.c: 292: void skipCrcSHT()
-[; ;CapteurI2C.c: 293: {
-[e :U _skipCrcSHT ]
-[f ]
-[; ;CapteurI2C.c: 296: i2cHighSda();
-"296
-[e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 297: i2cHighScl();
-"297
-[e ( _i2cHighScl ..  ]
-[; ;CapteurI2C.c: 298: i2cLowScl();
-"298
-[e ( _i2cLowScl ..  ]
-[; ;CapteurI2C.c: 299: }
-"299
-[e :UE 798 ]
-}
+[p f _sprintf 9437696 ]
+[a 1C 67 65 67 65 67 65 67 0 ]
+

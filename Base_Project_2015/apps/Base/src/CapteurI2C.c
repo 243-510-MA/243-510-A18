@@ -22,7 +22,7 @@ char crcTable[] = {0,49,98,83,196,245,166,151,185,136,219,234,125,76,31,46,
 /**
  * Reads the current temperature in degrees Celsius
  */
-float readTemperatureC()
+float readTemperatureC(int *error)
 {
   int _val;                // Raw value returned from sensor
   float _temperature;      // Temperature derived from raw value
@@ -31,8 +31,9 @@ float readTemperatureC()
   const float D1 = -40.0;  // for 14 Bit @ 5V
   const float D2 =   0.01; // for 14 Bit DEGC
 
+  int err = 0;
   // Fetch raw value
-  _val = readTemperatureRaw();
+  _val = readTemperatureRaw(&err);
 
   // Convert raw value to degrees Celsius
   _temperature = (_val * D2) + D1;
@@ -52,8 +53,9 @@ float readTemperatureF()
   const float D1 = -40.0;   // for 14 Bit @ 5V
   const float D2 =   0.018; // for 14 Bit DEGF
 
+  int err=0;
   // Fetch raw value
-  _val = readTemperatureRaw();
+  _val = readTemperatureRaw(err);
 
   // Convert raw value to degrees Fahrenheit
   _temperature = (_val * D2) + D1;
@@ -64,7 +66,7 @@ float readTemperatureF()
 /**
  * Reads current temperature-corrected relative humidity
  */
-float readHumidity()
+float readHumidity(int *error)
 {
   int _val;                    // Raw humidity value returned from sensor
   float _linearHumidity;       // Humidity with linear correction applied
@@ -88,17 +90,33 @@ float readHumidity()
   int _gHumidCmd = 0b00000101;
 
   char crc=0;
+  char calcCRC = 0;
   // Fetch the value from the sensor
   sendCommandSHT(_gHumidCmd);
   waitForResultSHT();
   getData16SHT(&_val, &crc);
-  //skipCrcSHT();
+  
+  calcCRC = _gHumidCmd;
+  calcCRC = crcTable[calcCRC];
+  
+  calcCRC = calcCRC ^ (_val/256);
+  calcCRC = crcTable[calcCRC];
+  
+  calcCRC = calcCRC ^ (_val&255);
+  calcCRC = crcTable[calcCRC];
+  
+  if(calcCRC != crc){
+      error = 1;
+      return(0);
+  }
+
 
   // Apply linear conversion to raw value
   _linearHumidity = C1 + C2 * _val + C3 * _val * _val;
 
+  int err=0;
   // Get current temperature for humidity correction
-  _temperature = readTemperatureC();
+  _temperature = readTemperatureC(&err);
 
   // Correct humidity value for current temperature
   _correctedHumidity = (_temperature - 25.0 ) * (T1 + T2 * _val) + _linearHumidity;
@@ -109,7 +127,7 @@ float readHumidity()
 /**
  * Reads the current raw temperature value
  */
-float readTemperatureRaw()
+float readTemperatureRaw(int *error)
 {
   int _val;
   char crc;
@@ -131,7 +149,10 @@ float readTemperatureRaw()
   calcCRC = calcCRC ^ (_val&255);
   calcCRC = crcTable[calcCRC];
 
-  //skipCrcSHT();
+  if(calcCRC != crc){
+      error = 1;
+      return(0);
+  }
 
   return (_val);
 }

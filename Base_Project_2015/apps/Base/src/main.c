@@ -9,15 +9,11 @@
 
 #include "pan.h"
 
-
 #include "CapteurI2C.h"
 #include "eusart2.h"
 
-#define PAN 0                       //Controls the projector, red light, buzzer and motion sensor (such many thing, wow)
-#define BOARD_CAPTEUR 1               //Unlock the door (duh)
-#define PROJECTOR_SCREEN 2          //DROP DA PROJECTOR
-#define TEACHER 3                   //Mista ze teacha
-#define STUDENT 4                   //You little shit
+#define PAN 0                      //LE TI MASTER RACE
+#define BOARD_CAPTEUR 1            //DIT MOÉ LES DATAS G
 
 //*************************************************************************
 
@@ -28,11 +24,10 @@
 //EUSART2 TX SUR PIN 5 AKA RP24 AKA I07
 void main(void)
 { 
-    //BOUGEZ PAS SA DE LA MERCI BYE
-    if(DEVICEMODE == PAN){
+    //BOUGEZ PAS SA DE LA MERCI BYE 
+    /*if(DEVICEMODE == PAN){
         EUSART2_Initialize();
-        
-    }
+    }*/
     
     SYSTEM_Initialize();
 
@@ -40,13 +35,23 @@ void main(void)
     LED0 = LED1 = LED2 = 0;
     
     
-/*
     Network(DEVICEMODE);
+    
+    LED0 = LED1 = LED2 = 1;
  
     if(DEVICEMODE == PAN)
     {
         Pan();     
-    } 
- */
+    }
+    
+    
+    
+  /*   if(DEVICEMODE == BOARD_CAPTEUR)
+    {
+        Board_Capteur_Loop();     
+    }
+    */
+    while(1);
+    
 }
 

@@ -10,11 +10,11 @@
 
 #define USECRC
 
-float readHumidity();
-float readTemperatureC();
+float readHumidity(int *error);
+float readTemperatureC(int *error);
 float readTemperatureF();
 
-float readTemperatureRaw();
+float readTemperatureRaw(int *error);
 int shiftIn(int _numBits);
 int shiftInCRC();
 void sendCommandSHT(int _command);
