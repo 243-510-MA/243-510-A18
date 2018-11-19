@@ -1,95 +1,5 @@
 
-# 1 "../src/Board_Capteur.c"
-
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 43
-typedef unsigned char uint8_t;
-
-# 49
-typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
+# 1 "../src/self_test.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8882,6 +8792,96 @@ extern int printf(const char *, ...);
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
 # 43 "../src/system_config/miwikit_pic18f46j50_24j40\lcd.h"
 extern uint8_t LCDText[16*2+1];
 
@@ -8968,6 +8968,9 @@ uint16_t Val;
 
 # 122
 void SYSTEM_Initialize(void);
+
+# 27 "../src/self_test.h"
+void SelfTest(uint8_t);
 
 # 31 "../../../framework\driver/mrf_miwi/drv_mrf_miwi_24j40.h"
 typedef union
@@ -9376,151 +9379,114 @@ bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
 # 950
 extern RECEIVED_MESSAGE rxMessage;
 
-# 13 "../src/CapteurI2C.h"
-float readHumidity(int *error);
-float readTemperatureC(int *error);
-float readTemperatureF();
+# 31 "../src/self_test.c"
+uint8_t switch_val;
+uint8_t EEPROM_Val[3];
+uint8_t SST_Val;
+uint8_t init_case = 0x00;
 
-float readTemperatureRaw(int *error);
-int shiftIn(int _numBits);
-int shiftInCRC();
-void sendCommandSHT(int _command);
-void waitForResultSHT();
-int getData16SHT(int *val, char *CRC);
-void skipCrcSHT();
 
-# 10 "../src/Board_Capteur.h"
-uint16_t Read_Voltage_Sensor(void);
-int8_t ReadTemperatureSensor(uint16_t Result);
+void SelfTest(uint8_t myChannel)
+{
 
-# 9 "../src/Board_Capteur.c"
-int Board_Capteur_Loop(){
-
+LCD_Display((char *)"   MiWi  Demo    Self Test Mode ", 0, 1);
+LCD_Display((char *)"SW1: Start Test SW2: Exit Test", 0, 1);
+init_case = 0;
+while(1)
+{
+switch_val = BUTTON_Pressed();
+if(switch_val == 1)
+{
 
 
 while(1)
 {
+LCD_Display((char *)"Testing ...", 0, 1);
+LATCbits.LATC2 = LATAbits.LATA6 = LATAbits.LATA7 = 0;
+switch(init_case)
+{
+case 0:
 
+EEPROMRead(&(EEPROM_Val[0]), 0xFA, 3);
+if((EEPROM_Val[0] == 0x00) && (EEPROM_Val[1] == 0x00) && (EEPROM_Val[2] == 0x00))
+init_case = 255;
+else if((EEPROM_Val[0] == 0xFF) && (EEPROM_Val[1] == 0xFF) && (EEPROM_Val[2] == 0xFF))
+init_case = 255;
+else init_case++;
+break;
+case 1:
 
-_delay((unsigned long)((500)*(16000000/4000.0)));
+SSTGetID(&SST_Val);
+if(SST_Val == 0xBF)
+init_case++;
+else init_case = 255;
+break;
+case 2:
 
-
+if (MiApp_SetChannel(myChannel) == 0)
+{
+init_case = 254;
+break;
+}
 
 {
 
+bool Tx_Success = 0;
+uint8_t Tx_Trials = 0, scanresult = 0;
 
+while(!Tx_Success)
 {
-int8_t temperatureAir = 0;
-int8_t temperatureSol = 0;
-int8_t humiditeSol = 0;
-
-temperatureAir = ReadTemperatureSensor(Read_Voltage_Sensor());
-
-int err = 0;
-
-temperatureSol = readTemperatureC(&err);
-
-if(err != 0){
-temperatureSol = -128;
-}
-
-err = 0;
-
-humiditeSol = readHumidity(&err);
-
-if(err != 0){
-humiditeSol = -128;
-}
-
-{TxData = 11;};
-TxBuffer[TxData++] = 0xCA;
-TxBuffer[TxData++] = 0xCA;
-TxBuffer[TxData++] = 1;
-TxBuffer[TxData++] = temperatureAir;
-TxBuffer[TxData++] = temperatureSol;
-TxBuffer[TxData++] = humiditeSol;
-TxBuffer[TxData++] = 0xCA;
-TxBuffer[TxData++] = 0xCA;
-MiApp_BroadcastPacket(0);
-
-}
-}
-
-}
-}
-
-# 80
-int8_t ReadTemperatureSensor(uint16_t ADC_READING)
+if(myChannel < 8)
+scanresult = MiApp_SearchConnection(10, (0x00000001 << myChannel));
+else if(myChannel < 16)
+scanresult = MiApp_SearchConnection(10, (0x00000100 << (myChannel-8)));
+else if(myChannel < 24)
+scanresult = MiApp_SearchConnection(10, (0x00010000 << (myChannel-16)));
+else
+scanresult = MiApp_SearchConnection(10, (0x01000000 << (myChannel-24)));
+if(scanresult == 0)
 {
-int16_t tempValue;
-double temp;
-int8_t tempHere;
-uint8_t i = 0;
-float tempAverage = 0;
-int8_t tempArray[4];
+Tx_Trials++;
+if(Tx_Trials > 2) break;
 
-
-
-ADCON0 = 0x04;
-ADCON1 = 0xBD;
-
-PIR1bits.ADIF = 0;
-PIE1bits.ADIE = 0;
-
-do
-{
-ADCON0bits.ADON = 1;
-DELAY_10us(10);
-
-ADCON0bits.GO = 1;
-while(ADCON0bits.DONE);
-
-temp = (1200.0/ADC_READING);
-tempValue = ADRES;
-temp = (temp * tempValue);
-temp = (temp - 500.0)/10.0;
-
-tempArray[i] = (int8_t) temp;
-
-ADCON0bits.ADON = 0;
-DELAY_10us(1);
-i++;
-} while(i < 4);
-
-
-for(i = 0; i<4; i++)
-{
-tempAverage = (tempAverage + tempArray[i]);
 }
-tempAverage = (tempAverage/4);
-tempHere = (int8_t) tempAverage;
-tempAverage = (tempAverage - tempHere) * 10;
+else Tx_Success = 1;
 
-if(tempAverage >= 5)
-tempHere = tempHere + 1;
+}
+if(Tx_Success) init_case = 254;
+else init_case = 255;
+}
+break;
 
-return (int8_t)tempHere;
-
+case 254: LCD_Display((char *)"Self Test Mode  Test Pass", 0, 1);
+LATCbits.LATC2 = LATAbits.LATA6= LATAbits.LATA7 = 1;
+init_case = 0xF0;
+break;
+case 255: LCD_Display((char *)"Self Test Mode  Test Fail", 0, 1);
+LATCbits.LATC2 = LATAbits.LATA6 = LATAbits.LATA7 = 1;
+init_case = 0xF0;
+break;
+default: break;
 
 }
 
-# 151
-uint16_t Read_Voltage_Sensor(void)
+if(init_case == 0xF0)
 {
-ADCON0 = 0x3D;
-ADCON1 = 0xBD;
-ANCON1bits.VBGEN = 1;
+while(1)
+{
+switch_val = BUTTON_Pressed();
+if((switch_val == 1) || (switch_val == 2))
+break;
+}
+break;
+}
+}
+break;
 
-DELAY_10us(1000);
-
-PIR1bits.ADIF = 0;
-PIE1bits.ADIE = 0;
-
-ADCON0bits.GO = 1;
-while(ADCON0bits.DONE);
-
-ADCON0bits.ADON = 0;
-ANCON1bits.VBGEN = 0;
-
-return ADRES;
+}
+else if(switch_val == 2)
+{
+break;
+}
+}
 }

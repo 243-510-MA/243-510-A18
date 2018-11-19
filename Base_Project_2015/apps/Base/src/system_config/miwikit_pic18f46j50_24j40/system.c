@@ -173,8 +173,6 @@ void SYSTEM_Initialize(void)
     /*******************************************************************/
     INTCONbits.GIEH = 1;
     INTCONbits.GIEL = 1;
-    
-    EUSART2_Initialize();
 
 }
 

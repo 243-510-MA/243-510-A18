@@ -12,12 +12,14 @@
 #include "CapteurI2C.h"
 #include "eusart2.h"
 
+#include "student.h"
+
 #define PAN 0                      //LE TI MASTER RACE
 #define BOARD_CAPTEUR 1            //DIT MOÉ LES DATAS G
 
 //*************************************************************************
 
-#define DEVICEMODE PAN // Choisir ici
+#define DEVICEMODE BOARD_CAPTEUR // Choisir ici
 
 //*************************************************************************
 
@@ -25,9 +27,9 @@
 void main(void)
 { 
     //BOUGEZ PAS SA DE LA MERCI BYE 
-    /*if(DEVICEMODE == PAN){
+    if(DEVICEMODE == PAN){
         EUSART2_Initialize();
-    }*/
+    }
     
     SYSTEM_Initialize();
 
@@ -37,6 +39,9 @@ void main(void)
     
     Network(DEVICEMODE);
     
+    sprintf((char *)&LCDText, (char*)"CACACAC");
+    LCD_Update();
+    
     LED0 = LED1 = LED2 = 1;
  
     if(DEVICEMODE == PAN)
@@ -44,13 +49,12 @@ void main(void)
         Pan();     
     }
     
-    
-    
-  /*   if(DEVICEMODE == BOARD_CAPTEUR)
+
+    else if(DEVICEMODE == BOARD_CAPTEUR)
     {
-        Board_Capteur_Loop();     
+        Board_Capteur_Loop();   
     }
-    */
+    
     while(1);
     
 }

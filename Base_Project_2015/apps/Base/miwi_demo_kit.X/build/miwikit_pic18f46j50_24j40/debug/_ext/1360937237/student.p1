@@ -8,128 +8,56 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71
 [u S768 `ul 1 `S769 1 `uc -> 4 `i `S770 1 ]
 [n S768 _MIWI_TICK Val byte v word ]
-[v F7036 `(v ~T0 @X0 1 tf1`ul ]
-"164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
-[v __delay `JF7036 ~T0 @X0 0 e ]
-[p i __delay ]
-"11 ../src/Board_Capteur.h
-[v _ReadTemperatureSensor `(c ~T0 @X0 0 ef1`ui ]
-"10
-[v _Read_Voltage_Sensor `(ui ~T0 @X0 0 ef ]
-"14 ../src/CapteurI2C.h
-[v _readTemperatureC `(f ~T0 @X0 0 ef1`*i ]
-"13
-[v _readHumidity `(f ~T0 @X0 0 ef1`*i ]
+"47 ../src/system_config/miwikit_pic18f46j50_24j40\lcd.h
+[v _LCD_Erase `(v ~T0 @X0 0 ef ]
+"50
+[v _LCD_Display `(v ~T0 @X0 0 ef3`*uc`uc`uc ]
+"194 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"43 ../src/system_config/miwikit_pic18f46j50_24j40\lcd.h
+[v _LCDText `uc ~T0 @X0 -> 0 `x e ]
+"46
+[v _LCD_Update `(v ~T0 @X0 0 ef ]
+"35 ../src/system_config/miwikit_pic18f46j50_24j40\button.h
+[v _BUTTON_Pressed `(uc ~T0 @X0 0 ef ]
+"7131 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[s S314 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S314 . LATA0 LATA1 LATA2 LATA3 . LATA5 LATA6 LATA7 ]
+"7141
+[s S315 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S315 . LA0 LA1 LA2 LA3 . LA5 LA6 LA7 ]
+"7130
+[u S313 `S314 1 `S315 1 ]
+[n S313 . . . ]
+"7152
+[v _LATAbits `VS313 ~T0 @X0 0 e@3977 ]
 "207 ../../../framework\miwi/miwi_mesh.h
 [v _TxData `uc ~T0 @X0 0 e ]
 "206
 [v _TxBuffer `uc ~T0 @X0 -> 0 `x e ]
+"64 ../src/system_config/miwikit_pic18f46j50_24j40\system.h
+[u S772 `uc -> 2 `i `ui 1 ]
+[n S772 . v Val ]
+"209 ../../../framework\miwi/miwi_mesh.h
+[v _myShortAddress `S772 ~T0 @X0 0 e ]
 "552 ../../../framework\miwi/miwi_api.h
 [v _MiApp_BroadcastPacket `(uc ~T0 @X0 0 ef1`uc ]
-"11881 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
-"11784
-[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
-"8615
-[s S374 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S374 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF PMPIF ]
-"8625
-[s S375 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S375 . . SSPIF TXIF RCIF ]
-"8631
-[s S376 :7 `uc 1 :1 `uc 1 ]
-[n S376 . . PSPIF ]
-"8614
-[u S373 `S374 1 `S375 1 `S376 1 ]
-[n S373 . . . . ]
-"8636
-[v _PIR1bits `VS373 ~T0 @X0 0 e@3998 ]
-"8523
-[s S370 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S370 . TMR1IE TMR2IE CCP1IE SSP1IE TX1IE RC1IE ADIE PMPIE ]
-"8533
-[s S371 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S371 . . SSPIE TXIE RCIE ]
-"8539
-[s S372 :7 `uc 1 :1 `uc 1 ]
-[n S372 . . PSPIE ]
-"8522
-[u S369 `S370 1 `S371 1 `S372 1 ]
-[n S369 . . . . ]
-"8544
-[v _PIE1bits `VS369 ~T0 @X0 0 e@3997 ]
-"11887
-[s S525 :1 `uc 1 :1 `uc 1 ]
-[n S525 . . GO_NOT_DONE ]
-"11891
-[s S526 :1 `uc 1 :1 `uc 1 :4 `uc 1 :2 `uc 1 ]
-[n S526 . ADON GO_nDONE CHS VCFG ]
-"11897
-[s S527 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S527 . . GO_DONE CHS0 CHS1 CHS2 CHS3 VCFG0 VCFG1 ]
-"11907
-[s S528 :1 `uc 1 :1 `uc 1 ]
-[n S528 . . DONE ]
-"11911
-[s S529 :1 `uc 1 :1 `uc 1 ]
-[n S529 . . GO ]
-"11915
-[s S530 :1 `uc 1 :1 `uc 1 ]
-[n S530 . . NOT_DONE ]
-"11919
-[s S531 :1 `uc 1 :1 `uc 1 ]
-[n S531 . . nDONE ]
-"11923
-[s S532 :1 `uc 1 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
-[n S532 . . GODONE . ADCAL ]
-"11886
-[u S524 `S525 1 `S526 1 `S527 1 `S528 1 `S529 1 `S530 1 `S531 1 `S532 1 ]
-[n S524 . . . . . . . . . ]
-"11930
-[v _ADCON0bits `VS524 ~T0 @X0 0 e@4034 ]
-"47 ../src/system_config/miwikit_pic18f46j50_24j40\delay.h
-[v _DELAY_10us `(v ~T0 @X0 0 ef1`ul ]
-"12025 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[v _ADRES `Vus ~T0 @X0 0 e@4035 ]
-"2413
-[s S88 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S88 . PCFG8 PCFG9 PCFG10 PCFG11 PCFG12 . VBG2EN VBGEN ]
-"2423
-[s S89 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S89 . . PCFG14 PCFG15 ]
-"2412
-[u S87 `S88 1 `S89 1 ]
-[n S87 . . . ]
-"2429
-[v _ANCON1bits `VS87 ~T0 @X0 0 e@3913 ]
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+"710
+[v _MiApp_MessageAvailable `(uc ~T0 @X0 0 ef ]
+"649
+[s S804 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S804 . broadcast ackReq secEn repeat command srcPrsnt altSrcAddr ]
+"646
+[u S803 `uc 1 `S804 1 ]
+[n S803 . Val bits ]
+"644
+[s S802 `S803 1 `S772 1 `*uc 1 `*uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S802 . flags SourcePANID SourceAddress Payload PayloadSize PacketRSSI PacketLQI ]
+"950
+[v _rxMessage `S802 ~T0 @X0 0 e ]
+"752
+[v _MiApp_DiscardMessage `(v ~T0 @X0 0 ef ]
+[; ;student.h: 27: void Student(void);
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -6677,6 +6605,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 43: extern uint8_t LCDText[16*2+1];
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 45: void LCD_Initialize(void);
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 46: void LCD_Update(void);
@@ -7013,325 +6969,911 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;miwi_api.h: 899: bool MiApp_InitChannelHopping( uint32_t ChannelMap);
 [; ;miwi_api.h: 941: bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
 [; ;miwi_api.h: 950: extern RECEIVED_MESSAGE rxMessage;
-[; ;CapteurI2C.h: 13: float readHumidity(int *error);
-[; ;CapteurI2C.h: 14: float readTemperatureC(int *error);
-[; ;CapteurI2C.h: 15: float readTemperatureF();
-[; ;CapteurI2C.h: 17: float readTemperatureRaw(int *error);
-[; ;CapteurI2C.h: 18: int shiftIn(int _numBits);
-[; ;CapteurI2C.h: 19: int shiftInCRC();
-[; ;CapteurI2C.h: 20: void sendCommandSHT(int _command);
-[; ;CapteurI2C.h: 21: void waitForResultSHT();
-[; ;CapteurI2C.h: 22: int getData16SHT(int *val, char *CRC);
-[; ;CapteurI2C.h: 23: void skipCrcSHT();
-[; ;Board_Capteur.h: 10: uint16_t Read_Voltage_Sensor(void);
-[; ;Board_Capteur.h: 11: int8_t ReadTemperatureSensor(uint16_t Result);
-"9 ../src/Board_Capteur.c
-[v _Board_Capteur_Loop `(i ~T0 @X0 1 ef ]
-{
-[; ;Board_Capteur.c: 9: int Board_Capteur_Loop(){
-[e :U _Board_Capteur_Loop ]
-[f ]
-[; ;Board_Capteur.c: 13: while(1)
+"9 ../src/student.c
+[v _questionnaire `uc ~T0 @X0 1 e ]
+[i _questionnaire
+-> -> 0 `i `uc
+]
+[; ;student.c: 9: uint8_t questionnaire = 0;
+"10
+[v _switch_val `uc ~T0 @X0 1 e ]
+[i _switch_val
+-> -> 0 `i `uc
+]
+[; ;student.c: 10: uint8_t switch_val = 0;
+"12
+[v _Student `(v ~T0 @X0 1 ef ]
 "13
-[e :U 807 ]
-[; ;Board_Capteur.c: 14: {
+{
+[; ;student.c: 12: void Student(void)
+[; ;student.c: 13: {
+[e :U _Student ]
+[f ]
+[; ;student.c: 14: LCD_Erase();
 "14
-{
-[; ;Board_Capteur.c: 17: _delay((unsigned long)((500)*(16000000/4000.0)));
+[e ( _LCD_Erase ..  ]
+[; ;student.c: 15: LCD_Display((char *)" STUDENT DEVICE ", 0, 1);
+"15
+[e ( _LCD_Display (3 , , -> :s 1C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
 "17
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-[; ;Board_Capteur.c: 21: {
+[v _questionnaire_function `(v ~T0 @X0 0 ef ]
+[; ;student.c: 17: void questionnaire_function (void);
+[; ;student.c: 19: while(1)
+"19
+[e :U 807 ]
+[; ;student.c: 20: {
+"20
+{
+[; ;student.c: 21: questionnaire_function();
 "21
-{
-[; ;Board_Capteur.c: 24: {
-"24
-{
+[e ( _questionnaire_function ..  ]
+[; ;student.c: 22: sprintf((char *)&LCDText, (char*)"SW1: PROJECTOR  SW2: Suivant  ");
+"22
+[e ( _sprintf (1 , &U _LCDText -> -> :s 2C `*uc `*Cuc ]
+[; ;student.c: 23: LCD_Update();
+"23
+[e ( _LCD_Update ..  ]
+[; ;student.c: 25: while(switch_val == 0)
 "25
-[v _temperatureAir `c ~T0 @X0 1 a ]
-[; ;Board_Capteur.c: 25: int8_t temperatureAir = 0;
-[e = _temperatureAir -> -> 0 `i `c ]
+[e $U 809  ]
+[e :U 810 ]
+[; ;student.c: 26: {
 "26
-[v _temperatureSol `c ~T0 @X0 1 a ]
-[; ;Board_Capteur.c: 26: int8_t temperatureSol = 0;
-[e = _temperatureSol -> -> 0 `i `c ]
-"27
-[v _humiditeSol `c ~T0 @X0 1 a ]
-[; ;Board_Capteur.c: 27: int8_t humiditeSol = 0;
-[e = _humiditeSol -> -> 0 `i `c ]
-[; ;Board_Capteur.c: 29: temperatureAir = ReadTemperatureSensor(Read_Voltage_Sensor());
-"29
-[e = _temperatureAir ( _ReadTemperatureSensor (1 ( _Read_Voltage_Sensor ..  ]
-"31
-[v _err `i ~T0 @X0 1 a ]
-[; ;Board_Capteur.c: 31: int err = 0;
-[e = _err -> 0 `i ]
-[; ;Board_Capteur.c: 33: temperatureSol = readTemperatureC(&err);
-"33
-[e = _temperatureSol -> ( _readTemperatureC (1 &U _err `c ]
-[; ;Board_Capteur.c: 35: if(err != 0){
-"35
-[e $ ! != _err -> 0 `i 809  ]
 {
-[; ;Board_Capteur.c: 36: temperatureSol = -128;
-"36
-[e = _temperatureSol -> -U -> 128 `i `c ]
-"37
+[; ;student.c: 27: switch_val = BUTTON_Pressed();
+"27
+[e = _switch_val ( _BUTTON_Pressed ..  ]
+[; ;student.c: 28: questionnaire_function();
+"28
+[e ( _questionnaire_function ..  ]
+[; ;student.c: 29: sprintf((char *)&LCDText, (char*)"SW1: PROJECTOR  SW2: Suivant  ");
+"29
+[e ( _sprintf (1 , &U _LCDText -> -> :s 3C `*uc `*Cuc ]
+[; ;student.c: 30: LCD_Update();
+"30
+[e ( _LCD_Update ..  ]
+"31
 }
 [e :U 809 ]
-[; ;Board_Capteur.c: 37: }
-[; ;Board_Capteur.c: 39: err = 0;
-"39
-[e = _err -> 0 `i ]
-[; ;Board_Capteur.c: 41: humiditeSol = readHumidity(&err);
-"41
-[e = _humiditeSol -> ( _readHumidity (1 &U _err `c ]
-[; ;Board_Capteur.c: 43: if(err != 0){
-"43
-[e $ ! != _err -> 0 `i 810  ]
+"25
+[e $ == -> _switch_val `i -> 0 `i 810  ]
+[e :U 811 ]
+[; ;student.c: 31: }
+[; ;student.c: 33: if(switch_val == 1)
+"33
+[e $ ! == -> _switch_val `i -> 1 `i 812  ]
+[; ;student.c: 34: {
+"34
 {
-[; ;Board_Capteur.c: 44: humiditeSol = -128;
+[; ;student.c: 35: switch_val = 0;
+"35
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;student.c: 36: sprintf((char *)&LCDText, (char*)"SW1: ON         SW2: OFF        ");
+"36
+[e ( _sprintf (1 , &U _LCDText -> -> :s 4C `*uc `*Cuc ]
+[; ;student.c: 37: LCD_Update();
+"37
+[e ( _LCD_Update ..  ]
+[; ;student.c: 39: while(switch_val == 0)
+"39
+[e $U 813  ]
+[e :U 814 ]
+[; ;student.c: 40: {
+"40
+{
+[; ;student.c: 41: switch_val = BUTTON_Pressed();
+"41
+[e = _switch_val ( _BUTTON_Pressed ..  ]
+[; ;student.c: 42: questionnaire_function();
+"42
+[e ( _questionnaire_function ..  ]
+[; ;student.c: 43: sprintf((char *)&LCDText, (char*)"SW1: ON         SW2: OFF        ");
+"43
+[e ( _sprintf (1 , &U _LCDText -> -> :s 5C `*uc `*Cuc ]
+[; ;student.c: 44: LCD_Update();
 "44
-[e = _humiditeSol -> -U -> 128 `i `c ]
+[e ( _LCD_Update ..  ]
 "45
 }
-[e :U 810 ]
-[; ;Board_Capteur.c: 45: }
-[; ;Board_Capteur.c: 47: {TxData = 11;};
+[e :U 813 ]
+"39
+[e $ == -> _switch_val `i -> 0 `i 814  ]
+[e :U 815 ]
+[; ;student.c: 45: }
+[; ;student.c: 47: if(switch_val == 1)
 "47
+[e $ ! == -> _switch_val `i -> 1 `i 816  ]
+[; ;student.c: 48: {
+"48
+{
+[; ;student.c: 49: switch_val = 0;
+"49
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;student.c: 50: LATAbits.LATA6 = 1;
+"50
+[e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
+[; ;student.c: 51: {TxData = 11;};
+"51
 {
 [e = _TxData -> -> 11 `i `uc ]
 }
-[; ;Board_Capteur.c: 48: TxBuffer[TxData++] = 0xCA;
-"48
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 202 `i `uc ]
-[; ;Board_Capteur.c: 49: TxBuffer[TxData++] = 0xCA;
-"49
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 202 `i `uc ]
-[; ;Board_Capteur.c: 50: TxBuffer[TxData++] = 1;
-"50
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 1 `i `uc ]
-[; ;Board_Capteur.c: 51: TxBuffer[TxData++] = temperatureAir;
-"51
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> _temperatureAir `uc ]
-[; ;Board_Capteur.c: 52: TxBuffer[TxData++] = temperatureSol;
+[; ;student.c: 52: TxBuffer[TxData++] = 0x55;
 "52
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> _temperatureSol `uc ]
-[; ;Board_Capteur.c: 53: TxBuffer[TxData++] = humiditeSol;
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 85 `i `uc ]
+[; ;student.c: 53: TxBuffer[TxData++] = myShortAddress.v[0];
 "53
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> _humiditeSol `uc ]
-[; ;Board_Capteur.c: 54: TxBuffer[TxData++] = 0xCA;
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
+[; ;student.c: 54: TxBuffer[TxData++] = myShortAddress.v[1];
 "54
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 202 `i `uc ]
-[; ;Board_Capteur.c: 55: TxBuffer[TxData++] = 0xCA;
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
+[; ;student.c: 55: MiApp_BroadcastPacket(0);
 "55
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 202 `i `uc ]
-[; ;Board_Capteur.c: 56: MiApp_BroadcastPacket(0);
-"56
 [e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
+[; ;student.c: 56: { unsigned long _dcnt; unsigned long _ms; _ms = 500; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+"56
+{
+[v __dcnt `ul ~T0 @X0 1 a ]
+[v __ms `ul ~T0 @X0 1 a ]
+[e = __ms -> -> -> 500 `i `l `ul ]
+[e $U 817  ]
+[e :U 818 ]
+{
+[e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
+[e $U 820  ]
+[e :U 821 ]
+[e :U 820 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 821  ]
+[e :U 822 ]
+[e -- __ms -> -> -> 1 `i `l `ul ]
+}
+[e :U 817 ]
+[e $ != __ms -> -> 0 `i `ul 818  ]
+[e :U 819 ]
+}
+[; ;student.c: 57: LATAbits.LATA6 = 0;
+"57
+[e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
 "58
 }
-"59
-}
+[e :U 816 ]
+[; ;student.c: 58: }
+[; ;student.c: 60: if(switch_val == 2)
+"60
+[e $ ! == -> _switch_val `i -> 2 `i 823  ]
+[; ;student.c: 61: {
 "61
+{
+[; ;student.c: 62: switch_val = 0;
+"62
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;student.c: 63: LATAbits.LATA6 = 1;
+"63
+[e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
+[; ;student.c: 64: {TxData = 11;};
+"64
+{
+[e = _TxData -> -> 11 `i `uc ]
+}
+[; ;student.c: 65: TxBuffer[TxData++] = 0x66;
+"65
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 102 `i `uc ]
+[; ;student.c: 66: TxBuffer[TxData++] = myShortAddress.v[0];
+"66
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
+[; ;student.c: 67: TxBuffer[TxData++] = myShortAddress.v[1];
+"67
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
+[; ;student.c: 68: MiApp_BroadcastPacket(0);
+"68
+[e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
+[; ;student.c: 69: { unsigned long _dcnt; unsigned long _ms; _ms = 500; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+"69
+{
+[v __dcnt `ul ~T0 @X0 1 a ]
+[v __ms `ul ~T0 @X0 1 a ]
+[e = __ms -> -> -> 500 `i `l `ul ]
+[e $U 824  ]
+[e :U 825 ]
+{
+[e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
+[e $U 827  ]
+[e :U 828 ]
+[e :U 827 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 828  ]
+[e :U 829 ]
+[e -- __ms -> -> -> 1 `i `l `ul ]
+}
+[e :U 824 ]
+[e $ != __ms -> -> 0 `i `ul 825  ]
+[e :U 826 ]
+}
+[; ;student.c: 70: LATAbits.LATA6 = 0;
+"70
+[e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
+"71
+}
+[e :U 823 ]
+"72
+}
+[e :U 812 ]
+[; ;student.c: 71: }
+[; ;student.c: 72: }
+[; ;student.c: 74: if(switch_val == 2)
+"74
+[e $ ! == -> _switch_val `i -> 2 `i 830  ]
+[; ;student.c: 75: {
+"75
+{
+[; ;student.c: 76: switch_val = 0;
+"76
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;student.c: 77: sprintf((char *)&LCDText, (char*)"SW1: Unlock DoorSW2: Suivant  ");
+"77
+[e ( _sprintf (1 , &U _LCDText -> -> :s 6C `*uc `*Cuc ]
+[; ;student.c: 78: LCD_Update();
+"78
+[e ( _LCD_Update ..  ]
+[; ;student.c: 80: while(switch_val == 0)
+"80
+[e $U 831  ]
+[e :U 832 ]
+[; ;student.c: 81: {
+"81
+{
+[; ;student.c: 82: switch_val = BUTTON_Pressed();
+"82
+[e = _switch_val ( _BUTTON_Pressed ..  ]
+[; ;student.c: 83: questionnaire_function();
+"83
+[e ( _questionnaire_function ..  ]
+[; ;student.c: 84: sprintf((char *)&LCDText, (char*)"SW1: Unlock DoorSW2: Suivant  ");
+"84
+[e ( _sprintf (1 , &U _LCDText -> -> :s 7C `*uc `*Cuc ]
+[; ;student.c: 85: LCD_Update();
+"85
+[e ( _LCD_Update ..  ]
+"86
+}
+[e :U 831 ]
+"80
+[e $ == -> _switch_val `i -> 0 `i 832  ]
+[e :U 833 ]
+[; ;student.c: 86: }
+[; ;student.c: 88: if(switch_val == 1)
+"88
+[e $ ! == -> _switch_val `i -> 1 `i 834  ]
+[; ;student.c: 89: {
+"89
+{
+[; ;student.c: 90: switch_val = 0;
+"90
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;student.c: 91: LATAbits.LATA6 = 1;
+"91
+[e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
+[; ;student.c: 92: {TxData = 11;};
+"92
+{
+[e = _TxData -> -> 11 `i `uc ]
+}
+[; ;student.c: 93: TxBuffer[TxData++] = 0x01;
+"93
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 1 `i `uc ]
+[; ;student.c: 94: TxBuffer[TxData++] = myShortAddress.v[0];
+"94
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
+[; ;student.c: 95: TxBuffer[TxData++] = myShortAddress.v[1];
+"95
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
+[; ;student.c: 96: MiApp_BroadcastPacket(0);
+"96
+[e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
+[; ;student.c: 97: { unsigned long _dcnt; unsigned long _ms; _ms = 500; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+"97
+{
+[v __dcnt `ul ~T0 @X0 1 a ]
+[v __ms `ul ~T0 @X0 1 a ]
+[e = __ms -> -> -> 500 `i `l `ul ]
+[e $U 835  ]
+[e :U 836 ]
+{
+[e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
+[e $U 838  ]
+[e :U 839 ]
+[e :U 838 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 839  ]
+[e :U 840 ]
+[e -- __ms -> -> -> 1 `i `l `ul ]
+}
+[e :U 835 ]
+[e $ != __ms -> -> 0 `i `ul 836  ]
+[e :U 837 ]
+}
+[; ;student.c: 98: LATAbits.LATA6 = 0;
+"98
+[e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
+"100
+}
+[e :U 834 ]
+[; ;student.c: 100: }
+[; ;student.c: 102: if(switch_val == 2)
+"102
+[e $ ! == -> _switch_val `i -> 2 `i 841  ]
+[; ;student.c: 103: {
+"103
+{
+[; ;student.c: 104: switch_val = 0;
+"104
+[e = _switch_val -> -> 0 `i `uc ]
+"105
+}
+[e :U 841 ]
+"106
+}
+[e :U 830 ]
+"107
 }
 [e :U 806 ]
-"13
+"19
 [e $U 807  ]
 [e :U 808 ]
-[; ;Board_Capteur.c: 58: }
-[; ;Board_Capteur.c: 59: }
-[; ;Board_Capteur.c: 61: }
-[; ;Board_Capteur.c: 62: }
-"62
+[; ;student.c: 105: }
+[; ;student.c: 106: }
+[; ;student.c: 107: }
+[; ;student.c: 108: }
+"108
 [e :UE 805 ]
 }
-"80
-[v _ReadTemperatureSensor `(c ~T0 @X0 1 ef1`ui ]
-"81
-{
-[; ;Board_Capteur.c: 80: int8_t ReadTemperatureSensor(uint16_t ADC_READING)
-[; ;Board_Capteur.c: 81: {
-[e :U _ReadTemperatureSensor ]
-"80
-[v _ADC_READING `ui ~T0 @X0 1 r1 ]
-"81
-[f ]
-"82
-[v _tempValue `i ~T0 @X0 1 a ]
-"83
-[v _temp `d ~T0 @X0 1 a ]
-"84
-[v _tempHere `c ~T0 @X0 1 a ]
-"85
-[v _i `uc ~T0 @X0 1 a ]
-[; ;Board_Capteur.c: 82: int16_t tempValue;
-[; ;Board_Capteur.c: 83: double temp;
-[; ;Board_Capteur.c: 84: int8_t tempHere;
-[; ;Board_Capteur.c: 85: uint8_t i = 0;
-[e = _i -> -> 0 `i `uc ]
-"86
-[v _tempAverage `f ~T0 @X0 1 a ]
-[; ;Board_Capteur.c: 86: float tempAverage = 0;
-[e = _tempAverage -> -> 0 `i `f ]
-"87
-[v _tempArray `c ~T0 @X0 -> 4 `i a ]
-[; ;Board_Capteur.c: 87: int8_t tempArray[4];
-[; ;Board_Capteur.c: 91: ADCON0 = 0x04;
-"91
-[e = _ADCON0 -> -> 4 `i `uc ]
-[; ;Board_Capteur.c: 92: ADCON1 = 0xBD;
-"92
-[e = _ADCON1 -> -> 189 `i `uc ]
-[; ;Board_Capteur.c: 94: PIR1bits.ADIF = 0;
-"94
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;Board_Capteur.c: 95: PIE1bits.ADIE = 0;
-"95
-[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
-[; ;Board_Capteur.c: 97: do
-"97
-[e :U 814 ]
-[; ;Board_Capteur.c: 98: {
-"98
-{
-[; ;Board_Capteur.c: 99: ADCON0bits.ADON = 1;
-"99
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;Board_Capteur.c: 100: DELAY_10us(10);
-"100
-[e ( _DELAY_10us (1 -> -> -> 10 `i `l `ul ]
-[; ;Board_Capteur.c: 102: ADCON0bits.GO = 1;
-"102
-[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
-[; ;Board_Capteur.c: 103: while(ADCON0bits.DONE);
-"103
-[e $U 815  ]
-[e :U 816 ]
-[e :U 815 ]
-[e $ != -> . . _ADCON0bits 3 1 `i -> -> -> 0 `i `Vuc `i 816  ]
-[e :U 817 ]
-[; ;Board_Capteur.c: 105: temp = (1200.0/ADC_READING);
-"105
-[e = _temp / .1200.0 -> _ADC_READING `d ]
-[; ;Board_Capteur.c: 106: tempValue = ADRES;
-"106
-[e = _tempValue -> _ADRES `i ]
-[; ;Board_Capteur.c: 107: temp = (temp * tempValue);
-"107
-[e = _temp * _temp -> _tempValue `d ]
-[; ;Board_Capteur.c: 108: temp = (temp - 500.0)/10.0;
-"108
-[e = _temp / - _temp .500.0 .10.0 ]
-[; ;Board_Capteur.c: 110: tempArray[i] = (int8_t) temp;
-"110
-[e = *U + &U _tempArray * -> _i `ux -> -> # *U &U _tempArray `ui `ux -> _temp `c ]
-[; ;Board_Capteur.c: 112: ADCON0bits.ADON = 0;
-"112
-[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
-[; ;Board_Capteur.c: 113: DELAY_10us(1);
-"113
-[e ( _DELAY_10us (1 -> -> -> 1 `i `l `ul ]
-[; ;Board_Capteur.c: 114: i++;
-"114
-[e ++ _i -> -> 1 `i `uc ]
 "115
-}
-[; ;Board_Capteur.c: 115: } while(i < 4);
-[e $ < -> _i `i -> 4 `i 814  ]
-[e :U 813 ]
-[; ;Board_Capteur.c: 118: for(i = 0; i<4; i++)
-"118
+[v _questionnaire_function `(v ~T0 @X0 1 ef ]
 {
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 4 `i 818  ]
-[e $U 819  ]
-"119
-[e :U 818 ]
-[; ;Board_Capteur.c: 119: {
-{
-[; ;Board_Capteur.c: 120: tempAverage = (tempAverage + tempArray[i]);
-"120
-[e = _tempAverage + _tempAverage -> *U + &U _tempArray * -> _i `ux -> -> # *U &U _tempArray `ui `ux `f ]
-"121
-}
-"118
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 4 `i 818  ]
-[e :U 819 ]
-"121
-}
-[; ;Board_Capteur.c: 121: }
-[; ;Board_Capteur.c: 122: tempAverage = (tempAverage/4);
-"122
-[e = _tempAverage / _tempAverage -> -> 4 `i `f ]
-[; ;Board_Capteur.c: 123: tempHere = (int8_t) tempAverage;
-"123
-[e = _tempHere -> _tempAverage `c ]
-[; ;Board_Capteur.c: 124: tempAverage = (tempAverage - tempHere) * 10;
-"124
-[e = _tempAverage * - _tempAverage -> _tempHere `f -> -> 10 `i `f ]
-[; ;Board_Capteur.c: 126: if(tempAverage >= 5)
-"126
-[e $ ! >= _tempAverage -> -> 5 `i `f 821  ]
-[; ;Board_Capteur.c: 127: tempHere = tempHere + 1;
-"127
-[e = _tempHere -> + -> _tempHere `i -> 1 `i `c ]
-[e :U 821 ]
-[; ;Board_Capteur.c: 129: return (int8_t)tempHere;
-"129
-[e ) _tempHere ]
-[e $UE 811  ]
-[; ;Board_Capteur.c: 132: }
-"132
-[e :UE 811 ]
-}
-"151
-[v _Read_Voltage_Sensor `(ui ~T0 @X0 1 ef ]
-"152
-{
-[; ;Board_Capteur.c: 151: uint16_t Read_Voltage_Sensor(void)
-[; ;Board_Capteur.c: 152: {
-[e :U _Read_Voltage_Sensor ]
+[; ;student.c: 115: void questionnaire_function (void){
+[e :U _questionnaire_function ]
 [f ]
-[; ;Board_Capteur.c: 153: ADCON0 = 0x3D;
-"153
-[e = _ADCON0 -> -> 61 `i `uc ]
-[; ;Board_Capteur.c: 154: ADCON1 = 0xBD;
-"154
-[e = _ADCON1 -> -> 189 `i `uc ]
-[; ;Board_Capteur.c: 155: ANCON1bits.VBGEN = 1;
-"155
-[e = . . _ANCON1bits 0 7 -> -> 1 `i `uc ]
-[; ;Board_Capteur.c: 157: DELAY_10us(1000);
-"157
-[e ( _DELAY_10us (1 -> -> -> 1000 `i `l `ul ]
-[; ;Board_Capteur.c: 159: PIR1bits.ADIF = 0;
-"159
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;Board_Capteur.c: 160: PIE1bits.ADIE = 0;
-"160
-[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
-[; ;Board_Capteur.c: 162: ADCON0bits.GO = 1;
-"162
-[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
-[; ;Board_Capteur.c: 163: while(ADCON0bits.DONE);
-"163
-[e $U 823  ]
-[e :U 824 ]
-[e :U 823 ]
-[e $ != -> . . _ADCON0bits 3 1 `i -> -> -> 0 `i `Vuc `i 824  ]
-[e :U 825 ]
-[; ;Board_Capteur.c: 165: ADCON0bits.ADON = 0;
-"165
-[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
-[; ;Board_Capteur.c: 166: ANCON1bits.VBGEN = 0;
-"166
-[e = . . _ANCON1bits 0 7 -> -> 0 `i `uc ]
-[; ;Board_Capteur.c: 168: return ADRES;
-"168
-[e ) -> _ADRES `ui ]
-[e $UE 822  ]
-[; ;Board_Capteur.c: 169: }
-"169
-[e :UE 822 ]
+[; ;student.c: 116: if(MiApp_MessageAvailable())
+"116
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 843  ]
+[; ;student.c: 117: {
+"117
+{
+[; ;student.c: 118: if(rxMessage.Payload[0] == 0x77)
+"118
+[e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 119 `i 844  ]
+[; ;student.c: 119: {
+"119
+{
+[; ;student.c: 121: questionnaire=1;
+"121
+[e = _questionnaire -> -> 1 `i `uc ]
+[; ;student.c: 122: LATAbits.LATA6 = 1;
+"122
+[e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
+[; ;student.c: 123: { unsigned long _dcnt; unsigned long _ms; _ms = 500; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+"123
+{
+[v __dcnt `ul ~T0 @X0 1 a ]
+[v __ms `ul ~T0 @X0 1 a ]
+[e = __ms -> -> -> 500 `i `l `ul ]
+[e $U 845  ]
+[e :U 846 ]
+{
+[e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
+[e $U 848  ]
+[e :U 849 ]
+[e :U 848 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 849  ]
+[e :U 850 ]
+[e -- __ms -> -> -> 1 `i `l `ul ]
 }
+[e :U 845 ]
+[e $ != __ms -> -> 0 `i `ul 846  ]
+[e :U 847 ]
+}
+[; ;student.c: 124: LATAbits.LATA6 = 0;
+"124
+[e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
+"125
+}
+[e :U 844 ]
+[; ;student.c: 125: }
+[; ;student.c: 126: MiApp_DiscardMessage();
+"126
+[e ( _MiApp_DiscardMessage ..  ]
+[; ;student.c: 127: if(rxMessage.Payload[0] == 0x88)
+"127
+[e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 136 `i 851  ]
+[; ;student.c: 128: {
+"128
+{
+[; ;student.c: 130: questionnaire=0;
+"130
+[e = _questionnaire -> -> 0 `i `uc ]
+[; ;student.c: 131: LATAbits.LATA6 = 1;
+"131
+[e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
+[; ;student.c: 132: { unsigned long _dcnt; unsigned long _ms; _ms = 500; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+"132
+{
+[v __dcnt `ul ~T0 @X0 1 a ]
+[v __ms `ul ~T0 @X0 1 a ]
+[e = __ms -> -> -> 500 `i `l `ul ]
+[e $U 852  ]
+[e :U 853 ]
+{
+[e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
+[e $U 855  ]
+[e :U 856 ]
+[e :U 855 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 856  ]
+[e :U 857 ]
+[e -- __ms -> -> -> 1 `i `l `ul ]
+}
+[e :U 852 ]
+[e $ != __ms -> -> 0 `i `ul 853  ]
+[e :U 854 ]
+}
+[; ;student.c: 133: LATAbits.LATA6 = 0;
+"133
+[e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
+"134
+}
+[e :U 851 ]
+[; ;student.c: 134: }
+[; ;student.c: 135: MiApp_DiscardMessage();
+"135
+[e ( _MiApp_DiscardMessage ..  ]
+[; ;student.c: 136: if(questionnaire==1)
+"136
+[e $ ! == -> _questionnaire `i -> 1 `i 858  ]
+[; ;student.c: 137: {
+"137
+{
+[; ;student.c: 138: sprintf((char *)&LCDText, (char*)"SW1: A          SW2: Suivant    ");
+"138
+[e ( _sprintf (1 , &U _LCDText -> -> :s 8C `*uc `*Cuc ]
+[; ;student.c: 139: LCD_Update();
+"139
+[e ( _LCD_Update ..  ]
+[; ;student.c: 140: while(switch_val == 0)
+"140
+[e $U 859  ]
+[e :U 860 ]
+[; ;student.c: 141: {
+"141
+{
+[; ;student.c: 142: switch_val = BUTTON_Pressed();
+"142
+[e = _switch_val ( _BUTTON_Pressed ..  ]
+"143
+}
+[e :U 859 ]
+"140
+[e $ == -> _switch_val `i -> 0 `i 860  ]
+[e :U 861 ]
+[; ;student.c: 143: }
+[; ;student.c: 144: if(switch_val == 1)
+"144
+[e $ ! == -> _switch_val `i -> 1 `i 862  ]
+[; ;student.c: 145: {
+"145
+{
+[; ;student.c: 146: switch_val = 0;
+"146
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;student.c: 147: LATAbits.LATA6 = 1;
+"147
+[e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
+[; ;student.c: 148: {TxData = 11;};
+"148
+{
+[e = _TxData -> -> 11 `i `uc ]
+}
+[; ;student.c: 149: TxBuffer[TxData++] = 0x90;
+"149
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 144 `i `uc ]
+[; ;student.c: 150: TxBuffer[TxData++] = myShortAddress.v[0];
+"150
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
+[; ;student.c: 151: TxBuffer[TxData++] = myShortAddress.v[1];
+"151
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
+[; ;student.c: 152: MiApp_BroadcastPacket(0);
+"152
+[e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
+[; ;student.c: 153: { unsigned long _dcnt; unsigned long _ms; _ms = 500; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+"153
+{
+[v __dcnt `ul ~T0 @X0 1 a ]
+[v __ms `ul ~T0 @X0 1 a ]
+[e = __ms -> -> -> 500 `i `l `ul ]
+[e $U 863  ]
+[e :U 864 ]
+{
+[e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
+[e $U 866  ]
+[e :U 867 ]
+[e :U 866 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 867  ]
+[e :U 868 ]
+[e -- __ms -> -> -> 1 `i `l `ul ]
+}
+[e :U 863 ]
+[e $ != __ms -> -> 0 `i `ul 864  ]
+[e :U 865 ]
+}
+[; ;student.c: 154: LATAbits.LATA6 = 0;
+"154
+[e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
+"155
+}
+[e :U 862 ]
+[; ;student.c: 155: }
+[; ;student.c: 156: if(switch_val == 2)
+"156
+[e $ ! == -> _switch_val `i -> 2 `i 869  ]
+[; ;student.c: 157: {
+"157
+{
+[; ;student.c: 158: switch_val = 0;
+"158
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;student.c: 159: sprintf((char *)&LCDText, (char*)"SW1: B          SW2: Suivant");
+"159
+[e ( _sprintf (1 , &U _LCDText -> -> :s 9C `*uc `*Cuc ]
+[; ;student.c: 160: LCD_Update();
+"160
+[e ( _LCD_Update ..  ]
+[; ;student.c: 161: while(switch_val == 0)
+"161
+[e $U 870  ]
+[e :U 871 ]
+[; ;student.c: 162: {
+"162
+{
+[; ;student.c: 163: switch_val = BUTTON_Pressed();
+"163
+[e = _switch_val ( _BUTTON_Pressed ..  ]
+"164
+}
+[e :U 870 ]
+"161
+[e $ == -> _switch_val `i -> 0 `i 871  ]
+[e :U 872 ]
+[; ;student.c: 164: }
+[; ;student.c: 165: if(switch_val == 1)
+"165
+[e $ ! == -> _switch_val `i -> 1 `i 873  ]
+[; ;student.c: 166: {
+"166
+{
+[; ;student.c: 167: switch_val = 0;
+"167
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;student.c: 168: LATAbits.LATA6 = 1;
+"168
+[e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
+[; ;student.c: 169: {TxData = 11;};
+"169
+{
+[e = _TxData -> -> 11 `i `uc ]
+}
+[; ;student.c: 170: TxBuffer[TxData++] = 0x91;
+"170
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 145 `i `uc ]
+[; ;student.c: 171: TxBuffer[TxData++] = myShortAddress.v[0];
+"171
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
+[; ;student.c: 172: TxBuffer[TxData++] = myShortAddress.v[1];
+"172
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
+[; ;student.c: 173: MiApp_BroadcastPacket(0);
+"173
+[e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
+[; ;student.c: 174: { unsigned long _dcnt; unsigned long _ms; _ms = 500; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+"174
+{
+[v __dcnt `ul ~T0 @X0 1 a ]
+[v __ms `ul ~T0 @X0 1 a ]
+[e = __ms -> -> -> 500 `i `l `ul ]
+[e $U 874  ]
+[e :U 875 ]
+{
+[e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
+[e $U 877  ]
+[e :U 878 ]
+[e :U 877 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 878  ]
+[e :U 879 ]
+[e -- __ms -> -> -> 1 `i `l `ul ]
+}
+[e :U 874 ]
+[e $ != __ms -> -> 0 `i `ul 875  ]
+[e :U 876 ]
+}
+[; ;student.c: 175: LATAbits.LATA6 = 0;
+"175
+[e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
+"176
+}
+[e :U 873 ]
+[; ;student.c: 176: }
+[; ;student.c: 177: if(switch_val == 2)
+"177
+[e $ ! == -> _switch_val `i -> 2 `i 880  ]
+[; ;student.c: 178: {
+"178
+{
+[; ;student.c: 179: switch_val = 0;
+"179
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;student.c: 180: sprintf((char *)&LCDText, (char*)"SW1: C          SW2: Suivant");
+"180
+[e ( _sprintf (1 , &U _LCDText -> -> :s 10C `*uc `*Cuc ]
+[; ;student.c: 181: LCD_Update();
+"181
+[e ( _LCD_Update ..  ]
+[; ;student.c: 182: while(switch_val == 0)
+"182
+[e $U 881  ]
+[e :U 882 ]
+[; ;student.c: 183: {
+"183
+{
+[; ;student.c: 184: switch_val = BUTTON_Pressed();
+"184
+[e = _switch_val ( _BUTTON_Pressed ..  ]
+"185
+}
+[e :U 881 ]
+"182
+[e $ == -> _switch_val `i -> 0 `i 882  ]
+[e :U 883 ]
+[; ;student.c: 185: }
+[; ;student.c: 186: if(switch_val == 1)
+"186
+[e $ ! == -> _switch_val `i -> 1 `i 884  ]
+[; ;student.c: 187: {
+"187
+{
+[; ;student.c: 188: switch_val = 0;
+"188
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;student.c: 189: LATAbits.LATA6 = 1;
+"189
+[e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
+[; ;student.c: 190: {TxData = 11;};
+"190
+{
+[e = _TxData -> -> 11 `i `uc ]
+}
+[; ;student.c: 191: TxBuffer[TxData++] = 0x92;
+"191
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 146 `i `uc ]
+[; ;student.c: 192: TxBuffer[TxData++] = myShortAddress.v[0];
+"192
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
+[; ;student.c: 193: TxBuffer[TxData++] = myShortAddress.v[1];
+"193
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
+[; ;student.c: 194: MiApp_BroadcastPacket(0);
+"194
+[e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
+[; ;student.c: 195: { unsigned long _dcnt; unsigned long _ms; _ms = 500; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+"195
+{
+[v __dcnt `ul ~T0 @X0 1 a ]
+[v __ms `ul ~T0 @X0 1 a ]
+[e = __ms -> -> -> 500 `i `l `ul ]
+[e $U 885  ]
+[e :U 886 ]
+{
+[e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
+[e $U 888  ]
+[e :U 889 ]
+[e :U 888 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 889  ]
+[e :U 890 ]
+[e -- __ms -> -> -> 1 `i `l `ul ]
+}
+[e :U 885 ]
+[e $ != __ms -> -> 0 `i `ul 886  ]
+[e :U 887 ]
+}
+[; ;student.c: 196: LATAbits.LATA6 = 0;
+"196
+[e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
+"197
+}
+[e :U 884 ]
+[; ;student.c: 197: }
+[; ;student.c: 198: if(switch_val == 2)
+"198
+[e $ ! == -> _switch_val `i -> 2 `i 891  ]
+[; ;student.c: 199: {
+"199
+{
+[; ;student.c: 200: switch_val = 0;
+"200
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;student.c: 201: sprintf((char *)&LCDText, (char*)"SW1: D        ");
+"201
+[e ( _sprintf (1 , &U _LCDText -> -> :s 11C `*uc `*Cuc ]
+[; ;student.c: 202: LCD_Update();
+"202
+[e ( _LCD_Update ..  ]
+[; ;student.c: 203: while(switch_val == 0)
+"203
+[e $U 892  ]
+[e :U 893 ]
+[; ;student.c: 204: {
+"204
+{
+[; ;student.c: 205: switch_val = BUTTON_Pressed();
+"205
+[e = _switch_val ( _BUTTON_Pressed ..  ]
+"206
+}
+[e :U 892 ]
+"203
+[e $ == -> _switch_val `i -> 0 `i 893  ]
+[e :U 894 ]
+[; ;student.c: 206: }
+[; ;student.c: 207: if(switch_val == 1)
+"207
+[e $ ! == -> _switch_val `i -> 1 `i 895  ]
+[; ;student.c: 208: {
+"208
+{
+[; ;student.c: 209: switch_val = 0;
+"209
+[e = _switch_val -> -> 0 `i `uc ]
+[; ;student.c: 210: LATAbits.LATA6 = 1;
+"210
+[e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
+[; ;student.c: 211: {TxData = 11;};
+"211
+{
+[e = _TxData -> -> 11 `i `uc ]
+}
+[; ;student.c: 212: TxBuffer[TxData++] = 0x93;
+"212
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 147 `i `uc ]
+[; ;student.c: 213: TxBuffer[TxData++] = myShortAddress.v[0];
+"213
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
+[; ;student.c: 214: TxBuffer[TxData++] = myShortAddress.v[1];
+"214
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux *U + &U . _myShortAddress 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _myShortAddress 0 `ui `ux ]
+[; ;student.c: 215: MiApp_BroadcastPacket(0);
+"215
+[e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
+[; ;student.c: 216: { unsigned long _dcnt; unsigned long _ms; _ms = 500; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+"216
+{
+[v __dcnt `ul ~T0 @X0 1 a ]
+[v __ms `ul ~T0 @X0 1 a ]
+[e = __ms -> -> -> 500 `i `l `ul ]
+[e $U 896  ]
+[e :U 897 ]
+{
+[e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
+[e $U 899  ]
+[e :U 900 ]
+[e :U 899 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 900  ]
+[e :U 901 ]
+[e -- __ms -> -> -> 1 `i `l `ul ]
+}
+[e :U 896 ]
+[e $ != __ms -> -> 0 `i `ul 897  ]
+[e :U 898 ]
+}
+[; ;student.c: 217: LATAbits.LATA6 = 0;
+"217
+[e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
+"218
+}
+[e :U 895 ]
+"219
+}
+[e :U 891 ]
+"220
+}
+[e :U 880 ]
+"221
+}
+[e :U 869 ]
+[; ;student.c: 218: }
+[; ;student.c: 219: }
+[; ;student.c: 220: }
+[; ;student.c: 221: }
+[; ;student.c: 222: sprintf((char *)&LCDText, (char*)"Reponse envoyee.      Attente...");
+"222
+[e ( _sprintf (1 , &U _LCDText -> -> :s 12C `*uc `*Cuc ]
+[; ;student.c: 223: LCD_Update();
+"223
+[e ( _LCD_Update ..  ]
+[; ;student.c: 224: while(questionnaire==1){
+"224
+[e $U 902  ]
+[e :U 903 ]
+{
+[; ;student.c: 225: if(MiApp_MessageAvailable())
+"225
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 905  ]
+[; ;student.c: 226: if(rxMessage.Payload[0] == 0x88)
+"226
+[e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 136 `i 906  ]
+[; ;student.c: 227: {
+"227
+{
+[; ;student.c: 229: questionnaire=0;
+"229
+[e = _questionnaire -> -> 0 `i `uc ]
+[; ;student.c: 230: LATAbits.LATA6 = 1;
+"230
+[e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
+[; ;student.c: 231: { unsigned long _dcnt; unsigned long _ms; _ms = 500; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+"231
+{
+[v __dcnt `ul ~T0 @X0 1 a ]
+[v __ms `ul ~T0 @X0 1 a ]
+[e = __ms -> -> -> 500 `i `l `ul ]
+[e $U 907  ]
+[e :U 908 ]
+{
+[e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
+[e $U 910  ]
+[e :U 911 ]
+[e :U 910 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 911  ]
+[e :U 912 ]
+[e -- __ms -> -> -> 1 `i `l `ul ]
+}
+[e :U 907 ]
+[e $ != __ms -> -> 0 `i `ul 908  ]
+[e :U 909 ]
+}
+[; ;student.c: 232: LATAbits.LATA6 = 0;
+"232
+[e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
+"233
+}
+[e :U 906 ]
+"234
+[e :U 905 ]
+[; ;student.c: 233: }
+[; ;student.c: 234: MiApp_DiscardMessage();
+[e ( _MiApp_DiscardMessage ..  ]
+"235
+}
+[e :U 902 ]
+"224
+[e $ == -> _questionnaire `i -> 1 `i 903  ]
+[e :U 904 ]
+"236
+}
+[e :U 858 ]
+"237
+}
+[e :U 843 ]
+[; ;student.c: 235: }
+[; ;student.c: 236: }
+[; ;student.c: 237: }
+[; ;student.c: 238: }
+"238
+[e :UE 842 ]
+}
+[p f _sprintf 9437696 ]
+[a 10C 83 87 49 58 32 67 32 32 32 32 32 32 32 32 32 32 83 87 50 58 32 83 117 105 118 97 110 116 0 ]
+[a 9C 83 87 49 58 32 66 32 32 32 32 32 32 32 32 32 32 83 87 50 58 32 83 117 105 118 97 110 116 0 ]
+[a 12C 82 101 112 111 110 115 101 32 101 110 118 111 121 101 101 46 32 32 32 32 32 32 65 116 116 101 110 116 101 46 46 46 0 ]
+[a 1C 32 83 84 85 68 69 78 84 32 68 69 86 73 67 69 32 0 ]
+[a 6C 83 87 49 58 32 85 110 108 111 99 107 32 68 111 111 114 83 87 50 58 32 83 117 105 118 97 110 116 32 32 0 ]
+[a 7C 83 87 49 58 32 85 110 108 111 99 107 32 68 111 111 114 83 87 50 58 32 83 117 105 118 97 110 116 32 32 0 ]
+[a 2C 83 87 49 58 32 80 82 79 74 69 67 84 79 82 32 32 83 87 50 58 32 83 117 105 118 97 110 116 32 32 0 ]
+[a 3C 83 87 49 58 32 80 82 79 74 69 67 84 79 82 32 32 83 87 50 58 32 83 117 105 118 97 110 116 32 32 0 ]
+[a 8C 83 87 49 58 32 65 32 32 32 32 32 32 32 32 32 32 83 87 50 58 32 83 117 105 118 97 110 116 32 32 32 32 0 ]
+[a 4C 83 87 49 58 32 79 78 32 32 32 32 32 32 32 32 32 83 87 50 58 32 79 70 70 32 32 32 32 32 32 32 32 0 ]
+[a 5C 83 87 49 58 32 79 78 32 32 32 32 32 32 32 32 32 83 87 50 58 32 79 70 70 32 32 32 32 32 32 32 32 0 ]
+[a 11C 83 87 49 58 32 68 32 32 32 32 32 32 32 32 0 ]

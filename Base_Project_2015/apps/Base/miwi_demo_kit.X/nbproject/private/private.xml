@@ -3,25 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/temp_demo.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/system_config/miwikit_pic18f46j50_24j40/system.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/eusart2.h</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/temp_demo.h</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/pan.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/CapteurI2C.h</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/Board_Capteur.h</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/CapteurI2C.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/Board_Capteur.c</file>
             <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/framework/miwi/src/miwi_nvm.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/main.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/soft_i2c.h</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/student.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/teacher.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/eusart2.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/network.c</file>
             <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/framework/miwi/src/miwi_mesh.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/network.h</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/system_config/miwikit_pic18f46j50_24j40/system.h</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/miwi_demo_kit.X/nbproject/Makefile-miwikit_pic18f46j50_24j40.mk</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/miwi_demo_kit.X/nbproject/Makefile-impl.mk</file>
         </group>
     </open-files>
 </project-private>

@@ -8,128 +8,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71
 [u S768 `ul 1 `S769 1 `uc -> 4 `i `S770 1 ]
 [n S768 _MIWI_TICK Val byte v word ]
-[v F7036 `(v ~T0 @X0 1 tf1`ul ]
-"164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
-[v __delay `JF7036 ~T0 @X0 0 e ]
-[p i __delay ]
-"11 ../src/Board_Capteur.h
-[v _ReadTemperatureSensor `(c ~T0 @X0 0 ef1`ui ]
-"10
-[v _Read_Voltage_Sensor `(ui ~T0 @X0 0 ef ]
-"14 ../src/CapteurI2C.h
-[v _readTemperatureC `(f ~T0 @X0 0 ef1`*i ]
-"13
-[v _readHumidity `(f ~T0 @X0 0 ef1`*i ]
-"207 ../../../framework\miwi/miwi_mesh.h
-[v _TxData `uc ~T0 @X0 0 e ]
-"206
-[v _TxBuffer `uc ~T0 @X0 -> 0 `x e ]
-"552 ../../../framework\miwi/miwi_api.h
-[v _MiApp_BroadcastPacket `(uc ~T0 @X0 0 ef1`uc ]
-"11881 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
-"11784
-[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
-"8615
-[s S374 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S374 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF PMPIF ]
-"8625
-[s S375 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S375 . . SSPIF TXIF RCIF ]
-"8631
-[s S376 :7 `uc 1 :1 `uc 1 ]
-[n S376 . . PSPIF ]
-"8614
-[u S373 `S374 1 `S375 1 `S376 1 ]
-[n S373 . . . . ]
-"8636
-[v _PIR1bits `VS373 ~T0 @X0 0 e@3998 ]
-"8523
-[s S370 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S370 . TMR1IE TMR2IE CCP1IE SSP1IE TX1IE RC1IE ADIE PMPIE ]
-"8533
-[s S371 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S371 . . SSPIE TXIE RCIE ]
-"8539
-[s S372 :7 `uc 1 :1 `uc 1 ]
-[n S372 . . PSPIE ]
-"8522
-[u S369 `S370 1 `S371 1 `S372 1 ]
-[n S369 . . . . ]
-"8544
-[v _PIE1bits `VS369 ~T0 @X0 0 e@3997 ]
-"11887
-[s S525 :1 `uc 1 :1 `uc 1 ]
-[n S525 . . GO_NOT_DONE ]
-"11891
-[s S526 :1 `uc 1 :1 `uc 1 :4 `uc 1 :2 `uc 1 ]
-[n S526 . ADON GO_nDONE CHS VCFG ]
-"11897
-[s S527 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S527 . . GO_DONE CHS0 CHS1 CHS2 CHS3 VCFG0 VCFG1 ]
-"11907
-[s S528 :1 `uc 1 :1 `uc 1 ]
-[n S528 . . DONE ]
-"11911
-[s S529 :1 `uc 1 :1 `uc 1 ]
-[n S529 . . GO ]
-"11915
-[s S530 :1 `uc 1 :1 `uc 1 ]
-[n S530 . . NOT_DONE ]
-"11919
-[s S531 :1 `uc 1 :1 `uc 1 ]
-[n S531 . . nDONE ]
-"11923
-[s S532 :1 `uc 1 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
-[n S532 . . GODONE . ADCAL ]
-"11886
-[u S524 `S525 1 `S526 1 `S527 1 `S528 1 `S529 1 `S530 1 `S531 1 `S532 1 ]
-[n S524 . . . . . . . . . ]
-"11930
-[v _ADCON0bits `VS524 ~T0 @X0 0 e@4034 ]
-"47 ../src/system_config/miwikit_pic18f46j50_24j40\delay.h
-[v _DELAY_10us `(v ~T0 @X0 0 ef1`ul ]
-"12025 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[v _ADRES `Vus ~T0 @X0 0 e@4035 ]
-"2413
-[s S88 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S88 . PCFG8 PCFG9 PCFG10 PCFG11 PCFG12 . VBG2EN VBGEN ]
-"2423
-[s S89 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S89 . . PCFG14 PCFG15 ]
-"2412
-[u S87 `S88 1 `S89 1 ]
-[n S87 . . . ]
-"2429
-[v _ANCON1bits `VS87 ~T0 @X0 0 e@3913 ]
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+"50 ../src/system_config/miwikit_pic18f46j50_24j40\lcd.h
+[v _LCD_Display `(v ~T0 @X0 0 ef3`*uc`uc`uc ]
+"35 ../src/system_config/miwikit_pic18f46j50_24j40\button.h
+[v _BUTTON_Pressed `(uc ~T0 @X0 0 ef ]
+"7345 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[s S320 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S320 . LATC0 LATC1 LATC2 . LATC4 LATC5 LATC6 LATC7 ]
+"7355
+[s S321 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S321 . LC0 LC1 LC2 . LC4 LC5 LC6 LC7 ]
+"7344
+[u S319 `S320 1 `S321 1 ]
+[n S319 . . . ]
+"7366
+[v _LATCbits `VS319 ~T0 @X0 0 e@3979 ]
+"7131
+[s S314 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S314 . LATA0 LATA1 LATA2 LATA3 . LATA5 LATA6 LATA7 ]
+"7141
+[s S315 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S315 . LA0 LA1 LA2 LA3 . LA5 LA6 LA7 ]
+"7130
+[u S313 `S314 1 `S315 1 ]
+[n S313 . . . ]
+"7152
+[v _LATAbits `VS313 ~T0 @X0 0 e@3977 ]
+"27 ../src/system_config/miwikit_pic18f46j50_24j40\eeprom.h
+[v _EEPROMRead `(v ~T0 @X0 0 ef3`*uc`uc`uc ]
+"29 ../src/system_config/miwikit_pic18f46j50_24j40\serial_flash.h
+[v _SSTGetID `(v ~T0 @X0 0 ef1`*uc ]
+"178 ../../../framework\miwi/miwi_api.h
+[v _MiApp_SetChannel `(uc ~T0 @X0 0 ef1`uc ]
+"320
+[v _MiApp_SearchConnection `(uc ~T0 @X0 0 ef2`uc`ul ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -6677,6 +6589,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 43: extern uint8_t LCDText[16*2+1];
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 45: void LCD_Initialize(void);
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 46: void LCD_Update(void);
@@ -6736,6 +6676,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;miwikit_pic18f46j50_24j40\system.h: 67: uint16_t Val;
 [; ;miwikit_pic18f46j50_24j40\system.h: 69: }API_UINT16_UNION;
 [; ;miwikit_pic18f46j50_24j40\system.h: 122: void SYSTEM_Initialize(void);
+[; ;self_test.h: 27: void SelfTest(uint8_t);
 [; ;drv_mrf_miwi_24j40.h: 31: typedef union
 [; ;drv_mrf_miwi_24j40.h: 32: {
 [; ;drv_mrf_miwi_24j40.h: 33: uint8_t Val;
@@ -7013,325 +6954,364 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;miwi_api.h: 899: bool MiApp_InitChannelHopping( uint32_t ChannelMap);
 [; ;miwi_api.h: 941: bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
 [; ;miwi_api.h: 950: extern RECEIVED_MESSAGE rxMessage;
-[; ;CapteurI2C.h: 13: float readHumidity(int *error);
-[; ;CapteurI2C.h: 14: float readTemperatureC(int *error);
-[; ;CapteurI2C.h: 15: float readTemperatureF();
-[; ;CapteurI2C.h: 17: float readTemperatureRaw(int *error);
-[; ;CapteurI2C.h: 18: int shiftIn(int _numBits);
-[; ;CapteurI2C.h: 19: int shiftInCRC();
-[; ;CapteurI2C.h: 20: void sendCommandSHT(int _command);
-[; ;CapteurI2C.h: 21: void waitForResultSHT();
-[; ;CapteurI2C.h: 22: int getData16SHT(int *val, char *CRC);
-[; ;CapteurI2C.h: 23: void skipCrcSHT();
-[; ;Board_Capteur.h: 10: uint16_t Read_Voltage_Sensor(void);
-[; ;Board_Capteur.h: 11: int8_t ReadTemperatureSensor(uint16_t Result);
-"9 ../src/Board_Capteur.c
-[v _Board_Capteur_Loop `(i ~T0 @X0 1 ef ]
-{
-[; ;Board_Capteur.c: 9: int Board_Capteur_Loop(){
-[e :U _Board_Capteur_Loop ]
-[f ]
-[; ;Board_Capteur.c: 13: while(1)
-"13
-[e :U 807 ]
-[; ;Board_Capteur.c: 14: {
-"14
-{
-[; ;Board_Capteur.c: 17: _delay((unsigned long)((500)*(16000000/4000.0)));
-"17
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-[; ;Board_Capteur.c: 21: {
-"21
-{
-[; ;Board_Capteur.c: 24: {
-"24
-{
-"25
-[v _temperatureAir `c ~T0 @X0 1 a ]
-[; ;Board_Capteur.c: 25: int8_t temperatureAir = 0;
-[e = _temperatureAir -> -> 0 `i `c ]
-"26
-[v _temperatureSol `c ~T0 @X0 1 a ]
-[; ;Board_Capteur.c: 26: int8_t temperatureSol = 0;
-[e = _temperatureSol -> -> 0 `i `c ]
-"27
-[v _humiditeSol `c ~T0 @X0 1 a ]
-[; ;Board_Capteur.c: 27: int8_t humiditeSol = 0;
-[e = _humiditeSol -> -> 0 `i `c ]
-[; ;Board_Capteur.c: 29: temperatureAir = ReadTemperatureSensor(Read_Voltage_Sensor());
-"29
-[e = _temperatureAir ( _ReadTemperatureSensor (1 ( _Read_Voltage_Sensor ..  ]
-"31
-[v _err `i ~T0 @X0 1 a ]
-[; ;Board_Capteur.c: 31: int err = 0;
-[e = _err -> 0 `i ]
-[; ;Board_Capteur.c: 33: temperatureSol = readTemperatureC(&err);
+"31 ../src/self_test.c
+[v _switch_val `uc ~T0 @X0 1 e ]
+[; ;self_test.c: 31: uint8_t switch_val;
+"32
+[v _EEPROM_Val `uc ~T0 @X0 -> 3 `i e ]
+[; ;self_test.c: 32: uint8_t EEPROM_Val[3];
 "33
-[e = _temperatureSol -> ( _readTemperatureC (1 &U _err `c ]
-[; ;Board_Capteur.c: 35: if(err != 0){
-"35
-[e $ ! != _err -> 0 `i 809  ]
-{
-[; ;Board_Capteur.c: 36: temperatureSol = -128;
-"36
-[e = _temperatureSol -> -U -> 128 `i `c ]
+[v _SST_Val `uc ~T0 @X0 1 e ]
+[; ;self_test.c: 33: uint8_t SST_Val;
+"34
+[v _init_case `uc ~T0 @X0 1 e ]
+[i _init_case
+-> -> 0 `i `uc
+]
+[; ;self_test.c: 34: uint8_t init_case = 0x00;
 "37
-}
-[e :U 809 ]
-[; ;Board_Capteur.c: 37: }
-[; ;Board_Capteur.c: 39: err = 0;
-"39
-[e = _err -> 0 `i ]
-[; ;Board_Capteur.c: 41: humiditeSol = readHumidity(&err);
-"41
-[e = _humiditeSol -> ( _readHumidity (1 &U _err `c ]
-[; ;Board_Capteur.c: 43: if(err != 0){
-"43
-[e $ ! != _err -> 0 `i 810  ]
+[v _SelfTest `(v ~T0 @X0 1 ef1`uc ]
+"38
 {
-[; ;Board_Capteur.c: 44: humiditeSol = -128;
+[; ;self_test.c: 37: void SelfTest(uint8_t myChannel)
+[; ;self_test.c: 38: {
+[e :U _SelfTest ]
+"37
+[v _myChannel `uc ~T0 @X0 1 r1 ]
+"38
+[f ]
+[; ;self_test.c: 40: LCD_Display((char *)"   MiWi  Demo    Self Test Mode ", 0, 1);
+"40
+[e ( _LCD_Display (3 , , -> :s 1C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;self_test.c: 41: LCD_Display((char *)"SW1: Start Test SW2: Exit Test", 0, 1);
+"41
+[e ( _LCD_Display (3 , , -> :s 2C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;self_test.c: 42: init_case = 0;
+"42
+[e = _init_case -> -> 0 `i `uc ]
+[; ;self_test.c: 43: while(1)
+"43
+[e :U 807 ]
+[; ;self_test.c: 44: {
 "44
-[e = _humiditeSol -> -U -> 128 `i `c ]
+{
+[; ;self_test.c: 45: switch_val = BUTTON_Pressed();
 "45
-}
-[e :U 810 ]
-[; ;Board_Capteur.c: 45: }
-[; ;Board_Capteur.c: 47: {TxData = 11;};
+[e = _switch_val ( _BUTTON_Pressed ..  ]
+[; ;self_test.c: 46: if(switch_val == 1)
+"46
+[e $ ! == -> _switch_val `i -> 1 `i 809  ]
+[; ;self_test.c: 47: {
 "47
 {
-[e = _TxData -> -> 11 `i `uc ]
-}
-[; ;Board_Capteur.c: 48: TxBuffer[TxData++] = 0xCA;
-"48
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 202 `i `uc ]
-[; ;Board_Capteur.c: 49: TxBuffer[TxData++] = 0xCA;
-"49
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 202 `i `uc ]
-[; ;Board_Capteur.c: 50: TxBuffer[TxData++] = 1;
+[; ;self_test.c: 50: while(1)
 "50
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 1 `i `uc ]
-[; ;Board_Capteur.c: 51: TxBuffer[TxData++] = temperatureAir;
+[e :U 811 ]
+[; ;self_test.c: 51: {
 "51
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> _temperatureAir `uc ]
-[; ;Board_Capteur.c: 52: TxBuffer[TxData++] = temperatureSol;
+{
+[; ;self_test.c: 52: LCD_Display((char *)"Testing ...", 0, 1);
 "52
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> _temperatureSol `uc ]
-[; ;Board_Capteur.c: 53: TxBuffer[TxData++] = humiditeSol;
+[e ( _LCD_Display (3 , , -> :s 3C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;self_test.c: 53: LATCbits.LATC2 = LATAbits.LATA6 = LATAbits.LATA7 = 0;
 "53
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> _humiditeSol `uc ]
-[; ;Board_Capteur.c: 54: TxBuffer[TxData++] = 0xCA;
+[e = . . _LATCbits 0 2 = . . _LATAbits 0 6 = . . _LATAbits 0 7 -> -> 0 `i `uc ]
+[; ;self_test.c: 54: switch(init_case)
 "54
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 202 `i `uc ]
-[; ;Board_Capteur.c: 55: TxBuffer[TxData++] = 0xCA;
+[e $U 814  ]
+[; ;self_test.c: 55: {
 "55
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 202 `i `uc ]
-[; ;Board_Capteur.c: 56: MiApp_BroadcastPacket(0);
+{
+[; ;self_test.c: 56: case 0:
 "56
-[e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
+[e :U 815 ]
+[; ;self_test.c: 58: EEPROMRead(&(EEPROM_Val[0]), 0xFA, 3);
 "58
-}
+[e ( _EEPROMRead (3 , , &U *U + &U _EEPROM_Val * -> -> -> 0 `i `ui `ux -> -> # *U &U _EEPROM_Val `ui `ux -> -> 250 `i `uc -> -> 3 `i `uc ]
+[; ;self_test.c: 59: if((EEPROM_Val[0] == 0x00) && (EEPROM_Val[1] == 0x00) && (EEPROM_Val[2] == 0x00))
 "59
-}
+[e $ ! && && == -> *U + &U _EEPROM_Val * -> -> -> 0 `i `ui `ux -> -> # *U &U _EEPROM_Val `ui `ux `i -> 0 `i == -> *U + &U _EEPROM_Val * -> -> -> 1 `i `ui `ux -> -> # *U &U _EEPROM_Val `ui `ux `i -> 0 `i == -> *U + &U _EEPROM_Val * -> -> -> 2 `i `ui `ux -> -> # *U &U _EEPROM_Val `ui `ux `i -> 0 `i 816  ]
+[; ;self_test.c: 60: init_case = 255;
+"60
+[e = _init_case -> -> 255 `i `uc ]
+[e $U 817  ]
 "61
+[e :U 816 ]
+[; ;self_test.c: 61: else if((EEPROM_Val[0] == 0xFF) && (EEPROM_Val[1] == 0xFF) && (EEPROM_Val[2] == 0xFF))
+[e $ ! && && == -> *U + &U _EEPROM_Val * -> -> -> 0 `i `ui `ux -> -> # *U &U _EEPROM_Val `ui `ux `i -> 255 `i == -> *U + &U _EEPROM_Val * -> -> -> 1 `i `ui `ux -> -> # *U &U _EEPROM_Val `ui `ux `i -> 255 `i == -> *U + &U _EEPROM_Val * -> -> -> 2 `i `ui `ux -> -> # *U &U _EEPROM_Val `ui `ux `i -> 255 `i 818  ]
+[; ;self_test.c: 62: init_case = 255;
+"62
+[e = _init_case -> -> 255 `i `uc ]
+[e $U 819  ]
+"63
+[e :U 818 ]
+[; ;self_test.c: 63: else init_case++;
+[e ++ _init_case -> -> 1 `i `uc ]
+[e :U 819 ]
+[e :U 817 ]
+[; ;self_test.c: 64: break;
+"64
+[e $U 813  ]
+[; ;self_test.c: 65: case 1:
+"65
+[e :U 820 ]
+[; ;self_test.c: 67: SSTGetID(&SST_Val);
+"67
+[e ( _SSTGetID (1 &U _SST_Val ]
+[; ;self_test.c: 68: if(SST_Val == 0xBF)
+"68
+[e $ ! == -> _SST_Val `i -> 191 `i 821  ]
+[; ;self_test.c: 69: init_case++;
+"69
+[e ++ _init_case -> -> 1 `i `uc ]
+[e $U 822  ]
+"70
+[e :U 821 ]
+[; ;self_test.c: 70: else init_case = 255;
+[e = _init_case -> -> 255 `i `uc ]
+[e :U 822 ]
+[; ;self_test.c: 71: break;
+"71
+[e $U 813  ]
+[; ;self_test.c: 72: case 2:
+"72
+[e :U 823 ]
+[; ;self_test.c: 74: if (MiApp_SetChannel(myChannel) == 0)
+"74
+[e $ ! == -> ( _MiApp_SetChannel (1 _myChannel `i -> 0 `i 824  ]
+[; ;self_test.c: 75: {
+"75
+{
+[; ;self_test.c: 76: init_case = 254;
+"76
+[e = _init_case -> -> 254 `i `uc ]
+[; ;self_test.c: 77: break;
+"77
+[e $U 813  ]
+"78
+}
+[e :U 824 ]
+[; ;self_test.c: 78: }
+[; ;self_test.c: 80: {
+"80
+{
+"82
+[v _Tx_Success `uc ~T0 @X0 1 a ]
+[; ;self_test.c: 82: bool Tx_Success = 0;
+[e = _Tx_Success -> -> 0 `i `uc ]
+"83
+[v _Tx_Trials `uc ~T0 @X0 1 a ]
+[; ;self_test.c: 83: uint8_t Tx_Trials = 0, scanresult = 0;
+[e = _Tx_Trials -> -> 0 `i `uc ]
+[v _scanresult `uc ~T0 @X0 1 a ]
+[e = _scanresult -> -> 0 `i `uc ]
+[; ;self_test.c: 85: while(!Tx_Success)
+"85
+[e $U 825  ]
+[e :U 826 ]
+[; ;self_test.c: 86: {
+"86
+{
+[; ;self_test.c: 87: if(myChannel < 8)
+"87
+[e $ ! < -> _myChannel `i -> 8 `i 828  ]
+[; ;self_test.c: 88: scanresult = MiApp_SearchConnection(10, (0x00000001 << myChannel));
+"88
+[e = _scanresult ( _MiApp_SearchConnection (2 , -> -> 10 `i `uc -> -> << -> 1 `i _myChannel `l `ul ]
+[e $U 829  ]
+"89
+[e :U 828 ]
+[; ;self_test.c: 89: else if(myChannel < 16)
+[e $ ! < -> _myChannel `i -> 16 `i 830  ]
+[; ;self_test.c: 90: scanresult = MiApp_SearchConnection(10, (0x00000100 << (myChannel-8)));
+"90
+[e = _scanresult ( _MiApp_SearchConnection (2 , -> -> 10 `i `uc -> -> << -> 256 `i - -> _myChannel `i -> 8 `i `l `ul ]
+[e $U 831  ]
+"91
+[e :U 830 ]
+[; ;self_test.c: 91: else if(myChannel < 24)
+[e $ ! < -> _myChannel `i -> 24 `i 832  ]
+[; ;self_test.c: 92: scanresult = MiApp_SearchConnection(10, (0x00010000 << (myChannel-16)));
+"92
+[e = _scanresult ( _MiApp_SearchConnection (2 , -> -> 10 `i `uc -> << -> 65536 `l - -> _myChannel `i -> 16 `i `ul ]
+[e $U 833  ]
+"93
+[e :U 832 ]
+[; ;self_test.c: 93: else
+[; ;self_test.c: 94: scanresult = MiApp_SearchConnection(10, (0x01000000 << (myChannel-24)));
+"94
+[e = _scanresult ( _MiApp_SearchConnection (2 , -> -> 10 `i `uc -> << -> 16777216 `l - -> _myChannel `i -> 24 `i `ul ]
+[e :U 833 ]
+[e :U 831 ]
+[e :U 829 ]
+[; ;self_test.c: 95: if(scanresult == 0)
+"95
+[e $ ! == -> _scanresult `i -> 0 `i 834  ]
+[; ;self_test.c: 96: {
+"96
+{
+[; ;self_test.c: 97: Tx_Trials++;
+"97
+[e ++ _Tx_Trials -> -> 1 `i `uc ]
+[; ;self_test.c: 98: if(Tx_Trials > 2) break;
+"98
+[e $ ! > -> _Tx_Trials `i -> 2 `i 835  ]
+[e $U 827  ]
+[e :U 835 ]
+"100
+}
+[; ;self_test.c: 100: }
+[e $U 836  ]
+"101
+[e :U 834 ]
+[; ;self_test.c: 101: else Tx_Success = 1;
+[e = _Tx_Success -> -> 1 `i `uc ]
+[e :U 836 ]
+"103
+}
+[e :U 825 ]
+"85
+[e $ ! != -> _Tx_Success `i -> -> -> 0 `i `uc `i 826  ]
+[e :U 827 ]
+[; ;self_test.c: 103: }
+[; ;self_test.c: 104: if(Tx_Success) init_case = 254;
+"104
+[e $ ! != -> _Tx_Success `i -> -> -> 0 `i `uc `i 837  ]
+[e = _init_case -> -> 254 `i `uc ]
+[e $U 838  ]
+"105
+[e :U 837 ]
+[; ;self_test.c: 105: else init_case = 255;
+[e = _init_case -> -> 255 `i `uc ]
+[e :U 838 ]
+"106
+}
+[; ;self_test.c: 106: }
+[; ;self_test.c: 107: break;
+"107
+[e $U 813  ]
+[; ;self_test.c: 109: case 254: LCD_Display((char *)"Self Test Mode  Test Pass", 0, 1);
+"109
+[e :U 839 ]
+[e ( _LCD_Display (3 , , -> :s 4C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;self_test.c: 110: LATCbits.LATC2 = LATAbits.LATA6= LATAbits.LATA7 = 1;
+"110
+[e = . . _LATCbits 0 2 = . . _LATAbits 0 6 = . . _LATAbits 0 7 -> -> 1 `i `uc ]
+[; ;self_test.c: 111: init_case = 0xF0;
+"111
+[e = _init_case -> -> 240 `i `uc ]
+[; ;self_test.c: 112: break;
+"112
+[e $U 813  ]
+[; ;self_test.c: 113: case 255: LCD_Display((char *)"Self Test Mode  Test Fail", 0, 1);
+"113
+[e :U 840 ]
+[e ( _LCD_Display (3 , , -> :s 5C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;self_test.c: 114: LATCbits.LATC2 = LATAbits.LATA6 = LATAbits.LATA7 = 1;
+"114
+[e = . . _LATCbits 0 2 = . . _LATAbits 0 6 = . . _LATAbits 0 7 -> -> 1 `i `uc ]
+[; ;self_test.c: 115: init_case = 0xF0;
+"115
+[e = _init_case -> -> 240 `i `uc ]
+[; ;self_test.c: 116: break;
+"116
+[e $U 813  ]
+[; ;self_test.c: 117: default: break;
+"117
+[e :U 841 ]
+[e $U 813  ]
+"119
+}
+[; ;self_test.c: 119: }
+[e $U 813  ]
+"54
+[e :U 814 ]
+[e [\ _init_case , $ -> -> 0 `i `uc 815
+ , $ -> -> 1 `i `uc 820
+ , $ -> -> 2 `i `uc 823
+ , $ -> -> 254 `i `uc 839
+ , $ -> -> 255 `i `uc 840
+ 841 ]
+"119
+[e :U 813 ]
+[; ;self_test.c: 121: if(init_case == 0xF0)
+"121
+[e $ ! == -> _init_case `i -> 240 `i 842  ]
+[; ;self_test.c: 122: {
+"122
+{
+[; ;self_test.c: 123: while(1)
+"123
+[e :U 844 ]
+[; ;self_test.c: 124: {
+"124
+{
+[; ;self_test.c: 125: switch_val = BUTTON_Pressed();
+"125
+[e = _switch_val ( _BUTTON_Pressed ..  ]
+[; ;self_test.c: 126: if((switch_val == 1) || (switch_val == 2))
+"126
+[e $ ! || == -> _switch_val `i -> 1 `i == -> _switch_val `i -> 2 `i 846  ]
+[; ;self_test.c: 127: break;
+"127
+[e $U 845  ]
+[e :U 846 ]
+"128
+}
+[e :U 843 ]
+"123
+[e $U 844  ]
+[e :U 845 ]
+[; ;self_test.c: 128: }
+[; ;self_test.c: 129: break;
+"129
+[e $U 812  ]
+"130
+}
+[e :U 842 ]
+"131
+}
+[e :U 810 ]
+"50
+[e $U 811  ]
+[e :U 812 ]
+[; ;self_test.c: 130: }
+[; ;self_test.c: 131: }
+[; ;self_test.c: 132: break;
+"132
+[e $U 808  ]
+"134
+}
+[; ;self_test.c: 134: }
+[e $U 847  ]
+"135
+[e :U 809 ]
+[; ;self_test.c: 135: else if(switch_val == 2)
+[e $ ! == -> _switch_val `i -> 2 `i 848  ]
+[; ;self_test.c: 136: {
+"136
+{
+[; ;self_test.c: 137: break;
+"137
+[e $U 808  ]
+"138
+}
+[e :U 848 ]
+"139
+[e :U 847 ]
 }
 [e :U 806 ]
-"13
+"43
 [e $U 807  ]
 [e :U 808 ]
-[; ;Board_Capteur.c: 58: }
-[; ;Board_Capteur.c: 59: }
-[; ;Board_Capteur.c: 61: }
-[; ;Board_Capteur.c: 62: }
-"62
+[; ;self_test.c: 138: }
+[; ;self_test.c: 139: }
+[; ;self_test.c: 140: }
+"140
 [e :UE 805 ]
 }
-"80
-[v _ReadTemperatureSensor `(c ~T0 @X0 1 ef1`ui ]
-"81
-{
-[; ;Board_Capteur.c: 80: int8_t ReadTemperatureSensor(uint16_t ADC_READING)
-[; ;Board_Capteur.c: 81: {
-[e :U _ReadTemperatureSensor ]
-"80
-[v _ADC_READING `ui ~T0 @X0 1 r1 ]
-"81
-[f ]
-"82
-[v _tempValue `i ~T0 @X0 1 a ]
-"83
-[v _temp `d ~T0 @X0 1 a ]
-"84
-[v _tempHere `c ~T0 @X0 1 a ]
-"85
-[v _i `uc ~T0 @X0 1 a ]
-[; ;Board_Capteur.c: 82: int16_t tempValue;
-[; ;Board_Capteur.c: 83: double temp;
-[; ;Board_Capteur.c: 84: int8_t tempHere;
-[; ;Board_Capteur.c: 85: uint8_t i = 0;
-[e = _i -> -> 0 `i `uc ]
-"86
-[v _tempAverage `f ~T0 @X0 1 a ]
-[; ;Board_Capteur.c: 86: float tempAverage = 0;
-[e = _tempAverage -> -> 0 `i `f ]
-"87
-[v _tempArray `c ~T0 @X0 -> 4 `i a ]
-[; ;Board_Capteur.c: 87: int8_t tempArray[4];
-[; ;Board_Capteur.c: 91: ADCON0 = 0x04;
-"91
-[e = _ADCON0 -> -> 4 `i `uc ]
-[; ;Board_Capteur.c: 92: ADCON1 = 0xBD;
-"92
-[e = _ADCON1 -> -> 189 `i `uc ]
-[; ;Board_Capteur.c: 94: PIR1bits.ADIF = 0;
-"94
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;Board_Capteur.c: 95: PIE1bits.ADIE = 0;
-"95
-[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
-[; ;Board_Capteur.c: 97: do
-"97
-[e :U 814 ]
-[; ;Board_Capteur.c: 98: {
-"98
-{
-[; ;Board_Capteur.c: 99: ADCON0bits.ADON = 1;
-"99
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;Board_Capteur.c: 100: DELAY_10us(10);
-"100
-[e ( _DELAY_10us (1 -> -> -> 10 `i `l `ul ]
-[; ;Board_Capteur.c: 102: ADCON0bits.GO = 1;
-"102
-[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
-[; ;Board_Capteur.c: 103: while(ADCON0bits.DONE);
-"103
-[e $U 815  ]
-[e :U 816 ]
-[e :U 815 ]
-[e $ != -> . . _ADCON0bits 3 1 `i -> -> -> 0 `i `Vuc `i 816  ]
-[e :U 817 ]
-[; ;Board_Capteur.c: 105: temp = (1200.0/ADC_READING);
-"105
-[e = _temp / .1200.0 -> _ADC_READING `d ]
-[; ;Board_Capteur.c: 106: tempValue = ADRES;
-"106
-[e = _tempValue -> _ADRES `i ]
-[; ;Board_Capteur.c: 107: temp = (temp * tempValue);
-"107
-[e = _temp * _temp -> _tempValue `d ]
-[; ;Board_Capteur.c: 108: temp = (temp - 500.0)/10.0;
-"108
-[e = _temp / - _temp .500.0 .10.0 ]
-[; ;Board_Capteur.c: 110: tempArray[i] = (int8_t) temp;
-"110
-[e = *U + &U _tempArray * -> _i `ux -> -> # *U &U _tempArray `ui `ux -> _temp `c ]
-[; ;Board_Capteur.c: 112: ADCON0bits.ADON = 0;
-"112
-[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
-[; ;Board_Capteur.c: 113: DELAY_10us(1);
-"113
-[e ( _DELAY_10us (1 -> -> -> 1 `i `l `ul ]
-[; ;Board_Capteur.c: 114: i++;
-"114
-[e ++ _i -> -> 1 `i `uc ]
-"115
-}
-[; ;Board_Capteur.c: 115: } while(i < 4);
-[e $ < -> _i `i -> 4 `i 814  ]
-[e :U 813 ]
-[; ;Board_Capteur.c: 118: for(i = 0; i<4; i++)
-"118
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 4 `i 818  ]
-[e $U 819  ]
-"119
-[e :U 818 ]
-[; ;Board_Capteur.c: 119: {
-{
-[; ;Board_Capteur.c: 120: tempAverage = (tempAverage + tempArray[i]);
-"120
-[e = _tempAverage + _tempAverage -> *U + &U _tempArray * -> _i `ux -> -> # *U &U _tempArray `ui `ux `f ]
-"121
-}
-"118
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 4 `i 818  ]
-[e :U 819 ]
-"121
-}
-[; ;Board_Capteur.c: 121: }
-[; ;Board_Capteur.c: 122: tempAverage = (tempAverage/4);
-"122
-[e = _tempAverage / _tempAverage -> -> 4 `i `f ]
-[; ;Board_Capteur.c: 123: tempHere = (int8_t) tempAverage;
-"123
-[e = _tempHere -> _tempAverage `c ]
-[; ;Board_Capteur.c: 124: tempAverage = (tempAverage - tempHere) * 10;
-"124
-[e = _tempAverage * - _tempAverage -> _tempHere `f -> -> 10 `i `f ]
-[; ;Board_Capteur.c: 126: if(tempAverage >= 5)
-"126
-[e $ ! >= _tempAverage -> -> 5 `i `f 821  ]
-[; ;Board_Capteur.c: 127: tempHere = tempHere + 1;
-"127
-[e = _tempHere -> + -> _tempHere `i -> 1 `i `c ]
-[e :U 821 ]
-[; ;Board_Capteur.c: 129: return (int8_t)tempHere;
-"129
-[e ) _tempHere ]
-[e $UE 811  ]
-[; ;Board_Capteur.c: 132: }
-"132
-[e :UE 811 ]
-}
-"151
-[v _Read_Voltage_Sensor `(ui ~T0 @X0 1 ef ]
-"152
-{
-[; ;Board_Capteur.c: 151: uint16_t Read_Voltage_Sensor(void)
-[; ;Board_Capteur.c: 152: {
-[e :U _Read_Voltage_Sensor ]
-[f ]
-[; ;Board_Capteur.c: 153: ADCON0 = 0x3D;
-"153
-[e = _ADCON0 -> -> 61 `i `uc ]
-[; ;Board_Capteur.c: 154: ADCON1 = 0xBD;
-"154
-[e = _ADCON1 -> -> 189 `i `uc ]
-[; ;Board_Capteur.c: 155: ANCON1bits.VBGEN = 1;
-"155
-[e = . . _ANCON1bits 0 7 -> -> 1 `i `uc ]
-[; ;Board_Capteur.c: 157: DELAY_10us(1000);
-"157
-[e ( _DELAY_10us (1 -> -> -> 1000 `i `l `ul ]
-[; ;Board_Capteur.c: 159: PIR1bits.ADIF = 0;
-"159
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;Board_Capteur.c: 160: PIE1bits.ADIE = 0;
-"160
-[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
-[; ;Board_Capteur.c: 162: ADCON0bits.GO = 1;
-"162
-[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
-[; ;Board_Capteur.c: 163: while(ADCON0bits.DONE);
-"163
-[e $U 823  ]
-[e :U 824 ]
-[e :U 823 ]
-[e $ != -> . . _ADCON0bits 3 1 `i -> -> -> 0 `i `Vuc `i 824  ]
-[e :U 825 ]
-[; ;Board_Capteur.c: 165: ADCON0bits.ADON = 0;
-"165
-[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
-[; ;Board_Capteur.c: 166: ANCON1bits.VBGEN = 0;
-"166
-[e = . . _ANCON1bits 0 7 -> -> 0 `i `uc ]
-[; ;Board_Capteur.c: 168: return ADRES;
-"168
-[e ) -> _ADRES `ui ]
-[e $UE 822  ]
-[; ;Board_Capteur.c: 169: }
-"169
-[e :UE 822 ]
-}
+[a 2C 83 87 49 58 32 83 116 97 114 116 32 84 101 115 116 32 83 87 50 58 32 69 120 105 116 32 84 101 115 116 0 ]
+[a 4C 83 101 108 102 32 84 101 115 116 32 77 111 100 101 32 32 84 101 115 116 32 80 97 115 115 0 ]
+[a 5C 83 101 108 102 32 84 101 115 116 32 77 111 100 101 32 32 84 101 115 116 32 70 97 105 108 0 ]
+[a 3C 84 101 115 116 105 110 103 32 46 46 46 0 ]
+[a 1C 32 32 32 77 105 87 105 32 32 68 101 109 111 32 32 32 32 83 101 108 102 32 84 101 115 116 32 77 111 100 101 32 0 ]

@@ -51,7 +51,6 @@ void Network(int DEVICEMODE)
     //*******************************************************************
     // Initialize Hardware
     //*******************************************************************
-    
  	
     LED0 = LED1 = LED2 = 1;
  	
@@ -247,5 +246,4 @@ void Network(int DEVICEMODE)
         }//end of (while (result == true)
     }
 }
-
 

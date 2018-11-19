@@ -1,95 +1,8 @@
 
-# 1 "../src/Board_Capteur.c"
+# 1 "../src/network.c"
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 43
-typedef unsigned char uint8_t;
-
-# 49
-typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
+# 27 "../src/network.h"
+void Network(int DEVICEMODE);
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8882,6 +8795,96 @@ extern int printf(const char *, ...);
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
 # 43 "../src/system_config/miwikit_pic18f46j50_24j40\lcd.h"
 extern uint8_t LCDText[16*2+1];
 
@@ -9376,151 +9379,186 @@ bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
 # 950
 extern RECEIVED_MESSAGE rxMessage;
 
-# 13 "../src/CapteurI2C.h"
-float readHumidity(int *error);
-float readTemperatureC(int *error);
-float readTemperatureF();
+# 16 "../src/network.c"
+uint8_t myChannel = 20;
 
-float readTemperatureRaw(int *error);
-int shiftIn(int _numBits);
-int shiftInCRC();
-void sendCommandSHT(int _command);
-void waitForResultSHT();
-int getData16SHT(int *val, char *CRC);
-void skipCrcSHT();
+# 25
+uint8_t ConnectionEntry = 0;
 
-# 10 "../src/Board_Capteur.h"
-uint16_t Read_Voltage_Sensor(void);
-int8_t ReadTemperatureSensor(uint16_t Result);
+extern uint8_t myLongAddress[];
 
-# 9 "../src/Board_Capteur.c"
-int Board_Capteur_Loop(){
+# 41
+uint8_t AdditionalNodeID[1] = {0x00};
 
 
+
+void Network(int DEVICEMODE)
+{
+uint8_t i, j;
+bool result = 1;
+uint8_t switch_val;
+
+# 55
+LATCbits.LATC2 = LATAbits.LATA6 = LATAbits.LATA7 = 1;
+
+Read_MAC_Address();
+
+MiApp_ProtocolInit(0);
+
+# 65
+CreateorJoin:
+
+# 71
+if( MiApp_SetChannel(myChannel) == 0 )
+return;
+
+# 83
+MiApp_ConnectionMode(0x00);
+
+
+if(DEVICEMODE == 0)
+{
+while(result == 1)
+{
+
+# 95
+MiApp_ProtocolInit(0);
+MiApp_StartConnection(0x00, 0, 0);
+
+LCD_Erase();
+sprintf((char *)&(LCDText), (char*)"PANID:%02x%02x Ch:%02d",myPANID.v[1],myPANID.v[0],myChannel);
+sprintf((char *)&(LCDText[16]), (char*)"Address: %02x%02x", myShortAddress.v[1], myShortAddress.v[0]);
+LCD_Update();
+
+
+
+
+while(!ConnectionTable[0].status.bits.isValid)
+{
+if(MiApp_MessageAvailable())
+MiApp_DiscardMessage();
+}
+result = 0;
+
+}
+}
+
+
+
+
+else
+{
+
+
+
+
+while(result == 1)
+{
+volatile uint8_t scanresult;
+
+MiApp_ProtocolInit(0);
+
+# 135
+scanresult = MiApp_SearchConnection(10, (0x00010000 << (myChannel-16)));
+
+# 141
+if(scanresult > 0)
+{
+uint8_t k;
+
+for(j = 0; j < scanresult; j++)
+{
+uint8_t skip_print = 0;
+if(j > 0)
+{
+
+skip_print = 0;
+for(k = 0; k < j; k++)
+{
+if((ActiveScanResults[j].PANID.v[1] == ActiveScanResults[k].PANID.v[1]) &
+(ActiveScanResults[j].PANID.v[0] == ActiveScanResults[k].PANID.v[0]))
+{
+skip_print = 1;
+break;
+}
+
+}
+if(skip_print == 1)
+{
+if(j == (scanresult-1)) j = -1;
+continue;
+}
+}
 
 while(1)
 {
 
-
-_delay((unsigned long)((500)*(16000000/4000.0)));
-
-
-
-{
-
-
-{
-int8_t temperatureAir = 0;
-int8_t temperatureSol = 0;
-int8_t humiditeSol = 0;
-
-temperatureAir = ReadTemperatureSensor(Read_Voltage_Sensor());
-
-int err = 0;
-
-temperatureSol = readTemperatureC(&err);
-
-if(err != 0){
-temperatureSol = -128;
-}
-
-err = 0;
-
-humiditeSol = readHumidity(&err);
-
-if(err != 0){
-humiditeSol = -128;
-}
-
+# 176
+uint8_t Status;
+uint8_t CoordCount = 0;
 {TxData = 11;};
-TxBuffer[TxData++] = 0xCA;
-TxBuffer[TxData++] = 0xCA;
-TxBuffer[TxData++] = 1;
-TxBuffer[TxData++] = temperatureAir;
-TxBuffer[TxData++] = temperatureSol;
-TxBuffer[TxData++] = humiditeSol;
-TxBuffer[TxData++] = 0xCA;
-TxBuffer[TxData++] = 0xCA;
+
+for(k = 0 ; k < scanresult ; k++)
+{
+if((ActiveScanResults[j].PANID.v[1] == ActiveScanResults[k].PANID.v[1]) &
+(ActiveScanResults[j].PANID.v[1] == ActiveScanResults[k].PANID.v[1]))
+{
+CoordCount++;
+}
+}
+if(CoordCount > 1)
+{
+uint8_t nodeIndex = 0;
+uint8_t count = 0;
+{TxData = 11;};
+TxBuffer[TxData++] = 4;
+TxBuffer[TxData++] = ActiveScanResults[j].PANID.v[1];
+TxBuffer[TxData++] = ActiveScanResults[j].PANID.v[0];
 MiApp_BroadcastPacket(0);
-
-}
-}
-
-}
-}
-
-# 80
-int8_t ReadTemperatureSensor(uint16_t ADC_READING)
+for(k = 0 ; k < scanresult ; k++)
 {
-int16_t tempValue;
-double temp;
-int8_t tempHere;
-uint8_t i = 0;
-float tempAverage = 0;
-int8_t tempArray[4];
-
-
-
-ADCON0 = 0x04;
-ADCON1 = 0xBD;
-
-PIR1bits.ADIF = 0;
-PIE1bits.ADIE = 0;
-
-do
+if((ActiveScanResults[j].PANID.v[1] == ActiveScanResults[k].PANID.v[1]) &
+(ActiveScanResults[j].PANID.v[0] == ActiveScanResults[k].PANID.v[0]))
 {
-ADCON0bits.ADON = 1;
-DELAY_10us(10);
-
-ADCON0bits.GO = 1;
-while(ADCON0bits.DONE);
-
-temp = (1200.0/ADC_READING);
-tempValue = ADRES;
-temp = (temp * tempValue);
-temp = (temp - 500.0)/10.0;
-
-tempArray[i] = (int8_t) temp;
-
-ADCON0bits.ADON = 0;
-DELAY_10us(1);
-i++;
-} while(i < 4);
-
-
-for(i = 0; i<4; i++)
-{
-tempAverage = (tempAverage + tempArray[i]);
+count++;
+nodeIndex = k;
 }
-tempAverage = (tempAverage/4);
-tempHere = (int8_t) tempAverage;
-tempAverage = (tempAverage - tempHere) * 10;
+}
+}
 
-if(tempAverage >= 5)
-tempHere = tempHere + 1;
+# 212
+Status = MiApp_EstablishConnection(j, 0x00);
+if(Status == 0xFF)
+{
 
-return (int8_t)tempHere;
+goto CreateorJoin;
+}
+else
+{
 
+result = 0;
+}
+{TxData = 11;};
+TxBuffer[TxData++] = 5;
+TxBuffer[TxData++] = myPANID.v[1];
+TxBuffer[TxData++] = myPANID.v[0];
+MiApp_BroadcastPacket(0);
+break;
 
 }
 
-# 151
-uint16_t Read_Voltage_Sensor(void)
-{
-ADCON0 = 0x3D;
-ADCON1 = 0xBD;
-ANCON1bits.VBGEN = 1;
-
-DELAY_10us(1000);
-
-PIR1bits.ADIF = 0;
-PIE1bits.ADIE = 0;
-
-ADCON0bits.GO = 1;
-while(ADCON0bits.DONE);
-
-ADCON0bits.ADON = 0;
-ANCON1bits.VBGEN = 0;
-
-return ADRES;
+# 236
+if(result == 0)
+break;
 }
+
+result = 0;
+}
+else
+{
+LCD_Display((char *)"Waiting for PAN Rescanning......", 0, 0);
+}
+}
+}
+}
+

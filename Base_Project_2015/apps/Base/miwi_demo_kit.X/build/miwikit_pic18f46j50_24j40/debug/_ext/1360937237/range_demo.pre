@@ -1,95 +1,8 @@
 
-# 1 "../src/Board_Capteur.c"
+# 1 "../src/range_demo.c"
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 43
-typedef unsigned char uint8_t;
-
-# 49
-typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
+# 27 "../src/range_demo.h"
+void RangeDemo(void);
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8882,6 +8795,96 @@ extern int printf(const char *, ...);
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
 # 43 "../src/system_config/miwikit_pic18f46j50_24j40\lcd.h"
 extern uint8_t LCDText[16*2+1];
 
@@ -9376,151 +9379,219 @@ bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
 # 950
 extern RECEIVED_MESSAGE rxMessage;
 
-# 13 "../src/CapteurI2C.h"
-float readHumidity(int *error);
-float readTemperatureC(int *error);
-float readTemperatureF();
+# 71 "../src/range_demo.c"
+extern uint8_t ConnectionEntry;
 
-float readTemperatureRaw(int *error);
-int shiftIn(int _numBits);
-int shiftInCRC();
-void sendCommandSHT(int _command);
-void waitForResultSHT();
-int getData16SHT(int *val, char *CRC);
-void skipCrcSHT();
-
-# 10 "../src/Board_Capteur.h"
-uint16_t Read_Voltage_Sensor(void);
-int8_t ReadTemperatureSensor(uint16_t Result);
-
-# 9 "../src/Board_Capteur.c"
-int Board_Capteur_Loop(){
+# 88
+void RangeDemo(void)
+{
+bool Run_Demo = 1;
+bool Tx_Packet = 1;
+uint8_t rssi = 0;
+uint8_t Pkt_Loss_Cnt = 0;
+MIWI_TICK tick1, tick2;
+uint8_t switch_val;
+uint8_t pktCmd = 0;
 
 
 
-while(1)
+
+LCD_BacklightON();
+LCD_Display((char *)"   Microchip       Door Unlock  ", 0, 1);
+LCD_BacklightOFF();
+
+
+
+
+tick1 = MiWi_TickGet();
+
+while(Run_Demo)
 {
 
 
-_delay((unsigned long)((500)*(16000000/4000.0)));
+
+tick2 = MiWi_TickGet();
 
 
 
+if(((tick2.Val - tick1.Val) > (((uint32_t)(16000000)/32000) * 1000)))
 {
 
 
+if(Tx_Packet)
 {
-int8_t temperatureAir = 0;
-int8_t temperatureSol = 0;
-int8_t humiditeSol = 0;
 
-temperatureAir = ReadTemperatureSensor(Read_Voltage_Sensor());
-
-int err = 0;
-
-temperatureSol = readTemperatureC(&err);
-
-if(err != 0){
-temperatureSol = -128;
-}
-
-err = 0;
-
-humiditeSol = readHumidity(&err);
-
-if(err != 0){
-humiditeSol = -128;
-}
 
 {TxData = 11;};
-TxBuffer[TxData++] = 0xCA;
-TxBuffer[TxData++] = 0xCA;
+
+TxBuffer[TxData++] = 2;
+TxBuffer[TxData++] = 0x4D;
+TxBuffer[TxData++] = 0x69;
+TxBuffer[TxData++] = 0x57;
+TxBuffer[TxData++] = 0x69;
+TxBuffer[TxData++] = 0x20;
+TxBuffer[TxData++] = 0x52;
+TxBuffer[TxData++] = 0x6F;
+TxBuffer[TxData++] = 0x63;
+TxBuffer[TxData++] = 0x6B;
+TxBuffer[TxData++] = 0x73;
+TxBuffer[TxData++] = 0x21;
+
+if( MiApp_UnicastConnection(ConnectionEntry, 0) == 0 )
+Pkt_Loss_Cnt++;
+else
+Pkt_Loss_Cnt = 0;
+
+Tx_Packet = 0;
+}
+else
+{
+if(Pkt_Loss_Cnt < 1)
+{
+
+if(rssi > 200)
+
+# 158
+{
+sprintf((char *)&LCDText, (char*)" Unlock Door ?  SW1: YES  SW2:NO");
+LATCbits.LATC2 = 1;
+LATAbits.LATA6 = 0;
+LATAbits.LATA7 = 0;
+switch_val = BUTTON_Pressed();
+if(switch_val == 1)
+{
+LATCbits.LATC2 = 1;
+LATAbits.LATA6 = 1;
+LATAbits.LATA7 = 1;
+}
+
+else if(switch_val == 2)
+{
+
+
+
+{TxData = 11;};
 TxBuffer[TxData++] = 1;
-TxBuffer[TxData++] = temperatureAir;
-TxBuffer[TxData++] = temperatureSol;
-TxBuffer[TxData++] = humiditeSol;
-TxBuffer[TxData++] = 0xCA;
-TxBuffer[TxData++] = 0xCA;
-MiApp_BroadcastPacket(0);
+MiApp_UnicastConnection(ConnectionEntry, 0);
 
-}
-}
+LCD_BacklightON();
+LCD_Display((char *)"   Exiting....     Range Demo  ", 0, 1);
+LCD_BacklightOFF();
 
-}
-}
+tick1 = MiWi_TickGet();
 
-# 80
-int8_t ReadTemperatureSensor(uint16_t ADC_READING)
+while(Run_Demo)
 {
-int16_t tempValue;
-double temp;
-int8_t tempHere;
-uint8_t i = 0;
-float tempAverage = 0;
-int8_t tempArray[4];
-
-
-
-ADCON0 = 0x04;
-ADCON1 = 0xBD;
-
-PIR1bits.ADIF = 0;
-PIE1bits.ADIE = 0;
-
-do
+if(MiApp_MessageAvailable())
 {
-ADCON0bits.ADON = 1;
-DELAY_10us(10);
+if(rxMessage.Payload[0] == 4)
+Run_Demo = 0;
 
-ADCON0bits.GO = 1;
-while(ADCON0bits.DONE);
-
-temp = (1200.0/ADC_READING);
-tempValue = ADRES;
-temp = (temp * tempValue);
-temp = (temp - 500.0)/10.0;
-
-tempArray[i] = (int8_t) temp;
-
-ADCON0bits.ADON = 0;
-DELAY_10us(1);
-i++;
-} while(i < 4);
-
-
-for(i = 0; i<4; i++)
-{
-tempAverage = (tempAverage + tempArray[i]);
+MiApp_DiscardMessage();
 }
-tempAverage = (tempAverage/4);
-tempHere = (int8_t) tempAverage;
-tempAverage = (tempAverage - tempHere) * 10;
+if (((tick2.Val - tick1.Val) > (((uint32_t)(16000000)/32) * 6)))
+Run_Demo = 0;
 
-if(tempAverage >= 5)
-tempHere = tempHere + 1;
-
-return (int8_t)tempHere;
-
-
+tick2 = MiWi_TickGet();
+}
+}
 }
 
-# 151
-uint16_t Read_Voltage_Sensor(void)
+else if(rssi < 201)
+
+# 207
 {
-ADCON0 = 0x3D;
-ADCON1 = 0xBD;
-ANCON1bits.VBGEN = 1;
+sprintf((char *)&LCDText, (char*)" Get Closer to      the Door    ");
+LATCbits.LATC2 = 0;
+LATAbits.LATA6 = 1;
+LATAbits.LATA7 = 0;
+switch_val = BUTTON_Pressed();
+if((switch_val == 1) || (switch_val == 2))
+{
 
-DELAY_10us(1000);
 
-PIR1bits.ADIF = 0;
-PIE1bits.ADIE = 0;
 
-ADCON0bits.GO = 1;
-while(ADCON0bits.DONE);
+{TxData = 11;};
+TxBuffer[TxData++] = 1;
+MiApp_UnicastConnection(ConnectionEntry, 0);
 
-ADCON0bits.ADON = 0;
-ANCON1bits.VBGEN = 0;
+LCD_BacklightON();
+LCD_Display((char *)"   Exiting....     Range Demo  ", 0, 1);
+LCD_BacklightOFF();
 
-return ADRES;
+tick1 = MiWi_TickGet();
+
+while(Run_Demo)
+{
+if(MiApp_MessageAvailable())
+{
+if(rxMessage.Payload[0] == 4)
+Run_Demo = 0;
+
+MiApp_DiscardMessage();
 }
+if (((tick2.Val - tick1.Val) > (((uint32_t)(16000000)/32) * 6)))
+Run_Demo = 0;
+
+tick2 = MiWi_TickGet();
+}
+}
+}
+
+
+
+
+}
+
+else
+{
+LCD_Display((char *)"No Device Found or Out of Range ", 0, 1);
+LATCbits.LATC2 = 0;
+LATAbits.LATA6 = 0;
+LATAbits.LATA7 = 1;
+}
+
+LCD_Update();
+Tx_Packet = 1;
+
+}
+
+
+
+tick1 = MiWi_TickGet();
+
+}
+
+
+if(MiApp_MessageAvailable())
+{
+pktCmd = rxMessage.Payload[0];
+if(pktCmd == 1)
+{
+MiApp_DiscardMessage();
+{TxData = 11;};
+TxBuffer[TxData++] = 4;
+MiApp_UnicastConnection(ConnectionEntry, 0);
+Run_Demo = 0;
+LCD_BacklightON();
+LCD_Display((char *)"   Exiting....     Range Demo  ", 0, 1);
+LCD_BacklightOFF();
+
+
+}
+else if(rxMessage.Payload[0] == 2)
+{
+
+rssi = rxMessage.PacketRSSI;
+
+# 294
+MiApp_DiscardMessage();
+}
+else
+MiApp_DiscardMessage();
+}
+
+# 334
+}
+}
+
