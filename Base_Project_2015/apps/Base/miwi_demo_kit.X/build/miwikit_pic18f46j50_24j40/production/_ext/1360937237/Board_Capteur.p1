@@ -7016,7 +7016,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;CapteurI2C.h: 13: float readHumidity(int *error);
 [; ;CapteurI2C.h: 14: float readTemperatureC(int *error);
 [; ;CapteurI2C.h: 15: float readTemperatureF();
-[; ;CapteurI2C.h: 17: float readTemperatureRaw(int *error);
+[; ;CapteurI2C.h: 17: float readTemperatureRaw(int **error);
 [; ;CapteurI2C.h: 18: int shiftIn(int _numBits);
 [; ;CapteurI2C.h: 19: int shiftInCRC();
 [; ;CapteurI2C.h: 20: void sendCommandSHT(int _command);

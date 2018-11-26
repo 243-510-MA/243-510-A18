@@ -33,13 +33,58 @@ float readTemperatureC(int *error)
 
   int err = 0;
   // Fetch raw value
-  _val = readTemperatureRaw(&err);
+  char crc;
+  char calcCRC = 0;
+
+  // Command to send to the SHT1x to request Temperature
+  int _gTempCmd  = 0b00000011;
+
+  sendCommandSHT(_gTempCmd);
+  waitForResultSHT();
+  getData16SHT(&_val, &crc);
+  
+  calcCRC = _gTempCmd;
+  calcCRC = crcTable[calcCRC];
+  
+  calcCRC = calcCRC ^ (_val/256);
+  calcCRC = crcTable[calcCRC];
+  
+  calcCRC = calcCRC ^ (_val&255);
+  calcCRC = crcTable[calcCRC];
+
+  if(calcCRC != crc){
+      *error = 1;
+      return(0);
+  }
 
   // Convert raw value to degrees Celsius
   _temperature = (_val * D2) + D1;
 
   return (_temperature);
 }
+
+/**
+ * Reads the current temperature in degrees Celsius
+ */
+/*
+float readTemperatureC(int *error)
+{
+  int _val;                // Raw value returned from sensor
+  float _temperature;      // Temperature derived from raw value
+
+  // Conversion coefficients from SHT15 datasheet
+  const float D1 = -40.0;  // for 14 Bit @ 5V
+  const float D2 =   0.01; // for 14 Bit DEGC
+
+  int err = 0;
+  // Fetch raw value
+  _val = readTemperatureRaw(&err);
+
+  // Convert raw value to degrees Celsius
+  _temperature = (_val * D2) + D1;
+
+  return (_temperature);
+}*/
 
 /**
  * Reads the current temperature in degrees Fahrenheit
@@ -106,7 +151,7 @@ float readHumidity(int *error)
   calcCRC = crcTable[calcCRC];
   
   if(calcCRC != crc){
-      error = 1;
+      *error = 1;
       return(0);
   }
 
@@ -127,7 +172,7 @@ float readHumidity(int *error)
 /**
  * Reads the current raw temperature value
  */
-float readTemperatureRaw(int *error)
+float readTemperatureRaw(int **error)
 {
   int _val;
   char crc;
@@ -150,7 +195,7 @@ float readTemperatureRaw(int *error)
   calcCRC = crcTable[calcCRC];
 
   if(calcCRC != crc){
-      error = 1;
+      **error = 1;
       return(0);
   }
 
