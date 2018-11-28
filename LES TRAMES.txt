@@ -1,13 +1,13 @@
-DOC DE REFERENCE DES TRAMES DU SYSTÈME DE PRISE DE DONNÉES DU JARDIN
+DOC DE REFERENCE DES TRAMES DU SYSTÃˆME DE PRISE DE DONNÃ‰ES DU JARDIN
 
 ----------------------------------------------------------------------
 
 1ST
 
 
-le pan transmet une tramme avec 0x00 à la position 0 de la payload 
+le pan transmet une tramme avec 0x00 Ã  la position 0 de la payload 
 
-cette tramme sert à demander aux boards capteurs de transmettre leur data pour qu'elles sooient stored dans eeprom.
+cette tramme sert Ã  demander aux boards capteurs de transmettre leur data
 
 payload[0] = 0x00
 
@@ -15,9 +15,9 @@ payload[0] = 0x00
 
 2nd
 
-les boards capteurs répondent au panavec une tramme qui commence avec 0x00, la réponse est enregistrée dans la eeprom
+les boards capteurs rÃ©pondent au pan avec une trame qui commence avec 0x00
 
-après : 
+aprÃ¨s : 
 
 payload[0] = 0x00 (identifie le type de trame)
 
@@ -30,35 +30,6 @@ payload[3] = int8_t temperature_sol
 payload[4] = int8_t wetness_sol
 
 ----------------------------------------------------------------------
-----------------------------------------------------------------------
-----------------------------------------------------------------------
-----------------------------------------------------------------------
-
-MODULE FERMIER / PAN real time
-
-
-le pan transmet une tramme avec 0x01 à la position 0 de la payload 
-
-cette tramme sert à demander aux boards capteurs de transmettre leur data.
-
-payload[0] = 0x01
-
-----------------------------------------------------------------------
-
-
-les boards capteurs répondent au panavec une tramme qui commence avec 0x01, la réponse est affichée sur les écrans.
-
-après : 
-
-payload[0] = 0x01 (identifie le type de trame)
-
-payload[1] = id du capteur(numero du capteur)
-
-payload[2] = int8_t temperature_air
-
-payload[3] = int8_t temperature_sol
-
-payload[4] = int8_t wetness_sol
 
 
 
