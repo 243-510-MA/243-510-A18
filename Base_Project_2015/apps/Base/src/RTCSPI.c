@@ -36,19 +36,20 @@
 #define CALIBRATION                0x09
 
 
-//// RTC click module connections
+// RTC click module connections
 #define Chip_Select LATAbits.LATA2
 #define Chip_Select_Direction TRISAbits.TRISA2
-//// RTC click module connections
+// RTC click module connections
 
 //clear RTCC and SRAM memory
 void rtcClear(void)
 {
-    TRISAbits.TRISA2 = 0;
+	//configures the pin in an output mode
+    Chip_Select_Direction = 0;
     for(int i=0;i<0x20;i++)
     {
         Chip_Select = 0;
-        SPIPut2(WRITE);//Clear RTCC memory
+        SPIPut2(WRITE);
         SPIPut2(i);
         SPIPut2(0x00);
         Chip_Select = 1; 
@@ -59,10 +60,12 @@ void rtcClear(void)
     Chip_Select = 1;
     delay_us(1);
 }
-// Set RTC time
+
+
+// Set RTC time and starts it
 void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, uint8_t months, uint8_t years) 
 {
-    TRISAbits.TRISA2 = 0;    
+    Chip_Select_Direction = 0;    
     // Write seconds into RTC
     Chip_Select = 0;
     SPIPut2(WRITE);
@@ -111,6 +114,7 @@ void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, ui
     Chip_Select = 1;
     delay_us(1);
     
+	//Puts STBit on HIGH (Starts the oscillator)
     Chip_Select = 0;
 	SPIPut2(WRITE);
 	SPIPut2(0x01);
@@ -119,6 +123,8 @@ void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, ui
     delay_us(1);
     
     char cnt = 0;
+	
+	//Waits for the STBit to be configured correctly.
 	while(cnt < 100)
 	{
 		Chip_Select = 0;
@@ -129,10 +135,11 @@ void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, ui
 			break;		
 		}
 		cnt++;		
-	}		
+	}
 	Chip_Select = 1;
     delay_us(1);
     
+	//Puts VBATEN on HIGH
     Chip_Select = 0;
 	SPIPut2(WRITE);
 	SPIPut2(DAY_REGISTER);
@@ -141,10 +148,13 @@ void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, ui
 
 }
 
+
+//Starts the RTC (without initializing it)
 void rtcStart(void)
 {
-    TRISAbits.TRISA2 = 0;
+    Chip_Select_Direction = 0;
     
+	//Reads the values already in the RTC
     uint8_t sec = rtcReadSeconds();
     uint8_t min = rtcReadMinutes();
     uint8_t hour = rtcReadHour();
@@ -235,7 +245,7 @@ uint8_t rtcReadSeconds(void)
     SPIPut2(READ);
     SPIPut2(SECONDS_REGISTER);
     
-    sec1   = SPIGet2() & 0x7F;
+    sec1   = SPIGet2() & 0x7F;//reads while ignoring the STBit
     
     sec10 = (sec1 & 0x70) >> 4;
 	sec1 = sec1 & 0x0F;
