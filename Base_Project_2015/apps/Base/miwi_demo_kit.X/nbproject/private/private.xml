@@ -3,15 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/main.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/door_unlock.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/framework/miwi/miwi_api.h</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/network.c</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/projector_screen.c</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/temp_demo.c</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/pan.h</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/range_demo.c</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/temp_demo.h</file>
             <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/pan.c</file>
             <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/CapteurI2C.h</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/teacher.h</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/Board_Capteur.h</file>
             <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/Board_Capteur.c</file>
             <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/CapteurI2C.c</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/door_unlock.h</file>
             <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/system_config/miwikit_pic18f46j50_24j40/spi.c</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/RTCSPI.c</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/main.c</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/student.c</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/door_unlock.c</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/teacher.c</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/framework/miwi/miwi_api.h</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/network.c</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/self_test.c</file>
+            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/soft_i2c.c</file>
         </group>
     </open-files>
 </project-private>
