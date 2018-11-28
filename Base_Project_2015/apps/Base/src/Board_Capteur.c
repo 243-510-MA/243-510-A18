@@ -51,8 +51,6 @@ int Board_Capteur_Loop(){
                 MiApp_WriteData(temperatureAir);
                 MiApp_WriteData(temperatureSol);
                 MiApp_WriteData(humiditeSol);
-                MiApp_WriteData(0xCA);
-                MiApp_WriteData(0xCA);
                 MiApp_BroadcastPacket(false);
                 
             }
