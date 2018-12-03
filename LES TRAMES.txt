@@ -9,7 +9,7 @@ le pan transmet une tramme avec 0x00 à la position 0 de la payload
 
 cette tramme sert à demander aux boards capteurs de transmettre leur data
 
-payload[0] = 0x00
+payload[0] = 0x01
 
 ----------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ les boards capteurs répondent au pan avec une trame qui commence avec 0x00
 
 après : 
 
-payload[0] = 0x00 (identifie le type de trame)
+payload[0] = 0x02 (identifie le type de trame)
 
 payload[1] = id du capteur(numero du capteur)
 
