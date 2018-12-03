@@ -5,7 +5,7 @@ DOC DE REFERENCE DES TRAMES DU SYSTÈME DE PRISE DE DONNÉES DU JARDIN
 1ST
 
 
-le pan transmet une tramme avec 0x00 à la position 0 de la payload 
+le pan transmet une tramme avec 0x01 à la position 0 de la payload 
 
 cette tramme sert à demander aux boards capteurs de transmettre leur data
 
