@@ -27,16 +27,18 @@ void Pan(void)
     LCD_BKLT = 1;
     while(true)
     {
-        
+        /*MiApp_FlushTx();
+        MiApp_WriteData(0x01);
+        MiApp_WriteData(0xDE);
+        MiApp_WriteData(0xAD);
+        MiApp_BroadcastPacket(false);
+        __delay_ms(100);*/
         
         if(MiApp_MessageAvailable())
         {
-            MiApp_FlushTx();
-            MiApp_WriteData(0x01);
-            MiApp_BroadcastPacket(false);
-            __delay_ms(100);
             
-            LCD_BKLT = !LCD_BKLT;
+            
+            //LCD_BKLT = !LCD_BKLT;
             
             MiApp_DiscardMessage();
         }

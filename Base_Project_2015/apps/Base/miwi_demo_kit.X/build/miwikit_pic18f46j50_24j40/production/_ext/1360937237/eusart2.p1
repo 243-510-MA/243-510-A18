@@ -36,8 +36,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EECON2 `Vuc ~T0 @X0 0 e@4007 ]
 "309
 [v _PPSCON `Vuc ~T0 @X0 0 e@3839 ]
-"197
-[v _RPOR24 `Vuc ~T0 @X0 0 e@3806 ]
+"141
+[v _RPOR13 `Vuc ~T0 @X0 0 e@3795 ]
 "315
 [s S2 :1 `uc 1 ]
 [n S2 . IOLOCK ]
@@ -63,14 +63,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S364 . . . . . ]
 "8417
 [v _RCSTA2bits `VS364 ~T0 @X0 0 e@3996 ]
-"7973
-[s S345 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S345 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
-"7972
-[u S344 `S345 1 ]
-[n S344 . . ]
-"7984
-[v _TRISDbits `VS344 ~T0 @X0 0 e@3989 ]
+"7916
+[s S343 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S343 . TRISC0 TRISC1 TRISC2 . TRISC4 TRISC5 TRISC6 TRISC7 ]
+"7915
+[u S342 `S343 1 ]
+[n S342 . . ]
+"7927
+[v _TRISCbits `VS342 ~T0 @X0 0 e@3988 ]
 "9149
 [s S398 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S398 . RTCCIF TMR3GIF CTMUIF TMR4IF TX2IF RC2IF BCL2IF SSP2IF ]
@@ -6775,9 +6775,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart2.c: 82: PPSCON = 0;
 "82
 [e = _PPSCON -> -> 0 `i `uc ]
-[; ;eusart2.c: 84: RPOR24 = 0x05;
+[; ;eusart2.c: 84: RPOR13 = 0x05;
 "84
-[e = _RPOR24 -> -> 5 `i `uc ]
+[e = _RPOR13 -> -> 5 `i `uc ]
 [; ;eusart2.c: 86: EECON2 = 0x55;
 "86
 [e = _EECON2 -> -> 85 `i `uc ]
@@ -6790,9 +6790,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart2.c: 92: RCSTA2bits.SPEN = 1;
 "92
 [e = . . _RCSTA2bits 0 7 -> -> 1 `i `uc ]
-[; ;eusart2.c: 94: TRISDbits.TRISD7 = 0;
+[; ;eusart2.c: 94: TRISCbits.TRISC2 = 0;
 "94
-[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
 [; ;eusart2.c: 95: }
 "95
 [e :UE 773 ]

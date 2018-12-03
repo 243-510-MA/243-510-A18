@@ -3,16 +3,11 @@
 
 #define DEVICE_ID 1
 
-
 #define NUM_TEMP_SAMPLES 4
 
 int Board_Capteur_Loop(char id_device){
     while(1)
     {
-        MiApp_FlushTx();
-        MiApp_WriteData(0x02);
-        MiApp_BroadcastPacket(false);
-        __delay_ms(100);
         
         if(MiApp_MessageAvailable())
         {
@@ -20,10 +15,7 @@ int Board_Capteur_Loop(char id_device){
             //If ID == Pan, le message est le time triger, donc on transmet nos data
             if(rxMessage.Payload[0] == 0x01)
             {
-                LCD_BKLT = !LCD_BKLT;
-                
-                
-                /*
+
                 int8_t temperatureAir = 0;
                 int8_t temperatureSol = 0;
                 int8_t humiditeSol = 0;
@@ -53,7 +45,7 @@ int Board_Capteur_Loop(char id_device){
                 MiApp_WriteData(temperatureSol);
                 MiApp_WriteData(humiditeSol);
                 MiApp_BroadcastPacket(false);
-                */
+                
                 
             }
             MiApp_DiscardMessage();

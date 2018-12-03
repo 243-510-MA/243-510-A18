@@ -9394,14 +9394,10 @@ int Board_Capteur_Loop(char id_device);
 uint16_t Read_Voltage_Sensor(void);
 int8_t ReadTemperatureSensor(uint16_t Result);
 
-# 9 "../src/Board_Capteur.c"
+# 8 "../src/Board_Capteur.c"
 int Board_Capteur_Loop(char id_device){
 while(1)
 {
-{TxData = 11;};
-TxBuffer[TxData++] = 0x02;
-MiApp_BroadcastPacket(0);
-_delay((unsigned long)((100)*(16000000/4000.0)));
 
 if(MiApp_MessageAvailable())
 {
@@ -9409,9 +9405,38 @@ if(MiApp_MessageAvailable())
 
 if(rxMessage.Payload[0] == 0x01)
 {
-LATEbits.LATE1 = !LATEbits.LATE1;
 
-# 58
+int8_t temperatureAir = 0;
+int8_t temperatureSol = 0;
+int8_t humiditeSol = 0;
+
+temperatureAir = ReadTemperatureSensor(Read_Voltage_Sensor());
+
+int err = 0;
+
+temperatureSol = readTemperatureC(&err);
+
+if(err != 0){
+temperatureSol = -128;
+}
+
+err = 0;
+
+humiditeSol = readHumidity(&err);
+
+if(err != 0){
+humiditeSol = -128;
+}
+
+{TxData = 11;};
+TxBuffer[TxData++] = 0x02;
+TxBuffer[TxData++] = id_device;
+TxBuffer[TxData++] = temperatureAir;
+TxBuffer[TxData++] = temperatureSol;
+TxBuffer[TxData++] = humiditeSol;
+MiApp_BroadcastPacket(0);
+
+
 }
 MiApp_DiscardMessage();
 }
@@ -9419,7 +9444,7 @@ MiApp_DiscardMessage();
 }
 }
 
-# 81
+# 73
 int8_t ReadTemperatureSensor(uint16_t ADC_READING)
 {
 int16_t tempValue;
@@ -9474,7 +9499,7 @@ return (int8_t)tempHere;
 
 }
 
-# 152
+# 144
 uint16_t Read_Voltage_Sensor(void)
 {
 ADCON0 = 0x3D;

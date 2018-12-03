@@ -14,14 +14,14 @@
 
 #include "Board_Capteur.h"
 
-#define BOARD_ID 0
+#define BOARD_ID 1
 
 #define PAN 0                      //LE TI MASTER RACE
 #define BOARD_CAPTEUR 1            //DIT MOÉ LES DATAS G
 
 //*************************************************************************
 
-#define DEVICEMODE PAN // Choisir ici
+#define DEVICEMODE BOARD_CAPTEUR // Choisir ici
 
 //*************************************************************************
 
@@ -30,10 +30,11 @@ void main(void)
 { 
     //BOUGEZ PAS SA DE LA MERCI BYE 
     if(DEVICEMODE == PAN){
-       // EUSART2_Initialize();
+        //EUSART2_Initialize();
     }
     
     SYSTEM_Initialize();
+    
 
     Network(DEVICEMODE);
     

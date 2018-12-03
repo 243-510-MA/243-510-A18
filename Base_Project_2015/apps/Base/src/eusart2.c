@@ -81,7 +81,7 @@ void EUSART2_Initialize(void)
     
     PPSCON = 0;
             
-    RPOR24 = 0x05;
+    RPOR13 = 0x05;
     
     EECON2 = 0x55;
     
@@ -91,7 +91,7 @@ void EUSART2_Initialize(void)
     
     RCSTA2bits.SPEN = 1;
     
-    TRISDbits.TRISD7 = 0;
+    TRISCbits.TRISC2 = 0;
 }
 
 bool EUSART2_is_tx_ready(void)
