@@ -10,6 +10,8 @@ le pan transmet une tramme avec 0x00 à la position 0 de la payload
 cette tramme sert à demander aux boards capteurs de transmettre leur data
 
 payload[0] = 0x01
+payload[1] = 0xDE
+payload[2] = 0xAD
 
 ----------------------------------------------------------------------
 
