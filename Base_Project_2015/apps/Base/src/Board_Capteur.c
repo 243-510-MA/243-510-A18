@@ -6,6 +6,10 @@
 #define NUM_TEMP_SAMPLES 4
 
 int Board_Capteur_Loop(char id_device){
+    
+    
+    
+    
     while(1)
     {
         

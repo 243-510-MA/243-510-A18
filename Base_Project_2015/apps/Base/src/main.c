@@ -14,7 +14,7 @@
 #include "pan.h"
 #include "Board_Capteur.h"
 
-#define BOARD_ID 3
+#define BOARD_ID 2
 
 #define PAN 0                      //LE TI MASTER RACE
 #define BOARD_CAPTEUR 1            //DIT MOÉ LES DATAS G
@@ -33,12 +33,7 @@ void main(void)
     
     SYSTEM_Initialize();
     
-    while(1){
-        printf("YOLO SWAG XD MDR \n\r");
-        __delay_ms(100);
-    }
-    
-    //Network(DEVICEMODE);
+    Network(DEVICEMODE);
     
     if(DEVICEMODE == PAN)
     {

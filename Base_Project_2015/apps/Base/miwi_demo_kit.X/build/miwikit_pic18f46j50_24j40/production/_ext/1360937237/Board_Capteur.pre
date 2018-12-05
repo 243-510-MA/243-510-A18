@@ -9396,6 +9396,10 @@ int8_t ReadTemperatureSensor(uint16_t Result);
 
 # 8 "../src/Board_Capteur.c"
 int Board_Capteur_Loop(char id_device){
+
+
+
+
 while(1)
 {
 
@@ -9444,7 +9448,7 @@ MiApp_DiscardMessage();
 }
 }
 
-# 73
+# 77
 int8_t ReadTemperatureSensor(uint16_t ADC_READING)
 {
 int16_t tempValue;
@@ -9499,7 +9503,7 @@ return (int8_t)tempHere;
 
 }
 
-# 144
+# 148
 uint16_t Read_Voltage_Sensor(void)
 {
 ADCON0 = 0x3D;

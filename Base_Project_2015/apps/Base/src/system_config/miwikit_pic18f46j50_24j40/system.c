@@ -21,7 +21,6 @@
  *******************************************************************/
 #include "system.h"
 #include "system_config.h"
-#include "eusart2.h"
 
 // Config Bit Settings to get 16 MHz: Internal 8 MHz / 2 = 4 * 12 = 48 / 3 = 16
 #pragma config OSC = INTOSCPLL, WDTEN = OFF, XINST = OFF, WDTPS = 2048, PLLDIV = 2, CPUDIV = OSC3_PLL3

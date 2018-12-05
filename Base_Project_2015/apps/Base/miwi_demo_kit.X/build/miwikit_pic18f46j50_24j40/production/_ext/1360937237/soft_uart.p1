@@ -6651,24 +6651,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;miwikit_pic18f46j50_24j40\system.h: 69: }API_UINT16_UNION;
 [; ;miwikit_pic18f46j50_24j40\system.h: 122: void SYSTEM_Initialize(void);
 [; ;soft_uart.h: 11: void puteChar(char charactere);
-"3 ../src/soft_uart.c
+"5 ../src/soft_uart.c
 [v _puteChar `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;soft_uart.c: 3: void puteChar(char charactere){
+[; ;soft_uart.c: 5: void puteChar(char charactere){
 [e :U _puteChar ]
 [v _charactere `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;soft_uart.c: 4: TRISE1 = 0;
-"4
+[; ;soft_uart.c: 6: TRISE1 = 0;
+"6
 [e = _TRISE1 -> -> 0 `i `b ]
-[; ;soft_uart.c: 5: LATE1 = 0;
-"5
-[e = _LATE1 -> -> 0 `i `b ]
-[; ;soft_uart.c: 7: _delay((unsigned long)((97)*(16000000/4000000.0)));
+[; ;soft_uart.c: 7: LATE1 = 0;
 "7
-[e ( __delay (1 -> * -> -> 97 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-[; ;soft_uart.c: 9: for(int i = 0; i < 8 ; i++){
+[e = _LATE1 -> -> 0 `i `b ]
+[; ;soft_uart.c: 9: _delay((unsigned long)((97)*(16000000/4000000.0)));
 "9
+[e ( __delay (1 -> * -> -> 97 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[; ;soft_uart.c: 11: for(int i = 0; i < 8 ; i++){
+"11
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -6676,46 +6676,46 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 775  ]
 [e :U 774 ]
 {
-[; ;soft_uart.c: 10: LATE1 = (charactere >> i) & 0x01;
-"10
-[e = _LATE1 -> & >> -> _charactere `i _i -> 1 `i `b ]
-[; ;soft_uart.c: 11: _delay((unsigned long)((97)*(16000000/4000000.0)));
-"11
-[e ( __delay (1 -> * -> -> 97 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[; ;soft_uart.c: 12: LATE1 = (charactere >> i) & 0x01;
 "12
+[e = _LATE1 -> & >> -> _charactere `i _i -> 1 `i `b ]
+[; ;soft_uart.c: 13: _delay((unsigned long)((97)*(16000000/4000000.0)));
+"13
+[e ( __delay (1 -> * -> -> 97 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+"14
 }
-"9
+"11
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 8 `i 774  ]
 [e :U 775 ]
-"12
-}
-[; ;soft_uart.c: 12: }
-[; ;soft_uart.c: 14: LATE1 = 1;
 "14
-[e = _LATE1 -> -> 1 `i `b ]
-[; ;soft_uart.c: 15: _delay((unsigned long)((97)*(16000000/4000000.0)));
-"15
-[e ( __delay (1 -> * -> -> 97 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-[; ;soft_uart.c: 16: }
+}
+[; ;soft_uart.c: 14: }
+[; ;soft_uart.c: 16: LATE1 = 1;
 "16
+[e = _LATE1 -> -> 1 `i `b ]
+[; ;soft_uart.c: 17: _delay((unsigned long)((97)*(16000000/4000000.0)));
+"17
+[e ( __delay (1 -> * -> -> 97 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[; ;soft_uart.c: 18: }
+"18
 [e :UE 773 ]
 }
-"18
-[v _putch `(v ~T0 @X0 1 ef1`uc ]
-"19
-{
-[; ;soft_uart.c: 18: void putch(char txData)
-[; ;soft_uart.c: 19: {
-[e :U _putch ]
-"18
-[v _txData `uc ~T0 @X0 1 r1 ]
-"19
-[f ]
-[; ;soft_uart.c: 20: puteChar(txData);
 "20
-[e ( _puteChar (1 _txData ]
-[; ;soft_uart.c: 21: }
+[v _putch `(v ~T0 @X0 1 ef1`uc ]
 "21
+{
+[; ;soft_uart.c: 20: void putch(char txData)
+[; ;soft_uart.c: 21: {
+[e :U _putch ]
+"20
+[v _txData `uc ~T0 @X0 1 r1 ]
+"21
+[f ]
+[; ;soft_uart.c: 22: puteChar(txData);
+"22
+[e ( _puteChar (1 _txData ]
+[; ;soft_uart.c: 23: }
+"23
 [e :UE 777 ]
 }
