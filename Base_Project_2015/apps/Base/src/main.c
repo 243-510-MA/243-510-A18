@@ -7,17 +7,18 @@
 #include "miwi/miwi_api.h"
 #include "network.h"
 
-#include "pan.h"
-
 #include "CapteurI2C.h"
-#include "eusart2.h"
+#include "soft_uart.h"
 
+#include "fermier.h"
+#include "pan.h"
 #include "Board_Capteur.h"
 
-#define BOARD_ID 1
+#define BOARD_ID 3
 
 #define PAN 0                      //LE TI MASTER RACE
 #define BOARD_CAPTEUR 1            //DIT MOÉ LES DATAS G
+#define FERMIER 2                  //DIT MOÉ LES DATAS G
 
 //*************************************************************************
 
@@ -27,16 +28,17 @@
 
 //EUSART2 TX SUR PIN 5 AKA RP24 AKA I07
 void main(void)
-{ 
-    //BOUGEZ PAS SA DE LA MERCI BYE 
-    if(DEVICEMODE == PAN){
-        //EUSART2_Initialize();
-    }
+{
+ 
     
     SYSTEM_Initialize();
     
-
-    Network(DEVICEMODE);
+    while(1){
+        printf("YOLO SWAG XD MDR \n\r");
+        __delay_ms(100);
+    }
+    
+    //Network(DEVICEMODE);
     
     if(DEVICEMODE == PAN)
     {
@@ -46,6 +48,11 @@ void main(void)
     else if(DEVICEMODE == BOARD_CAPTEUR)
     {
         Board_Capteur_Loop(BOARD_ID);   
+    }
+    
+    else if(DEVICEMODE == FERMIER)
+    {
+        fermier();
     }
     
     while(1);

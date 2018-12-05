@@ -13,6 +13,7 @@
         <itemPath>../src/pan.h</itemPath>
         <itemPath>../src/Board_Capteur.h</itemPath>
         <itemPath>../src/temp_demo.h</itemPath>
+        <itemPath>../src/fermier.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="framework" projectFiles="true">
         <logicalFolder name="f1" displayName="driver" projectFiles="true">
@@ -44,7 +45,6 @@
         <itemPath>../src/system_config/miwikit_pic18f46j50_24j40/system.h</itemPath>
         <itemPath>../src/system_config/miwikit_pic18f46j50_24j40/system_config.h</itemPath>
         <itemPath>../src/system_config/miwikit_pic18f46j50_24j40/timer.h</itemPath>
-        <itemPath>../src/eusart2.h</itemPath>
       </logicalFolder>
       <itemPath>../src/codes library.h</itemPath>
       <itemPath>../src/network.h</itemPath>
@@ -67,6 +67,7 @@
         <itemPath>../src/self_test.c</itemPath>
         <itemPath>../src/Board_Capteur.c</itemPath>
         <itemPath>../src/temp_demo.c</itemPath>
+        <itemPath>../src/fermier.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="framework" projectFiles="true">
         <logicalFolder name="f1" displayName="driver" projectFiles="true">
@@ -90,10 +91,11 @@
         <itemPath>../src/system_config/miwikit_pic18f46j50_24j40/spi.c</itemPath>
         <itemPath>../src/system_config/miwikit_pic18f46j50_24j40/symbol.c</itemPath>
         <itemPath>../src/system_config/miwikit_pic18f46j50_24j40/system.c</itemPath>
-        <itemPath>../src/eusart2.c</itemPath>
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/network.c</itemPath>
+      <itemPath>../src/soft_uart.c</itemPath>
+      <itemPath>../src/soft_uart.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -8,98 +8,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71
 [u S768 `ul 1 `S769 1 `uc -> 4 `i `S770 1 ]
 [n S768 _MIWI_TICK Val byte v word ]
-"5105 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[v _BAUDCON2 `Vuc ~T0 @X0 0 e@3964 ]
-"8381
-[v _RCSTA2 `Vuc ~T0 @X0 0 e@3996 ]
-"9364
-[v _TXSTA2 `Vuc ~T0 @X0 0 e@4008 ]
-"9531
-[v _SPBRG2 `Vuc ~T0 @X0 0 e@4011 ]
-"5228
-[v _SPBRGH2 `Vuc ~T0 @X0 0 e@3965 ]
-"16012
-[s S743 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S743 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"16022
-[s S744 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S744 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"16032
-[s S745 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S745 . . GIEL GIEH ]
-"16011
-[u S742 `S743 1 `S744 1 `S745 1 ]
-[n S742 . . . . ]
-"16038
-[v _INTCONbits `VS742 ~T0 @X0 0 e@4082 ]
-"9344
-[v _EECON2 `Vuc ~T0 @X0 0 e@4007 ]
-"309
-[v _PPSCON `Vuc ~T0 @X0 0 e@3839 ]
-"141
-[v _RPOR13 `Vuc ~T0 @X0 0 e@3795 ]
-"315
-[s S2 :1 `uc 1 ]
-[n S2 . IOLOCK ]
-"314
-[u S1 `S2 1 ]
-[n S1 . . ]
-"319
-[v _PPSCONbits `VS1 ~T0 @X0 0 e@3839 ]
-"8387
-[s S365 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S365 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
-"8397
-[s S366 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S366 . RX9D2 OERR2 FERR2 ADDEN2 CREN2 SREN2 RX92 SPEN2 ]
-"8407
-[s S367 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
-[n S367 . RCD82 . RC8_92 ]
-"8412
-[s S368 :6 `uc 1 :1 `uc 1 ]
-[n S368 . . RC92 ]
-"8386
-[u S364 `S365 1 `S366 1 `S367 1 `S368 1 ]
-[n S364 . . . . . ]
-"8417
-[v _RCSTA2bits `VS364 ~T0 @X0 0 e@3996 ]
-"7916
-[s S343 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S343 . TRISC0 TRISC1 TRISC2 . TRISC4 TRISC5 TRISC6 TRISC7 ]
-"7915
-[u S342 `S343 1 ]
-[n S342 . . ]
-"7927
-[v _TRISCbits `VS342 ~T0 @X0 0 e@3988 ]
-"9149
-[s S398 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S398 . RTCCIF TMR3GIF CTMUIF TMR4IF TX2IF RC2IF BCL2IF SSP2IF ]
-"9159
-[s S399 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S399 . . RXBNIF . TXBNIF ]
-"9148
-[u S397 `S398 1 `S399 1 ]
-[n S397 . . . ]
-"9166
-[v _PIR3bits `VS397 ~T0 @X0 0 e@4004 ]
-"9370
-[s S408 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S408 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
-"9380
-[s S409 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S409 . TX9D2 TRMT2 BRGH2 SENDB2 SYNC2 TXEN2 TX92 CSRC2 ]
-"9390
-[s S410 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
-[n S410 . TXD82 . TX8_92 ]
-"9369
-[u S407 `S408 1 `S409 1 `S410 1 ]
-[n S407 . . . . ]
-"9396
-[v _TXSTA2bits `VS407 ~T0 @X0 0 e@4008 ]
-"9511
-[v _RCREG2 `Vuc ~T0 @X0 0 e@4010 ]
-"9491
-[v _TXREG2 `Vuc ~T0 @X0 0 e@4009 ]
+"18840 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[v _TRISE1 `Vb ~T0 @X0 0 e@31921 ]
+"17620
+[v _LATE1 `Vb ~T0 @X0 0 e@31849 ]
+[v F7008 `(v ~T0 @X0 1 tf1`ul ]
+"164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
+[v __delay `JF7008 ~T0 @X0 0 e ]
+[p i __delay ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -6616,35 +6532,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -6675,6 +6562,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 43: extern uint8_t LCDText[16*2+1];
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 45: void LCD_Initialize(void);
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 46: void LCD_Update(void);
@@ -6734,208 +6650,72 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;miwikit_pic18f46j50_24j40\system.h: 67: uint16_t Val;
 [; ;miwikit_pic18f46j50_24j40\system.h: 69: }API_UINT16_UNION;
 [; ;miwikit_pic18f46j50_24j40\system.h: 122: void SYSTEM_Initialize(void);
-[; ;eusart2.h: 99: void EUSART2_Initialize(void);
-[; ;eusart2.h: 147: bool EUSART2_is_tx_ready(void);
-[; ;eusart2.h: 195: bool EUSART2_is_rx_ready(void);
-[; ;eusart2.h: 242: bool EUSART2_is_tx_done(void);
-[; ;eusart2.h: 262: uint8_t EUSART2_Read(void);
-[; ;eusart2.h: 282: void EUSART2_Write(uint8_t txData);
-"57 ../src/eusart2.c
-[v _EUSART2_Initialize `(v ~T0 @X0 1 ef ]
-"58
+[; ;soft_uart.h: 11: void puteChar(char charactere);
+"3 ../src/soft_uart.c
+[v _puteChar `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;eusart2.c: 57: void EUSART2_Initialize(void)
-[; ;eusart2.c: 58: {
-[e :U _EUSART2_Initialize ]
+[; ;soft_uart.c: 3: void puteChar(char charactere){
+[e :U _puteChar ]
+[v _charactere `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;eusart2.c: 62: BAUDCON2 = 0x08;
-"62
-[e = _BAUDCON2 -> -> 8 `i `uc ]
-[; ;eusart2.c: 65: RCSTA2 = 0x90;
-"65
-[e = _RCSTA2 -> -> 144 `i `uc ]
-[; ;eusart2.c: 68: TXSTA2 = 0x26;
-"68
-[e = _TXSTA2 -> -> 38 `i `uc ]
-[; ;eusart2.c: 71: SPBRG2 = 0xCF;
-"71
-[e = _SPBRG2 -> -> 207 `i `uc ]
-[; ;eusart2.c: 74: SPBRGH2 = 0x00;
-"74
-[e = _SPBRGH2 -> -> 0 `i `uc ]
-[; ;eusart2.c: 76: INTCONbits.GIE = 0;
-"76
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;eusart2.c: 78: EECON2 = 0x55;
-"78
-[e = _EECON2 -> -> 85 `i `uc ]
-[; ;eusart2.c: 80: EECON2 = 0xAA;
-"80
-[e = _EECON2 -> -> 170 `i `uc ]
-[; ;eusart2.c: 82: PPSCON = 0;
-"82
-[e = _PPSCON -> -> 0 `i `uc ]
-[; ;eusart2.c: 84: RPOR13 = 0x05;
-"84
-[e = _RPOR13 -> -> 5 `i `uc ]
-[; ;eusart2.c: 86: EECON2 = 0x55;
-"86
-[e = _EECON2 -> -> 85 `i `uc ]
-[; ;eusart2.c: 88: EECON2 = 0xAA;
-"88
-[e = _EECON2 -> -> 170 `i `uc ]
-[; ;eusart2.c: 90: PPSCONbits.IOLOCK = 1;
-"90
-[e = . . _PPSCONbits 0 0 -> -> 1 `i `uc ]
-[; ;eusart2.c: 92: RCSTA2bits.SPEN = 1;
-"92
-[e = . . _RCSTA2bits 0 7 -> -> 1 `i `uc ]
-[; ;eusart2.c: 94: TRISCbits.TRISC2 = 0;
-"94
-[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-[; ;eusart2.c: 95: }
-"95
+[; ;soft_uart.c: 4: TRISE1 = 0;
+"4
+[e = _TRISE1 -> -> 0 `i `b ]
+[; ;soft_uart.c: 5: LATE1 = 0;
+"5
+[e = _LATE1 -> -> 0 `i `b ]
+[; ;soft_uart.c: 7: _delay((unsigned long)((97)*(16000000/4000000.0)));
+"7
+[e ( __delay (1 -> * -> -> 97 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[; ;soft_uart.c: 9: for(int i = 0; i < 8 ; i++){
+"9
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 8 `i 774  ]
+[e $U 775  ]
+[e :U 774 ]
+{
+[; ;soft_uart.c: 10: LATE1 = (charactere >> i) & 0x01;
+"10
+[e = _LATE1 -> & >> -> _charactere `i _i -> 1 `i `b ]
+[; ;soft_uart.c: 11: _delay((unsigned long)((97)*(16000000/4000000.0)));
+"11
+[e ( __delay (1 -> * -> -> 97 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+"12
+}
+"9
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 8 `i 774  ]
+[e :U 775 ]
+"12
+}
+[; ;soft_uart.c: 12: }
+[; ;soft_uart.c: 14: LATE1 = 1;
+"14
+[e = _LATE1 -> -> 1 `i `b ]
+[; ;soft_uart.c: 15: _delay((unsigned long)((97)*(16000000/4000000.0)));
+"15
+[e ( __delay (1 -> * -> -> 97 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[; ;soft_uart.c: 16: }
+"16
 [e :UE 773 ]
 }
-"97
-[v _EUSART2_is_tx_ready `(uc ~T0 @X0 1 ef ]
-"98
+"18
+[v _putch `(v ~T0 @X0 1 ef1`uc ]
+"19
 {
-[; ;eusart2.c: 97: bool EUSART2_is_tx_ready(void)
-[; ;eusart2.c: 98: {
-[e :U _EUSART2_is_tx_ready ]
-[f ]
-[; ;eusart2.c: 99: return (bool)(PIR3bits.TX2IF && TXSTA2bits.TXEN);
-"99
-[e ) -> -> && != -> . . _PIR3bits 0 4 `i -> -> -> 0 `i `Vuc `i != -> . . _TXSTA2bits 0 5 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[e $UE 774  ]
-[; ;eusart2.c: 100: }
-"100
-[e :UE 774 ]
-}
-"102
-[v _EUSART2_is_rx_ready `(uc ~T0 @X0 1 ef ]
-"103
-{
-[; ;eusart2.c: 102: bool EUSART2_is_rx_ready(void)
-[; ;eusart2.c: 103: {
-[e :U _EUSART2_is_rx_ready ]
-[f ]
-[; ;eusart2.c: 104: return PIR3bits.RC2IF;
-"104
-[e ) . . _PIR3bits 0 5 ]
-[e $UE 775  ]
-[; ;eusart2.c: 105: }
-"105
-[e :UE 775 ]
-}
-"107
-[v _EUSART2_is_tx_done `(uc ~T0 @X0 1 ef ]
-"108
-{
-[; ;eusart2.c: 107: bool EUSART2_is_tx_done(void)
-[; ;eusart2.c: 108: {
-[e :U _EUSART2_is_tx_done ]
-[f ]
-[; ;eusart2.c: 109: return TXSTA2bits.TRMT;
-"109
-[e ) . . _TXSTA2bits 0 1 ]
-[e $UE 776  ]
-[; ;eusart2.c: 110: }
-"110
-[e :UE 776 ]
-}
-"112
-[v _EUSART2_Read `(uc ~T0 @X0 1 ef ]
-"113
-{
-[; ;eusart2.c: 112: uint8_t EUSART2_Read(void)
-[; ;eusart2.c: 113: {
-[e :U _EUSART2_Read ]
-[f ]
-[; ;eusart2.c: 114: while(!PIR3bits.RC2IF)
-"114
-[e $U 778  ]
-[e :U 779 ]
-[; ;eusart2.c: 115: {
-"115
-{
-"116
-}
-[e :U 778 ]
-"114
-[e $ ! != -> . . _PIR3bits 0 5 `i -> -> -> 0 `i `Vuc `i 779  ]
-[e :U 780 ]
-[; ;eusart2.c: 116: }
-[; ;eusart2.c: 119: if(1 == RCSTA2bits.OERR)
-"119
-[e $ ! == -> 1 `i -> . . _RCSTA2bits 0 1 `i 781  ]
-[; ;eusart2.c: 120: {
-"120
-{
-[; ;eusart2.c: 123: RCSTA2bits.CREN = 0;
-"123
-[e = . . _RCSTA2bits 0 4 -> -> 0 `i `uc ]
-[; ;eusart2.c: 124: RCSTA2bits.CREN = 1;
-"124
-[e = . . _RCSTA2bits 0 4 -> -> 1 `i `uc ]
-"125
-}
-[e :U 781 ]
-[; ;eusart2.c: 125: }
-[; ;eusart2.c: 127: return RCREG2;
-"127
-[e ) _RCREG2 ]
-[e $UE 777  ]
-[; ;eusart2.c: 128: }
-"128
-[e :UE 777 ]
-}
-"130
-[v _EUSART2_Write `(v ~T0 @X0 1 ef1`uc ]
-"131
-{
-[; ;eusart2.c: 130: void EUSART2_Write(uint8_t txData)
-[; ;eusart2.c: 131: {
-[e :U _EUSART2_Write ]
-"130
+[; ;soft_uart.c: 18: void putch(char txData)
+[; ;soft_uart.c: 19: {
+[e :U _putch ]
+"18
 [v _txData `uc ~T0 @X0 1 r1 ]
-"131
+"19
 [f ]
-[; ;eusart2.c: 132: while(0 == PIR3bits.TX2IF)
-"132
-[e $U 783  ]
-[e :U 784 ]
-[; ;eusart2.c: 133: {
-"133
-{
-"134
-}
-[e :U 783 ]
-"132
-[e $ == -> 0 `i -> . . _PIR3bits 0 4 `i 784  ]
-[e :U 785 ]
-[; ;eusart2.c: 134: }
-[; ;eusart2.c: 136: TXREG2 = txData;
-"136
-[e = _TXREG2 _txData ]
-[; ;eusart2.c: 137: }
-"137
-[e :UE 782 ]
-}
-"139
-[v _getch `(uc ~T0 @X0 1 ef ]
-"140
-{
-[; ;eusart2.c: 139: char getch(void)
-[; ;eusart2.c: 140: {
-[e :U _getch ]
-[f ]
-[; ;eusart2.c: 141: return EUSART2_Read();
-"141
-[e ) ( _EUSART2_Read ..  ]
-[e $UE 786  ]
-[; ;eusart2.c: 142: }
-"142
-[e :UE 786 ]
+[; ;soft_uart.c: 20: puteChar(txData);
+"20
+[e ( _puteChar (1 _txData ]
+[; ;soft_uart.c: 21: }
+"21
+[e :UE 777 ]
 }

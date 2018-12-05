@@ -1,5 +1,8 @@
 
-# 1 "../src/eusart2.c"
+# 1 "../src/fermier.c"
+
+# 5 "../src/fermier.h"
+void fermier(void);
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8726,6 +8729,69 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
+typedef unsigned size_t;
+
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
+
+# 29 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\errno.h"
+extern int errno;
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\conio.h"
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
@@ -8819,69 +8885,6 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
-typedef unsigned size_t;
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\errno.h"
-extern int errno;
-
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
 # 43 "../src/system_config/miwikit_pic18f46j50_24j40\lcd.h"
 extern uint8_t LCDText[16*2+1];
 
@@ -8969,109 +8972,811 @@ uint16_t Val;
 # 122
 void SYSTEM_Initialize(void);
 
-# 99 "../src/eusart2.h"
-void EUSART2_Initialize(void);
+# 31 "../../../framework\driver/mrf_miwi/drv_mrf_miwi_24j40.h"
+typedef union
+{
+uint8_t Val;
+struct
+{
+uint8_t RF_TXIF :1;
+uint8_t :2;
+uint8_t RF_RXIF :1;
+uint8_t SECIF :1;
+uint8_t :4;
+}bits;
+} MRF24J40_IFREG;
 
-# 147
-bool EUSART2_is_tx_ready(void);
+typedef union
+{
+uint8_t Val;
+struct
+{
+uint8_t TX_BUSY : 1;
+uint8_t TX_PENDING_ACK : 1;
+uint8_t TX_FAIL : 1;
+uint8_t RX_SECURITY : 1;
+uint8_t RX_IGNORE_SECURITY : 1;
+uint8_t RX_BUFFERED : 1;
+uint8_t SEC_IF : 1;
+} bits;
+} MRF24J40_STATUS;
 
-# 195
-bool EUSART2_is_rx_ready(void);
+# 84 "../../../framework\driver/mrf_miwi/drv_mrf_miwi.h"
+typedef union _DRIVER_UINT8_UNION_
+{
+uint8_t Val;
+struct
+{
+uint8_t b0:1;
+uint8_t b1:1;
+uint8_t b2:1;
+uint8_t b3:1;
+uint8_t b4:1;
+uint8_t b5:1;
+uint8_t b6:1;
+uint8_t b7:1;
+} bits;
 
-# 242
-bool EUSART2_is_tx_done(void);
+} DRIVER_UINT8_UNION;
 
-# 262
-uint8_t EUSART2_Read(void);
+# 106
+typedef struct
+{
+union
+{
+uint8_t Val;
+struct
+{
+uint8_t packetType : 2;
 
-# 282
-void EUSART2_Write(uint8_t txData);
 
-# 57 "../src/eusart2.c"
-void EUSART2_Initialize(void)
+
+
+uint8_t broadcast : 1;
+uint8_t secEn : 1;
+uint8_t repeat : 1;
+uint8_t ackReq : 1;
+uint8_t destPrsnt : 1;
+uint8_t sourcePrsnt : 1;
+} bits;
+} flags;
+
+uint8_t *DestAddress;
+
+bool altDestAddr;
+bool altSrcAddr;
+API_UINT16_UNION DestPANID;
+
+
+} MAC_TRANS_PARAM;
+
+# 142
+typedef struct
+{
+union
+{
+uint8_t Val;
+struct
+{
+uint8_t packetType :2;
+
+
+
+
+uint8_t broadcast :1;
+uint8_t secEn :1;
+uint8_t repeat :1;
+uint8_t ackReq :1;
+uint8_t destPrsnt :1;
+uint8_t sourcePrsnt :1;
+} bits;
+} flags;
+
+uint8_t * SourceAddress;
+uint8_t * Payload;
+uint8_t PayloadLen;
+uint8_t RSSIValue;
+uint8_t LQIValue;
+
+bool altSourceAddress;
+API_UINT16_UNION SourcePANID;
+
+} MAC_RECEIVED_PACKET;
+
+# 179
+typedef struct
+{
+union
+{
+uint8_t Val;
+struct
+{
+uint8_t RepeaterMode :1;
+uint8_t CCAEnable :1;
+uint8_t NetworkFreezer :1;
+uint8_t PAddrLength :4;
+} bits;
+} actionFlags;
+
+uint8_t *PAddress;
+
+} MACINIT_PARAM;
+
+extern MAC_RECEIVED_PACKET MACRxPacket;
+
+# 239
+bool MiMAC_SetChannel(uint8_t channel, uint8_t offsetFreq);
+
+# 274
+bool MiMAC_SetPower(uint8_t outputPower);
+
+# 313
+bool MiMAC_SetAltAddress(uint8_t *Address, uint8_t *PANID);
+
+# 345
+bool MiMAC_Init(MACINIT_PARAM initValue);
+
+# 380
+uint8_t MiMAC_ChannelAssessment(uint8_t AssessmentMode);
+
+# 418
+void MiMAC_DiscardPacket(void);
+
+# 458
+bool MiMAC_ReceivedPacket(void);
+
+# 494
+bool MiMAC_SendPacket(MAC_TRANS_PARAM transParam, uint8_t *MACPayload, uint8_t MACPayloadLen);
+
+# 538
+bool MiMAC_PowerState(uint8_t PowerState);
+
+# 549
+void UserInterruptHandler(void);
+
+# 44 "../../../framework\miwi/miwi_mesh.h"
+void MiWiTasks(void);
+uint8_t findNextNetworkEntry(void);
+void ClearNetworkTable(void);
+uint8_t SearchForLongAddress(void);
+uint8_t SearchForShortAddress(void);
+void SendIndirectPacket(uint8_t *Address, uint8_t *AltAddress, bool isAltAddress);
+uint8_t AddNodeToNetworkTable(void);
+void DiscoverNodeByEUI(void);
+void OpenSocket(void);
+bool isSameAddress( uint8_t *Address1,  uint8_t *Address2);
+void DumpConnection(uint8_t index);
+bool UnicastShortAddress(uint8_t *DestAddress);
+
+# 125
+typedef union _MIWI_STATE_MACHINE
+{
+uint16_t Val;
+struct {
+uint8_t searchingForNetwork :1;
+uint8_t memberOfNetwork :1;
+uint8_t RxHasUserData :1;
+uint8_t MiWiAckInProgress :1;
+uint8_t saveConnection :1;
+uint8_t EUISearching :1;
+uint8_t DataRequesting :1;
+uint8_t Resynning :1;
+uint8_t Sleeping :1;
+} bits;
+} MIWI_STATE_MACHINE;
+
+
+typedef struct _OPEN_SOCKET
+{
+union _OPEN_SOCKET_STATUS
+{
+struct _OPEN_SOCKET_STATUS_bits
+{
+uint8_t matchFound :1;
+uint8_t requestIsOpen :1;
+uint8_t itIsMe :1;
+} bits;
+uint8_t Val;
+} status;
+uint8_t socketHandle;
+API_UINT16_UNION ShortAddress1;
+
+uint8_t LongAddress1[8];
+
+uint8_t AdditionalNodeID1[1];
+
+
+API_UINT16_UNION ShortAddress2;
+uint8_t LongAddress2[8];
+
+MIWI_TICK socketStart;
+} OPEN_SOCKET;
+
+# 174
+typedef struct
+{
+MIWI_TICK TickStart;
+
+
+API_UINT16_UNION DestPANID;
+
+uint8_t DestAddress[8];
+union
+{
+uint8_t Val;
+struct
+{
+uint8_t isValid : 1;
+uint8_t isBroadcast : 1;
+uint8_t isCommand : 1;
+uint8_t isSecured : 1;
+uint8_t isAltAddr : 1;
+} bits;
+} flags;
+uint8_t PayLoadSize;
+
+
+
+uint8_t PayLoad[40+11];
+
+} INDIRECT_MESSAGE;
+
+
+
+
+extern MIWI_STATE_MACHINE MiWiStateMachine;
+extern uint8_t TxBuffer[];
+extern uint8_t TxData;
+extern API_UINT16_UNION myPANID;
+extern API_UINT16_UNION myShortAddress;
+extern uint8_t myParent;
+extern uint8_t tempLongAddress[8];
+extern API_UINT16_UNION tempShortAddress;
+extern OPEN_SOCKET openSocketInfo;
+
+# 51 "../../../framework\miwi/miwi_api.h"
+typedef union __CONNECTION_STATUS
+{
+uint8_t Val;
+struct _CONNECTION_STAUTS_bits
+{
+uint8_t RXOnWhenIdle :1;
+uint8_t directConnection :1;
+uint8_t longAddressValid :1;
+uint8_t shortAddressValid :1;
+uint8_t FinishJoin :1;
+uint8_t isFamily :1;
+uint8_t filler :1;
+uint8_t isValid :1;
+} bits;
+} CONNECTION_STATUS;
+
+# 78
+typedef struct __CONNECTION_ENTRY
 {
 
+API_UINT16_UNION PANID;
+API_UINT16_UNION AltAddress;
+
+uint8_t Address[8];
+
+CONNECTION_STATUS status;
 
 
-BAUDCON2 = 0x08;
+uint8_t PeerInfo[1];
+
+} CONNECTION_ENTRY;
+
+extern CONNECTION_ENTRY ConnectionTable[10];
+
+extern uint8_t currentChannel;
+
+# 136
+bool MiApp_ProtocolInit(bool bNetworkFreezer);
+
+# 178
+bool MiApp_SetChannel(uint8_t Channel);
+
+# 236
+bool MiApp_StartConnection( uint8_t Mode, uint8_t ScanDuration, uint32_t ChannelMap);
+
+# 246
+typedef struct
+{
+uint8_t Channel;
+uint8_t Address[8];
+API_UINT16_UNION PANID;
+uint8_t RSSIValue;
+uint8_t LQIValue;
+union
+{
+uint8_t Val;
+struct
+{
+uint8_t Role: 2;
+uint8_t Sleep: 1;
+uint8_t SecurityEn: 1;
+uint8_t RepeatEn: 1;
+uint8_t AllowJoin: 1;
+uint8_t Direct: 1;
+uint8_t altSrcAddr: 1;
+} bits;
+} Capability;
+
+uint8_t PeerInfo[1];
+
+} ACTIVE_SCAN_RESULT;
 
 
-RCSTA2 = 0x90;
+extern ACTIVE_SCAN_RESULT ActiveScanResults[4];
+
+# 320
+uint8_t MiApp_SearchConnection(uint8_t ScanDuration, uint32_t ChannelMap);
+
+# 374
+uint8_t MiApp_EstablishConnection(uint8_t ActiveScanIndex, uint8_t Mode);
+
+# 411
+void MiApp_RemoveConnection(uint8_t ConnectionIndex);
+
+# 457
+void MiApp_ConnectionMode(uint8_t Mode);
+
+# 552
+bool MiApp_BroadcastPacket(bool SecEn );
+
+# 591
+bool MiApp_UnicastConnection(uint8_t ConnectionIndex, bool SecEn);
+
+# 631
+bool MiApp_UnicastAddress(uint8_t *DestinationAddress, bool PermanentAddr, bool SecEn);
+
+# 643
+typedef struct
+{
+union
+{
+uint8_t Val;
+struct
+{
+uint8_t broadcast: 2;
+uint8_t ackReq: 1;
+uint8_t secEn: 1;
+uint8_t repeat: 1;
+uint8_t command: 1;
+uint8_t srcPrsnt: 1;
+uint8_t altSrcAddr: 1;
+} bits;
+} flags;
+
+API_UINT16_UNION SourcePANID;
+uint8_t *SourceAddress;
+uint8_t *Payload;
+uint8_t PayloadSize;
+uint8_t PacketRSSI;
+uint8_t PacketLQI;
+
+} RECEIVED_MESSAGE;
+
+# 710
+bool MiApp_MessageAvailable(void);
+
+# 752
+void MiApp_DiscardMessage(void);
+
+# 800
+uint8_t MiApp_NoiseDetection(uint32_t ChannelMap, uint8_t ScanDuration, uint8_t DetectionMode,  uint8_t *NoiseLevel);
+
+# 858
+uint8_t MiApp_TransceiverPowerState(uint8_t Mode);
+
+# 899
+bool MiApp_InitChannelHopping( uint32_t ChannelMap);
+
+# 941
+bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
+
+# 950
+extern RECEIVED_MESSAGE rxMessage;
+
+# 25 "../src/fermier.c"
+void affichage (void);
+void asking_data(void);
+void receiving_data(void);
 
 
-TXSTA2 = 0x26;
+int etat = 1;
+uint8_t flag=1;
+int8_t temperature1;
+int8_t temperature2;
+int8_t temperature3;
+int8_t temperature4;
+int8_t temperature5;
+int8_t temperature6;
+int8_t humidite1;
+int8_t humidite2;
+int8_t humidite3;
 
 
-SPBRG2 = 0xCF;
 
 
-SPBRGH2 = 0x00;
+void fermier(void)
+{
+sprintf((char *)&LCDText, (char*)" Module fermier ");
+LCD_Update();
+{ unsigned long _dcnt; unsigned long _ms; _ms = 2000; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+LCD_Erase();
 
-INTCONbits.GIE = 0;
 
-EECON2 = 0x55;
+while(1)
+{
+asking_data();
 
-EECON2 = 0xAA;
+if(MiApp_MessageAvailable())
+{
+LATEbits.LATE1 = 1;
 
-PPSCON = 0;
+receiving_data();
+}
+MiApp_DiscardMessage();
+affichage ();
 
-RPOR13 = 0x05;
-
-EECON2 = 0x55;
-
-EECON2 = 0xAA;
-
-PPSCONbits.IOLOCK = 1;
-
-RCSTA2bits.SPEN = 1;
-
-TRISCbits.TRISC2 = 0;
+}
 }
 
-bool EUSART2_is_tx_ready(void)
+
+
+void asking_data(void)
 {
-return (bool)(PIR3bits.TX2IF && TXSTA2bits.TXEN);
+{TxData = 11;};
+TxBuffer[TxData++] = 0x01;
+TxBuffer[TxData++] = 0xDE;
+TxBuffer[TxData++] = 0xAD;
+MiApp_BroadcastPacket(1);
 }
 
-bool EUSART2_is_rx_ready(void)
+# 84
+void receiving_data(void)
 {
-return PIR3bits.RC2IF;
+if (rxMessage.Payload[0]== 0x02)
+{
+LATEbits.LATE1 = !LATEbits.LATE1;
+
+
+if (rxMessage.Payload[1]== 0x01)
+{
+temperature1 = rxMessage.Payload[2];
+temperature2 = rxMessage.Payload[3];
+humidite1 = rxMessage.Payload[4];
+}
+else if (rxMessage.Payload[1]== 0x02)
+{
+temperature3 = rxMessage.Payload[2];
+temperature4 = rxMessage.Payload[3];
+humidite2 = rxMessage.Payload[4];
+}
+else if (rxMessage.Payload[1]== 0x03)
+{
+temperature5 = rxMessage.Payload[2];
+temperature6 = rxMessage.Payload[3];
+humidite3 = rxMessage.Payload[4];
+}
+MiApp_DiscardMessage();
+}
 }
 
-bool EUSART2_is_tx_done(void)
+# 118
+void affichage (void)
 {
-return TXSTA2bits.TRMT;
+int switch_val = BUTTON_Pressed();
+switch (etat)
+{
+case 1 :
+
+LCD_Erase();
+sprintf((char *)&LCDText, (char*)"Capteur 1");
+LCD_Update();
+flag = 0;
+
+if (flag == 0)
+{
+sprintf((char *)&LCDText[16], (char*)"Temp air : %d", temperature1);
+LCD_Update();
+
+for (int i=0 ; i<1500 ; i++ )
+{
+{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+switch_val = BUTTON_Pressed();
+if (switch_val == 2)
+{
+etat = 2;
+flag = 1;
+break;
+}
+if (switch_val == 1)
+{
+etat = 3;
+flag = 1;
+break;
+}
+if(MiApp_MessageAvailable())
+{
+LATEbits.LATE1 = 1;
+
+receiving_data();
+}
+MiApp_DiscardMessage();
+}
+}
+if (flag == 0)
+{
+
+sprintf((char *)&LCDText[16], (char*)"Temp sol : %d", temperature2);
+LCD_Update();
+
+for (int i=0 ; i<1500 ; i++ )
+{
+{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+switch_val = BUTTON_Pressed();
+if (switch_val == 2)
+{
+etat = 2;
+flag = 1;
+break;
+}
+if (switch_val == 1)
+{
+etat = 3;
+flag = 1;
+break;
+}
+if(MiApp_MessageAvailable())
+{
+LATEbits.LATE1 = 1;
+
+receiving_data();
+}
+MiApp_DiscardMessage();
+}
+}
+if (flag == 0)
+{
+
+sprintf((char *)&LCDText[16], (char*)"Humidity : %d", humidite1);
+LCD_Update();
+
+for (int i=0 ; i<1500 ; i++ )
+{
+{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+switch_val = BUTTON_Pressed();
+if (switch_val == 2)
+{
+etat = 2;
+flag = 1;
+break;
+}
+if (switch_val == 1)
+{
+etat = 3;
+flag = 1;
+break;
+}
+if(MiApp_MessageAvailable())
+{
+LATEbits.LATE1 = 1;
+
+receiving_data();
+}
+MiApp_DiscardMessage();
+}
 }
 
-uint8_t EUSART2_Read(void)
+break;
+
+
+
+case 2 :
+
+LCD_Erase();
+sprintf((char *)&LCDText, (char*)"Capteur 2");
+LCD_Update();
+flag = 0;
+
+
+if (flag == 0)
 {
-while(!PIR3bits.RC2IF)
+
+sprintf((char *)&LCDText[16], (char*)"Temp air : %d", temperature3);
+LCD_Update();
+
+for (int i=0 ; i<1500 ; i++ )
 {
+{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+switch_val = BUTTON_Pressed();
+if (switch_val == 2)
+{
+etat = 3;
+flag = 1;
+break;
+}
+if (switch_val == 1)
+{
+etat = 1;
+flag = 1;
+break;
+}
+if(MiApp_MessageAvailable())
+{
+LATEbits.LATE1 = 1;
+
+receiving_data();
+}
+MiApp_DiscardMessage();
+}
+}
+if (flag == 0)
+{
+sprintf((char *)&LCDText[16], (char*)"Temp sol : %d", temperature4);
+LCD_Update();
+
+for (int i=0 ; i<1500 ; i++ )
+{
+{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+switch_val = BUTTON_Pressed();
+if (switch_val == 2)
+{
+etat = 3;
+flag = 1;
+break;
+}
+if (switch_val == 1)
+{
+etat = 1;
+flag = 1;
+break;
+}
+if(MiApp_MessageAvailable())
+{
+LATEbits.LATE1 = 1;
+
+receiving_data();
+}
+MiApp_DiscardMessage();
+}
+}
+if (flag == 0)
+{
+sprintf((char *)&LCDText[16], (char*)"Humidity : %d", humidite2);
+LCD_Update();
+
+for (int i=0 ; i<1500 ; i++ )
+{
+{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+switch_val = BUTTON_Pressed();
+if (switch_val == 2)
+{
+etat = 3;
+flag = 1;
+break;
+}
+if (switch_val == 1)
+{
+etat = 1;
+flag = 1;
+break;
+}
+if(MiApp_MessageAvailable())
+{
+LATEbits.LATE1 = 1;
+
+receiving_data();
+}
+MiApp_DiscardMessage();
+}
 }
 
+break;
 
-if(1 == RCSTA2bits.OERR)
+
+case 3 :
+
+LCD_Erase();
+sprintf((char *)&LCDText, (char*)"Capteur 3");
+LCD_Update();
+flag = 0;
+
+if (flag == 0)
 {
+sprintf((char *)&LCDText[16], (char*)"Temp air : %d", temperature5);
+LCD_Update();
 
+for (int i=0 ; i<1500 ; i++ )
+{
+{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+switch_val = BUTTON_Pressed();
+if (switch_val == 2)
+{
+etat = 1;
+flag = 1;
+break;
+}
+if (switch_val == 1)
+{
+etat = 2;
+flag = 1;
+break;
+}
+if(MiApp_MessageAvailable())
+{
+LATEbits.LATE1 = 1;
 
-RCSTA2bits.CREN = 0;
-RCSTA2bits.CREN = 1;
+receiving_data();
+}
+MiApp_DiscardMessage();
+}
+}
+if (flag == 0)
+{
+sprintf((char *)&LCDText[16], (char*)"Temp sol : %d", temperature6);
+LCD_Update();
+
+for (int i=0 ; i<1500 ; i++ )
+{
+{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+switch_val = BUTTON_Pressed();
+if (switch_val == 2)
+{
+etat = 1;
+flag = 1;
+break;
+}
+if (switch_val == 1)
+{
+etat = 2;
+flag = 1;
+break;
+}
+if(MiApp_MessageAvailable())
+{
+LATEbits.LATE1 = 1;
+
+receiving_data();
+}
+MiApp_DiscardMessage();
+}
+}
+if (flag == 0)
+{
+sprintf((char *)&LCDText[16], (char*)"Humidity : %d", humidite3);
+LCD_Update();
+
+for (int i=0 ; i<1500 ; i++ )
+{
+{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+switch_val = BUTTON_Pressed();
+if (switch_val == 2)
+{
+etat = 1;
+flag = 1;
+break;
+}
+if (switch_val == 1)
+{
+etat = 2;
+flag = 1;
+break;
+}
+if(MiApp_MessageAvailable())
+{
+LATEbits.LATE1 = 1;
+
+receiving_data();
+}
+MiApp_DiscardMessage();
+}
 }
 
-return RCREG2;
+break;
 }
-
-void EUSART2_Write(uint8_t txData)
-{
-while(0 == PIR3bits.TX2IF)
-{
-}
-
-TXREG2 = txData;
-}
-
-char getch(void)
-{
-return EUSART2_Read();
 }
 
