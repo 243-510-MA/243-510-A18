@@ -1,8 +1,102 @@
 
-# 1 "../src/fermier.c"
+# 1 "../src/RTCSPI.c"
 
-# 5 "../src/fermier.h"
-void fermier(void);
+# 13 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 29 "../src/system_config/miwikit_pic18f46j50_24j40/spi.h"
+void SPIPut(uint8_t v);
+uint8_t SPIGet(void);
+
+void SPIPut2(uint8_t v);
+uint8_t SPIGet2(void);
 
 # 26 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8795,96 +8889,6 @@ extern int printf(const char *, ...);
 # 12 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
-# 13 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 43
-typedef unsigned char uint8_t;
-
-# 49
-typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
 # 43 "../src/system_config/miwikit_pic18f46j50_24j40\lcd.h"
 extern uint8_t LCDText[16*2+1];
 
@@ -8943,13 +8947,6 @@ MIWI_TICK switch0PressTime;
 MIWI_TICK switch1PressTime;
 
 uint8_t BUTTON_Pressed(void);
-
-# 29 "../src/system_config/miwikit_pic18f46j50_24j40\spi.h"
-void SPIPut(uint8_t v);
-uint8_t SPIGet(void);
-
-void SPIPut2(uint8_t v);
-uint8_t SPIGet2(void);
 
 # 54 "../src/system_config/miwikit_pic18f46j50_24j40\system.h"
 typedef union
@@ -9379,446 +9376,393 @@ bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
 # 950
 extern RECEIVED_MESSAGE rxMessage;
 
-# 20 "../src/EEPROM.h"
-typedef union{
-struct{
-int8_t minute;
-int8_t heure;
-int8_t jour;
-int8_t mois;
-int8_t annee;
-int8_t humidite1;
-int8_t humidite2;
-int8_t humidite3;
-int8_t temperatureAir1;
-int8_t temperatureAir2;
-int8_t temperatureAir3;
-int8_t temperatureSol1;
-int8_t temperatureSol2;
-int8_t temperatureSol3;
-}frame;
-int8_t array[14];
-}dataCapteur;
+# 13 "../src/RTCSPI.h"
+void rtcClear(void);
 
 
-void eepromWrite(uint32_t writeAddress,int8_t data);
-
-# 51
-void eepromMultiWrite(uint32_t writeStartAddress,uint8_t length,int8_t *data);
-
-# 60
-int8_t eepromRead(uint32_t readAddress);
-
-# 70
-void eepromWriteLastAddress(uint32_t startAddressValue);
-
-# 80
-uint32_t eepromReadLastAddress(void);
-
-# 93
-dataCapteur eepromReadDataCapteur(uint32_t startAddress);
-
-# 103
-void eepromWriteDataToSave(uint32_t writeStartAddress, dataCapteur data);
-
-# 25 "../src/fermier.c"
-void affichage (void);
-void asking_data(void);
-void receiving_data(void);
+void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, uint8_t months, uint8_t years);
 
 
-int etat = 1;
-uint8_t flag=1;
-int8_t temperature1;
-int8_t temperature2;
-int8_t temperature3;
-int8_t temperature4;
-int8_t temperature5;
-int8_t temperature6;
-int8_t humidite1;
-int8_t humidite2;
-int8_t humidite3;
+void rtcStart(void);
 
 
+void rtcReadTime(unsigned char* seconds, unsigned char* minutes, unsigned char* hour, unsigned char* date, unsigned char* month, unsigned char *year);
 
 
-void fermier(void)
+uint8_t rtcReadSecond(void);
+
+
+uint8_t rtcReadMinutes(void);
+
+
+uint8_t rtcReadHour(void);
+
+
+uint8_t rtcReadDay(void);
+
+
+uint8_t rtcReadMonth(void);
+
+
+uint8_t rtcReadYear(void);
+
+
+void rtcPrintTime(void);
+
+
+static unsigned int uint2bcd(unsigned int nombre);
+
+# 46 "../src/RTCSPI.c"
+void rtcClear(void)
 {
-sprintf((char *)&LCDText, (char*)" Module fermier ");
-LCD_Update();
-{ unsigned long _dcnt; unsigned long _ms; _ms = 2000; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
+TRISAbits.TRISA2 = 0;
+for(int i=0;i<0x20;i++)
+{
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(i);
+SPIPut2(0x00);
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+}
+LATAbits.LATA2 = 0;
+SPIPut2(0x54);
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+}
+
+void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, uint8_t months, uint8_t years)
+{
+TRISAbits.TRISA2 = 0;
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x01);
+SPIPut2(uint2bcd(seconds));
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x02);
+SPIPut2(uint2bcd(minutes));
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x03);
+SPIPut2(uint2bcd(hours));
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x05);
+SPIPut2(uint2bcd(days));
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x06);
+SPIPut2(uint2bcd(months));
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x07);
+SPIPut2(uint2bcd(years));
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x01);
+SPIPut2(0x80);
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+
+char cnt = 0;
+while(cnt < 100)
+{
+LATAbits.LATA2 = 0;
+SPIPut2(0x13);
+SPIPut2(0x04);
+if((SPIGet2() & 0b00100000) != 0)
+{
+break;
+}
+cnt++;
+}
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x04);
+SPIPut2(0x08);
+LATAbits.LATA2 = 1;
+
+}
+
+void rtcStart(void)
+{
+TRISAbits.TRISA2 = 0;
+
+uint8_t sec = rtcReadSecond();
+uint8_t min = rtcReadMinutes();
+uint8_t hour = rtcReadHour();
+uint8_t date = rtcReadDay();
+uint8_t month = rtcReadMonth();
+uint8_t year = rtcReadYear();
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x01);
+SPIPut2(0x00);
+LATAbits.LATA2 = 1;
+
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x02);
+SPIPut2(uint2bcd(min));
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x03);
+SPIPut2(uint2bcd(hour));
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x05);
+SPIPut2(uint2bcd(date));
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x06);
+SPIPut2(uint2bcd(month));
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x07);
+SPIPut2(uint2bcd(year));
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x01);
+SPIPut2(0x80|sec);
+LATAbits.LATA2 = 1;
+
+char cnt = 0;
+while(cnt < 100)
+{
+LATAbits.LATA2 = 0;
+SPIPut2(0x13);
+SPIPut2(0x04);
+if((SPIGet2() & 0b00100000) != 0)
+{
+break;
+}
+cnt++;
+}
+LATAbits.LATA2 = 1;
+{ unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
+
+LATAbits.LATA2 = 0;
+SPIPut2(0x12);
+SPIPut2(0x04);
+SPIPut2(0x08);
+LATAbits.LATA2 = 1;
+}
+
+
+
+uint8_t rtcReadMinutes(void)
+{
+uint8_t min10,min1,minutes;
+
+LATAbits.LATA2 = 0;
+
+SPIPut2(0x13);
+SPIPut2(0x02);
+
+min1 = SPIGet2() & 0x7F;
+
+min10 = (min1 & 0x70) >> 4;
+min1 = min1 & 0x0F;
+minutes = min1 + min10 * 10;
+
+LATAbits.LATA2 = 1;
+return minutes;
+}
+uint8_t rtcReadSecond(void){
+uint8_t sec10,sec1,seconds;
+
+LATAbits.LATA2 = 0;
+
+SPIPut2(0x13);
+SPIPut2(0x01);
+
+sec1 = SPIGet2() & 0x7F;
+
+sec10 = (sec1 & 0x70) >> 4;
+sec1 = sec1 & 0x0F;
+seconds = sec1 + sec10 * 10;
+
+LATAbits.LATA2 = 1;
+return seconds;
+}
+
+uint8_t rtcReadHour(void)
+{
+uint8_t hour10,hour1,hour;
+
+LATAbits.LATA2 = 0;
+
+SPIPut2(0x13);
+SPIPut2(0x03);
+
+hour1 = SPIGet2() & 0x3F;
+
+hour10 = (hour1 & 0x30) >> 4;
+hour1 = hour1 & 0x0F;
+hour = hour1 + hour10 * 10;
+
+LATAbits.LATA2 = 1;
+return hour;
+}
+
+uint8_t rtcReadDay(void)
+{
+uint8_t day10,day1,day;
+
+LATAbits.LATA2 = 0;
+
+SPIPut2(0x13);
+SPIPut2(0x05);
+
+day1 = SPIGet2() & 0x3F;
+
+day10 = (day1 & 0x30) >> 4;
+day1 = day1 & 0x0F;
+day = day1 + day10 * 10;
+
+LATAbits.LATA2 = 1;
+return day;
+}
+
+uint8_t rtcReadMonth(void)
+{
+uint8_t month10,month1,month;
+
+LATAbits.LATA2 = 0;
+
+SPIPut2(0x13);
+SPIPut2(0x06);
+
+month1 = SPIGet2() & 0x1F;
+
+month10 = (month1 & 0x10) >> 4;
+month1 = month1 & 0x0F;
+month = month1 + month10 * 10;
+
+LATAbits.LATA2 = 1;
+return month;
+}
+
+uint8_t rtcReadYear(void)
+{
+uint8_t year10,year1,year;
+
+LATAbits.LATA2 = 0;
+
+SPIPut2(0x13);
+SPIPut2(0x07);
+
+year1 = SPIGet2();
+
+year10 = (year1 & 0xF0) >> 4;
+year1 = year1 & 0x0F;
+year = year1 + year10 * 10;
+
+LATAbits.LATA2 = 1;
+return year;
+}
+
+void rtcPrintTime(void)
+{
 LCD_Erase();
-
-
-while(1)
-{
-asking_data();
-
-if(MiApp_MessageAvailable())
-{
-LATEbits.LATE1 = 1;
-
-receiving_data();
-}
-MiApp_DiscardMessage();
-affichage ();
-
-}
-}
-
-
-
-void asking_data(void)
-{
-{TxData = 11;};
-TxBuffer[TxData++] = 0x01;
-TxBuffer[TxData++] = 0xDE;
-TxBuffer[TxData++] = 0xAD;
-MiApp_BroadcastPacket(1);
-}
-
-# 84
-void receiving_data(void)
-{
-if (rxMessage.Payload[0]== 0x02)
-{
-LATEbits.LATE1 = !LATEbits.LATE1;
-
-
-if (rxMessage.Payload[1]== 0x01)
-{
-temperature1 = rxMessage.Payload[2];
-temperature2 = rxMessage.Payload[3];
-humidite1 = rxMessage.Payload[4];
-}
-else if (rxMessage.Payload[1]== 0x02)
-{
-temperature3 = rxMessage.Payload[2];
-temperature4 = rxMessage.Payload[3];
-humidite2 = rxMessage.Payload[4];
-}
-else if (rxMessage.Payload[1]== 0x03)
-{
-temperature5 = rxMessage.Payload[2];
-temperature6 = rxMessage.Payload[3];
-humidite3 = rxMessage.Payload[4];
-}
-MiApp_DiscardMessage();
-}
-}
-
-# 118
-void affichage (void)
-{
-int switch_val = BUTTON_Pressed();
-switch (etat)
-{
-case 1 :
-
-LCD_Erase();
-sprintf((char *)&LCDText, (char*)"Capteur 1");
+sprintf((char *)&LCDText, (char*)"%u/%u/%u        %u:%u:%u",rtcReadDay(),rtcReadMonth(),rtcReadYear(),rtcReadHour(),rtcReadMinutes(),rtcReadSecond());
 LCD_Update();
-flag = 0;
-
-if (flag == 0)
-{
-sprintf((char *)&LCDText[16], (char*)"Temp air : %d", temperature1);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 2;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 3;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-LATEbits.LATE1 = 1;
-
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-if (flag == 0)
-{
-
-sprintf((char *)&LCDText[16], (char*)"Temp sol : %d", temperature2);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 2;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 3;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-LATEbits.LATE1 = 1;
-
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-if (flag == 0)
-{
-
-sprintf((char *)&LCDText[16], (char*)"Humidity : %d", humidite1);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 2;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 3;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-LATEbits.LATE1 = 1;
-
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
 }
 
-break;
+void rtcReadTime(unsigned char* seconds, unsigned char* minutes, unsigned char* hour, unsigned char* date, unsigned char* month, unsigned char *year)
+{
+unsigned char sec10, min10, hour10, date10, month10, year10, sec1, min1, hour1, date1, month1, year1;
 
+LATAbits.LATA2 = 0;
 
+SPIPut2(0x13);
+SPIPut2(0x01);
 
-case 2 :
+sec1 = SPIGet2() & 0x7F;
+min1 = SPIGet2() & 0x7F;
+hour1 = SPIGet2() & 0x3F;
+date1 = SPIGet2();
+date1 = SPIGet2() & 0x3F;
+month1 = SPIGet2() & 0x1F;
+year1 = SPIGet2();
 
-LCD_Erase();
-sprintf((char *)&LCDText, (char*)"Capteur 2");
-LCD_Update();
-flag = 0;
+LATAbits.LATA2 = 1;
 
+sec10 = (sec1 & 0x70) >> 4;
+sec1 = sec1 & 0x0F;
+*seconds = sec1 + sec10 * 10;
 
-if (flag == 0)
-{
+min10 = (min1 & 0x70) >> 4;
+min1 = min1 & 0x0F;
+*minutes = min1 + min10 * 10;
 
-sprintf((char *)&LCDText[16], (char*)"Temp air : %d", temperature3);
-LCD_Update();
+hour10 = (hour1 & 0x30) >> 4;
+hour1 = hour1 & 0x0F;
+*hour = hour1 + hour10 * 10;
 
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 3;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 1;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-LATEbits.LATE1 = 1;
+date10 = (date1 & 0x30) >> 4;
+date1 = date1 & 0x0F;
+*date = date1 + date10 * 10;
 
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-if (flag == 0)
-{
-sprintf((char *)&LCDText[16], (char*)"Temp sol : %d", temperature4);
-LCD_Update();
+month10 = (month1 & 0x10) >> 4;
+month1 = month1 & 0x0F;
+*month = month1 + month10 * 10;
 
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 3;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 1;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-LATEbits.LATE1 = 1;
-
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-if (flag == 0)
-{
-sprintf((char *)&LCDText[16], (char*)"Humidity : %d", humidite2);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 3;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 1;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-LATEbits.LATE1 = 1;
-
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
+year10 = (year1 & 0xF0) >> 4;
+year1 = year1 & 0x0F;
+*year = year1 + year10 * 10;
 }
 
-break;
-
-
-case 3 :
-
-LCD_Erase();
-sprintf((char *)&LCDText, (char*)"Capteur 3");
-LCD_Update();
-flag = 0;
-
-if (flag == 0)
+static unsigned int uint2bcd(unsigned int nombre)
 {
-sprintf((char *)&LCDText[16], (char*)"Temp air : %d", temperature5);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 1;
-flag = 1;
-break;
+return ((nombre / 10) << 4) | (nombre % 10);
 }
-if (switch_val == 1)
-{
-etat = 2;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-LATEbits.LATE1 = 1;
-
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-if (flag == 0)
-{
-sprintf((char *)&LCDText[16], (char*)"Temp sol : %d", temperature6);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 1;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 2;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-LATEbits.LATE1 = 1;
-
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-if (flag == 0)
-{
-sprintf((char *)&LCDText[16], (char*)"Humidity : %d", humidite3);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 1;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 2;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-LATEbits.LATE1 = 1;
-
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-
-break;
-}
-}
-

@@ -8,6 +8,7 @@
 #include "system.h"
 #include "system_config.h"
 #include "miwi/miwi_api.h"
+#include "RTCSPI.h"
 
 // RTC Commands
 #define EEREAD  0x03
@@ -36,20 +37,19 @@
 #define CALIBRATION                0x09
 
 
-// RTC click module connections
+//// RTC click module connections
 #define Chip_Select LATAbits.LATA2
 #define Chip_Select_Direction TRISAbits.TRISA2
-// RTC click module connections
+//// RTC click module connections
 
 //clear RTCC and SRAM memory
 void rtcClear(void)
 {
-	//configures the pin in an output mode
-    Chip_Select_Direction = 0;
+    TRISAbits.TRISA2 = 0;
     for(int i=0;i<0x20;i++)
     {
         Chip_Select = 0;
-        SPIPut2(WRITE);
+        SPIPut2(WRITE);//Clear RTCC memory
         SPIPut2(i);
         SPIPut2(0x00);
         Chip_Select = 1; 
@@ -60,12 +60,10 @@ void rtcClear(void)
     Chip_Select = 1;
     delay_us(1);
 }
-
-
-// Set RTC time and starts it
+// Set RTC time
 void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, uint8_t months, uint8_t years) 
 {
-    Chip_Select_Direction = 0;    
+    TRISAbits.TRISA2 = 0;    
     // Write seconds into RTC
     Chip_Select = 0;
     SPIPut2(WRITE);
@@ -114,7 +112,6 @@ void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, ui
     Chip_Select = 1;
     delay_us(1);
     
-	//Puts STBit on HIGH (Starts the oscillator)
     Chip_Select = 0;
 	SPIPut2(WRITE);
 	SPIPut2(0x01);
@@ -123,8 +120,6 @@ void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, ui
     delay_us(1);
     
     char cnt = 0;
-	
-	//Waits for the STBit to be configured correctly.
 	while(cnt < 100)
 	{
 		Chip_Select = 0;
@@ -135,11 +130,10 @@ void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, ui
 			break;		
 		}
 		cnt++;		
-	}
+	}		
 	Chip_Select = 1;
     delay_us(1);
     
-	//Puts VBATEN on HIGH
     Chip_Select = 0;
 	SPIPut2(WRITE);
 	SPIPut2(DAY_REGISTER);
@@ -148,14 +142,11 @@ void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, ui
 
 }
 
-
-//Starts the RTC (without initializing it)
 void rtcStart(void)
 {
-    Chip_Select_Direction = 0;
+    TRISAbits.TRISA2 = 0;
     
-	//Reads the values already in the RTC
-    uint8_t sec = rtcReadSeconds();
+    uint8_t sec = rtcReadSecond();
     uint8_t min = rtcReadMinutes();
     uint8_t hour = rtcReadHour();
     uint8_t date = rtcReadDay();
@@ -236,24 +227,7 @@ void rtcStart(void)
 	Chip_Select = 1;
 }
 
-uint8_t rtcReadSeconds(void) 
-{  
-    uint8_t sec10,sec1,seconds;
-    
-    Chip_Select = 0;
-    
-    SPIPut2(READ);
-    SPIPut2(SECONDS_REGISTER);
-    
-    sec1   = SPIGet2() & 0x7F;//reads while ignoring the STBit
-    
-    sec10 = (sec1 & 0x70) >> 4;
-	sec1 = sec1 & 0x0F;
-	seconds = sec1 + sec10 * 10;
-    
-    Chip_Select = 1;
-    return seconds;
-}
+
 
 uint8_t rtcReadMinutes(void) 
 { 
@@ -272,6 +246,23 @@ uint8_t rtcReadMinutes(void)
     
     Chip_Select = 1;  
     return minutes;
+}
+uint8_t rtcReadSecond(void){  
+    uint8_t sec10,sec1,seconds;
+    
+    Chip_Select = 0;
+    
+    SPIPut2(READ);
+    SPIPut2(SECONDS_REGISTER);
+    
+    sec1   = SPIGet2() & 0x7F;
+    
+    sec10 = (sec1 & 0x70) >> 4;
+	sec1 = sec1 & 0x0F;
+	seconds = sec1 + sec10 * 10;
+    
+    Chip_Select = 1;
+    return seconds;
 }
 
 uint8_t rtcReadHour(void) 
@@ -353,7 +344,7 @@ uint8_t rtcReadYear(void)
 void rtcPrintTime(void)
 {   
     LCD_Erase();
-    sprintf((char *)&LCDText, (char*)"%u/%u/%u        %u:%u:%u",rtcReadDay(),rtcReadMonth(),rtcReadYear(),rtcReadHour(),rtcReadMinutes(),rtcReadSeconds());
+    sprintf((char *)&LCDText, (char*)"%u/%u/%u        %u:%u:%u",rtcReadDay(),rtcReadMonth(),rtcReadYear(),rtcReadHour(),rtcReadMinutes(),rtcReadSecond());
     LCD_Update();
 }
 

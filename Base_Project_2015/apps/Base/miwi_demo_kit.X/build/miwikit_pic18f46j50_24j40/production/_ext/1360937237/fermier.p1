@@ -8,7 +8,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71
 [u S768 `ul 1 `S769 1 `uc -> 4 `i `S770 1 ]
 [n S768 _MIWI_TICK Val byte v word ]
-"194 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
+"194 E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "43 ../src/system_config/miwikit_pic18f46j50_24j40\lcd.h
 [v _LCDText `uc ~T0 @X0 -> 0 `x e ]
@@ -20,7 +20,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _asking_data `(v ~T0 @X0 0 ef ]
 "710 ../../../framework\miwi/miwi_api.h
 [v _MiApp_MessageAvailable `(uc ~T0 @X0 0 ef ]
-"7559 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+"7559 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
 [s S326 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S326 . LATE0 LATE1 LATE2 ]
 "7564
@@ -64,7 +64,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f46j50.h: 50: extern volatile unsigned char RPOR0 @ 0xEC6;
-"52 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+"52 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
 [; ;pic18f46j50.h: 52: asm("RPOR0 equ 0EC6h");
 [; <" RPOR0 equ 0EC6h ;# ">
 [; ;pic18f46j50.h: 57: extern volatile unsigned char RPOR1 @ 0xEC7;
@@ -6971,6 +6971,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;miwi_api.h: 899: bool MiApp_InitChannelHopping( uint32_t ChannelMap);
 [; ;miwi_api.h: 941: bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
 [; ;miwi_api.h: 950: extern RECEIVED_MESSAGE rxMessage;
+[; ;EEPROM.h: 20: typedef union{
+[; ;EEPROM.h: 21: struct{
+[; ;EEPROM.h: 22: int8_t minute;
+[; ;EEPROM.h: 23: int8_t heure;
+[; ;EEPROM.h: 24: int8_t jour;
+[; ;EEPROM.h: 25: int8_t mois;
+[; ;EEPROM.h: 26: int8_t annee;
+[; ;EEPROM.h: 27: int8_t humidite1;
+[; ;EEPROM.h: 28: int8_t humidite2;
+[; ;EEPROM.h: 29: int8_t humidite3;
+[; ;EEPROM.h: 30: int8_t temperatureAir1;
+[; ;EEPROM.h: 31: int8_t temperatureAir2;
+[; ;EEPROM.h: 32: int8_t temperatureAir3;
+[; ;EEPROM.h: 33: int8_t temperatureSol1;
+[; ;EEPROM.h: 34: int8_t temperatureSol2;
+[; ;EEPROM.h: 35: int8_t temperatureSol3;
+[; ;EEPROM.h: 36: }frame;
+[; ;EEPROM.h: 37: int8_t array[14];
+[; ;EEPROM.h: 38: }dataCapteur;
+[; ;EEPROM.h: 41: void eepromWrite(uint32_t writeAddress,int8_t data);
+[; ;EEPROM.h: 51: void eepromMultiWrite(uint32_t writeStartAddress,uint8_t length,int8_t *data);
+[; ;EEPROM.h: 60: int8_t eepromRead(uint32_t readAddress);
+[; ;EEPROM.h: 70: void eepromWriteLastAddress(uint32_t startAddressValue);
+[; ;EEPROM.h: 80: uint32_t eepromReadLastAddress(void);
+[; ;EEPROM.h: 93: dataCapteur eepromReadDataCapteur(uint32_t startAddress);
+[; ;EEPROM.h: 103: void eepromWriteDataToSave(uint32_t writeStartAddress, dataCapteur data);
 [; ;fermier.c: 25: void affichage (void);
 [; ;fermier.c: 26: void asking_data(void);
 [; ;fermier.c: 27: void receiving_data(void);
@@ -7033,27 +7059,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v __dcnt `ul ~T0 @X0 1 a ]
 [v __ms `ul ~T0 @X0 1 a ]
 [e = __ms -> -> -> 2000 `i `l `ul ]
-[e $U 806  ]
-[e :U 807 ]
+[e $U 808  ]
+[e :U 809 ]
 {
 [e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
-[e $U 809  ]
-[e :U 810 ]
-[e :U 809 ]
-[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 810  ]
+[e $U 811  ]
+[e :U 812 ]
 [e :U 811 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 812  ]
+[e :U 813 ]
 [e -- __ms -> -> -> 1 `i `l `ul ]
 }
-[e :U 806 ]
-[e $ != __ms -> -> 0 `i `ul 807  ]
 [e :U 808 ]
+[e $ != __ms -> -> 0 `i `ul 809  ]
+[e :U 810 ]
 }
 [; ;fermier.c: 50: LCD_Erase();
 "50
 [e ( _LCD_Erase ..  ]
 [; ;fermier.c: 53: while(1)
 "53
-[e :U 813 ]
+[e :U 815 ]
 [; ;fermier.c: 54: {
 "54
 {
@@ -7062,7 +7088,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _asking_data ..  ]
 [; ;fermier.c: 57: if(MiApp_MessageAvailable())
 "57
-[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 815  ]
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 817  ]
 [; ;fermier.c: 58: {
 "58
 {
@@ -7074,7 +7100,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _receiving_data ..  ]
 "62
 }
-[e :U 815 ]
+[e :U 817 ]
 [; ;fermier.c: 62: }
 [; ;fermier.c: 63: MiApp_DiscardMessage();
 "63
@@ -7084,14 +7110,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _affichage ..  ]
 "66
 }
-[e :U 812 ]
-"53
-[e $U 813  ]
 [e :U 814 ]
+"53
+[e $U 815  ]
+[e :U 816 ]
 [; ;fermier.c: 66: }
 [; ;fermier.c: 67: }
 "67
-[e :UE 805 ]
+[e :UE 807 ]
 }
 "71
 [v _asking_data `(v ~T0 @X0 1 ef ]
@@ -7120,7 +7146,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _MiApp_BroadcastPacket (1 -> -> 1 `i `uc ]
 [; ;fermier.c: 78: }
 "78
-[e :UE 816 ]
+[e :UE 818 ]
 }
 "84
 [v _receiving_data `(v ~T0 @X0 1 ef ]
@@ -7132,7 +7158,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;fermier.c: 86: if (rxMessage.Payload[0]== 0x02)
 "86
-[e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 2 `i 818  ]
+[e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 2 `i 820  ]
 [; ;fermier.c: 87: {
 "87
 {
@@ -7141,7 +7167,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATEbits 0 1 -> -> ! != -> . . _LATEbits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
 [; ;fermier.c: 91: if (rxMessage.Payload[1]== 0x01)
 "91
-[e $ ! == -> *U + . _rxMessage 3 * -> -> 1 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 1 `i 819  ]
+[e $ ! == -> *U + . _rxMessage 3 * -> -> 1 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 1 `i 821  ]
 [; ;fermier.c: 92: {
 "92
 {
@@ -7157,11 +7183,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "96
 }
 [; ;fermier.c: 96: }
-[e $U 820  ]
+[e $U 822  ]
 "97
-[e :U 819 ]
+[e :U 821 ]
 [; ;fermier.c: 97: else if (rxMessage.Payload[1]== 0x02)
-[e $ ! == -> *U + . _rxMessage 3 * -> -> 1 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 2 `i 821  ]
+[e $ ! == -> *U + . _rxMessage 3 * -> -> 1 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 2 `i 823  ]
 [; ;fermier.c: 98: {
 "98
 {
@@ -7177,11 +7203,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "102
 }
 [; ;fermier.c: 102: }
-[e $U 822  ]
+[e $U 824  ]
 "103
-[e :U 821 ]
+[e :U 823 ]
 [; ;fermier.c: 103: else if (rxMessage.Payload[1]== 0x03)
-[e $ ! == -> *U + . _rxMessage 3 * -> -> 1 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 3 `i 823  ]
+[e $ ! == -> *U + . _rxMessage 3 * -> -> 1 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 3 `i 825  ]
 [; ;fermier.c: 104: {
 "104
 {
@@ -7196,20 +7222,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _humidite3 -> *U + . _rxMessage 3 * -> -> 4 `i `x -> -> # *U . _rxMessage 3 `i `x `c ]
 "108
 }
-[e :U 823 ]
+[e :U 825 ]
 "109
+[e :U 824 ]
 [e :U 822 ]
-[e :U 820 ]
 [; ;fermier.c: 108: }
 [; ;fermier.c: 109: MiApp_DiscardMessage();
 [e ( _MiApp_DiscardMessage ..  ]
 "110
 }
-[e :U 818 ]
+[e :U 820 ]
 [; ;fermier.c: 110: }
 [; ;fermier.c: 111: }
 "111
-[e :UE 817 ]
+[e :UE 819 ]
 }
 "118
 [v _affichage `(v ~T0 @X0 1 ef ]
@@ -7225,13 +7251,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _switch_val -> ( _BUTTON_Pressed ..  `i ]
 [; ;fermier.c: 121: switch (etat)
 "121
-[e $U 826  ]
+[e $U 828  ]
 [; ;fermier.c: 122: {
 "122
 {
 [; ;fermier.c: 123: case 1 :
 "123
-[e :U 827 ]
+[e :U 829 ]
 [; ;fermier.c: 125: LCD_Erase();
 "125
 [e ( _LCD_Erase ..  ]
@@ -7246,7 +7272,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 0 `i `uc ]
 [; ;fermier.c: 130: if (flag == 0)
 "130
-[e $ ! == -> _flag `i -> 0 `i 828  ]
+[e $ ! == -> _flag `i -> 0 `i 830  ]
 [; ;fermier.c: 131: {
 "131
 {
@@ -7261,10 +7287,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 1500 `i 829  ]
-[e $U 830  ]
+[e $ < _i -> 1500 `i 831  ]
+[e $U 832  ]
 "136
-[e :U 829 ]
+[e :U 831 ]
 [; ;fermier.c: 136: {
 {
 [; ;fermier.c: 137: { unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
@@ -7273,27 +7299,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v __dcnt `ul ~T0 @X0 1 a ]
 [v __ms `ul ~T0 @X0 1 a ]
 [e = __ms -> -> -> 1 `i `l `ul ]
-[e $U 832  ]
-[e :U 833 ]
+[e $U 834  ]
+[e :U 835 ]
 {
 [e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
-[e $U 835  ]
-[e :U 836 ]
-[e :U 835 ]
-[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 836  ]
+[e $U 837  ]
+[e :U 838 ]
 [e :U 837 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 838  ]
+[e :U 839 ]
 [e -- __ms -> -> -> 1 `i `l `ul ]
 }
-[e :U 832 ]
-[e $ != __ms -> -> 0 `i `ul 833  ]
 [e :U 834 ]
+[e $ != __ms -> -> 0 `i `ul 835  ]
+[e :U 836 ]
 }
 [; ;fermier.c: 138: switch_val = BUTTON_Pressed();
 "138
 [e = _switch_val -> ( _BUTTON_Pressed ..  `i ]
 [; ;fermier.c: 139: if (switch_val == 2)
 "139
-[e $ ! == _switch_val -> 2 `i 838  ]
+[e $ ! == _switch_val -> 2 `i 840  ]
 [; ;fermier.c: 140: {
 "140
 {
@@ -7305,14 +7331,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 143: break;
 "143
-[e $U 830  ]
+[e $U 832  ]
 "144
 }
-[e :U 838 ]
+[e :U 840 ]
 [; ;fermier.c: 144: }
 [; ;fermier.c: 145: if (switch_val == 1)
 "145
-[e $ ! == _switch_val -> 1 `i 839  ]
+[e $ ! == _switch_val -> 1 `i 841  ]
 [; ;fermier.c: 146: {
 "146
 {
@@ -7324,14 +7350,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 149: break;
 "149
-[e $U 830  ]
+[e $U 832  ]
 "150
 }
-[e :U 839 ]
+[e :U 841 ]
 [; ;fermier.c: 150: }
 [; ;fermier.c: 151: if(MiApp_MessageAvailable())
 "151
-[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 840  ]
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 842  ]
 [; ;fermier.c: 152: {
 "152
 {
@@ -7343,7 +7369,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _receiving_data ..  ]
 "156
 }
-[e :U 840 ]
+[e :U 842 ]
 [; ;fermier.c: 156: }
 [; ;fermier.c: 157: MiApp_DiscardMessage();
 "157
@@ -7352,18 +7378,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "135
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 1500 `i 829  ]
-[e :U 830 ]
+[e $ < _i -> 1500 `i 831  ]
+[e :U 832 ]
 "158
 }
 "159
 }
-[e :U 828 ]
+[e :U 830 ]
 [; ;fermier.c: 158: }
 [; ;fermier.c: 159: }
 [; ;fermier.c: 160: if (flag == 0)
 "160
-[e $ ! == -> _flag `i -> 0 `i 841  ]
+[e $ ! == -> _flag `i -> 0 `i 843  ]
 [; ;fermier.c: 161: {
 "161
 {
@@ -7378,10 +7404,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 1500 `i 842  ]
-[e $U 843  ]
+[e $ < _i -> 1500 `i 844  ]
+[e $U 845  ]
 "167
-[e :U 842 ]
+[e :U 844 ]
 [; ;fermier.c: 167: {
 {
 [; ;fermier.c: 168: { unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
@@ -7390,27 +7416,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v __dcnt `ul ~T0 @X0 1 a ]
 [v __ms `ul ~T0 @X0 1 a ]
 [e = __ms -> -> -> 1 `i `l `ul ]
-[e $U 845  ]
-[e :U 846 ]
+[e $U 847  ]
+[e :U 848 ]
 {
 [e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
-[e $U 848  ]
-[e :U 849 ]
-[e :U 848 ]
-[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 849  ]
+[e $U 850  ]
+[e :U 851 ]
 [e :U 850 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 851  ]
+[e :U 852 ]
 [e -- __ms -> -> -> 1 `i `l `ul ]
 }
-[e :U 845 ]
-[e $ != __ms -> -> 0 `i `ul 846  ]
 [e :U 847 ]
+[e $ != __ms -> -> 0 `i `ul 848  ]
+[e :U 849 ]
 }
 [; ;fermier.c: 169: switch_val = BUTTON_Pressed();
 "169
 [e = _switch_val -> ( _BUTTON_Pressed ..  `i ]
 [; ;fermier.c: 170: if (switch_val == 2)
 "170
-[e $ ! == _switch_val -> 2 `i 851  ]
+[e $ ! == _switch_val -> 2 `i 853  ]
 [; ;fermier.c: 171: {
 "171
 {
@@ -7422,14 +7448,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 174: break;
 "174
-[e $U 843  ]
+[e $U 845  ]
 "175
 }
-[e :U 851 ]
+[e :U 853 ]
 [; ;fermier.c: 175: }
 [; ;fermier.c: 176: if (switch_val == 1)
 "176
-[e $ ! == _switch_val -> 1 `i 852  ]
+[e $ ! == _switch_val -> 1 `i 854  ]
 [; ;fermier.c: 177: {
 "177
 {
@@ -7441,14 +7467,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 180: break;
 "180
-[e $U 843  ]
+[e $U 845  ]
 "181
 }
-[e :U 852 ]
+[e :U 854 ]
 [; ;fermier.c: 181: }
 [; ;fermier.c: 182: if(MiApp_MessageAvailable())
 "182
-[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 853  ]
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 855  ]
 [; ;fermier.c: 183: {
 "183
 {
@@ -7460,7 +7486,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _receiving_data ..  ]
 "187
 }
-[e :U 853 ]
+[e :U 855 ]
 [; ;fermier.c: 187: }
 [; ;fermier.c: 188: MiApp_DiscardMessage();
 "188
@@ -7469,18 +7495,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "166
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 1500 `i 842  ]
-[e :U 843 ]
+[e $ < _i -> 1500 `i 844  ]
+[e :U 845 ]
 "189
 }
 "190
 }
-[e :U 841 ]
+[e :U 843 ]
 [; ;fermier.c: 189: }
 [; ;fermier.c: 190: }
 [; ;fermier.c: 191: if (flag == 0)
 "191
-[e $ ! == -> _flag `i -> 0 `i 854  ]
+[e $ ! == -> _flag `i -> 0 `i 856  ]
 [; ;fermier.c: 192: {
 "192
 {
@@ -7495,10 +7521,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 1500 `i 855  ]
-[e $U 856  ]
+[e $ < _i -> 1500 `i 857  ]
+[e $U 858  ]
 "198
-[e :U 855 ]
+[e :U 857 ]
 [; ;fermier.c: 198: {
 {
 [; ;fermier.c: 199: { unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
@@ -7507,27 +7533,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v __dcnt `ul ~T0 @X0 1 a ]
 [v __ms `ul ~T0 @X0 1 a ]
 [e = __ms -> -> -> 1 `i `l `ul ]
-[e $U 858  ]
-[e :U 859 ]
+[e $U 860  ]
+[e :U 861 ]
 {
 [e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
-[e $U 861  ]
-[e :U 862 ]
-[e :U 861 ]
-[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 862  ]
+[e $U 863  ]
+[e :U 864 ]
 [e :U 863 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 864  ]
+[e :U 865 ]
 [e -- __ms -> -> -> 1 `i `l `ul ]
 }
-[e :U 858 ]
-[e $ != __ms -> -> 0 `i `ul 859  ]
 [e :U 860 ]
+[e $ != __ms -> -> 0 `i `ul 861  ]
+[e :U 862 ]
 }
 [; ;fermier.c: 200: switch_val = BUTTON_Pressed();
 "200
 [e = _switch_val -> ( _BUTTON_Pressed ..  `i ]
 [; ;fermier.c: 201: if (switch_val == 2)
 "201
-[e $ ! == _switch_val -> 2 `i 864  ]
+[e $ ! == _switch_val -> 2 `i 866  ]
 [; ;fermier.c: 202: {
 "202
 {
@@ -7539,14 +7565,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 205: break;
 "205
-[e $U 856  ]
+[e $U 858  ]
 "206
 }
-[e :U 864 ]
+[e :U 866 ]
 [; ;fermier.c: 206: }
 [; ;fermier.c: 207: if (switch_val == 1)
 "207
-[e $ ! == _switch_val -> 1 `i 865  ]
+[e $ ! == _switch_val -> 1 `i 867  ]
 [; ;fermier.c: 208: {
 "208
 {
@@ -7558,14 +7584,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 211: break;
 "211
-[e $U 856  ]
+[e $U 858  ]
 "212
 }
-[e :U 865 ]
+[e :U 867 ]
 [; ;fermier.c: 212: }
 [; ;fermier.c: 213: if(MiApp_MessageAvailable())
 "213
-[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 866  ]
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 868  ]
 [; ;fermier.c: 214: {
 "214
 {
@@ -7577,7 +7603,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _receiving_data ..  ]
 "218
 }
-[e :U 866 ]
+[e :U 868 ]
 [; ;fermier.c: 218: }
 [; ;fermier.c: 219: MiApp_DiscardMessage();
 "219
@@ -7586,21 +7612,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "197
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 1500 `i 855  ]
-[e :U 856 ]
+[e $ < _i -> 1500 `i 857  ]
+[e :U 858 ]
 "220
 }
 "221
 }
-[e :U 854 ]
+[e :U 856 ]
 [; ;fermier.c: 220: }
 [; ;fermier.c: 221: }
 [; ;fermier.c: 223: break;
 "223
-[e $U 825  ]
+[e $U 827  ]
 [; ;fermier.c: 227: case 2 :
 "227
-[e :U 867 ]
+[e :U 869 ]
 [; ;fermier.c: 229: LCD_Erase();
 "229
 [e ( _LCD_Erase ..  ]
@@ -7615,7 +7641,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 0 `i `uc ]
 [; ;fermier.c: 235: if (flag == 0)
 "235
-[e $ ! == -> _flag `i -> 0 `i 868  ]
+[e $ ! == -> _flag `i -> 0 `i 870  ]
 [; ;fermier.c: 236: {
 "236
 {
@@ -7630,10 +7656,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 1500 `i 869  ]
-[e $U 870  ]
+[e $ < _i -> 1500 `i 871  ]
+[e $U 872  ]
 "242
-[e :U 869 ]
+[e :U 871 ]
 [; ;fermier.c: 242: {
 {
 [; ;fermier.c: 243: { unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
@@ -7642,27 +7668,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v __dcnt `ul ~T0 @X0 1 a ]
 [v __ms `ul ~T0 @X0 1 a ]
 [e = __ms -> -> -> 1 `i `l `ul ]
-[e $U 872  ]
-[e :U 873 ]
+[e $U 874  ]
+[e :U 875 ]
 {
 [e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
-[e $U 875  ]
-[e :U 876 ]
-[e :U 875 ]
-[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 876  ]
+[e $U 877  ]
+[e :U 878 ]
 [e :U 877 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 878  ]
+[e :U 879 ]
 [e -- __ms -> -> -> 1 `i `l `ul ]
 }
-[e :U 872 ]
-[e $ != __ms -> -> 0 `i `ul 873  ]
 [e :U 874 ]
+[e $ != __ms -> -> 0 `i `ul 875  ]
+[e :U 876 ]
 }
 [; ;fermier.c: 244: switch_val = BUTTON_Pressed();
 "244
 [e = _switch_val -> ( _BUTTON_Pressed ..  `i ]
 [; ;fermier.c: 245: if (switch_val == 2)
 "245
-[e $ ! == _switch_val -> 2 `i 878  ]
+[e $ ! == _switch_val -> 2 `i 880  ]
 [; ;fermier.c: 246: {
 "246
 {
@@ -7674,14 +7700,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 249: break;
 "249
-[e $U 870  ]
+[e $U 872  ]
 "250
 }
-[e :U 878 ]
+[e :U 880 ]
 [; ;fermier.c: 250: }
 [; ;fermier.c: 251: if (switch_val == 1)
 "251
-[e $ ! == _switch_val -> 1 `i 879  ]
+[e $ ! == _switch_val -> 1 `i 881  ]
 [; ;fermier.c: 252: {
 "252
 {
@@ -7693,14 +7719,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 255: break;
 "255
-[e $U 870  ]
+[e $U 872  ]
 "256
 }
-[e :U 879 ]
+[e :U 881 ]
 [; ;fermier.c: 256: }
 [; ;fermier.c: 257: if(MiApp_MessageAvailable())
 "257
-[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 880  ]
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 882  ]
 [; ;fermier.c: 258: {
 "258
 {
@@ -7712,7 +7738,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _receiving_data ..  ]
 "262
 }
-[e :U 880 ]
+[e :U 882 ]
 [; ;fermier.c: 262: }
 [; ;fermier.c: 263: MiApp_DiscardMessage();
 "263
@@ -7721,18 +7747,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "241
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 1500 `i 869  ]
-[e :U 870 ]
+[e $ < _i -> 1500 `i 871  ]
+[e :U 872 ]
 "264
 }
 "265
 }
-[e :U 868 ]
+[e :U 870 ]
 [; ;fermier.c: 264: }
 [; ;fermier.c: 265: }
 [; ;fermier.c: 266: if (flag == 0)
 "266
-[e $ ! == -> _flag `i -> 0 `i 881  ]
+[e $ ! == -> _flag `i -> 0 `i 883  ]
 [; ;fermier.c: 267: {
 "267
 {
@@ -7747,10 +7773,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 1500 `i 882  ]
-[e $U 883  ]
+[e $ < _i -> 1500 `i 884  ]
+[e $U 885  ]
 "272
-[e :U 882 ]
+[e :U 884 ]
 [; ;fermier.c: 272: {
 {
 [; ;fermier.c: 273: { unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
@@ -7759,27 +7785,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v __dcnt `ul ~T0 @X0 1 a ]
 [v __ms `ul ~T0 @X0 1 a ]
 [e = __ms -> -> -> 1 `i `l `ul ]
-[e $U 885  ]
-[e :U 886 ]
+[e $U 887  ]
+[e :U 888 ]
 {
 [e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
-[e $U 888  ]
-[e :U 889 ]
-[e :U 888 ]
-[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 889  ]
+[e $U 890  ]
+[e :U 891 ]
 [e :U 890 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 891  ]
+[e :U 892 ]
 [e -- __ms -> -> -> 1 `i `l `ul ]
 }
-[e :U 885 ]
-[e $ != __ms -> -> 0 `i `ul 886  ]
 [e :U 887 ]
+[e $ != __ms -> -> 0 `i `ul 888  ]
+[e :U 889 ]
 }
 [; ;fermier.c: 274: switch_val = BUTTON_Pressed();
 "274
 [e = _switch_val -> ( _BUTTON_Pressed ..  `i ]
 [; ;fermier.c: 275: if (switch_val == 2)
 "275
-[e $ ! == _switch_val -> 2 `i 891  ]
+[e $ ! == _switch_val -> 2 `i 893  ]
 [; ;fermier.c: 276: {
 "276
 {
@@ -7791,14 +7817,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 279: break;
 "279
-[e $U 883  ]
+[e $U 885  ]
 "280
 }
-[e :U 891 ]
+[e :U 893 ]
 [; ;fermier.c: 280: }
 [; ;fermier.c: 281: if (switch_val == 1)
 "281
-[e $ ! == _switch_val -> 1 `i 892  ]
+[e $ ! == _switch_val -> 1 `i 894  ]
 [; ;fermier.c: 282: {
 "282
 {
@@ -7810,14 +7836,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 285: break;
 "285
-[e $U 883  ]
+[e $U 885  ]
 "286
 }
-[e :U 892 ]
+[e :U 894 ]
 [; ;fermier.c: 286: }
 [; ;fermier.c: 287: if(MiApp_MessageAvailable())
 "287
-[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 893  ]
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 895  ]
 [; ;fermier.c: 288: {
 "288
 {
@@ -7829,7 +7855,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _receiving_data ..  ]
 "292
 }
-[e :U 893 ]
+[e :U 895 ]
 [; ;fermier.c: 292: }
 [; ;fermier.c: 293: MiApp_DiscardMessage();
 "293
@@ -7838,18 +7864,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "271
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 1500 `i 882  ]
-[e :U 883 ]
+[e $ < _i -> 1500 `i 884  ]
+[e :U 885 ]
 "294
 }
 "295
 }
-[e :U 881 ]
+[e :U 883 ]
 [; ;fermier.c: 294: }
 [; ;fermier.c: 295: }
 [; ;fermier.c: 296: if (flag == 0)
 "296
-[e $ ! == -> _flag `i -> 0 `i 894  ]
+[e $ ! == -> _flag `i -> 0 `i 896  ]
 [; ;fermier.c: 297: {
 "297
 {
@@ -7864,10 +7890,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 1500 `i 895  ]
-[e $U 896  ]
+[e $ < _i -> 1500 `i 897  ]
+[e $U 898  ]
 "302
-[e :U 895 ]
+[e :U 897 ]
 [; ;fermier.c: 302: {
 {
 [; ;fermier.c: 303: { unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
@@ -7876,27 +7902,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v __dcnt `ul ~T0 @X0 1 a ]
 [v __ms `ul ~T0 @X0 1 a ]
 [e = __ms -> -> -> 1 `i `l `ul ]
-[e $U 898  ]
-[e :U 899 ]
+[e $U 900  ]
+[e :U 901 ]
 {
 [e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
-[e $U 901  ]
-[e :U 902 ]
-[e :U 901 ]
-[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 902  ]
+[e $U 903  ]
+[e :U 904 ]
 [e :U 903 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 904  ]
+[e :U 905 ]
 [e -- __ms -> -> -> 1 `i `l `ul ]
 }
-[e :U 898 ]
-[e $ != __ms -> -> 0 `i `ul 899  ]
 [e :U 900 ]
+[e $ != __ms -> -> 0 `i `ul 901  ]
+[e :U 902 ]
 }
 [; ;fermier.c: 304: switch_val = BUTTON_Pressed();
 "304
 [e = _switch_val -> ( _BUTTON_Pressed ..  `i ]
 [; ;fermier.c: 305: if (switch_val == 2)
 "305
-[e $ ! == _switch_val -> 2 `i 904  ]
+[e $ ! == _switch_val -> 2 `i 906  ]
 [; ;fermier.c: 306: {
 "306
 {
@@ -7908,14 +7934,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 309: break;
 "309
-[e $U 896  ]
+[e $U 898  ]
 "310
 }
-[e :U 904 ]
+[e :U 906 ]
 [; ;fermier.c: 310: }
 [; ;fermier.c: 311: if (switch_val == 1)
 "311
-[e $ ! == _switch_val -> 1 `i 905  ]
+[e $ ! == _switch_val -> 1 `i 907  ]
 [; ;fermier.c: 312: {
 "312
 {
@@ -7927,14 +7953,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 315: break;
 "315
-[e $U 896  ]
+[e $U 898  ]
 "316
 }
-[e :U 905 ]
+[e :U 907 ]
 [; ;fermier.c: 316: }
 [; ;fermier.c: 317: if(MiApp_MessageAvailable())
 "317
-[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 906  ]
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 908  ]
 [; ;fermier.c: 318: {
 "318
 {
@@ -7946,7 +7972,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _receiving_data ..  ]
 "322
 }
-[e :U 906 ]
+[e :U 908 ]
 [; ;fermier.c: 322: }
 [; ;fermier.c: 323: MiApp_DiscardMessage();
 "323
@@ -7955,21 +7981,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "301
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 1500 `i 895  ]
-[e :U 896 ]
+[e $ < _i -> 1500 `i 897  ]
+[e :U 898 ]
 "324
 }
 "325
 }
-[e :U 894 ]
+[e :U 896 ]
 [; ;fermier.c: 324: }
 [; ;fermier.c: 325: }
 [; ;fermier.c: 327: break;
 "327
-[e $U 825  ]
+[e $U 827  ]
 [; ;fermier.c: 330: case 3 :
 "330
-[e :U 907 ]
+[e :U 909 ]
 [; ;fermier.c: 332: LCD_Erase();
 "332
 [e ( _LCD_Erase ..  ]
@@ -7984,7 +8010,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 0 `i `uc ]
 [; ;fermier.c: 337: if (flag == 0)
 "337
-[e $ ! == -> _flag `i -> 0 `i 908  ]
+[e $ ! == -> _flag `i -> 0 `i 910  ]
 [; ;fermier.c: 338: {
 "338
 {
@@ -7999,10 +8025,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 1500 `i 909  ]
-[e $U 910  ]
+[e $ < _i -> 1500 `i 911  ]
+[e $U 912  ]
 "343
-[e :U 909 ]
+[e :U 911 ]
 [; ;fermier.c: 343: {
 {
 [; ;fermier.c: 344: { unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
@@ -8011,27 +8037,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v __dcnt `ul ~T0 @X0 1 a ]
 [v __ms `ul ~T0 @X0 1 a ]
 [e = __ms -> -> -> 1 `i `l `ul ]
-[e $U 912  ]
-[e :U 913 ]
+[e $U 914  ]
+[e :U 915 ]
 {
 [e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
-[e $U 915  ]
-[e :U 916 ]
-[e :U 915 ]
-[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 916  ]
+[e $U 917  ]
+[e :U 918 ]
 [e :U 917 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 918  ]
+[e :U 919 ]
 [e -- __ms -> -> -> 1 `i `l `ul ]
 }
-[e :U 912 ]
-[e $ != __ms -> -> 0 `i `ul 913  ]
 [e :U 914 ]
+[e $ != __ms -> -> 0 `i `ul 915  ]
+[e :U 916 ]
 }
 [; ;fermier.c: 345: switch_val = BUTTON_Pressed();
 "345
 [e = _switch_val -> ( _BUTTON_Pressed ..  `i ]
 [; ;fermier.c: 346: if (switch_val == 2)
 "346
-[e $ ! == _switch_val -> 2 `i 918  ]
+[e $ ! == _switch_val -> 2 `i 920  ]
 [; ;fermier.c: 347: {
 "347
 {
@@ -8043,14 +8069,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 350: break;
 "350
-[e $U 910  ]
+[e $U 912  ]
 "351
 }
-[e :U 918 ]
+[e :U 920 ]
 [; ;fermier.c: 351: }
 [; ;fermier.c: 352: if (switch_val == 1)
 "352
-[e $ ! == _switch_val -> 1 `i 919  ]
+[e $ ! == _switch_val -> 1 `i 921  ]
 [; ;fermier.c: 353: {
 "353
 {
@@ -8062,14 +8088,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 356: break;
 "356
-[e $U 910  ]
+[e $U 912  ]
 "357
 }
-[e :U 919 ]
+[e :U 921 ]
 [; ;fermier.c: 357: }
 [; ;fermier.c: 358: if(MiApp_MessageAvailable())
 "358
-[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 920  ]
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 922  ]
 [; ;fermier.c: 359: {
 "359
 {
@@ -8081,7 +8107,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _receiving_data ..  ]
 "363
 }
-[e :U 920 ]
+[e :U 922 ]
 [; ;fermier.c: 363: }
 [; ;fermier.c: 364: MiApp_DiscardMessage();
 "364
@@ -8090,18 +8116,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "342
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 1500 `i 909  ]
-[e :U 910 ]
+[e $ < _i -> 1500 `i 911  ]
+[e :U 912 ]
 "365
 }
 "366
 }
-[e :U 908 ]
+[e :U 910 ]
 [; ;fermier.c: 365: }
 [; ;fermier.c: 366: }
 [; ;fermier.c: 367: if (flag == 0)
 "367
-[e $ ! == -> _flag `i -> 0 `i 921  ]
+[e $ ! == -> _flag `i -> 0 `i 923  ]
 [; ;fermier.c: 368: {
 "368
 {
@@ -8116,10 +8142,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 1500 `i 922  ]
-[e $U 923  ]
+[e $ < _i -> 1500 `i 924  ]
+[e $U 925  ]
 "373
-[e :U 922 ]
+[e :U 924 ]
 [; ;fermier.c: 373: {
 {
 [; ;fermier.c: 374: { unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
@@ -8128,27 +8154,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v __dcnt `ul ~T0 @X0 1 a ]
 [v __ms `ul ~T0 @X0 1 a ]
 [e = __ms -> -> -> 1 `i `l `ul ]
-[e $U 925  ]
-[e :U 926 ]
+[e $U 927  ]
+[e :U 928 ]
 {
 [e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
-[e $U 928  ]
-[e :U 929 ]
-[e :U 928 ]
-[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 929  ]
+[e $U 930  ]
+[e :U 931 ]
 [e :U 930 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 931  ]
+[e :U 932 ]
 [e -- __ms -> -> -> 1 `i `l `ul ]
 }
-[e :U 925 ]
-[e $ != __ms -> -> 0 `i `ul 926  ]
 [e :U 927 ]
+[e $ != __ms -> -> 0 `i `ul 928  ]
+[e :U 929 ]
 }
 [; ;fermier.c: 375: switch_val = BUTTON_Pressed();
 "375
 [e = _switch_val -> ( _BUTTON_Pressed ..  `i ]
 [; ;fermier.c: 376: if (switch_val == 2)
 "376
-[e $ ! == _switch_val -> 2 `i 931  ]
+[e $ ! == _switch_val -> 2 `i 933  ]
 [; ;fermier.c: 377: {
 "377
 {
@@ -8160,14 +8186,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 380: break;
 "380
-[e $U 923  ]
+[e $U 925  ]
 "381
 }
-[e :U 931 ]
+[e :U 933 ]
 [; ;fermier.c: 381: }
 [; ;fermier.c: 382: if (switch_val == 1)
 "382
-[e $ ! == _switch_val -> 1 `i 932  ]
+[e $ ! == _switch_val -> 1 `i 934  ]
 [; ;fermier.c: 383: {
 "383
 {
@@ -8179,14 +8205,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 386: break;
 "386
-[e $U 923  ]
+[e $U 925  ]
 "387
 }
-[e :U 932 ]
+[e :U 934 ]
 [; ;fermier.c: 387: }
 [; ;fermier.c: 388: if(MiApp_MessageAvailable())
 "388
-[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 933  ]
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 935  ]
 [; ;fermier.c: 389: {
 "389
 {
@@ -8198,7 +8224,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _receiving_data ..  ]
 "393
 }
-[e :U 933 ]
+[e :U 935 ]
 [; ;fermier.c: 393: }
 [; ;fermier.c: 394: MiApp_DiscardMessage();
 "394
@@ -8207,18 +8233,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "372
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 1500 `i 922  ]
-[e :U 923 ]
+[e $ < _i -> 1500 `i 924  ]
+[e :U 925 ]
 "395
 }
 "396
 }
-[e :U 921 ]
+[e :U 923 ]
 [; ;fermier.c: 395: }
 [; ;fermier.c: 396: }
 [; ;fermier.c: 397: if (flag == 0)
 "397
-[e $ ! == -> _flag `i -> 0 `i 934  ]
+[e $ ! == -> _flag `i -> 0 `i 936  ]
 [; ;fermier.c: 398: {
 "398
 {
@@ -8233,10 +8259,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 1500 `i 935  ]
-[e $U 936  ]
+[e $ < _i -> 1500 `i 937  ]
+[e $U 938  ]
 "403
-[e :U 935 ]
+[e :U 937 ]
 [; ;fermier.c: 403: {
 {
 [; ;fermier.c: 404: { unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
@@ -8245,27 +8271,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v __dcnt `ul ~T0 @X0 1 a ]
 [v __ms `ul ~T0 @X0 1 a ]
 [e = __ms -> -> -> 1 `i `l `ul ]
-[e $U 938  ]
-[e :U 939 ]
+[e $U 940  ]
+[e :U 941 ]
 {
 [e = __dcnt -> / / .0.001 / .1.0 -> / -> 16000000 `l -> -> 4 `i `l `d -> -> 6 `i `d `ul ]
-[e $U 941  ]
-[e :U 942 ]
-[e :U 941 ]
-[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 942  ]
+[e $U 943  ]
+[e :U 944 ]
 [e :U 943 ]
+[e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 944  ]
+[e :U 945 ]
 [e -- __ms -> -> -> 1 `i `l `ul ]
 }
-[e :U 938 ]
-[e $ != __ms -> -> 0 `i `ul 939  ]
 [e :U 940 ]
+[e $ != __ms -> -> 0 `i `ul 941  ]
+[e :U 942 ]
 }
 [; ;fermier.c: 405: switch_val = BUTTON_Pressed();
 "405
 [e = _switch_val -> ( _BUTTON_Pressed ..  `i ]
 [; ;fermier.c: 406: if (switch_val == 2)
 "406
-[e $ ! == _switch_val -> 2 `i 944  ]
+[e $ ! == _switch_val -> 2 `i 946  ]
 [; ;fermier.c: 407: {
 "407
 {
@@ -8277,14 +8303,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 410: break;
 "410
-[e $U 936  ]
+[e $U 938  ]
 "411
 }
-[e :U 944 ]
+[e :U 946 ]
 [; ;fermier.c: 411: }
 [; ;fermier.c: 412: if (switch_val == 1)
 "412
-[e $ ! == _switch_val -> 1 `i 945  ]
+[e $ ! == _switch_val -> 1 `i 947  ]
 [; ;fermier.c: 413: {
 "413
 {
@@ -8296,14 +8322,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag -> -> 1 `i `uc ]
 [; ;fermier.c: 416: break;
 "416
-[e $U 936  ]
+[e $U 938  ]
 "417
 }
-[e :U 945 ]
+[e :U 947 ]
 [; ;fermier.c: 417: }
 [; ;fermier.c: 418: if(MiApp_MessageAvailable())
 "418
-[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 946  ]
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 948  ]
 [; ;fermier.c: 419: {
 "419
 {
@@ -8315,7 +8341,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _receiving_data ..  ]
 "423
 }
-[e :U 946 ]
+[e :U 948 ]
 [; ;fermier.c: 423: }
 [; ;fermier.c: 424: MiApp_DiscardMessage();
 "424
@@ -8324,33 +8350,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "402
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 1500 `i 935  ]
-[e :U 936 ]
+[e $ < _i -> 1500 `i 937  ]
+[e :U 938 ]
 "425
 }
 "426
 }
-[e :U 934 ]
+[e :U 936 ]
 [; ;fermier.c: 425: }
 [; ;fermier.c: 426: }
 [; ;fermier.c: 428: break;
 "428
-[e $U 825  ]
+[e $U 827  ]
 "429
 }
 [; ;fermier.c: 429: }
-[e $U 825  ]
+[e $U 827  ]
 "121
-[e :U 826 ]
-[e [\ _etat , $ -> 1 `i 827
- , $ -> 2 `i 867
- , $ -> 3 `i 907
- 825 ]
+[e :U 828 ]
+[e [\ _etat , $ -> 1 `i 829
+ , $ -> 2 `i 869
+ , $ -> 3 `i 909
+ 827 ]
 "429
-[e :U 825 ]
+[e :U 827 ]
 [; ;fermier.c: 430: }
 "430
-[e :UE 824 ]
+[e :UE 826 ]
 }
 [p f _sprintf 16484269 ]
 [a 5C 72 117 109 105 100 105 116 121 32 58 32 37 100 0 ]

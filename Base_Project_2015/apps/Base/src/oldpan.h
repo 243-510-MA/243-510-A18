@@ -19,35 +19,16 @@
  IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL OR
  CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
  *******************************************************************/
-#include "system.h"
-#include "codes library.h"
-#include "system_config.h"
-#include "miwi/miwi_api.h"
-#include "EEPROM.h"
-#include "RTCSPI.h"
-#include "math.h"
-
 #ifndef _PAN_H
     #define _PAN_H
-	
-//#define PAN_ADDRESS 0x00
-#define CARTE1_ADDRESS 0x01
-#define CARTE2_ADDRESS 0x02
-#define CARTE3_ADDRESS 0x03
-//#define CARTE4_ADDRESS 0x04
-//#define CARTE5_ADDRESS 0x05
-//#define CARTE6_ADDRESS 0x06
-
-#define BoutonSetTime PORTBbits.RB2
-#define BoutonDumpData_plusOk PORTBbits.RB1
-#define BoutonMoinsNo 1
    
-void getTime (void);
+void startBit(void);
+void stopBit(void);
+void putcv(int data);
+void Power_off();
+void Power_on();
+void alarm(int status);
 
 void Pan(void);
-void dumpData (void);
-void eraseData (void);
-void setTimeMenue (void);
-uint32_t EEPROMinit (void);
 
 #endif

@@ -14,7 +14,7 @@
 #include "pan.h"
 #include "Board_Capteur.h"
 
-#define BOARD_ID 2
+#define BOARD_ID 1
 
 #define PAN 0                      //LE TI MASTER RACE
 #define BOARD_CAPTEUR 1            //DIT MOÉ LES DATAS G
@@ -22,14 +22,14 @@
 
 //*************************************************************************
 
-#define DEVICEMODE BOARD_CAPTEUR // Choisir ici
+#define DEVICEMODE PAN // Choisir ici
 
 //*************************************************************************
 
 //EUSART2 TX SUR PIN 5 AKA RP24 AKA I07
 void main(void)
 {
- 
+    __delay_ms(750);
     
     SYSTEM_Initialize();
     
