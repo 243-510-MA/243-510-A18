@@ -56,7 +56,6 @@ void fermier(void)
         
         if(MiApp_MessageAvailable())
         {  
-            LCD_BKLT = 1;
             
             receiving_data();
         }
@@ -85,9 +84,6 @@ void receiving_data(void)
 {
     if (rxMessage.Payload[0]== 0x02)
     {
-        LCD_BKLT = !LCD_BKLT;
-         
-        
         if (rxMessage.Payload[1]== 0x01)
         {
             temperature1 = rxMessage.Payload[2];
@@ -150,7 +146,7 @@ void affichage (void)
                         }
                         if(MiApp_MessageAvailable())
                         {  
-                            LCD_BKLT = 1;
+                            
             
                             receiving_data();
                         }
@@ -181,7 +177,6 @@ void affichage (void)
                         }
                         if(MiApp_MessageAvailable())
                         {  
-                            LCD_BKLT = 1;
             
                             receiving_data();
                         }
@@ -212,7 +207,6 @@ void affichage (void)
                         }
                         if(MiApp_MessageAvailable())
                         {  
-                            LCD_BKLT = 1;
             
                             receiving_data();
                         }
@@ -256,7 +250,6 @@ void affichage (void)
                         }
                         if(MiApp_MessageAvailable())
                         {  
-                            LCD_BKLT = 1;
             
                             receiving_data();
                         }
@@ -286,8 +279,6 @@ void affichage (void)
                         }
                         if(MiApp_MessageAvailable())
                         {  
-                            LCD_BKLT = 1;
-            
                             receiving_data();
                         }
                         MiApp_DiscardMessage();
@@ -316,8 +307,6 @@ void affichage (void)
                         }
                         if(MiApp_MessageAvailable())
                         {  
-                            LCD_BKLT = 1;
-            
                             receiving_data();
                         }
                         MiApp_DiscardMessage();
@@ -357,7 +346,6 @@ void affichage (void)
                         }
                         if(MiApp_MessageAvailable())
                         {  
-                            LCD_BKLT = 1;
             
                             receiving_data();
                         }
@@ -387,8 +375,6 @@ void affichage (void)
                         }
                         if(MiApp_MessageAvailable())
                         {  
-                            LCD_BKLT = 1;
-            
                             receiving_data();
                         }
                         MiApp_DiscardMessage();
@@ -417,7 +403,7 @@ void affichage (void)
                         }
                         if(MiApp_MessageAvailable())
                         {  
-                            LCD_BKLT = 1;
+                            
             
                             receiving_data();
                         }

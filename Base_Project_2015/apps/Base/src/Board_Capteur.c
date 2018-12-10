@@ -5,10 +5,26 @@
 
 #define NUM_TEMP_SAMPLES 4
 
+
+#define LED0 LATAbits.LATA6
+#define LED1 LATAbits.LATA7	
+#define LED0_TRIS TRISAbits.TRISA6
+#define LED1_TRIS TRISAbits.TRISA7
+
+
 int Board_Capteur_Loop(char id_device){
+    LED0_TRIS = 0;
+    LED1_TRIS = 0;
     
+    __delay_ms(1000);
     
+    LED0 = (id_device>>1) & 0x01;
+    LED1 = (id_device) & 0x01;
     
+    __delay_ms(3000);
+    
+    LED0 = 0;
+    LED1 = 0;
     
     while(1)
     {

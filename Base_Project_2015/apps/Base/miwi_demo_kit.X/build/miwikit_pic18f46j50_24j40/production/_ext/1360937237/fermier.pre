@@ -9456,7 +9456,6 @@ asking_data();
 
 if(MiApp_MessageAvailable())
 {
-LATEbits.LATE1 = 1;
 
 receiving_data();
 }
@@ -9477,14 +9476,11 @@ TxBuffer[TxData++] = 0xAD;
 MiApp_BroadcastPacket(1);
 }
 
-# 84
+# 83
 void receiving_data(void)
 {
 if (rxMessage.Payload[0]== 0x02)
 {
-LATEbits.LATE1 = !LATEbits.LATE1;
-
-
 if (rxMessage.Payload[1]== 0x01)
 {
 temperature1 = rxMessage.Payload[2];
@@ -9507,7 +9503,7 @@ MiApp_DiscardMessage();
 }
 }
 
-# 118
+# 114
 void affichage (void)
 {
 int switch_val = BUTTON_Pressed();
@@ -9543,7 +9539,7 @@ break;
 }
 if(MiApp_MessageAvailable())
 {
-LATEbits.LATE1 = 1;
+
 
 receiving_data();
 }
@@ -9574,7 +9570,6 @@ break;
 }
 if(MiApp_MessageAvailable())
 {
-LATEbits.LATE1 = 1;
 
 receiving_data();
 }
@@ -9605,7 +9600,6 @@ break;
 }
 if(MiApp_MessageAvailable())
 {
-LATEbits.LATE1 = 1;
 
 receiving_data();
 }
@@ -9649,7 +9643,6 @@ break;
 }
 if(MiApp_MessageAvailable())
 {
-LATEbits.LATE1 = 1;
 
 receiving_data();
 }
@@ -9679,8 +9672,6 @@ break;
 }
 if(MiApp_MessageAvailable())
 {
-LATEbits.LATE1 = 1;
-
 receiving_data();
 }
 MiApp_DiscardMessage();
@@ -9709,8 +9700,6 @@ break;
 }
 if(MiApp_MessageAvailable())
 {
-LATEbits.LATE1 = 1;
-
 receiving_data();
 }
 MiApp_DiscardMessage();
@@ -9750,7 +9739,6 @@ break;
 }
 if(MiApp_MessageAvailable())
 {
-LATEbits.LATE1 = 1;
 
 receiving_data();
 }
@@ -9780,8 +9768,6 @@ break;
 }
 if(MiApp_MessageAvailable())
 {
-LATEbits.LATE1 = 1;
-
 receiving_data();
 }
 MiApp_DiscardMessage();
@@ -9810,7 +9796,7 @@ break;
 }
 if(MiApp_MessageAvailable())
 {
-LATEbits.LATE1 = 1;
+
 
 receiving_data();
 }

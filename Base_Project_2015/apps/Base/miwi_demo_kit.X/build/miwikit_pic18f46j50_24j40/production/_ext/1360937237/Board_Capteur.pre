@@ -9394,11 +9394,20 @@ int Board_Capteur_Loop(char id_device);
 uint16_t Read_Voltage_Sensor(void);
 int8_t ReadTemperatureSensor(uint16_t Result);
 
-# 8 "../src/Board_Capteur.c"
+# 15 "../src/Board_Capteur.c"
 int Board_Capteur_Loop(char id_device){
+TRISAbits.TRISA6 = 0;
+TRISAbits.TRISA7 = 0;
 
+_delay((unsigned long)((1000)*(16000000/4000.0)));
 
+LATAbits.LATA6 = (id_device>>1) & 0x01;
+LATAbits.LATA7 = (id_device) & 0x01;
 
+_delay((unsigned long)((3000)*(16000000/4000.0)));
+
+LATAbits.LATA6 = 0;
+LATAbits.LATA7 = 0;
 
 while(1)
 {
@@ -9448,7 +9457,7 @@ MiApp_DiscardMessage();
 }
 }
 
-# 77
+# 93
 int8_t ReadTemperatureSensor(uint16_t ADC_READING)
 {
 int16_t tempValue;
@@ -9503,7 +9512,7 @@ return (int8_t)tempHere;
 
 }
 
-# 148
+# 164
 uint16_t Read_Voltage_Sensor(void)
 {
 ADCON0 = 0x3D;

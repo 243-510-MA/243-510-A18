@@ -22,7 +22,7 @@
 
 //*************************************************************************
 
-#define DEVICEMODE PAN // Choisir ici
+#define DEVICEMODE FERMIER // Choisir ici
 
 //*************************************************************************
 
@@ -35,9 +35,6 @@ void main(void)
     
     Network(DEVICEMODE);
     
-    LCD_Erase();
-				sprintf((char *)&LCDText[0], (char*)"Dumping EEPROM");
-				LCD_Update();
     
     if(DEVICEMODE == PAN)
     {

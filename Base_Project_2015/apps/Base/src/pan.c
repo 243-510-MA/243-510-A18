@@ -29,7 +29,6 @@ void Pan(void){
 	int lastTime[5];
 	uint8_t flagResume=0;
     __delay_ms(5000);
-    LCD_BKLT = 1;
     rtcStart();
 	//rtcClear();
 	startPoint=EEPROMinit();
@@ -148,11 +147,11 @@ void Pan(void){
 				for (int i=0; i<5; i++){
 					tempData.array[i]=time[i];
 				}
-				tempData.frame.minute=time[0];
+				/*tempData.frame.minute=time[0];
 				tempData.frame.heure=time[1];
 				tempData.frame.jour=time[2];
 				tempData.frame.mois=time[3];
-				tempData.frame.annee=time[4];
+				tempData.frame.annee=time[4];*/
 				//enregistre les donnees
 				eepromWriteDataToSave(startPoint+saveCounter*14,tempData);  				
 				eepromWriteLastAddress(startPoint+saveCounter*14);
@@ -203,9 +202,9 @@ void dumpData (void){
 		readData=eepromReadDataCapteur((start+readCounter*14));  
         __delay_ms(1);
         printf("%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d\n\r",readData.array[0],readData.array[1],readData.array[2],readData.array[3],
-																		readData.array[4],readData.array[5],readData.array[6],readData.array[7],
-																		readData.array[8],readData.array[9],readData.array[10],readData.array[11],
-																		readData.array[12],readData.array[13]);
+                                                                            readData.array[4],readData.array[5],readData.array[6],readData.array[7],
+                                                                            readData.array[8],readData.array[9],readData.array[10],readData.array[11],
+                                                                            readData.array[12],readData.array[13]);
         readCounter++;
         if(readCounter==17){
             start=start+readCounter*14+18;
