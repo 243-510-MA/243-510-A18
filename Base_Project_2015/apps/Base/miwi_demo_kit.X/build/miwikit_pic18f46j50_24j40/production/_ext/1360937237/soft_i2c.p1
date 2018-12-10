@@ -12,47 +12,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _i2cHighSda `(v ~T0 @X0 0 ef ]
 "26
 [v _i2cHighScl `(v ~T0 @X0 0 ef ]
-"5799 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[s S266 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S266 . RA0 RA1 RA2 RA3 . RA5 RA6 RA7 ]
-"5809
-[s S267 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S267 . AN0 AN1 AN2 AN3 . AN4 OSC2 OSC1 ]
-"5819
-[s S268 :5 `uc 1 :1 `uc 1 ]
-[n S268 . . NOT_SS1 ]
-"5823
-[s S269 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S269 . C1INA C2INA VREF_MINUS VREF_PLUS . nSS1 CLKO CLKI ]
-"5833
-[s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S270 . PMA6 PMA7 CVREF_MINUS C1INB . HLVDIN ]
-"5841
-[s S271 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S271 . RP0 RP1 C2INB . RCV ]
-"5848
-[s S272 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
-[n S272 . ULPWU . RP2 ]
-"5853
-[s S273 :1 `uc 1 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S273 . ULPWUIN . LVDIN . RJPU ]
-"5798
-[u S265 `S266 1 `S267 1 `S268 1 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 ]
-[n S265 . . . . . . . . . ]
-"5861
-[v _PORTAbits `VS265 ~T0 @X0 0 e@3968 ]
+"6052 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[s S275 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S275 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"6062
+[s S276 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S276 . AN12 AN10 AN8 AN9 PMA1 PMA0 KBI2 KBI3 ]
+"6072
+[s S277 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S277 . INT0 PMPBE CTEDG1 CTEDG2 KBI0 KBI1 PGC PGD ]
+"6082
+[s S278 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S278 . RP3 RTCC PMA3 PMA2 SCK1 SDI1 RP9 RP10 ]
+"6092
+[s S279 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S279 . . RP4 VMO VPO SCL1 SDA1 ]
+"6100
+[s S280 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S280 . . REFO RP6 RP7 RP8 ]
+"6107
+[s S281 :2 `uc 1 :1 `uc 1 ]
+[n S281 . . RP5 ]
+"6111
+[s S282 :3 `uc 1 :1 `uc 1 ]
+[n S282 . . CCP2_PA2 ]
+"6051
+[u S274 `S275 1 `S276 1 `S277 1 `S278 1 `S279 1 `S280 1 `S281 1 `S282 1 ]
+[n S274 . . . . . . . . . ]
+"6116
+[v _PORTBbits `VS274 ~T0 @X0 0 e@3969 ]
 "27 ../src/soft_i2c.h
 [v _i2cLowScl `(v ~T0 @X0 0 ef ]
 "25
 [v _i2cLowSda `(v ~T0 @X0 0 ef ]
-"7797 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[s S339 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S339 . TRISA0 TRISA1 TRISA2 TRISA3 . TRISA5 TRISA6 TRISA7 ]
-"7796
-[u S338 `S339 1 ]
-[n S338 . . ]
-"7808
-[v _TRISAbits `VS338 ~T0 @X0 0 e@3986 ]
+"7854 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[s S341 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S341 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"7853
+[u S340 `S341 1 ]
+[n S340 . . ]
+"7865
+[v _TRISBbits `VS340 ~T0 @X0 0 e@3987 ]
 [v F7008 `(v ~T0 @X0 1 tf1`ul ]
 "164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
 [v __delay `JF7008 ~T0 @X0 0 e ]
@@ -6729,9 +6729,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;soft_i2c.c: 17: i2cHighScl();
 "17
 [e ( _i2cHighScl ..  ]
-[; ;soft_i2c.c: 19: if (PORTAbits.RA2)
+[; ;soft_i2c.c: 19: if (PORTBbits.RB1)
 "19
-[e $ ! != -> . . _PORTAbits 0 2 `i -> -> -> 0 `i `Vuc `i 777  ]
+[e $ ! != -> . . _PORTBbits 0 1 `i -> -> -> 0 `i `Vuc `i 777  ]
 [; ;soft_i2c.c: 20: inByte = (inByte << 1) | 0x01;
 "20
 [e = _inByte -> | << -> _inByte `i -> 1 `i -> 1 `i `uc ]
@@ -6927,9 +6927,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;soft_i2c.c: 77: {
 [e :U _i2cHighSda ]
 [f ]
-[; ;soft_i2c.c: 78: TRISAbits.TRISA2 = 1;
+[; ;soft_i2c.c: 78: TRISBbits.TRISB1 = 1;
 "78
-[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
 [; ;soft_i2c.c: 79: _delay((unsigned long)((5)*(16000000/4000000.0)));
 "79
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
@@ -6945,12 +6945,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;soft_i2c.c: 83: {
 [e :U _i2cLowSda ]
 [f ]
-[; ;soft_i2c.c: 84: PORTAbits.RA2 = 0;
+[; ;soft_i2c.c: 84: PORTBbits.RB1 = 0;
 "84
-[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
-[; ;soft_i2c.c: 85: TRISAbits.TRISA2 = 0;
+[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
+[; ;soft_i2c.c: 85: TRISBbits.TRISB1 = 0;
 "85
-[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _TRISBbits 0 1 -> -> 0 `i `uc ]
 [; ;soft_i2c.c: 86: _delay((unsigned long)((5)*(16000000/4000000.0)));
 "86
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
@@ -6966,9 +6966,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;soft_i2c.c: 90: {
 [e :U _i2cHighScl ]
 [f ]
-[; ;soft_i2c.c: 91: TRISAbits.TRISA3 = 1;
+[; ;soft_i2c.c: 91: TRISBbits.TRISB2 = 1;
 "91
-[e = . . _TRISAbits 0 3 -> -> 1 `i `uc ]
+[e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
 [; ;soft_i2c.c: 92: _delay((unsigned long)((5)*(16000000/4000000.0)));
 "92
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
@@ -6984,12 +6984,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;soft_i2c.c: 96: {
 [e :U _i2cLowScl ]
 [f ]
-[; ;soft_i2c.c: 97: PORTAbits.RA3 = 0;
+[; ;soft_i2c.c: 97: PORTBbits.RB2 = 0;
 "97
-[e = . . _PORTAbits 0 3 -> -> 0 `i `uc ]
-[; ;soft_i2c.c: 98: TRISAbits.TRISA3 = 0;
+[e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
+[; ;soft_i2c.c: 98: TRISBbits.TRISB2 = 0;
 "98
-[e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
+[e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
 [; ;soft_i2c.c: 99: _delay((unsigned long)((5)*(16000000/4000000.0)));
 "99
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]

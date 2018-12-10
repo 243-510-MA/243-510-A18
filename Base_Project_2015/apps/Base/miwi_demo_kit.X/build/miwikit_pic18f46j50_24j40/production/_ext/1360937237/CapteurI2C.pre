@@ -2,11 +2,11 @@
 # 1 "../src/CapteurI2C.c"
 
 # 13 "../src/CapteurI2C.h"
-float readHumidity();
-float readTemperatureC();
+float readHumidity(int *error);
+float readTemperatureC(int *error);
 float readTemperatureF();
 
-float readTemperatureRaw();
+float readTemperatureRaw(int **error);
 int shiftIn(int _numBits);
 int shiftInCRC();
 void sendCommandSHT(int _command);
@@ -9013,7 +9013,7 @@ char crcTable[] = {0,49,98,83,196,245,166,151,185,136,219,234,125,76,31,46,
 130,179,224,209,70,119,36,21,59,10,89,104,255,206,157,172};
 
 # 25
-float readTemperatureC()
+float readTemperatureC(int *error)
 {
 int _val;
 float _temperature;
@@ -9022,8 +9022,31 @@ float _temperature;
 const float D1 = -40.0;
 const float D2 = 0.01;
 
+int err = 0;
 
-_val = readTemperatureRaw();
+char crc;
+char calcCRC = 0;
+
+
+int _gTempCmd = 0b00000011;
+
+sendCommandSHT(_gTempCmd);
+waitForResultSHT();
+getData16SHT(&_val, &crc);
+
+calcCRC = _gTempCmd;
+calcCRC = crcTable[calcCRC];
+
+calcCRC = calcCRC ^ (_val/256);
+calcCRC = crcTable[calcCRC];
+
+calcCRC = calcCRC ^ (_val&255);
+calcCRC = crcTable[calcCRC];
+
+if(calcCRC != crc){
+*error = 1;
+return(0);
+}
 
 
 _temperature = (_val * D2) + D1;
@@ -9031,7 +9054,7 @@ _temperature = (_val * D2) + D1;
 return (_temperature);
 }
 
-# 46
+# 92
 float readTemperatureF()
 {
 int _val;
@@ -9041,8 +9064,9 @@ float _temperature;
 const float D1 = -40.0;
 const float D2 = 0.018;
 
+int err=0;
 
-_val = readTemperatureRaw();
+_val = readTemperatureRaw(err);
 
 
 _temperature = (_val * D2) + D1;
@@ -9050,8 +9074,8 @@ _temperature = (_val * D2) + D1;
 return (_temperature);
 }
 
-# 67
-float readHumidity()
+# 114
+float readHumidity(int *error)
 {
 int _val;
 float _linearHumidity;
@@ -9065,21 +9089,37 @@ const float C3 = -0.0000028;
 const float T1 = 0.01;
 const float T2 = 0.00008;
 
-# 88
+# 135
 int _gHumidCmd = 0b00000101;
 
 char crc=0;
+char calcCRC = 0;
 
 sendCommandSHT(_gHumidCmd);
 waitForResultSHT();
 getData16SHT(&_val, &crc);
 
+calcCRC = _gHumidCmd;
+calcCRC = crcTable[calcCRC];
+
+calcCRC = calcCRC ^ (_val/256);
+calcCRC = crcTable[calcCRC];
+
+calcCRC = calcCRC ^ (_val&255);
+calcCRC = crcTable[calcCRC];
+
+if(calcCRC != crc){
+*error = 1;
+return(0);
+}
+
 
 
 _linearHumidity = C1 + C2 * _val + C3 * _val * _val;
 
+int err=0;
 
-_temperature = readTemperatureC();
+_temperature = readTemperatureC(&err);
 
 
 _correctedHumidity = (_temperature - 25.0 ) * (T1 + T2 * _val) + _linearHumidity;
@@ -9087,8 +9127,8 @@ _correctedHumidity = (_temperature - 25.0 ) * (T1 + T2 * _val) + _linearHumidity
 return (_correctedHumidity);
 }
 
-# 112
-float readTemperatureRaw()
+# 175
+float readTemperatureRaw(int **error)
 {
 int _val;
 char crc;
@@ -9110,12 +9150,15 @@ calcCRC = crcTable[calcCRC];
 calcCRC = calcCRC ^ (_val&255);
 calcCRC = crcTable[calcCRC];
 
-
+if(calcCRC != crc){
+**error = 1;
+return(0);
+}
 
 return (_val);
 }
 
-# 141
+# 207
 int shiftIn(int _numBits)
 {
 int ret = 0;
@@ -9125,7 +9168,7 @@ for (i=0; i<_numBits; ++i)
 {
 i2cHighScl();
 
-ret = ret*2 + PORTAbits.RA2;
+ret = ret*2 + PORTBbits.RB1;
 i2cLowScl();
 }
 
@@ -9141,14 +9184,14 @@ for (i=7; i>=0; i--)
 {
 i2cHighScl();
 
-ret = ret/2 + (PORTAbits.RA2*128);
+ret = ret/2 + (PORTBbits.RB1*128);
 i2cLowScl();
 }
 
 return(ret);
 }
 
-# 175
+# 241
 void sendCommandSHT(int _command)
 {
 int ack;
@@ -9168,18 +9211,18 @@ i2cWriteByte(_command);
 
 i2cHighScl();
 i2cHighSda();
-ack = PORTAbits.RA2;
+ack = PORTBbits.RB1;
 if (ack != 0) {
 
 }
 i2cLowScl();
-ack = PORTAbits.RA2;
+ack = PORTBbits.RB1;
 if (ack != 1) {
 
 }
 }
 
-# 207
+# 273
 void waitForResultSHT(){
 int i;
 int ack;
@@ -9189,7 +9232,7 @@ i2cHighSda();
 for(i= 0; i < 3200; ++i)
 {
 _delay((unsigned long)((100)*(16000000/4000000.0)));
-ack = PORTAbits.RA2;
+ack = PORTBbits.RB1;
 
 if (ack == 0) {
 break;
@@ -9201,7 +9244,7 @@ if (ack == 1) {
 }
 }
 
-# 231
+# 297
 int getData16SHT(int *val, char *CRC)
 {
 
@@ -9228,13 +9271,13 @@ i2cHighSda();
 
 i2cAck();
 
-# 264
+# 330
 i2cStop();
 
 return 0;
 }
 
-# 271
+# 337
 void skipCrcSHT()
 {
 

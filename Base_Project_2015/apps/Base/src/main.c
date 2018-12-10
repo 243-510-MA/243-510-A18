@@ -7,46 +7,51 @@
 #include "miwi/miwi_api.h"
 #include "network.h"
 
-#include "pan.h"
-
-
 #include "CapteurI2C.h"
-#include "eusart2.h"
+#include "soft_uart.h"
 
-#define PAN 0                       //Controls the projector, red light, buzzer and motion sensor (such many thing, wow)
-#define BOARD_CAPTEUR 1               //Unlock the door (duh)
-#define PROJECTOR_SCREEN 2          //DROP DA PROJECTOR
-#define TEACHER 3                   //Mista ze teacha
-#define STUDENT 4                   //You little shit
+#include "fermier.h"
+#include "pan.h"
+#include "Board_Capteur.h"
+
+#define BOARD_ID 1
+
+#define PAN 0                      //LE TI MASTER RACE
+#define BOARD_CAPTEUR 1            //DIT MOÉ LES DATAS G
+#define FERMIER 2                  //DIT MOÉ LES DATAS G
 
 //*************************************************************************
 
-#define DEVICEMODE PAN // Choisir ici
+#define DEVICEMODE FERMIER // Choisir ici
 
 //*************************************************************************
 
 //EUSART2 TX SUR PIN 5 AKA RP24 AKA I07
 void main(void)
-{ 
-    //BOUGEZ PAS SA DE LA MERCI BYE
-    if(DEVICEMODE == PAN){
-        EUSART2_Initialize();
-        
-    }
+{
+    __delay_ms(750);
     
     SYSTEM_Initialize();
-
     
-    LED0 = LED1 = LED2 = 0;
-    
-    
-/*
     Network(DEVICEMODE);
- 
+    
+    
     if(DEVICEMODE == PAN)
     {
-        Pan();     
-    } 
- */
+        Pan(); 
+    }
+    
+    else if(DEVICEMODE == BOARD_CAPTEUR)
+    {
+        Board_Capteur_Loop(BOARD_ID);   
+    }
+    
+    else if(DEVICEMODE == FERMIER)
+    {
+        fermier();
+    }
+    
+    while(1);
+    
 }
 

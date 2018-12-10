@@ -8,45 +8,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71
 [u S768 `ul 1 `S769 1 `uc -> 4 `i `S770 1 ]
 [n S768 _MIWI_TICK Val byte v word ]
-"17 ../src/CapteurI2C.h
-[v _readTemperatureRaw `(f ~T0 @X0 0 ef ]
-"20
+"20 ../src/CapteurI2C.h
 [v _sendCommandSHT `(v ~T0 @X0 0 ef1`i ]
 "21
 [v _waitForResultSHT `(v ~T0 @X0 0 ef ]
 "22
 [v _getData16SHT `(i ~T0 @X0 0 ef2`*i`*uc ]
+"17
+[v _readTemperatureRaw `(f ~T0 @X0 0 ef1`**i ]
 "26 ../src/soft_i2c.h
 [v _i2cHighScl `(v ~T0 @X0 0 ef ]
-"5799 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[s S266 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S266 . RA0 RA1 RA2 RA3 . RA5 RA6 RA7 ]
-"5809
-[s S267 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S267 . AN0 AN1 AN2 AN3 . AN4 OSC2 OSC1 ]
-"5819
-[s S268 :5 `uc 1 :1 `uc 1 ]
-[n S268 . . NOT_SS1 ]
-"5823
-[s S269 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S269 . C1INA C2INA VREF_MINUS VREF_PLUS . nSS1 CLKO CLKI ]
-"5833
-[s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S270 . PMA6 PMA7 CVREF_MINUS C1INB . HLVDIN ]
-"5841
-[s S271 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S271 . RP0 RP1 C2INB . RCV ]
-"5848
-[s S272 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
-[n S272 . ULPWU . RP2 ]
-"5853
-[s S273 :1 `uc 1 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S273 . ULPWUIN . LVDIN . RJPU ]
-"5798
-[u S265 `S266 1 `S267 1 `S268 1 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 ]
-[n S265 . . . . . . . . . ]
-"5861
-[v _PORTAbits `VS265 ~T0 @X0 0 e@3968 ]
+"6052 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[s S275 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S275 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"6062
+[s S276 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S276 . AN12 AN10 AN8 AN9 PMA1 PMA0 KBI2 KBI3 ]
+"6072
+[s S277 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S277 . INT0 PMPBE CTEDG1 CTEDG2 KBI0 KBI1 PGC PGD ]
+"6082
+[s S278 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S278 . RP3 RTCC PMA3 PMA2 SCK1 SDI1 RP9 RP10 ]
+"6092
+[s S279 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S279 . . RP4 VMO VPO SCL1 SDA1 ]
+"6100
+[s S280 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S280 . . REFO RP6 RP7 RP8 ]
+"6107
+[s S281 :2 `uc 1 :1 `uc 1 ]
+[n S281 . . RP5 ]
+"6111
+[s S282 :3 `uc 1 :1 `uc 1 ]
+[n S282 . . CCP2_PA2 ]
+"6051
+[u S274 `S275 1 `S276 1 `S277 1 `S278 1 `S279 1 `S280 1 `S281 1 `S282 1 ]
+[n S274 . . . . . . . . . ]
+"6116
+[v _PORTBbits `VS274 ~T0 @X0 0 e@3969 ]
 "27 ../src/soft_i2c.h
 [v _i2cLowScl `(v ~T0 @X0 0 ef ]
 "24
@@ -55,18 +55,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _i2cLowSda `(v ~T0 @X0 0 ef ]
 "19
 [v _i2cWriteByte `(v ~T0 @X0 0 ef1`uc ]
-[v F7022 `(v ~T0 @X0 1 tf1`ul ]
+[v F7025 `(v ~T0 @X0 1 tf1`ul ]
 "164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
-[v __delay `JF7022 ~T0 @X0 0 e ]
+[v __delay `JF7025 ~T0 @X0 0 e ]
 [p i __delay ]
 "21 ../src/soft_i2c.h
 [v _i2cAck `(v ~T0 @X0 0 ef ]
 "23
 [v _i2cStop `(v ~T0 @X0 0 ef ]
-[; ;CapteurI2C.h: 13: float readHumidity();
-[; ;CapteurI2C.h: 14: float readTemperatureC();
+[; ;CapteurI2C.h: 13: float readHumidity(int *error);
+[; ;CapteurI2C.h: 14: float readTemperatureC(int *error);
 [; ;CapteurI2C.h: 15: float readTemperatureF();
-[; ;CapteurI2C.h: 17: float readTemperatureRaw();
+[; ;CapteurI2C.h: 17: float readTemperatureRaw(int **error);
 [; ;CapteurI2C.h: 18: int shiftIn(int _numBits);
 [; ;CapteurI2C.h: 19: int shiftInCRC();
 [; ;CapteurI2C.h: 20: void sendCommandSHT(int _command);
@@ -7011,12 +7011,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;CapteurI2C.c: 19: 193,240,163,146,5,52,103,86,120,73,26,43,188,141,222,239,
 [; ;CapteurI2C.c: 20: 130,179,224,209,70,119,36,21,59,10,89,104,255,206,157,172};
 "25
-[v _readTemperatureC `(f ~T0 @X0 1 ef ]
+[v _readTemperatureC `(f ~T0 @X0 1 ef1`*i ]
 "26
 {
-[; ;CapteurI2C.c: 25: float readTemperatureC()
+[; ;CapteurI2C.c: 25: float readTemperatureC(int *error)
 [; ;CapteurI2C.c: 26: {
 [e :U _readTemperatureC ]
+"25
+[v _error `*i ~T0 @X0 1 r1 ]
+"26
 [f ]
 "27
 [v __val `i ~T0 @X0 1 a ]
@@ -7032,499 +7035,619 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _D2 `Cf ~T0 @X0 1 a ]
 [; ;CapteurI2C.c: 32: const float D2 = 0.01;
 [e = _D2 -> .0.01 `f ]
-[; ;CapteurI2C.c: 35: _val = readTemperatureRaw();
-"35
-[e = __val -> ( _readTemperatureRaw ..  `i ]
-[; ;CapteurI2C.c: 38: _temperature = (_val * D2) + D1;
-"38
-[e = __temperature + * -> __val `f _D2 _D1 ]
-[; ;CapteurI2C.c: 40: return (_temperature);
+"34
+[v _err `i ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 34: int err = 0;
+[e = _err -> 0 `i ]
+"36
+[v _crc `uc ~T0 @X0 1 a ]
+"37
+[v _calcCRC `uc ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 36: char crc;
+[; ;CapteurI2C.c: 37: char calcCRC = 0;
+[e = _calcCRC -> -> 0 `i `uc ]
 "40
+[v __gTempCmd `i ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 40: int _gTempCmd = 0b00000011;
+[e = __gTempCmd -> 3 `i ]
+[; ;CapteurI2C.c: 42: sendCommandSHT(_gTempCmd);
+"42
+[e ( _sendCommandSHT (1 __gTempCmd ]
+[; ;CapteurI2C.c: 43: waitForResultSHT();
+"43
+[e ( _waitForResultSHT ..  ]
+[; ;CapteurI2C.c: 44: getData16SHT(&_val, &crc);
+"44
+[e ( _getData16SHT (2 , &U __val &U _crc ]
+[; ;CapteurI2C.c: 46: calcCRC = _gTempCmd;
+"46
+[e = _calcCRC -> __gTempCmd `uc ]
+[; ;CapteurI2C.c: 47: calcCRC = crcTable[calcCRC];
+"47
+[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
+[; ;CapteurI2C.c: 49: calcCRC = calcCRC ^ (_val/256);
+"49
+[e = _calcCRC -> ^ -> _calcCRC `i / __val -> 256 `i `uc ]
+[; ;CapteurI2C.c: 50: calcCRC = crcTable[calcCRC];
+"50
+[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
+[; ;CapteurI2C.c: 52: calcCRC = calcCRC ^ (_val&255);
+"52
+[e = _calcCRC -> ^ -> _calcCRC `i & __val -> 255 `i `uc ]
+[; ;CapteurI2C.c: 53: calcCRC = crcTable[calcCRC];
+"53
+[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
+[; ;CapteurI2C.c: 55: if(calcCRC != crc){
+"55
+[e $ ! != -> _calcCRC `i -> _crc `i 774  ]
+{
+[; ;CapteurI2C.c: 56: *error = 1;
+"56
+[e = *U _error -> 1 `i ]
+[; ;CapteurI2C.c: 57: return(0);
+"57
+[e ) -> -> 0 `i `f ]
+[e $UE 773  ]
+"58
+}
+[e :U 774 ]
+[; ;CapteurI2C.c: 58: }
+[; ;CapteurI2C.c: 61: _temperature = (_val * D2) + D1;
+"61
+[e = __temperature + * -> __val `f _D2 _D1 ]
+[; ;CapteurI2C.c: 63: return (_temperature);
+"63
 [e ) __temperature ]
 [e $UE 773  ]
-[; ;CapteurI2C.c: 41: }
-"41
+[; ;CapteurI2C.c: 64: }
+"64
 [e :UE 773 ]
 }
-"46
+"92
 [v _readTemperatureF `(f ~T0 @X0 1 ef ]
-"47
+"93
 {
-[; ;CapteurI2C.c: 46: float readTemperatureF()
-[; ;CapteurI2C.c: 47: {
+[; ;CapteurI2C.c: 92: float readTemperatureF()
+[; ;CapteurI2C.c: 93: {
 [e :U _readTemperatureF ]
 [f ]
-"48
+"94
 [v __val `i ~T0 @X0 1 a ]
-"49
+"95
 [v __temperature `f ~T0 @X0 1 a ]
 [v _D1 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 48: int _val;
-[; ;CapteurI2C.c: 49: float _temperature;
-[; ;CapteurI2C.c: 52: const float D1 = -40.0;
-"52
-[e = _D1 -> -U .40.0 `f ]
-"53
-[v _D2 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 53: const float D2 = 0.018;
-[e = _D2 -> .0.018 `f ]
-[; ;CapteurI2C.c: 56: _val = readTemperatureRaw();
-"56
-[e = __val -> ( _readTemperatureRaw ..  `i ]
-[; ;CapteurI2C.c: 59: _temperature = (_val * D2) + D1;
-"59
-[e = __temperature + * -> __val `f _D2 _D1 ]
-[; ;CapteurI2C.c: 61: return (_temperature);
-"61
-[e ) __temperature ]
-[e $UE 774  ]
-[; ;CapteurI2C.c: 62: }
-"62
-[e :UE 774 ]
-}
-"67
-[v _readHumidity `(f ~T0 @X0 1 ef ]
-"68
-{
-[; ;CapteurI2C.c: 67: float readHumidity()
-[; ;CapteurI2C.c: 68: {
-[e :U _readHumidity ]
-[f ]
-"69
-[v __val `i ~T0 @X0 1 a ]
-"70
-[v __linearHumidity `f ~T0 @X0 1 a ]
-"71
-[v __correctedHumidity `f ~T0 @X0 1 a ]
-"72
-[v __temperature `f ~T0 @X0 1 a ]
-"75
-[v _C1 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 69: int _val;
-[; ;CapteurI2C.c: 70: float _linearHumidity;
-[; ;CapteurI2C.c: 71: float _correctedHumidity;
-[; ;CapteurI2C.c: 72: float _temperature;
-[; ;CapteurI2C.c: 75: const float C1 = -4.0;
-[e = _C1 -> -U .4.0 `f ]
-"76
-[v _C2 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 76: const float C2 = 0.0405;
-[e = _C2 -> .0.0405 `f ]
-"77
-[v _C3 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 77: const float C3 = -0.0000028;
-[e = _C3 -> -U .0.0000028 `f ]
-"78
-[v _T1 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 78: const float T1 = 0.01;
-[e = _T1 -> .0.01 `f ]
-"79
-[v _T2 `Cf ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 79: const float T2 = 0.00008;
-[e = _T2 -> .0.00008 `f ]
-"88
-[v __gHumidCmd `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 88: int _gHumidCmd = 0b00000101;
-[e = __gHumidCmd -> 5 `i ]
-"90
-[v _crc `uc ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 90: char crc=0;
-[e = _crc -> -> 0 `i `uc ]
-[; ;CapteurI2C.c: 92: sendCommandSHT(_gHumidCmd);
-"92
-[e ( _sendCommandSHT (1 __gHumidCmd ]
-[; ;CapteurI2C.c: 93: waitForResultSHT();
-"93
-[e ( _waitForResultSHT ..  ]
-[; ;CapteurI2C.c: 94: getData16SHT(&_val, &crc);
-"94
-[e ( _getData16SHT (2 , &U __val &U _crc ]
-[; ;CapteurI2C.c: 98: _linearHumidity = C1 + C2 * _val + C3 * _val * _val;
+[; ;CapteurI2C.c: 94: int _val;
+[; ;CapteurI2C.c: 95: float _temperature;
+[; ;CapteurI2C.c: 98: const float D1 = -40.0;
 "98
-[e = __linearHumidity + + _C1 * _C2 -> __val `f * * _C3 -> __val `f -> __val `f ]
-[; ;CapteurI2C.c: 101: _temperature = readTemperatureC();
+[e = _D1 -> -U .40.0 `f ]
+"99
+[v _D2 `Cf ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 99: const float D2 = 0.018;
+[e = _D2 -> .0.018 `f ]
 "101
-[e = __temperature ( _readTemperatureC ..  ]
-[; ;CapteurI2C.c: 104: _correctedHumidity = (_temperature - 25.0 ) * (T1 + T2 * _val) + _linearHumidity;
-"104
-[e = __correctedHumidity -> + * - -> __temperature `d .25.0 -> + _T1 * _T2 -> __val `f `d -> __linearHumidity `d `f ]
-[; ;CapteurI2C.c: 106: return (_correctedHumidity);
+[v _err `i ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 101: int err=0;
+[e = _err -> 0 `i ]
+[; ;CapteurI2C.c: 103: _val = readTemperatureRaw(err);
+"103
+[e = __val -> ( _readTemperatureRaw (1 -> _err `**i `i ]
+[; ;CapteurI2C.c: 106: _temperature = (_val * D2) + D1;
 "106
-[e ) __correctedHumidity ]
+[e = __temperature + * -> __val `f _D2 _D1 ]
+[; ;CapteurI2C.c: 108: return (_temperature);
+"108
+[e ) __temperature ]
 [e $UE 775  ]
-[; ;CapteurI2C.c: 107: }
-"107
+[; ;CapteurI2C.c: 109: }
+"109
 [e :UE 775 ]
 }
-"112
-[v _readTemperatureRaw `(f ~T0 @X0 1 ef ]
-"113
-{
-[; ;CapteurI2C.c: 112: float readTemperatureRaw()
-[; ;CapteurI2C.c: 113: {
-[e :U _readTemperatureRaw ]
-[f ]
 "114
-[v __val `i ~T0 @X0 1 a ]
+[v _readHumidity `(f ~T0 @X0 1 ef1`*i ]
 "115
-[v _crc `uc ~T0 @X0 1 a ]
+{
+[; ;CapteurI2C.c: 114: float readHumidity(int *error)
+[; ;CapteurI2C.c: 115: {
+[e :U _readHumidity ]
+"114
+[v _error `*i ~T0 @X0 1 r1 ]
+"115
+[f ]
 "116
-[v _calcCRC `uc ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 114: int _val;
-[; ;CapteurI2C.c: 115: char crc;
-[; ;CapteurI2C.c: 116: char calcCRC = 0;
-[e = _calcCRC -> -> 0 `i `uc ]
+[v __val `i ~T0 @X0 1 a ]
+"117
+[v __linearHumidity `f ~T0 @X0 1 a ]
+"118
+[v __correctedHumidity `f ~T0 @X0 1 a ]
 "119
-[v __gTempCmd `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 119: int _gTempCmd = 0b00000011;
-[e = __gTempCmd -> 3 `i ]
-[; ;CapteurI2C.c: 121: sendCommandSHT(_gTempCmd);
-"121
-[e ( _sendCommandSHT (1 __gTempCmd ]
-[; ;CapteurI2C.c: 122: waitForResultSHT();
+[v __temperature `f ~T0 @X0 1 a ]
 "122
-[e ( _waitForResultSHT ..  ]
-[; ;CapteurI2C.c: 123: getData16SHT(&_val, &crc);
+[v _C1 `Cf ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 116: int _val;
+[; ;CapteurI2C.c: 117: float _linearHumidity;
+[; ;CapteurI2C.c: 118: float _correctedHumidity;
+[; ;CapteurI2C.c: 119: float _temperature;
+[; ;CapteurI2C.c: 122: const float C1 = -4.0;
+[e = _C1 -> -U .4.0 `f ]
 "123
-[e ( _getData16SHT (2 , &U __val &U _crc ]
-[; ;CapteurI2C.c: 125: calcCRC = _gTempCmd;
+[v _C2 `Cf ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 123: const float C2 = 0.0405;
+[e = _C2 -> .0.0405 `f ]
+"124
+[v _C3 `Cf ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 124: const float C3 = -0.0000028;
+[e = _C3 -> -U .0.0000028 `f ]
 "125
-[e = _calcCRC -> __gTempCmd `uc ]
-[; ;CapteurI2C.c: 126: calcCRC = crcTable[calcCRC];
+[v _T1 `Cf ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 125: const float T1 = 0.01;
+[e = _T1 -> .0.01 `f ]
 "126
-[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
-[; ;CapteurI2C.c: 128: calcCRC = calcCRC ^ (_val/256);
-"128
-[e = _calcCRC -> ^ -> _calcCRC `i / __val -> 256 `i `uc ]
-[; ;CapteurI2C.c: 129: calcCRC = crcTable[calcCRC];
-"129
-[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
-[; ;CapteurI2C.c: 131: calcCRC = calcCRC ^ (_val&255);
-"131
-[e = _calcCRC -> ^ -> _calcCRC `i & __val -> 255 `i `uc ]
-[; ;CapteurI2C.c: 132: calcCRC = crcTable[calcCRC];
-"132
-[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
-[; ;CapteurI2C.c: 136: return (_val);
-"136
-[e ) -> __val `f ]
-[e $UE 776  ]
-[; ;CapteurI2C.c: 137: }
+[v _T2 `Cf ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 126: const float T2 = 0.00008;
+[e = _T2 -> .0.00008 `f ]
+"135
+[v __gHumidCmd `i ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 135: int _gHumidCmd = 0b00000101;
+[e = __gHumidCmd -> 5 `i ]
 "137
+[v _crc `uc ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 137: char crc=0;
+[e = _crc -> -> 0 `i `uc ]
+"138
+[v _calcCRC `uc ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 138: char calcCRC = 0;
+[e = _calcCRC -> -> 0 `i `uc ]
+[; ;CapteurI2C.c: 140: sendCommandSHT(_gHumidCmd);
+"140
+[e ( _sendCommandSHT (1 __gHumidCmd ]
+[; ;CapteurI2C.c: 141: waitForResultSHT();
+"141
+[e ( _waitForResultSHT ..  ]
+[; ;CapteurI2C.c: 142: getData16SHT(&_val, &crc);
+"142
+[e ( _getData16SHT (2 , &U __val &U _crc ]
+[; ;CapteurI2C.c: 144: calcCRC = _gHumidCmd;
+"144
+[e = _calcCRC -> __gHumidCmd `uc ]
+[; ;CapteurI2C.c: 145: calcCRC = crcTable[calcCRC];
+"145
+[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
+[; ;CapteurI2C.c: 147: calcCRC = calcCRC ^ (_val/256);
+"147
+[e = _calcCRC -> ^ -> _calcCRC `i / __val -> 256 `i `uc ]
+[; ;CapteurI2C.c: 148: calcCRC = crcTable[calcCRC];
+"148
+[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
+[; ;CapteurI2C.c: 150: calcCRC = calcCRC ^ (_val&255);
+"150
+[e = _calcCRC -> ^ -> _calcCRC `i & __val -> 255 `i `uc ]
+[; ;CapteurI2C.c: 151: calcCRC = crcTable[calcCRC];
+"151
+[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
+[; ;CapteurI2C.c: 153: if(calcCRC != crc){
+"153
+[e $ ! != -> _calcCRC `i -> _crc `i 777  ]
+{
+[; ;CapteurI2C.c: 154: *error = 1;
+"154
+[e = *U _error -> 1 `i ]
+[; ;CapteurI2C.c: 155: return(0);
+"155
+[e ) -> -> 0 `i `f ]
+[e $UE 776  ]
+"156
+}
+[e :U 777 ]
+[; ;CapteurI2C.c: 156: }
+[; ;CapteurI2C.c: 160: _linearHumidity = C1 + C2 * _val + C3 * _val * _val;
+"160
+[e = __linearHumidity + + _C1 * _C2 -> __val `f * * _C3 -> __val `f -> __val `f ]
+"162
+[v _err `i ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 162: int err=0;
+[e = _err -> 0 `i ]
+[; ;CapteurI2C.c: 164: _temperature = readTemperatureC(&err);
+"164
+[e = __temperature ( _readTemperatureC (1 &U _err ]
+[; ;CapteurI2C.c: 167: _correctedHumidity = (_temperature - 25.0 ) * (T1 + T2 * _val) + _linearHumidity;
+"167
+[e = __correctedHumidity -> + * - -> __temperature `d .25.0 -> + _T1 * _T2 -> __val `f `d -> __linearHumidity `d `f ]
+[; ;CapteurI2C.c: 169: return (_correctedHumidity);
+"169
+[e ) __correctedHumidity ]
+[e $UE 776  ]
+[; ;CapteurI2C.c: 170: }
+"170
 [e :UE 776 ]
 }
-"141
-[v _shiftIn `(i ~T0 @X0 1 ef1`i ]
-"142
-{
-[; ;CapteurI2C.c: 141: int shiftIn(int _numBits)
-[; ;CapteurI2C.c: 142: {
-[e :U _shiftIn ]
-"141
-[v __numBits `i ~T0 @X0 1 r1 ]
-"142
-[f ]
-"143
-[v _ret `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 143: int ret = 0;
-[e = _ret -> 0 `i ]
-"144
-[v _i `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 144: int i;
-[; ;CapteurI2C.c: 146: for (i=0; i<_numBits; ++i)
-"146
-{
-[e = _i -> 0 `i ]
-[e $U 781  ]
-"147
-[e :U 778 ]
-[; ;CapteurI2C.c: 147: {
-{
-[; ;CapteurI2C.c: 148: i2cHighScl();
-"148
-[e ( _i2cHighScl ..  ]
-[; ;CapteurI2C.c: 150: ret = ret*2 + PORTAbits.RA2;
-"150
-[e = _ret + * _ret -> 2 `i -> . . _PORTAbits 0 2 `i ]
-[; ;CapteurI2C.c: 151: i2cLowScl();
-"151
-[e ( _i2cLowScl ..  ]
-"152
-}
-"146
-[e =+ _i -> 1 `i ]
-[e :U 781 ]
-[e $ < _i __numBits 778  ]
-[e :U 779 ]
-"152
-}
-[; ;CapteurI2C.c: 152: }
-[; ;CapteurI2C.c: 154: return(ret);
-"154
-[e ) _ret ]
-[e $UE 777  ]
-[; ;CapteurI2C.c: 155: }
-"155
-[e :UE 777 ]
-}
-"157
-[v _shiftInCRC `(i ~T0 @X0 1 ef ]
-"158
-{
-[; ;CapteurI2C.c: 157: int shiftInCRC()
-[; ;CapteurI2C.c: 158: {
-[e :U _shiftInCRC ]
-[f ]
-"159
-[v _ret `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 159: int ret = 0;
-[e = _ret -> 0 `i ]
-"160
-[v _i `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 160: int i;
-[; ;CapteurI2C.c: 162: for (i=7; i>=0; i--)
-"162
-{
-[e = _i -> 7 `i ]
-[e $ >= _i -> 0 `i 783  ]
-[e $U 784  ]
-"163
-[e :U 783 ]
-[; ;CapteurI2C.c: 163: {
-{
-[; ;CapteurI2C.c: 164: i2cHighScl();
-"164
-[e ( _i2cHighScl ..  ]
-[; ;CapteurI2C.c: 166: ret = ret/2 + (PORTAbits.RA2*128);
-"166
-[e = _ret + / _ret -> 2 `i * -> . . _PORTAbits 0 2 `i -> 128 `i ]
-[; ;CapteurI2C.c: 167: i2cLowScl();
-"167
-[e ( _i2cLowScl ..  ]
-"168
-}
-"162
-[e -- _i -> 1 `i ]
-[e $ >= _i -> 0 `i 783  ]
-[e :U 784 ]
-"168
-}
-[; ;CapteurI2C.c: 168: }
-[; ;CapteurI2C.c: 170: return(ret);
-"170
-[e ) _ret ]
-[e $UE 782  ]
-[; ;CapteurI2C.c: 171: }
-"171
-[e :UE 782 ]
-}
 "175
-[v _sendCommandSHT `(v ~T0 @X0 1 ef1`i ]
+[v _readTemperatureRaw `(f ~T0 @X0 1 ef1`**i ]
 "176
 {
-[; ;CapteurI2C.c: 175: void sendCommandSHT(int _command)
+[; ;CapteurI2C.c: 175: float readTemperatureRaw(int **error)
 [; ;CapteurI2C.c: 176: {
-[e :U _sendCommandSHT ]
+[e :U _readTemperatureRaw ]
 "175
-[v __command `i ~T0 @X0 1 r1 ]
+[v _error `**i ~T0 @X0 1 r1 ]
 "176
 [f ]
 "177
-[v _ack `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 177: int ack;
-[; ;CapteurI2C.c: 180: i2cHighSda();
-"180
-[e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 181: i2cHighScl();
-"181
-[e ( _i2cHighScl ..  ]
-[; ;CapteurI2C.c: 182: i2cLowSda();
+[v __val `i ~T0 @X0 1 a ]
+"178
+[v _crc `uc ~T0 @X0 1 a ]
+"179
+[v _calcCRC `uc ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 177: int _val;
+[; ;CapteurI2C.c: 178: char crc;
+[; ;CapteurI2C.c: 179: char calcCRC = 0;
+[e = _calcCRC -> -> 0 `i `uc ]
 "182
-[e ( _i2cLowSda ..  ]
-[; ;CapteurI2C.c: 183: i2cLowScl();
-"183
-[e ( _i2cLowScl ..  ]
-[; ;CapteurI2C.c: 184: i2cHighScl();
+[v __gTempCmd `i ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 182: int _gTempCmd = 0b00000011;
+[e = __gTempCmd -> 3 `i ]
+[; ;CapteurI2C.c: 184: sendCommandSHT(_gTempCmd);
 "184
-[e ( _i2cHighScl ..  ]
-[; ;CapteurI2C.c: 185: i2cHighSda();
+[e ( _sendCommandSHT (1 __gTempCmd ]
+[; ;CapteurI2C.c: 185: waitForResultSHT();
 "185
-[e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 186: i2cLowScl();
+[e ( _waitForResultSHT ..  ]
+[; ;CapteurI2C.c: 186: getData16SHT(&_val, &crc);
 "186
-[e ( _i2cLowScl ..  ]
-[; ;CapteurI2C.c: 189: i2cWriteByte(_command);
+[e ( _getData16SHT (2 , &U __val &U _crc ]
+[; ;CapteurI2C.c: 188: calcCRC = _gTempCmd;
+"188
+[e = _calcCRC -> __gTempCmd `uc ]
+[; ;CapteurI2C.c: 189: calcCRC = crcTable[calcCRC];
 "189
-[e ( _i2cWriteByte (1 -> __command `uc ]
-[; ;CapteurI2C.c: 192: i2cHighScl();
+[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
+[; ;CapteurI2C.c: 191: calcCRC = calcCRC ^ (_val/256);
+"191
+[e = _calcCRC -> ^ -> _calcCRC `i / __val -> 256 `i `uc ]
+[; ;CapteurI2C.c: 192: calcCRC = crcTable[calcCRC];
 "192
-[e ( _i2cHighScl ..  ]
-[; ;CapteurI2C.c: 193: i2cHighSda();
-"193
-[e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 194: ack = PORTAbits.RA2;
+[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
+[; ;CapteurI2C.c: 194: calcCRC = calcCRC ^ (_val&255);
 "194
-[e = _ack -> . . _PORTAbits 0 2 `i ]
-[; ;CapteurI2C.c: 195: if (ack != 0) {
+[e = _calcCRC -> ^ -> _calcCRC `i & __val -> 255 `i `uc ]
+[; ;CapteurI2C.c: 195: calcCRC = crcTable[calcCRC];
 "195
-[e $ ! != _ack -> 0 `i 787  ]
-{
+[e = _calcCRC *U + &U _crcTable * -> _calcCRC `ux -> -> # *U &U _crcTable `ui `ux ]
+[; ;CapteurI2C.c: 197: if(calcCRC != crc){
 "197
-}
-[e :U 787 ]
-[; ;CapteurI2C.c: 197: }
-[; ;CapteurI2C.c: 198: i2cLowScl();
-"198
-[e ( _i2cLowScl ..  ]
-[; ;CapteurI2C.c: 199: ack = PORTAbits.RA2;
-"199
-[e = _ack -> . . _PORTAbits 0 2 `i ]
-[; ;CapteurI2C.c: 200: if (ack != 1) {
-"200
-[e $ ! != _ack -> 1 `i 788  ]
+[e $ ! != -> _calcCRC `i -> _crc `i 779  ]
 {
-"202
+[; ;CapteurI2C.c: 198: **error = 1;
+"198
+[e = *U *U _error -> 1 `i ]
+[; ;CapteurI2C.c: 199: return(0);
+"199
+[e ) -> -> 0 `i `f ]
+[e $UE 778  ]
+"200
 }
-[e :U 788 ]
-[; ;CapteurI2C.c: 202: }
+[e :U 779 ]
+[; ;CapteurI2C.c: 200: }
+[; ;CapteurI2C.c: 202: return (_val);
+"202
+[e ) -> __val `f ]
+[e $UE 778  ]
 [; ;CapteurI2C.c: 203: }
 "203
-[e :UE 786 ]
+[e :UE 778 ]
 }
 "207
-[v _waitForResultSHT `(v ~T0 @X0 1 ef ]
-{
-[; ;CapteurI2C.c: 207: void waitForResultSHT(){
-[e :U _waitForResultSHT ]
-[f ]
+[v _shiftIn `(i ~T0 @X0 1 ef1`i ]
 "208
-[v _i `i ~T0 @X0 1 a ]
+{
+[; ;CapteurI2C.c: 207: int shiftIn(int _numBits)
+[; ;CapteurI2C.c: 208: {
+[e :U _shiftIn ]
+"207
+[v __numBits `i ~T0 @X0 1 r1 ]
+"208
+[f ]
 "209
-[v _ack `i ~T0 @X0 1 a ]
-[; ;CapteurI2C.c: 208: int i;
-[; ;CapteurI2C.c: 209: int ack;
-[; ;CapteurI2C.c: 211: i2cHighSda();
-"211
-[e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 213: for(i= 0; i < 3200; ++i)
-"213
+[v _ret `i ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 209: int ret = 0;
+[e = _ret -> 0 `i ]
+"210
+[v _i `i ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 210: int i;
+[; ;CapteurI2C.c: 212: for (i=0; i<_numBits; ++i)
+"212
 {
 [e = _i -> 0 `i ]
-[e $ < _i -> 3200 `i 790  ]
-[e $U 791  ]
-"214
-[e :U 790 ]
-[; ;CapteurI2C.c: 214: {
-{
-[; ;CapteurI2C.c: 215: _delay((unsigned long)((100)*(16000000/4000000.0)));
-"215
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-[; ;CapteurI2C.c: 216: ack = PORTAbits.RA2;
-"216
-[e = _ack -> . . _PORTAbits 0 2 `i ]
-[; ;CapteurI2C.c: 218: if (ack == 0) {
-"218
-[e $ ! == _ack -> 0 `i 793  ]
-{
-[; ;CapteurI2C.c: 219: break;
-"219
-[e $U 791  ]
-"220
-}
-[e :U 793 ]
-"221
-}
+[e $U 784  ]
 "213
+[e :U 781 ]
+[; ;CapteurI2C.c: 213: {
+{
+[; ;CapteurI2C.c: 214: i2cHighScl();
+"214
+[e ( _i2cHighScl ..  ]
+[; ;CapteurI2C.c: 216: ret = ret*2 + PORTBbits.RB1;
+"216
+[e = _ret + * _ret -> 2 `i -> . . _PORTBbits 0 1 `i ]
+[; ;CapteurI2C.c: 217: i2cLowScl();
+"217
+[e ( _i2cLowScl ..  ]
+"218
+}
+"212
 [e =+ _i -> 1 `i ]
-[e $ < _i -> 3200 `i 790  ]
-[e :U 791 ]
-"221
+[e :U 784 ]
+[e $ < _i __numBits 781  ]
+[e :U 782 ]
+"218
 }
-[; ;CapteurI2C.c: 220: }
+[; ;CapteurI2C.c: 218: }
+[; ;CapteurI2C.c: 220: return(ret);
+"220
+[e ) _ret ]
+[e $UE 780  ]
 [; ;CapteurI2C.c: 221: }
-[; ;CapteurI2C.c: 223: if (ack == 1) {
+"221
+[e :UE 780 ]
+}
 "223
-[e $ ! == _ack -> 1 `i 794  ]
+[v _shiftInCRC `(i ~T0 @X0 1 ef ]
+"224
 {
-"225
-}
-[e :U 794 ]
-[; ;CapteurI2C.c: 225: }
-[; ;CapteurI2C.c: 226: }
-"226
-[e :UE 789 ]
-}
-"231
-[v _getData16SHT `(i ~T0 @X0 1 ef2`*i`*uc ]
-"232
-{
-[; ;CapteurI2C.c: 231: int getData16SHT(int *val, char *CRC)
-[; ;CapteurI2C.c: 232: {
-[e :U _getData16SHT ]
-"231
-[v _val `*i ~T0 @X0 1 r1 ]
-[v _CRC `*uc ~T0 @X0 1 r2 ]
-"232
+[; ;CapteurI2C.c: 223: int shiftInCRC()
+[; ;CapteurI2C.c: 224: {
+[e :U _shiftInCRC ]
 [f ]
-[; ;CapteurI2C.c: 235: i2cHighSda();
-"235
-[e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 237: *val = shiftIn(8);
+"225
+[v _ret `i ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 225: int ret = 0;
+[e = _ret -> 0 `i ]
+"226
+[v _i `i ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 226: int i;
+[; ;CapteurI2C.c: 228: for (i=7; i>=0; i--)
+"228
+{
+[e = _i -> 7 `i ]
+[e $ >= _i -> 0 `i 786  ]
+[e $U 787  ]
+"229
+[e :U 786 ]
+[; ;CapteurI2C.c: 229: {
+{
+[; ;CapteurI2C.c: 230: i2cHighScl();
+"230
+[e ( _i2cHighScl ..  ]
+[; ;CapteurI2C.c: 232: ret = ret/2 + (PORTBbits.RB1*128);
+"232
+[e = _ret + / _ret -> 2 `i * -> . . _PORTBbits 0 1 `i -> 128 `i ]
+[; ;CapteurI2C.c: 233: i2cLowScl();
+"233
+[e ( _i2cLowScl ..  ]
+"234
+}
+"228
+[e -- _i -> 1 `i ]
+[e $ >= _i -> 0 `i 786  ]
+[e :U 787 ]
+"234
+}
+[; ;CapteurI2C.c: 234: }
+[; ;CapteurI2C.c: 236: return(ret);
+"236
+[e ) _ret ]
+[e $UE 785  ]
+[; ;CapteurI2C.c: 237: }
 "237
-[e = *U _val ( _shiftIn (1 -> 8 `i ]
-[; ;CapteurI2C.c: 238: *val *= 256;
-"238
-[e =* *U _val -> 256 `i ]
-[; ;CapteurI2C.c: 241: i2cAck();
+[e :UE 785 ]
+}
 "241
-[e ( _i2cAck ..  ]
-[; ;CapteurI2C.c: 244: i2cHighSda();
-"244
+[v _sendCommandSHT `(v ~T0 @X0 1 ef1`i ]
+"242
+{
+[; ;CapteurI2C.c: 241: void sendCommandSHT(int _command)
+[; ;CapteurI2C.c: 242: {
+[e :U _sendCommandSHT ]
+"241
+[v __command `i ~T0 @X0 1 r1 ]
+"242
+[f ]
+"243
+[v _ack `i ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 243: int ack;
+[; ;CapteurI2C.c: 246: i2cHighSda();
+"246
 [e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 245: *val |= shiftIn(8);
-"245
-[e =| *U _val ( _shiftIn (1 -> 8 `i ]
-[; ;CapteurI2C.c: 249: i2cAck();
+[; ;CapteurI2C.c: 247: i2cHighScl();
+"247
+[e ( _i2cHighScl ..  ]
+[; ;CapteurI2C.c: 248: i2cLowSda();
+"248
+[e ( _i2cLowSda ..  ]
+[; ;CapteurI2C.c: 249: i2cLowScl();
 "249
-[e ( _i2cAck ..  ]
+[e ( _i2cLowScl ..  ]
+[; ;CapteurI2C.c: 250: i2cHighScl();
+"250
+[e ( _i2cHighScl ..  ]
 [; ;CapteurI2C.c: 251: i2cHighSda();
 "251
 [e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 253: *CRC = shiftInCRC();
-"253
-[e = *U _CRC -> ( _shiftInCRC ..  `uc ]
-[; ;CapteurI2C.c: 255: i2cAck();
+[; ;CapteurI2C.c: 252: i2cLowScl();
+"252
+[e ( _i2cLowScl ..  ]
+[; ;CapteurI2C.c: 255: i2cWriteByte(_command);
 "255
-[e ( _i2cAck ..  ]
-[; ;CapteurI2C.c: 264: i2cStop();
-"264
-[e ( _i2cStop ..  ]
-[; ;CapteurI2C.c: 266: return 0;
-"266
-[e ) -> 0 `i ]
-[e $UE 795  ]
-[; ;CapteurI2C.c: 267: }
-"267
-[e :UE 795 ]
-}
-"271
-[v _skipCrcSHT `(v ~T0 @X0 1 ef ]
-"272
+[e ( _i2cWriteByte (1 -> __command `uc ]
+[; ;CapteurI2C.c: 258: i2cHighScl();
+"258
+[e ( _i2cHighScl ..  ]
+[; ;CapteurI2C.c: 259: i2cHighSda();
+"259
+[e ( _i2cHighSda ..  ]
+[; ;CapteurI2C.c: 260: ack = PORTBbits.RB1;
+"260
+[e = _ack -> . . _PORTBbits 0 1 `i ]
+[; ;CapteurI2C.c: 261: if (ack != 0) {
+"261
+[e $ ! != _ack -> 0 `i 790  ]
 {
-[; ;CapteurI2C.c: 271: void skipCrcSHT()
-[; ;CapteurI2C.c: 272: {
+"263
+}
+[e :U 790 ]
+[; ;CapteurI2C.c: 263: }
+[; ;CapteurI2C.c: 264: i2cLowScl();
+"264
+[e ( _i2cLowScl ..  ]
+[; ;CapteurI2C.c: 265: ack = PORTBbits.RB1;
+"265
+[e = _ack -> . . _PORTBbits 0 1 `i ]
+[; ;CapteurI2C.c: 266: if (ack != 1) {
+"266
+[e $ ! != _ack -> 1 `i 791  ]
+{
+"268
+}
+[e :U 791 ]
+[; ;CapteurI2C.c: 268: }
+[; ;CapteurI2C.c: 269: }
+"269
+[e :UE 789 ]
+}
+"273
+[v _waitForResultSHT `(v ~T0 @X0 1 ef ]
+{
+[; ;CapteurI2C.c: 273: void waitForResultSHT(){
+[e :U _waitForResultSHT ]
+[f ]
+"274
+[v _i `i ~T0 @X0 1 a ]
+"275
+[v _ack `i ~T0 @X0 1 a ]
+[; ;CapteurI2C.c: 274: int i;
+[; ;CapteurI2C.c: 275: int ack;
+[; ;CapteurI2C.c: 277: i2cHighSda();
+"277
+[e ( _i2cHighSda ..  ]
+[; ;CapteurI2C.c: 279: for(i= 0; i < 3200; ++i)
+"279
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 3200 `i 793  ]
+[e $U 794  ]
+"280
+[e :U 793 ]
+[; ;CapteurI2C.c: 280: {
+{
+[; ;CapteurI2C.c: 281: _delay((unsigned long)((100)*(16000000/4000000.0)));
+"281
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[; ;CapteurI2C.c: 282: ack = PORTBbits.RB1;
+"282
+[e = _ack -> . . _PORTBbits 0 1 `i ]
+[; ;CapteurI2C.c: 284: if (ack == 0) {
+"284
+[e $ ! == _ack -> 0 `i 796  ]
+{
+[; ;CapteurI2C.c: 285: break;
+"285
+[e $U 794  ]
+"286
+}
+[e :U 796 ]
+"287
+}
+"279
+[e =+ _i -> 1 `i ]
+[e $ < _i -> 3200 `i 793  ]
+[e :U 794 ]
+"287
+}
+[; ;CapteurI2C.c: 286: }
+[; ;CapteurI2C.c: 287: }
+[; ;CapteurI2C.c: 289: if (ack == 1) {
+"289
+[e $ ! == _ack -> 1 `i 797  ]
+{
+"291
+}
+[e :U 797 ]
+[; ;CapteurI2C.c: 291: }
+[; ;CapteurI2C.c: 292: }
+"292
+[e :UE 792 ]
+}
+"297
+[v _getData16SHT `(i ~T0 @X0 1 ef2`*i`*uc ]
+"298
+{
+[; ;CapteurI2C.c: 297: int getData16SHT(int *val, char *CRC)
+[; ;CapteurI2C.c: 298: {
+[e :U _getData16SHT ]
+"297
+[v _val `*i ~T0 @X0 1 r1 ]
+[v _CRC `*uc ~T0 @X0 1 r2 ]
+"298
+[f ]
+[; ;CapteurI2C.c: 301: i2cHighSda();
+"301
+[e ( _i2cHighSda ..  ]
+[; ;CapteurI2C.c: 303: *val = shiftIn(8);
+"303
+[e = *U _val ( _shiftIn (1 -> 8 `i ]
+[; ;CapteurI2C.c: 304: *val *= 256;
+"304
+[e =* *U _val -> 256 `i ]
+[; ;CapteurI2C.c: 307: i2cAck();
+"307
+[e ( _i2cAck ..  ]
+[; ;CapteurI2C.c: 310: i2cHighSda();
+"310
+[e ( _i2cHighSda ..  ]
+[; ;CapteurI2C.c: 311: *val |= shiftIn(8);
+"311
+[e =| *U _val ( _shiftIn (1 -> 8 `i ]
+[; ;CapteurI2C.c: 315: i2cAck();
+"315
+[e ( _i2cAck ..  ]
+[; ;CapteurI2C.c: 317: i2cHighSda();
+"317
+[e ( _i2cHighSda ..  ]
+[; ;CapteurI2C.c: 319: *CRC = shiftInCRC();
+"319
+[e = *U _CRC -> ( _shiftInCRC ..  `uc ]
+[; ;CapteurI2C.c: 321: i2cAck();
+"321
+[e ( _i2cAck ..  ]
+[; ;CapteurI2C.c: 330: i2cStop();
+"330
+[e ( _i2cStop ..  ]
+[; ;CapteurI2C.c: 332: return 0;
+"332
+[e ) -> 0 `i ]
+[e $UE 798  ]
+[; ;CapteurI2C.c: 333: }
+"333
+[e :UE 798 ]
+}
+"337
+[v _skipCrcSHT `(v ~T0 @X0 1 ef ]
+"338
+{
+[; ;CapteurI2C.c: 337: void skipCrcSHT()
+[; ;CapteurI2C.c: 338: {
 [e :U _skipCrcSHT ]
 [f ]
-[; ;CapteurI2C.c: 275: i2cHighSda();
-"275
+[; ;CapteurI2C.c: 341: i2cHighSda();
+"341
 [e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 276: i2cHighScl();
-"276
+[; ;CapteurI2C.c: 342: i2cHighScl();
+"342
 [e ( _i2cHighScl ..  ]
-[; ;CapteurI2C.c: 277: i2cLowScl();
-"277
+[; ;CapteurI2C.c: 343: i2cLowScl();
+"343
 [e ( _i2cLowScl ..  ]
-[; ;CapteurI2C.c: 278: }
-"278
-[e :UE 796 ]
+[; ;CapteurI2C.c: 344: }
+"344
+[e :UE 799 ]
 }

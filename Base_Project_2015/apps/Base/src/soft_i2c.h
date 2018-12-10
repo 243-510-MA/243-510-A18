@@ -10,10 +10,10 @@
 #ifndef SOFT_I2C_H
 #define SOFT_I2C_H
 
-#define SDA_PIN PORTAbits.RA2
-#define SCL_PIN PORTAbits.RA3	
-#define SDA_DIR TRISAbits.TRISA2
-#define SCL_DIR TRISAbits.TRISA3
+#define SDA_PIN PORTBbits.RB1
+#define SCL_PIN PORTBbits.RB2	
+#define SDA_DIR TRISBbits.TRISB1
+#define SCL_DIR TRISBbits.TRISB2
 
 unsigned char i2cReadByte(void);
 void i2cWriteByte(unsigned char);

@@ -8990,7 +8990,7 @@ for (n=0; n<8; n++)
 {
 i2cHighScl();
 
-if (PORTAbits.RA2)
+if (PORTBbits.RB1)
 inByte = (inByte << 1) | 0x01;
 else
 inByte = inByte << 1;
@@ -9049,26 +9049,26 @@ i2cHighSda();
 
 void i2cHighSda(void)
 {
-TRISAbits.TRISA2 = 1;
+TRISBbits.TRISB1 = 1;
 _delay((unsigned long)((5)*(16000000/4000000.0)));
 }
 
 void i2cLowSda(void)
 {
-PORTAbits.RA2 = 0;
-TRISAbits.TRISA2 = 0;
+PORTBbits.RB1 = 0;
+TRISBbits.TRISB1 = 0;
 _delay((unsigned long)((5)*(16000000/4000000.0)));
 }
 
 void i2cHighScl(void)
 {
-TRISAbits.TRISA3 = 1;
+TRISBbits.TRISB2 = 1;
 _delay((unsigned long)((5)*(16000000/4000000.0)));
 }
 
 void i2cLowScl(void)
 {
-PORTAbits.RA3 = 0;
-TRISAbits.TRISA3 = 0;
+PORTBbits.RB2 = 0;
+TRISBbits.TRISB2 = 0;
 _delay((unsigned long)((5)*(16000000/4000000.0)));
 }
