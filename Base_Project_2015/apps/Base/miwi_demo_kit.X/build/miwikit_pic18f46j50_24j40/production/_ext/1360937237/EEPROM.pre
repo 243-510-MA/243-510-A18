@@ -1,7 +1,7 @@
 
 # 1 "../src/EEPROM.c"
 
-# 13 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -98,17 +98,17 @@ uint8_t SPIGet(void);
 void SPIPut2(uint8_t v);
 uint8_t SPIGet2(void);
 
-# 26 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 50 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h"
+# 50 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h"
 extern volatile unsigned char RPOR0 @ 0xEC6;
 
 asm("RPOR0 equ 0EC6h");
@@ -8796,7 +8796,7 @@ extern volatile __bit nWRITE1 @ (((unsigned) &SSP1STAT)*8) + 2;
 
 extern volatile __bit nWRITE2 @ (((unsigned) &SSP2STAT)*8) + 2;
 
-# 18 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h"
+# 18 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h"
 __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
 __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 
@@ -8823,10 +8823,10 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 4 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
 typedef unsigned size_t;
 
-# 7 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -8835,17 +8835,17 @@ extern void * __va_start(void);
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 43 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
 struct __prbuf
 {
 char * ptr;
 void (* func)(char);
 };
 
-# 29 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\errno.h"
+# 29 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\errno.h"
 extern int errno;
 
-# 12 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\conio.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\conio.h"
 extern void init_uart(void);
 
 extern char getch(void);
@@ -8859,7 +8859,7 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 88 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -8886,7 +8886,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 12 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
 # 43 "../src/system_config/miwikit_pic18f46j50_24j40\lcd.h"
@@ -9014,33 +9014,33 @@ void eepromWriteDataToSave(uint32_t writeStartAddress, dataCapteur data);
 # 12 "../src/EEPROM.c"
 void eepromWrite(uint32_t writeAddress,int8_t data){
 
-PORTAbits.RA3=0;
+PORTEbits.RE2=0;
 SPIPut2(0x06);
-PORTAbits.RA3=1;
+PORTEbits.RE2=1;
 
-PORTAbits.RA3=0;
+PORTEbits.RE2=0;
 SPIPut2(0x02);
 
 SPIPut2(writeAddress>>16);
 SPIPut2(writeAddress>>8);
 SPIPut2(writeAddress);
 SPIPut2(data);
-PORTAbits.RA3=1;
+PORTEbits.RE2=1;
 
-PORTAbits.RA3=0;
+PORTEbits.RE2=0;
 SPIPut2(0x04);
-PORTAbits.RA3=1;
+PORTEbits.RE2=1;
 _delay((unsigned long)((10)*(16000000/4000.0)));
 }
 
 
 void eepromMultiWrite(uint32_t writeStartAddress,uint8_t length,int8_t *data){
 
-PORTAbits.RA3=0;
+PORTEbits.RE2=0;
 SPIPut2(0x06);
-PORTAbits.RA3=1;
+PORTEbits.RE2=1;
 
-PORTAbits.RA3=0;
+PORTEbits.RE2=0;
 SPIPut2(0x02);
 
 SPIPut2(writeStartAddress>>16);
@@ -9049,25 +9049,25 @@ SPIPut2(writeStartAddress);
 for(uint8_t i=0; i<length; i++){
 SPIPut2(data[i]);
 }
-PORTAbits.RA3=1;
+PORTEbits.RE2=1;
 
-PORTAbits.RA3=0;
+PORTEbits.RE2=0;
 SPIPut2(0x04);
-PORTAbits.RA3=1;
+PORTEbits.RE2=1;
 _delay((unsigned long)((10)*(16000000/4000.0)));
 }
 
 
 int8_t eepromRead(uint32_t readAddress){
 int8_t data=0;
-PORTAbits.RA3=0;
+PORTEbits.RE2=0;
 SPIPut2(0x03);
 
 SPIPut2(readAddress>>16);
 SPIPut2(readAddress>>8);
 SPIPut2(readAddress);
 data=SPIGet2();
-PORTAbits.RA3=1;
+PORTEbits.RE2=1;
 return data;
 }
 
@@ -9079,11 +9079,11 @@ address[2]=startAddressValue;
 address[1]=startAddressValue>>8;
 address[0]=startAddressValue>>16;
 
-PORTAbits.RA3=0;
+PORTEbits.RE2=0;
 SPIPut2(0x06);
-PORTAbits.RA3=1;
+PORTEbits.RE2=1;
 
-PORTAbits.RA3=0;
+PORTEbits.RE2=0;
 SPIPut2(0x02);
 
 SPIPut2(0);
@@ -9092,11 +9092,11 @@ SPIPut2(0);
 for(uint8_t i=0; i<3; i++){
 SPIPut2(address[i]);
 }
-PORTAbits.RA3=1;
+PORTEbits.RE2=1;
 
-PORTAbits.RA3=0;
+PORTEbits.RE2=0;
 SPIPut2(0x04);
-PORTAbits.RA3=1;
+PORTEbits.RE2=1;
 _delay((unsigned long)((10)*(16000000/4000.0)));
 }
 
@@ -9115,7 +9115,7 @@ return address;
 
 dataCapteur eepromReadDataCapteur(uint32_t startAddress){
 dataCapteur data;
-PORTAbits.RA3=0;
+PORTEbits.RE2=0;
 SPIPut2(0x03);
 
 SPIPut2(startAddress>>16);
@@ -9126,17 +9126,17 @@ for(uint8_t i=0; i<14; i++){
 data.array[i]=SPIGet2();
 }
 
-PORTAbits.RA3=1;
+PORTEbits.RE2=1;
 return data;
 }
 
 
 void eepromWriteDataToSave(uint32_t writeStartAddress, dataCapteur data){
-PORTAbits.RA3=0;
+PORTEbits.RE2=0;
 SPIPut2(0x06);
-PORTAbits.RA3=1;
+PORTEbits.RE2=1;
 
-PORTAbits.RA3=0;
+PORTEbits.RE2=0;
 SPIPut2(0x02);
 
 SPIPut2(writeStartAddress>>16);
@@ -9147,6 +9147,6 @@ for(uint8_t i=0; i<14; i++){
 SPIPut2(data.array[i]);
 }
 
-PORTAbits.RA3=1;
+PORTEbits.RE2=1;
 _delay((unsigned long)((10)*(16000000/4000.0)));
 }

@@ -8,25 +8,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71
 [u S768 `ul 1 `S769 1 `uc -> 4 `i `S770 1 ]
 [n S768 _MIWI_TICK Val byte v word ]
-"7797 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[s S339 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S339 . TRISA0 TRISA1 TRISA2 TRISA3 . TRISA5 TRISA6 TRISA7 ]
-"7796
-[u S338 `S339 1 ]
-[n S338 . . ]
-"7808
-[v _TRISAbits `VS338 ~T0 @X0 0 e@3986 ]
-"7131
-[s S314 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S314 . LATA0 LATA1 LATA2 LATA3 . LATA5 LATA6 LATA7 ]
-"7141
-[s S315 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S315 . LA0 LA1 LA2 LA3 . LA5 LA6 LA7 ]
-"7130
-[u S313 `S314 1 `S315 1 ]
-[n S313 . . . ]
-"7152
-[v _LATAbits `VS313 ~T0 @X0 0 e@3977 ]
+"7973 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[s S345 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S345 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"7972
+[u S344 `S345 1 ]
+[n S344 . . ]
+"7984
+[v _TRISDbits `VS344 ~T0 @X0 0 e@3989 ]
+"7447
+[s S323 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S323 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+"7457
+[s S324 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S324 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
+"7446
+[u S322 `S323 1 `S324 1 ]
+[n S322 . . . ]
+"7468
+[v _LATDbits `VS322 ~T0 @X0 0 e@3980 ]
 "32 ../src/system_config/miwikit_pic18f46j50_24j40/spi.h
 [v _SPIPut2 `(v ~T0 @X0 0 ef1`uc ]
 "46 ../src/RTCSPI.h
@@ -47,7 +47,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _rtcReadYear `(uc ~T0 @X0 0 ef ]
 "47 ../src/system_config/miwikit_pic18f46j50_24j40\lcd.h
 [v _LCD_Erase `(v ~T0 @X0 0 ef ]
-"194 E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
+"194 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "43 ../src/system_config/miwikit_pic18f46j50_24j40\lcd.h
 [v _LCDText `uc ~T0 @X0 -> 0 `x e ]
@@ -89,7 +89,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f46j50.h: 50: extern volatile unsigned char RPOR0 @ 0xEC6;
-"52 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
 [; ;pic18f46j50.h: 52: asm("RPOR0 equ 0EC6h");
 [; <" RPOR0 equ 0EC6h ;# ">
 [; ;pic18f46j50.h: 57: extern volatile unsigned char RPOR1 @ 0xEC7;
@@ -6984,9 +6984,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 47: {
 [e :U _rtcClear ]
 [f ]
-[; ;RTCSPI.c: 48: TRISAbits.TRISA2 = 0;
+[; ;RTCSPI.c: 48: TRISDbits.TRISD5 = 0;
 "48
-[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _TRISDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 49: for(int i=0;i<0x20;i++)
 "49
 {
@@ -6998,9 +6998,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 806 ]
 [; ;RTCSPI.c: 50: {
 {
-[; ;RTCSPI.c: 51: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 51: LATDbits.LATD5 = 0;
 "51
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 52: SPIPut2(0x12);
 "52
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7010,9 +7010,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 54: SPIPut2(0x00);
 "54
 [e ( _SPIPut2 (1 -> -> 0 `i `uc ]
-[; ;RTCSPI.c: 55: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 55: LATDbits.LATD5 = 1;
 "55
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 56: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "56
 {
@@ -7033,15 +7033,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "57
 }
 [; ;RTCSPI.c: 57: }
-[; ;RTCSPI.c: 58: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 58: LATDbits.LATD5 = 0;
 "58
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 59: SPIPut2(0x54);
 "59
 [e ( _SPIPut2 (1 -> -> 84 `i `uc ]
-[; ;RTCSPI.c: 60: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 60: LATDbits.LATD5 = 1;
 "60
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 61: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "61
 {
@@ -7073,12 +7073,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _years `uc ~T0 @X0 1 r6 ]
 "65
 [f ]
-[; ;RTCSPI.c: 66: TRISAbits.TRISA2 = 0;
+[; ;RTCSPI.c: 66: TRISDbits.TRISD5 = 0;
 "66
-[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
-[; ;RTCSPI.c: 68: LATAbits.LATA2 = 0;
+[e = . . _TRISDbits 0 5 -> -> 0 `i `uc ]
+[; ;RTCSPI.c: 68: LATDbits.LATD5 = 0;
 "68
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 69: SPIPut2(0x12);
 "69
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7088,9 +7088,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 71: SPIPut2(uint2bcd(seconds));
 "71
 [e ( _SPIPut2 (1 -> ( _uint2bcd (1 -> _seconds `ui `uc ]
-[; ;RTCSPI.c: 72: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 72: LATDbits.LATD5 = 1;
 "72
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 73: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "73
 {
@@ -7102,9 +7102,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 817  ]
 [e :U 818 ]
 }
-[; ;RTCSPI.c: 76: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 76: LATDbits.LATD5 = 0;
 "76
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 77: SPIPut2(0x12);
 "77
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7114,9 +7114,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 79: SPIPut2(uint2bcd(minutes));
 "79
 [e ( _SPIPut2 (1 -> ( _uint2bcd (1 -> _minutes `ui `uc ]
-[; ;RTCSPI.c: 80: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 80: LATDbits.LATD5 = 1;
 "80
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 81: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "81
 {
@@ -7128,9 +7128,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 820  ]
 [e :U 821 ]
 }
-[; ;RTCSPI.c: 84: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 84: LATDbits.LATD5 = 0;
 "84
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 85: SPIPut2(0x12);
 "85
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7140,9 +7140,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 87: SPIPut2(uint2bcd(hours));
 "87
 [e ( _SPIPut2 (1 -> ( _uint2bcd (1 -> _hours `ui `uc ]
-[; ;RTCSPI.c: 88: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 88: LATDbits.LATD5 = 1;
 "88
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 89: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "89
 {
@@ -7154,9 +7154,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 823  ]
 [e :U 824 ]
 }
-[; ;RTCSPI.c: 92: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 92: LATDbits.LATD5 = 0;
 "92
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 93: SPIPut2(0x12);
 "93
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7166,9 +7166,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 95: SPIPut2(uint2bcd(days));
 "95
 [e ( _SPIPut2 (1 -> ( _uint2bcd (1 -> _days `ui `uc ]
-[; ;RTCSPI.c: 96: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 96: LATDbits.LATD5 = 1;
 "96
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 97: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "97
 {
@@ -7180,9 +7180,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 826  ]
 [e :U 827 ]
 }
-[; ;RTCSPI.c: 100: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 100: LATDbits.LATD5 = 0;
 "100
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 101: SPIPut2(0x12);
 "101
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7192,9 +7192,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 103: SPIPut2(uint2bcd(months));
 "103
 [e ( _SPIPut2 (1 -> ( _uint2bcd (1 -> _months `ui `uc ]
-[; ;RTCSPI.c: 104: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 104: LATDbits.LATD5 = 1;
 "104
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 105: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "105
 {
@@ -7206,9 +7206,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 829  ]
 [e :U 830 ]
 }
-[; ;RTCSPI.c: 108: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 108: LATDbits.LATD5 = 0;
 "108
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 109: SPIPut2(0x12);
 "109
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7218,9 +7218,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 111: SPIPut2(uint2bcd(years));
 "111
 [e ( _SPIPut2 (1 -> ( _uint2bcd (1 -> _years `ui `uc ]
-[; ;RTCSPI.c: 112: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 112: LATDbits.LATD5 = 1;
 "112
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 113: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "113
 {
@@ -7232,9 +7232,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 832  ]
 [e :U 833 ]
 }
-[; ;RTCSPI.c: 115: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 115: LATDbits.LATD5 = 0;
 "115
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 116: SPIPut2(0x12);
 "116
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7244,9 +7244,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 118: SPIPut2(0x80);
 "118
 [e ( _SPIPut2 (1 -> -> 128 `i `uc ]
-[; ;RTCSPI.c: 119: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 119: LATDbits.LATD5 = 1;
 "119
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 120: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "120
 {
@@ -7262,16 +7262,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _cnt `uc ~T0 @X0 1 a ]
 [; ;RTCSPI.c: 122: char cnt = 0;
 [e = _cnt -> -> 0 `i `uc ]
-[; ;RTCSPI.c: 123: while(cnt < 100)
+[; ;RTCSPI.c: 123: while(cnt < 500)
 "123
 [e $U 837  ]
 [e :U 838 ]
 [; ;RTCSPI.c: 124: {
 "124
 {
-[; ;RTCSPI.c: 125: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 125: LATDbits.LATD5 = 0;
 "125
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 126: SPIPut2(0x13);
 "126
 [e ( _SPIPut2 (1 -> -> 19 `i `uc ]
@@ -7298,12 +7298,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 837 ]
 "123
-[e $ < -> _cnt `i -> 100 `i 838  ]
+[e $ < -> _cnt `i -> 500 `i 838  ]
 [e :U 839 ]
 [; ;RTCSPI.c: 133: }
-[; ;RTCSPI.c: 134: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 134: LATDbits.LATD5 = 1;
 "134
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 135: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "135
 {
@@ -7315,9 +7315,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 842  ]
 [e :U 843 ]
 }
-[; ;RTCSPI.c: 137: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 137: LATDbits.LATD5 = 0;
 "137
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 138: SPIPut2(0x12);
 "138
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7327,9 +7327,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 140: SPIPut2(0x08);
 "140
 [e ( _SPIPut2 (1 -> -> 8 `i `uc ]
-[; ;RTCSPI.c: 141: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 141: LATDbits.LATD5 = 1;
 "141
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 143: }
 "143
 [e :UE 815 ]
@@ -7342,9 +7342,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 146: {
 [e :U _rtcStart ]
 [f ]
-[; ;RTCSPI.c: 147: TRISAbits.TRISA2 = 0;
+[; ;RTCSPI.c: 147: TRISDbits.TRISD5 = 0;
 "147
-[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _TRISDbits 0 5 -> -> 0 `i `uc ]
 "149
 [v _sec `uc ~T0 @X0 1 a ]
 [; ;RTCSPI.c: 149: uint8_t sec = rtcReadSecond();
@@ -7369,9 +7369,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _year `uc ~T0 @X0 1 a ]
 [; ;RTCSPI.c: 154: uint8_t year = rtcReadYear();
 [e = _year ( _rtcReadYear ..  ]
-[; ;RTCSPI.c: 156: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 156: LATDbits.LATD5 = 0;
 "156
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 157: SPIPut2(0x12);
 "157
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7381,12 +7381,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 159: SPIPut2(0x00);
 "159
 [e ( _SPIPut2 (1 -> -> 0 `i `uc ]
-[; ;RTCSPI.c: 160: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 160: LATDbits.LATD5 = 1;
 "160
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-[; ;RTCSPI.c: 163: LATAbits.LATA2 = 0;
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
+[; ;RTCSPI.c: 163: LATDbits.LATD5 = 0;
 "163
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 164: SPIPut2(0x12);
 "164
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7396,9 +7396,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 166: SPIPut2(uint2bcd(min));
 "166
 [e ( _SPIPut2 (1 -> ( _uint2bcd (1 -> _min `ui `uc ]
-[; ;RTCSPI.c: 167: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 167: LATDbits.LATD5 = 1;
 "167
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 168: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "168
 {
@@ -7410,9 +7410,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 846  ]
 [e :U 847 ]
 }
-[; ;RTCSPI.c: 171: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 171: LATDbits.LATD5 = 0;
 "171
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 172: SPIPut2(0x12);
 "172
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7422,9 +7422,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 174: SPIPut2(uint2bcd(hour));
 "174
 [e ( _SPIPut2 (1 -> ( _uint2bcd (1 -> _hour `ui `uc ]
-[; ;RTCSPI.c: 175: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 175: LATDbits.LATD5 = 1;
 "175
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 176: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "176
 {
@@ -7436,9 +7436,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 849  ]
 [e :U 850 ]
 }
-[; ;RTCSPI.c: 179: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 179: LATDbits.LATD5 = 0;
 "179
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 180: SPIPut2(0x12);
 "180
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7448,9 +7448,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 182: SPIPut2(uint2bcd(date));
 "182
 [e ( _SPIPut2 (1 -> ( _uint2bcd (1 -> _date `ui `uc ]
-[; ;RTCSPI.c: 183: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 183: LATDbits.LATD5 = 1;
 "183
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 184: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "184
 {
@@ -7462,9 +7462,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 852  ]
 [e :U 853 ]
 }
-[; ;RTCSPI.c: 187: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 187: LATDbits.LATD5 = 0;
 "187
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 188: SPIPut2(0x12);
 "188
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7474,9 +7474,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 190: SPIPut2(uint2bcd(month));
 "190
 [e ( _SPIPut2 (1 -> ( _uint2bcd (1 -> _month `ui `uc ]
-[; ;RTCSPI.c: 191: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 191: LATDbits.LATD5 = 1;
 "191
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 192: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "192
 {
@@ -7488,9 +7488,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 855  ]
 [e :U 856 ]
 }
-[; ;RTCSPI.c: 195: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 195: LATDbits.LATD5 = 0;
 "195
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 196: SPIPut2(0x12);
 "196
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7500,9 +7500,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 198: SPIPut2(uint2bcd(year));
 "198
 [e ( _SPIPut2 (1 -> ( _uint2bcd (1 -> _year `ui `uc ]
-[; ;RTCSPI.c: 199: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 199: LATDbits.LATD5 = 1;
 "199
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 200: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "200
 {
@@ -7514,9 +7514,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 858  ]
 [e :U 859 ]
 }
-[; ;RTCSPI.c: 202: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 202: LATDbits.LATD5 = 0;
 "202
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 203: SPIPut2(0x12);
 "203
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7526,23 +7526,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 205: SPIPut2(0x80|sec);
 "205
 [e ( _SPIPut2 (1 -> | -> 128 `i -> _sec `i `uc ]
-[; ;RTCSPI.c: 206: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 206: LATDbits.LATD5 = 1;
 "206
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 "208
 [v _cnt `uc ~T0 @X0 1 a ]
 [; ;RTCSPI.c: 208: char cnt = 0;
 [e = _cnt -> -> 0 `i `uc ]
-[; ;RTCSPI.c: 209: while(cnt < 100)
+[; ;RTCSPI.c: 209: while(cnt < 500)
 "209
 [e $U 860  ]
 [e :U 861 ]
 [; ;RTCSPI.c: 210: {
 "210
 {
-[; ;RTCSPI.c: 211: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 211: LATDbits.LATD5 = 0;
 "211
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 212: SPIPut2(0x13);
 "212
 [e ( _SPIPut2 (1 -> -> 19 `i `uc ]
@@ -7569,12 +7569,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 860 ]
 "209
-[e $ < -> _cnt `i -> 100 `i 861  ]
+[e $ < -> _cnt `i -> 500 `i 861  ]
 [e :U 862 ]
 [; ;RTCSPI.c: 219: }
-[; ;RTCSPI.c: 220: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 220: LATDbits.LATD5 = 1;
 "220
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 221: { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 "221
 {
@@ -7586,9 +7586,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -- __dcnt -> -> -> 1 `i `l `ul -> -> 0 `i `ul 865  ]
 [e :U 866 ]
 }
-[; ;RTCSPI.c: 223: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 223: LATDbits.LATD5 = 0;
 "223
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 224: SPIPut2(0x12);
 "224
 [e ( _SPIPut2 (1 -> -> 18 `i `uc ]
@@ -7598,9 +7598,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 226: SPIPut2(0x08);
 "226
 [e ( _SPIPut2 (1 -> -> 8 `i `uc ]
-[; ;RTCSPI.c: 227: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 227: LATDbits.LATD5 = 1;
 "227
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 228: }
 "228
 [e :UE 844 ]
@@ -7618,9 +7618,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _min1 `uc ~T0 @X0 1 a ]
 [v _minutes `uc ~T0 @X0 1 a ]
 [; ;RTCSPI.c: 234: uint8_t min10,min1,minutes;
-[; ;RTCSPI.c: 236: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 236: LATDbits.LATD5 = 0;
 "236
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 238: SPIPut2(0x13);
 "238
 [e ( _SPIPut2 (1 -> -> 19 `i `uc ]
@@ -7639,9 +7639,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 245: minutes = min1 + min10 * 10;
 "245
 [e = _minutes -> + -> _min1 `i * -> _min10 `i -> 10 `i `uc ]
-[; ;RTCSPI.c: 247: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 247: LATDbits.LATD5 = 1;
 "247
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 248: return minutes;
 "248
 [e ) _minutes ]
@@ -7661,9 +7661,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _sec1 `uc ~T0 @X0 1 a ]
 [v _seconds `uc ~T0 @X0 1 a ]
 [; ;RTCSPI.c: 251: uint8_t sec10,sec1,seconds;
-[; ;RTCSPI.c: 253: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 253: LATDbits.LATD5 = 0;
 "253
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 255: SPIPut2(0x13);
 "255
 [e ( _SPIPut2 (1 -> -> 19 `i `uc ]
@@ -7682,9 +7682,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 262: seconds = sec1 + sec10 * 10;
 "262
 [e = _seconds -> + -> _sec1 `i * -> _sec10 `i -> 10 `i `uc ]
-[; ;RTCSPI.c: 264: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 264: LATDbits.LATD5 = 1;
 "264
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 265: return seconds;
 "265
 [e ) _seconds ]
@@ -7706,9 +7706,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _hour1 `uc ~T0 @X0 1 a ]
 [v _hour `uc ~T0 @X0 1 a ]
 [; ;RTCSPI.c: 270: uint8_t hour10,hour1,hour;
-[; ;RTCSPI.c: 272: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 272: LATDbits.LATD5 = 0;
 "272
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 274: SPIPut2(0x13);
 "274
 [e ( _SPIPut2 (1 -> -> 19 `i `uc ]
@@ -7727,9 +7727,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 281: hour = hour1 + hour10 * 10;
 "281
 [e = _hour -> + -> _hour1 `i * -> _hour10 `i -> 10 `i `uc ]
-[; ;RTCSPI.c: 283: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 283: LATDbits.LATD5 = 1;
 "283
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 284: return hour;
 "284
 [e ) _hour ]
@@ -7751,9 +7751,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _day1 `uc ~T0 @X0 1 a ]
 [v _day `uc ~T0 @X0 1 a ]
 [; ;RTCSPI.c: 289: uint8_t day10,day1,day;
-[; ;RTCSPI.c: 291: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 291: LATDbits.LATD5 = 0;
 "291
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 293: SPIPut2(0x13);
 "293
 [e ( _SPIPut2 (1 -> -> 19 `i `uc ]
@@ -7772,9 +7772,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 300: day = day1 + day10 * 10;
 "300
 [e = _day -> + -> _day1 `i * -> _day10 `i -> 10 `i `uc ]
-[; ;RTCSPI.c: 302: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 302: LATDbits.LATD5 = 1;
 "302
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 303: return day;
 "303
 [e ) _day ]
@@ -7796,9 +7796,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _month1 `uc ~T0 @X0 1 a ]
 [v _month `uc ~T0 @X0 1 a ]
 [; ;RTCSPI.c: 308: uint8_t month10,month1,month;
-[; ;RTCSPI.c: 310: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 310: LATDbits.LATD5 = 0;
 "310
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 312: SPIPut2(0x13);
 "312
 [e ( _SPIPut2 (1 -> -> 19 `i `uc ]
@@ -7817,9 +7817,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 319: month = month1 + month10 * 10;
 "319
 [e = _month -> + -> _month1 `i * -> _month10 `i -> 10 `i `uc ]
-[; ;RTCSPI.c: 321: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 321: LATDbits.LATD5 = 1;
 "321
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 322: return month;
 "322
 [e ) _month ]
@@ -7841,9 +7841,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _year1 `uc ~T0 @X0 1 a ]
 [v _year `uc ~T0 @X0 1 a ]
 [; ;RTCSPI.c: 327: uint8_t year10,year1,year;
-[; ;RTCSPI.c: 329: LATAbits.LATA2 = 0;
+[; ;RTCSPI.c: 329: LATDbits.LATD5 = 0;
 "329
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 [; ;RTCSPI.c: 331: SPIPut2(0x13);
 "331
 [e ( _SPIPut2 (1 -> -> 19 `i `uc ]
@@ -7862,9 +7862,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 338: year = year1 + year10 * 10;
 "338
 [e = _year -> + -> _year1 `i * -> _year10 `i -> 10 `i `uc ]
-[; ;RTCSPI.c: 340: LATAbits.LATA2 = 1;
+[; ;RTCSPI.c: 340: LATDbits.LATD5 = 1;
 "340
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 [; ;RTCSPI.c: 341: return year;
 "341
 [e ) _year ]
@@ -7884,33 +7884,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RTCSPI.c: 346: LCD_Erase();
 "346
 [e ( _LCD_Erase ..  ]
-[; ;RTCSPI.c: 347: sprintf((char *)&LCDText, (char*)"%u/%u/%u        %u:%u:%u",rtcReadDay(),rtcReadMonth(),rtcReadYear(),rtcReadHour(),rtcReadMinutes(),rtcReadSecond());
+[; ;RTCSPI.c: 347: sprintf((char *)&LCDText, (char*)"%u/%u/%u %u:%u:%u",rtcReadDay(),rtcReadMonth(),rtcReadYear(),rtcReadHour(),rtcReadMinutes(),rtcReadSecond());
 "347
 [e ( _sprintf (1 , , , , , , (. , &U _LCDText -> -> :s 1C `*uc `*Cuc -> ( _rtcReadDay ..  `i -> ( _rtcReadMonth ..  `i -> ( _rtcReadYear ..  `i -> ( _rtcReadHour ..  `i -> ( _rtcReadMinutes ..  `i -> ( _rtcReadSecond ..  `i ]
-[; ;RTCSPI.c: 348: LCD_Update();
-"348
-[e ( _LCD_Update ..  ]
-[; ;RTCSPI.c: 349: }
+[; ;RTCSPI.c: 349: LCD_Update();
 "349
+[e ( _LCD_Update ..  ]
+[; ;RTCSPI.c: 350: }
+"350
 [e :UE 873 ]
 }
-"351
-[v _rtcReadTime `(v ~T0 @X0 1 ef6`*uc`*uc`*uc`*uc`*uc`*uc ]
 "352
+[v _rtcReadTime `(v ~T0 @X0 1 ef6`*uc`*uc`*uc`*uc`*uc`*uc ]
+"353
 {
-[; ;RTCSPI.c: 351: void rtcReadTime(unsigned char* seconds, unsigned char* minutes, unsigned char* hour, unsigned char* date, unsigned char* month, unsigned char *year)
-[; ;RTCSPI.c: 352: {
+[; ;RTCSPI.c: 352: void rtcReadTime(unsigned char* seconds, unsigned char* minutes, unsigned char* hour, unsigned char* date, unsigned char* month, unsigned char *year)
+[; ;RTCSPI.c: 353: {
 [e :U _rtcReadTime ]
-"351
+"352
 [v _seconds `*uc ~T0 @X0 1 r1 ]
 [v _minutes `*uc ~T0 @X0 1 r2 ]
 [v _hour `*uc ~T0 @X0 1 r3 ]
 [v _date `*uc ~T0 @X0 1 r4 ]
 [v _month `*uc ~T0 @X0 1 r5 ]
 [v _year `*uc ~T0 @X0 1 r6 ]
-"352
-[f ]
 "353
+[f ]
+"354
 [v _sec10 `uc ~T0 @X0 1 a ]
 [v _min10 `uc ~T0 @X0 1 a ]
 [v _hour10 `uc ~T0 @X0 1 a ]
@@ -7923,117 +7923,117 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _date1 `uc ~T0 @X0 1 a ]
 [v _month1 `uc ~T0 @X0 1 a ]
 [v _year1 `uc ~T0 @X0 1 a ]
-[; ;RTCSPI.c: 353: unsigned char sec10, min10, hour10, date10, month10, year10, sec1, min1, hour1, date1, month1, year1;
-[; ;RTCSPI.c: 355: LATAbits.LATA2 = 0;
-"355
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-[; ;RTCSPI.c: 357: SPIPut2(0x13);
-"357
-[e ( _SPIPut2 (1 -> -> 19 `i `uc ]
-[; ;RTCSPI.c: 358: SPIPut2(0x01);
+[; ;RTCSPI.c: 354: unsigned char sec10, min10, hour10, date10, month10, year10, sec1, min1, hour1, date1, month1, year1;
+[; ;RTCSPI.c: 356: LATDbits.LATD5 = 0;
+"356
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+[; ;RTCSPI.c: 358: SPIPut2(0x13);
 "358
+[e ( _SPIPut2 (1 -> -> 19 `i `uc ]
+[; ;RTCSPI.c: 359: SPIPut2(0x01);
+"359
 [e ( _SPIPut2 (1 -> -> 1 `i `uc ]
-[; ;RTCSPI.c: 360: sec1 = SPIGet2() & 0x7F;
-"360
-[e = _sec1 -> & -> ( _SPIGet2 ..  `i -> 127 `i `uc ]
-[; ;RTCSPI.c: 361: min1 = SPIGet2() & 0x7F;
+[; ;RTCSPI.c: 361: sec1 = SPIGet2() & 0x7F;
 "361
-[e = _min1 -> & -> ( _SPIGet2 ..  `i -> 127 `i `uc ]
-[; ;RTCSPI.c: 362: hour1 = SPIGet2() & 0x3F;
+[e = _sec1 -> & -> ( _SPIGet2 ..  `i -> 127 `i `uc ]
+[; ;RTCSPI.c: 362: min1 = SPIGet2() & 0x7F;
 "362
-[e = _hour1 -> & -> ( _SPIGet2 ..  `i -> 63 `i `uc ]
-[; ;RTCSPI.c: 363: date1 = SPIGet2();
+[e = _min1 -> & -> ( _SPIGet2 ..  `i -> 127 `i `uc ]
+[; ;RTCSPI.c: 363: hour1 = SPIGet2() & 0x3F;
 "363
-[e = _date1 ( _SPIGet2 ..  ]
-[; ;RTCSPI.c: 364: date1 = SPIGet2() & 0x3F;
+[e = _hour1 -> & -> ( _SPIGet2 ..  `i -> 63 `i `uc ]
+[; ;RTCSPI.c: 364: date1 = SPIGet2();
 "364
-[e = _date1 -> & -> ( _SPIGet2 ..  `i -> 63 `i `uc ]
-[; ;RTCSPI.c: 365: month1 = SPIGet2() & 0x1F;
+[e = _date1 ( _SPIGet2 ..  ]
+[; ;RTCSPI.c: 365: date1 = SPIGet2() & 0x3F;
 "365
-[e = _month1 -> & -> ( _SPIGet2 ..  `i -> 31 `i `uc ]
-[; ;RTCSPI.c: 366: year1 = SPIGet2();
+[e = _date1 -> & -> ( _SPIGet2 ..  `i -> 63 `i `uc ]
+[; ;RTCSPI.c: 366: month1 = SPIGet2() & 0x1F;
 "366
+[e = _month1 -> & -> ( _SPIGet2 ..  `i -> 31 `i `uc ]
+[; ;RTCSPI.c: 367: year1 = SPIGet2();
+"367
 [e = _year1 ( _SPIGet2 ..  ]
-[; ;RTCSPI.c: 368: LATAbits.LATA2 = 1;
-"368
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-[; ;RTCSPI.c: 370: sec10 = (sec1 & 0x70) >> 4;
-"370
-[e = _sec10 -> >> & -> _sec1 `i -> 112 `i -> 4 `i `uc ]
-[; ;RTCSPI.c: 371: sec1 = sec1 & 0x0F;
+[; ;RTCSPI.c: 369: LATDbits.LATD5 = 1;
+"369
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
+[; ;RTCSPI.c: 371: sec10 = (sec1 & 0x70) >> 4;
 "371
-[e = _sec1 -> & -> _sec1 `i -> 15 `i `uc ]
-[; ;RTCSPI.c: 372: *seconds = sec1 + sec10 * 10;
+[e = _sec10 -> >> & -> _sec1 `i -> 112 `i -> 4 `i `uc ]
+[; ;RTCSPI.c: 372: sec1 = sec1 & 0x0F;
 "372
+[e = _sec1 -> & -> _sec1 `i -> 15 `i `uc ]
+[; ;RTCSPI.c: 373: *seconds = sec1 + sec10 * 10;
+"373
 [e = *U _seconds -> + -> _sec1 `i * -> _sec10 `i -> 10 `i `uc ]
-[; ;RTCSPI.c: 374: min10 = (min1 & 0x70) >> 4;
-"374
-[e = _min10 -> >> & -> _min1 `i -> 112 `i -> 4 `i `uc ]
-[; ;RTCSPI.c: 375: min1 = min1 & 0x0F;
+[; ;RTCSPI.c: 375: min10 = (min1 & 0x70) >> 4;
 "375
-[e = _min1 -> & -> _min1 `i -> 15 `i `uc ]
-[; ;RTCSPI.c: 376: *minutes = min1 + min10 * 10;
+[e = _min10 -> >> & -> _min1 `i -> 112 `i -> 4 `i `uc ]
+[; ;RTCSPI.c: 376: min1 = min1 & 0x0F;
 "376
+[e = _min1 -> & -> _min1 `i -> 15 `i `uc ]
+[; ;RTCSPI.c: 377: *minutes = min1 + min10 * 10;
+"377
 [e = *U _minutes -> + -> _min1 `i * -> _min10 `i -> 10 `i `uc ]
-[; ;RTCSPI.c: 378: hour10 = (hour1 & 0x30) >> 4;
-"378
-[e = _hour10 -> >> & -> _hour1 `i -> 48 `i -> 4 `i `uc ]
-[; ;RTCSPI.c: 379: hour1 = hour1 & 0x0F;
+[; ;RTCSPI.c: 379: hour10 = (hour1 & 0x30) >> 4;
 "379
-[e = _hour1 -> & -> _hour1 `i -> 15 `i `uc ]
-[; ;RTCSPI.c: 380: *hour = hour1 + hour10 * 10;
+[e = _hour10 -> >> & -> _hour1 `i -> 48 `i -> 4 `i `uc ]
+[; ;RTCSPI.c: 380: hour1 = hour1 & 0x0F;
 "380
+[e = _hour1 -> & -> _hour1 `i -> 15 `i `uc ]
+[; ;RTCSPI.c: 381: *hour = hour1 + hour10 * 10;
+"381
 [e = *U _hour -> + -> _hour1 `i * -> _hour10 `i -> 10 `i `uc ]
-[; ;RTCSPI.c: 382: date10 = (date1 & 0x30) >> 4;
-"382
-[e = _date10 -> >> & -> _date1 `i -> 48 `i -> 4 `i `uc ]
-[; ;RTCSPI.c: 383: date1 = date1 & 0x0F;
+[; ;RTCSPI.c: 383: date10 = (date1 & 0x30) >> 4;
 "383
-[e = _date1 -> & -> _date1 `i -> 15 `i `uc ]
-[; ;RTCSPI.c: 384: *date = date1 + date10 * 10;
+[e = _date10 -> >> & -> _date1 `i -> 48 `i -> 4 `i `uc ]
+[; ;RTCSPI.c: 384: date1 = date1 & 0x0F;
 "384
+[e = _date1 -> & -> _date1 `i -> 15 `i `uc ]
+[; ;RTCSPI.c: 385: *date = date1 + date10 * 10;
+"385
 [e = *U _date -> + -> _date1 `i * -> _date10 `i -> 10 `i `uc ]
-[; ;RTCSPI.c: 386: month10 = (month1 & 0x10) >> 4;
-"386
-[e = _month10 -> >> & -> _month1 `i -> 16 `i -> 4 `i `uc ]
-[; ;RTCSPI.c: 387: month1 = month1 & 0x0F;
+[; ;RTCSPI.c: 387: month10 = (month1 & 0x10) >> 4;
 "387
-[e = _month1 -> & -> _month1 `i -> 15 `i `uc ]
-[; ;RTCSPI.c: 388: *month = month1 + month10 * 10;
+[e = _month10 -> >> & -> _month1 `i -> 16 `i -> 4 `i `uc ]
+[; ;RTCSPI.c: 388: month1 = month1 & 0x0F;
 "388
+[e = _month1 -> & -> _month1 `i -> 15 `i `uc ]
+[; ;RTCSPI.c: 389: *month = month1 + month10 * 10;
+"389
 [e = *U _month -> + -> _month1 `i * -> _month10 `i -> 10 `i `uc ]
-[; ;RTCSPI.c: 390: year10 = (year1 & 0xF0) >> 4;
-"390
-[e = _year10 -> >> & -> _year1 `i -> 240 `i -> 4 `i `uc ]
-[; ;RTCSPI.c: 391: year1 = year1 & 0x0F;
+[; ;RTCSPI.c: 391: year10 = (year1 & 0xF0) >> 4;
 "391
-[e = _year1 -> & -> _year1 `i -> 15 `i `uc ]
-[; ;RTCSPI.c: 392: *year = year1 + year10 * 10;
+[e = _year10 -> >> & -> _year1 `i -> 240 `i -> 4 `i `uc ]
+[; ;RTCSPI.c: 392: year1 = year1 & 0x0F;
 "392
-[e = *U _year -> + -> _year1 `i * -> _year10 `i -> 10 `i `uc ]
-[; ;RTCSPI.c: 393: }
+[e = _year1 -> & -> _year1 `i -> 15 `i `uc ]
+[; ;RTCSPI.c: 393: *year = year1 + year10 * 10;
 "393
+[e = *U _year -> + -> _year1 `i * -> _year10 `i -> 10 `i `uc ]
+[; ;RTCSPI.c: 394: }
+"394
 [e :UE 874 ]
 }
-"395
+"396
 [v _uint2bcd `(ui ~T0 @X0 1 sf1`ui ]
-"396
-{
-[; ;RTCSPI.c: 395: static unsigned int uint2bcd(unsigned int nombre)
-[; ;RTCSPI.c: 396: {
-[e :U _uint2bcd ]
-"395
-[v _nombre `ui ~T0 @X0 1 r1 ]
-"396
-[f ]
-[; ;RTCSPI.c: 397: return ((nombre / 10) << 4) | (nombre % 10);
 "397
+{
+[; ;RTCSPI.c: 396: static unsigned int uint2bcd(unsigned int nombre)
+[; ;RTCSPI.c: 397: {
+[e :U _uint2bcd ]
+"396
+[v _nombre `ui ~T0 @X0 1 r1 ]
+"397
+[f ]
+[; ;RTCSPI.c: 398: return ((nombre / 10) << 4) | (nombre % 10);
+"398
 [e ) | << / _nombre -> -> 10 `i `ui -> 4 `i % _nombre -> -> 10 `i `ui ]
 [e $UE 875  ]
-[; ;RTCSPI.c: 398: }
-"398
+[; ;RTCSPI.c: 399: }
+"399
 [e :UE 875 ]
 }
 [p f _sprintf 16484269 ]
-[a 1C 37 117 47 37 117 47 37 117 32 32 32 32 32 32 32 32 37 117 58 37 117 58 37 117 0 ]
+[a 1C 37 117 47 37 117 47 37 117 32 37 117 58 37 117 58 37 117 0 ]
 

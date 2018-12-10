@@ -2,24 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/CapteurI2C.h</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/EEPROM.c</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/soft_i2c.h</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/door_unlock.c</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/CapteurI2C.c</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/pan.c</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/RTCSPI.c</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/student.c</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/system_config/miwikit_pic18f46j50_24j40/lcd.c</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/system_config/miwikit_pic18f46j50_24j40/serial_flash.c</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/framework/driver/mrf_miwi/src/drv_mrf_miwi_24j40.c</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/soft_uart.c</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/system_config/miwikit_pic18f46j50_24j40/system.h</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/soft_i2c.c</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/main.c</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/system_config/miwikit_pic18f46j50_24j40/system.c</file>
-            <file>file:/C:/Users/Benoit/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/miwi_demo_kit.X/nbproject/Makefile-impl.mk</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

@@ -13,8 +13,8 @@
 #include "system.h"
 #include "system_config.h"
 //define du chip select
-#define cSEeprom PORTAbits.RA3	
-#define CS_DIR TRISAbits.TRISA2
+#define cSEeprom PORTEbits.RE2	
+#define CS_DIR TRISEbits.TRISE2
 
 //structure de formatage des donnees des capteurs
 typedef union{	

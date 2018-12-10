@@ -8,19 +8,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71
 [u S768 `ul 1 `S769 1 `uc -> 4 `i `S770 1 ]
 [n S768 _MIWI_TICK Val byte v word ]
-"18840 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[v _TRISE1 `Vb ~T0 @X0 0 e@31921 ]
-"17620
-[v _LATE1 `Vb ~T0 @X0 0 e@31849 ]
+"7797 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[s S339 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S339 . TRISA0 TRISA1 TRISA2 TRISA3 . TRISA5 TRISA6 TRISA7 ]
+"7796
+[u S338 `S339 1 ]
+[n S338 . . ]
+"7808
+[v _TRISAbits `VS338 ~T0 @X0 0 e@3986 ]
+"5799
+[s S266 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S266 . RA0 RA1 RA2 RA3 . RA5 RA6 RA7 ]
+"5809
+[s S267 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S267 . AN0 AN1 AN2 AN3 . AN4 OSC2 OSC1 ]
+"5819
+[s S268 :5 `uc 1 :1 `uc 1 ]
+[n S268 . . NOT_SS1 ]
+"5823
+[s S269 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S269 . C1INA C2INA VREF_MINUS VREF_PLUS . nSS1 CLKO CLKI ]
+"5833
+[s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S270 . PMA6 PMA7 CVREF_MINUS C1INB . HLVDIN ]
+"5841
+[s S271 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S271 . RP0 RP1 C2INB . RCV ]
+"5848
+[s S272 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
+[n S272 . ULPWU . RP2 ]
+"5853
+[s S273 :1 `uc 1 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S273 . ULPWUIN . LVDIN . RJPU ]
+"5798
+[u S265 `S266 1 `S267 1 `S268 1 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 ]
+[n S265 . . . . . . . . . ]
+"5861
+[v _PORTAbits `VS265 ~T0 @X0 0 e@3968 ]
 [v F7008 `(v ~T0 @X0 1 tf1`ul ]
-"164 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
+"164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
 [v __delay `JF7008 ~T0 @X0 0 e ]
 [p i __delay ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f46j50.h: 50: extern volatile unsigned char RPOR0 @ 0xEC6;
-"52 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
 [; ;pic18f46j50.h: 52: asm("RPOR0 equ 0EC6h");
 [; <" RPOR0 equ 0EC6h ;# ">
 [; ;pic18f46j50.h: 57: extern volatile unsigned char RPOR1 @ 0xEC7;
@@ -6651,24 +6684,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;miwikit_pic18f46j50_24j40\system.h: 69: }API_UINT16_UNION;
 [; ;miwikit_pic18f46j50_24j40\system.h: 122: void SYSTEM_Initialize(void);
 [; ;soft_uart.h: 11: void puteChar(char charactere);
-"5 ../src/soft_uart.c
+"3 ../src/soft_uart.c
 [v _puteChar `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;soft_uart.c: 5: void puteChar(char charactere){
+[; ;soft_uart.c: 3: void puteChar(char charactere){
 [e :U _puteChar ]
 [v _charactere `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;soft_uart.c: 6: TRISE1 = 0;
-"6
-[e = _TRISE1 -> -> 0 `i `b ]
-[; ;soft_uart.c: 7: LATE1 = 0;
+[; ;soft_uart.c: 4: TRISAbits.TRISA2 = 0;
+"4
+[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
+[; ;soft_uart.c: 5: PORTAbits.RA2 = 0;
+"5
+[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
+[; ;soft_uart.c: 7: _delay((unsigned long)((97)*(16000000/4000000.0)));
 "7
-[e = _LATE1 -> -> 0 `i `b ]
-[; ;soft_uart.c: 9: _delay((unsigned long)((97)*(16000000/4000000.0)));
-"9
 [e ( __delay (1 -> * -> -> 97 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-[; ;soft_uart.c: 11: for(int i = 0; i < 8 ; i++){
-"11
+[; ;soft_uart.c: 9: for(int i = 0; i < 8 ; i++){
+"9
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -6676,27 +6709,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 775  ]
 [e :U 774 ]
 {
-[; ;soft_uart.c: 12: LATE1 = (charactere >> i) & 0x01;
-"12
-[e = _LATE1 -> & >> -> _charactere `i _i -> 1 `i `b ]
-[; ;soft_uart.c: 13: _delay((unsigned long)((97)*(16000000/4000000.0)));
-"13
-[e ( __delay (1 -> * -> -> 97 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-"14
-}
+[; ;soft_uart.c: 10: PORTAbits.RA2 = (charactere >> i) & 0x01;
+"10
+[e = . . _PORTAbits 0 2 -> & >> -> _charactere `i _i -> 1 `i `uc ]
+[; ;soft_uart.c: 11: _delay((unsigned long)((97)*(16000000/4000000.0)));
 "11
+[e ( __delay (1 -> * -> -> 97 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+"12
+}
+"9
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 8 `i 774  ]
 [e :U 775 ]
-"14
+"12
 }
-[; ;soft_uart.c: 14: }
-[; ;soft_uart.c: 16: LATE1 = 1;
-"16
-[e = _LATE1 -> -> 1 `i `b ]
-[; ;soft_uart.c: 17: _delay((unsigned long)((97)*(16000000/4000000.0)));
-"17
+[; ;soft_uart.c: 12: }
+[; ;soft_uart.c: 14: PORTAbits.RA2 = 1;
+"14
+[e = . . _PORTAbits 0 2 -> -> 1 `i `uc ]
+[; ;soft_uart.c: 15: _delay((unsigned long)((97)*(16000000/4000000.0)));
+"15
 [e ( __delay (1 -> * -> -> 97 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[; ;soft_uart.c: 17: _delay((unsigned long)((1)*(16000000/4000.0)));
+"17
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
 [; ;soft_uart.c: 18: }
 "18
 [e :UE 773 ]

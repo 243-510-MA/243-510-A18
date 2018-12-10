@@ -15,6 +15,10 @@ uint32_t startPoint=0;
 void Pan(void){
     CS_DIR=0;
     TRISCbits.TRISC2 = 0;
+    
+    TRISBbits.TRISB1 = 1;
+    TRISBbits.TRISB2 = 1;
+    TRISBbits.TRISB3 = 1;
 	
 	dataCapteur tempData;
 	uint16_t compteurBoucle=0;
@@ -24,25 +28,18 @@ void Pan(void){
 	int time[5];
 	int lastTime[5];
 	uint8_t flagResume=0;
-    
+    __delay_ms(5000);
     LCD_BKLT = 1;
-   // rtcStart();
+    rtcStart();
 	//rtcClear();
 	startPoint=EEPROMinit();
-    sprintf((char *)&LCDText[16], (char*)"HEllo");
-    LCD_Update();
+    //rtcSetTime(0,16,11,10,12,18); 
+    __delay_ms(5000);
     
-    //rtcSetTime(39,40,2,21,5,18);
-    
-    rtcSetTime(0,37,11,26,11,18); 
-    
-    rtcStart();
-    //rtcClear();
-    delay_us(1);
-    while(1){ 
+    /*while(1){ 
         rtcPrintTime();
         __delay_ms(200);   
-    }
+    }*/
 	
     while(true){
 		//Réglage de la date et l'heure
@@ -144,7 +141,8 @@ void Pan(void){
 			
 			//print time on lcd
 			sprintf((char *)&LCDText[0], (char*)"M%cJ %d%c%d %d:%d ",'/',time[3],'/',time[2],time[1],time[0]);
-			LCD_Update();						
+			LCD_Update();
+            //printf("M%cJ %d%c%d %d:%d ",'/',time[3],'/',time[2],time[1],time[0]);
 			
 			if (time[0]!=lastTime[0]){//determine si la minute a change
 				for (int i=0; i<5; i++){

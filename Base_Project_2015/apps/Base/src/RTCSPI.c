@@ -38,14 +38,14 @@
 
 
 //// RTC click module connections
-#define Chip_Select LATAbits.LATA2
-#define Chip_Select_Direction TRISAbits.TRISA2
+#define Chip_Select LATDbits.LATD5
+#define Chip_Select_Direction TRISDbits.TRISD5
 //// RTC click module connections
 
 //clear RTCC and SRAM memory
 void rtcClear(void)
 {
-    TRISAbits.TRISA2 = 0;
+    Chip_Select_Direction = 0;
     for(int i=0;i<0x20;i++)
     {
         Chip_Select = 0;
@@ -63,7 +63,7 @@ void rtcClear(void)
 // Set RTC time
 void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, uint8_t months, uint8_t years) 
 {
-    TRISAbits.TRISA2 = 0;    
+    Chip_Select_Direction = 0;    
     // Write seconds into RTC
     Chip_Select = 0;
     SPIPut2(WRITE);
@@ -120,7 +120,7 @@ void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, ui
     delay_us(1);
     
     char cnt = 0;
-	while(cnt < 100)
+	while(cnt < 500)
 	{
 		Chip_Select = 0;
 		SPIPut2(READ);
@@ -144,7 +144,7 @@ void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, ui
 
 void rtcStart(void)
 {
-    TRISAbits.TRISA2 = 0;
+    Chip_Select_Direction = 0;
     
     uint8_t sec = rtcReadSecond();
     uint8_t min = rtcReadMinutes();
@@ -206,7 +206,7 @@ void rtcStart(void)
 	Chip_Select = 1;
 
     char cnt = 0;
-	while(cnt < 100)
+	while(cnt < 500)
 	{
 		Chip_Select = 0;
 		SPIPut2(READ);
@@ -344,7 +344,8 @@ uint8_t rtcReadYear(void)
 void rtcPrintTime(void)
 {   
     LCD_Erase();
-    sprintf((char *)&LCDText, (char*)"%u/%u/%u        %u:%u:%u",rtcReadDay(),rtcReadMonth(),rtcReadYear(),rtcReadHour(),rtcReadMinutes(),rtcReadSecond());
+    sprintf((char *)&LCDText, (char*)"%u/%u/%u %u:%u:%u",rtcReadDay(),rtcReadMonth(),rtcReadYear(),rtcReadHour(),rtcReadMinutes(),rtcReadSecond());
+    //printf("%u/%u/%u        %u:%u:%u    \n\r",rtcReadDay(),rtcReadMonth(),rtcReadYear(),rtcReadHour(),rtcReadMinutes(),rtcReadSecond());
     LCD_Update();
 }
 

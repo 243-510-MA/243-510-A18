@@ -3,8 +3,8 @@
 
 #include <system.h>
 
-#define TRIS_TX TRISE1
-#define LAT_TX LATE1
+#define TRIS_TX TRISAbits.TRISA2
+#define LAT_TX PORTAbits.RA2
 
 #define DELAIDEFOU 97
 

@@ -1,7 +1,5 @@
 #include "soft_uart.h"
 
-
-
 void puteChar(char charactere){
     TRIS_TX = 0;
     LAT_TX = 0;
@@ -15,6 +13,8 @@ void puteChar(char charactere){
     
     LAT_TX = 1;
     __delay_us(DELAIDEFOU);
+    
+    __delay_ms(1);
 }
 
 void putch(char txData)

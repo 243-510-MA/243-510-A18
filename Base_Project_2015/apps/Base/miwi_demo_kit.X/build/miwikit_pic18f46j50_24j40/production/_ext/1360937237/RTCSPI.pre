@@ -1,7 +1,7 @@
 
 # 1 "../src/RTCSPI.c"
 
-# 13 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -98,17 +98,17 @@ uint8_t SPIGet(void);
 void SPIPut2(uint8_t v);
 uint8_t SPIGet2(void);
 
-# 26 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 50 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h"
+# 50 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h"
 extern volatile unsigned char RPOR0 @ 0xEC6;
 
 asm("RPOR0 equ 0EC6h");
@@ -8796,7 +8796,7 @@ extern volatile __bit nWRITE1 @ (((unsigned) &SSP1STAT)*8) + 2;
 
 extern volatile __bit nWRITE2 @ (((unsigned) &SSP2STAT)*8) + 2;
 
-# 18 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h"
+# 18 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h"
 __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
 __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 
@@ -8823,10 +8823,10 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 4 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
 typedef unsigned size_t;
 
-# 7 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -8835,17 +8835,17 @@ extern void * __va_start(void);
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 43 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
 struct __prbuf
 {
 char * ptr;
 void (* func)(char);
 };
 
-# 29 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\errno.h"
+# 29 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\errno.h"
 extern int errno;
 
-# 12 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\conio.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\conio.h"
 extern void init_uart(void);
 
 extern char getch(void);
@@ -8859,7 +8859,7 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 88 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -8886,7 +8886,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 12 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
 # 43 "../src/system_config/miwikit_pic18f46j50_24j40\lcd.h"
@@ -9415,84 +9415,84 @@ static unsigned int uint2bcd(unsigned int nombre);
 # 46 "../src/RTCSPI.c"
 void rtcClear(void)
 {
-TRISAbits.TRISA2 = 0;
+TRISDbits.TRISD5 = 0;
 for(int i=0;i<0x20;i++)
 {
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(i);
 SPIPut2(0x00);
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 }
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x54);
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 }
 
 void rtcSetTime(uint8_t seconds, uint8_t minutes, uint8_t hours,uint8_t days, uint8_t months, uint8_t years)
 {
-TRISAbits.TRISA2 = 0;
+TRISDbits.TRISD5 = 0;
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x01);
 SPIPut2(uint2bcd(seconds));
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x02);
 SPIPut2(uint2bcd(minutes));
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x03);
 SPIPut2(uint2bcd(hours));
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x05);
 SPIPut2(uint2bcd(days));
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x06);
 SPIPut2(uint2bcd(months));
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x07);
 SPIPut2(uint2bcd(years));
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x01);
 SPIPut2(0x80);
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 
 char cnt = 0;
-while(cnt < 100)
+while(cnt < 500)
 {
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x13);
 SPIPut2(0x04);
 if((SPIGet2() & 0b00100000) != 0)
@@ -9501,20 +9501,20 @@ break;
 }
 cnt++;
 }
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x04);
 SPIPut2(0x08);
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 
 }
 
 void rtcStart(void)
 {
-TRISAbits.TRISA2 = 0;
+TRISDbits.TRISD5 = 0;
 
 uint8_t sec = rtcReadSecond();
 uint8_t min = rtcReadMinutes();
@@ -9523,62 +9523,62 @@ uint8_t date = rtcReadDay();
 uint8_t month = rtcReadMonth();
 uint8_t year = rtcReadYear();
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x01);
 SPIPut2(0x00);
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x02);
 SPIPut2(uint2bcd(min));
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x03);
 SPIPut2(uint2bcd(hour));
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x05);
 SPIPut2(uint2bcd(date));
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x06);
 SPIPut2(uint2bcd(month));
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x07);
 SPIPut2(uint2bcd(year));
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x01);
 SPIPut2(0x80|sec);
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 
 char cnt = 0;
-while(cnt < 100)
+while(cnt < 500)
 {
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x13);
 SPIPut2(0x04);
 if((SPIGet2() & 0b00100000) != 0)
@@ -9587,14 +9587,14 @@ break;
 }
 cnt++;
 }
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 { unsigned long _dcnt; _dcnt=1*((unsigned long)(0.00001/(((16000000)/4))/6)); while(_dcnt--); };
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 SPIPut2(0x12);
 SPIPut2(0x04);
 SPIPut2(0x08);
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 }
 
 
@@ -9603,7 +9603,7 @@ uint8_t rtcReadMinutes(void)
 {
 uint8_t min10,min1,minutes;
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 
 SPIPut2(0x13);
 SPIPut2(0x02);
@@ -9614,13 +9614,13 @@ min10 = (min1 & 0x70) >> 4;
 min1 = min1 & 0x0F;
 minutes = min1 + min10 * 10;
 
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 return minutes;
 }
 uint8_t rtcReadSecond(void){
 uint8_t sec10,sec1,seconds;
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 
 SPIPut2(0x13);
 SPIPut2(0x01);
@@ -9631,7 +9631,7 @@ sec10 = (sec1 & 0x70) >> 4;
 sec1 = sec1 & 0x0F;
 seconds = sec1 + sec10 * 10;
 
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 return seconds;
 }
 
@@ -9639,7 +9639,7 @@ uint8_t rtcReadHour(void)
 {
 uint8_t hour10,hour1,hour;
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 
 SPIPut2(0x13);
 SPIPut2(0x03);
@@ -9650,7 +9650,7 @@ hour10 = (hour1 & 0x30) >> 4;
 hour1 = hour1 & 0x0F;
 hour = hour1 + hour10 * 10;
 
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 return hour;
 }
 
@@ -9658,7 +9658,7 @@ uint8_t rtcReadDay(void)
 {
 uint8_t day10,day1,day;
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 
 SPIPut2(0x13);
 SPIPut2(0x05);
@@ -9669,7 +9669,7 @@ day10 = (day1 & 0x30) >> 4;
 day1 = day1 & 0x0F;
 day = day1 + day10 * 10;
 
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 return day;
 }
 
@@ -9677,7 +9677,7 @@ uint8_t rtcReadMonth(void)
 {
 uint8_t month10,month1,month;
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 
 SPIPut2(0x13);
 SPIPut2(0x06);
@@ -9688,7 +9688,7 @@ month10 = (month1 & 0x10) >> 4;
 month1 = month1 & 0x0F;
 month = month1 + month10 * 10;
 
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 return month;
 }
 
@@ -9696,7 +9696,7 @@ uint8_t rtcReadYear(void)
 {
 uint8_t year10,year1,year;
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 
 SPIPut2(0x13);
 SPIPut2(0x07);
@@ -9707,14 +9707,15 @@ year10 = (year1 & 0xF0) >> 4;
 year1 = year1 & 0x0F;
 year = year1 + year10 * 10;
 
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 return year;
 }
 
 void rtcPrintTime(void)
 {
 LCD_Erase();
-sprintf((char *)&LCDText, (char*)"%u/%u/%u        %u:%u:%u",rtcReadDay(),rtcReadMonth(),rtcReadYear(),rtcReadHour(),rtcReadMinutes(),rtcReadSecond());
+sprintf((char *)&LCDText, (char*)"%u/%u/%u %u:%u:%u",rtcReadDay(),rtcReadMonth(),rtcReadYear(),rtcReadHour(),rtcReadMinutes(),rtcReadSecond());
+
 LCD_Update();
 }
 
@@ -9722,7 +9723,7 @@ void rtcReadTime(unsigned char* seconds, unsigned char* minutes, unsigned char* 
 {
 unsigned char sec10, min10, hour10, date10, month10, year10, sec1, min1, hour1, date1, month1, year1;
 
-LATAbits.LATA2 = 0;
+LATDbits.LATD5 = 0;
 
 SPIPut2(0x13);
 SPIPut2(0x01);
@@ -9735,7 +9736,7 @@ date1 = SPIGet2() & 0x3F;
 month1 = SPIGet2() & 0x1F;
 year1 = SPIGet2();
 
-LATAbits.LATA2 = 1;
+LATDbits.LATD5 = 1;
 
 sec10 = (sec1 & 0x70) >> 4;
 sec1 = sec1 & 0x0F;

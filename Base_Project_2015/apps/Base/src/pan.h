@@ -38,9 +38,9 @@
 //#define CARTE5_ADDRESS 0x05
 //#define CARTE6_ADDRESS 0x06
 
-#define BoutonSetTime PORTBbits.RB2
-#define BoutonDumpData_plusOk PORTBbits.RB1
-#define BoutonMoinsNo 1
+#define BoutonSetTime PORTBbits.RB1
+#define BoutonDumpData_plusOk PORTBbits.RB2
+#define BoutonMoinsNo PORTBbits.RB3
    
 void getTime (void);
 

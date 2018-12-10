@@ -18,35 +18,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _readTemperatureRaw `(f ~T0 @X0 0 ef1`**i ]
 "26 ../src/soft_i2c.h
 [v _i2cHighScl `(v ~T0 @X0 0 ef ]
-"5799 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[s S266 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S266 . RA0 RA1 RA2 RA3 . RA5 RA6 RA7 ]
-"5809
-[s S267 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S267 . AN0 AN1 AN2 AN3 . AN4 OSC2 OSC1 ]
-"5819
-[s S268 :5 `uc 1 :1 `uc 1 ]
-[n S268 . . NOT_SS1 ]
-"5823
-[s S269 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S269 . C1INA C2INA VREF_MINUS VREF_PLUS . nSS1 CLKO CLKI ]
-"5833
-[s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S270 . PMA6 PMA7 CVREF_MINUS C1INB . HLVDIN ]
-"5841
-[s S271 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S271 . RP0 RP1 C2INB . RCV ]
-"5848
-[s S272 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
-[n S272 . ULPWU . RP2 ]
-"5853
-[s S273 :1 `uc 1 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S273 . ULPWUIN . LVDIN . RJPU ]
-"5798
-[u S265 `S266 1 `S267 1 `S268 1 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 ]
-[n S265 . . . . . . . . . ]
-"5861
-[v _PORTAbits `VS265 ~T0 @X0 0 e@3968 ]
+"6052 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[s S275 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S275 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"6062
+[s S276 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S276 . AN12 AN10 AN8 AN9 PMA1 PMA0 KBI2 KBI3 ]
+"6072
+[s S277 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S277 . INT0 PMPBE CTEDG1 CTEDG2 KBI0 KBI1 PGC PGD ]
+"6082
+[s S278 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S278 . RP3 RTCC PMA3 PMA2 SCK1 SDI1 RP9 RP10 ]
+"6092
+[s S279 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S279 . . RP4 VMO VPO SCL1 SDA1 ]
+"6100
+[s S280 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S280 . . REFO RP6 RP7 RP8 ]
+"6107
+[s S281 :2 `uc 1 :1 `uc 1 ]
+[n S281 . . RP5 ]
+"6111
+[s S282 :3 `uc 1 :1 `uc 1 ]
+[n S282 . . CCP2_PA2 ]
+"6051
+[u S274 `S275 1 `S276 1 `S277 1 `S278 1 `S279 1 `S280 1 `S281 1 `S282 1 ]
+[n S274 . . . . . . . . . ]
+"6116
+[v _PORTBbits `VS274 ~T0 @X0 0 e@3969 ]
 "27 ../src/soft_i2c.h
 [v _i2cLowScl `(v ~T0 @X0 0 ef ]
 "24
@@ -56,7 +56,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "19
 [v _i2cWriteByte `(v ~T0 @X0 0 ef1`uc ]
 [v F7025 `(v ~T0 @X0 1 tf1`ul ]
-"164 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
+"164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
 [v __delay `JF7025 ~T0 @X0 0 e ]
 [p i __delay ]
 "21 ../src/soft_i2c.h
@@ -77,7 +77,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f46j50.h: 50: extern volatile unsigned char RPOR0 @ 0xEC6;
-"52 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
 [; ;pic18f46j50.h: 52: asm("RPOR0 equ 0EC6h");
 [; <" RPOR0 equ 0EC6h ;# ">
 [; ;pic18f46j50.h: 57: extern volatile unsigned char RPOR1 @ 0xEC7;
@@ -7366,9 +7366,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;CapteurI2C.c: 214: i2cHighScl();
 "214
 [e ( _i2cHighScl ..  ]
-[; ;CapteurI2C.c: 216: ret = ret*2 + PORTAbits.RA2;
+[; ;CapteurI2C.c: 216: ret = ret*2 + PORTBbits.RB1;
 "216
-[e = _ret + * _ret -> 2 `i -> . . _PORTAbits 0 2 `i ]
+[e = _ret + * _ret -> 2 `i -> . . _PORTBbits 0 1 `i ]
 [; ;CapteurI2C.c: 217: i2cLowScl();
 "217
 [e ( _i2cLowScl ..  ]
@@ -7418,9 +7418,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;CapteurI2C.c: 230: i2cHighScl();
 "230
 [e ( _i2cHighScl ..  ]
-[; ;CapteurI2C.c: 232: ret = ret/2 + (PORTAbits.RA2*128);
+[; ;CapteurI2C.c: 232: ret = ret/2 + (PORTBbits.RB1*128);
 "232
-[e = _ret + / _ret -> 2 `i * -> . . _PORTAbits 0 2 `i -> 128 `i ]
+[e = _ret + / _ret -> 2 `i * -> . . _PORTBbits 0 1 `i -> 128 `i ]
 [; ;CapteurI2C.c: 233: i2cLowScl();
 "233
 [e ( _i2cLowScl ..  ]
@@ -7485,9 +7485,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;CapteurI2C.c: 259: i2cHighSda();
 "259
 [e ( _i2cHighSda ..  ]
-[; ;CapteurI2C.c: 260: ack = PORTAbits.RA2;
+[; ;CapteurI2C.c: 260: ack = PORTBbits.RB1;
 "260
-[e = _ack -> . . _PORTAbits 0 2 `i ]
+[e = _ack -> . . _PORTBbits 0 1 `i ]
 [; ;CapteurI2C.c: 261: if (ack != 0) {
 "261
 [e $ ! != _ack -> 0 `i 790  ]
@@ -7499,9 +7499,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;CapteurI2C.c: 264: i2cLowScl();
 "264
 [e ( _i2cLowScl ..  ]
-[; ;CapteurI2C.c: 265: ack = PORTAbits.RA2;
+[; ;CapteurI2C.c: 265: ack = PORTBbits.RB1;
 "265
-[e = _ack -> . . _PORTAbits 0 2 `i ]
+[e = _ack -> . . _PORTBbits 0 1 `i ]
 [; ;CapteurI2C.c: 266: if (ack != 1) {
 "266
 [e $ ! != _ack -> 1 `i 791  ]
@@ -7542,9 +7542,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;CapteurI2C.c: 281: _delay((unsigned long)((100)*(16000000/4000000.0)));
 "281
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-[; ;CapteurI2C.c: 282: ack = PORTAbits.RA2;
+[; ;CapteurI2C.c: 282: ack = PORTBbits.RB1;
 "282
-[e = _ack -> . . _PORTAbits 0 2 `i ]
+[e = _ack -> . . _PORTBbits 0 1 `i ]
 [; ;CapteurI2C.c: 284: if (ack == 0) {
 "284
 [e $ ! == _ack -> 0 `i 796  ]
