@@ -1,0 +1,12 @@
+﻿chose a ajuster:
+trou ecran LCD
+footprint FTDI --> FT232RL
+Footprint USB
+refdes de la flash
+changer refdes du regulateur
+faire correction au connection du regulateur
+la diode du regulateur a été bouger pour rapprocher C12 du regulateur
+correction pour palier le short du miwi
+correction au footprint du LCD
+
+faire un read me des changement par rapport au board imprimer
