@@ -8974,20 +8974,20 @@ void puteChar(char charactere);
 
 # 3 "../src/soft_uart.c"
 void puteChar(char charactere){
-TRISAbits.TRISA2 = 0;
-PORTAbits.RA2 = 0;
+TRISAbits.TRISA0 = 0;
+PORTAbits.RA0 = 0;
 
-_delay((unsigned long)((97)*(16000000/4000000.0)));
+_delay((unsigned long)((93)*(16000000/4000000.0)));
 
 for(int i = 0; i < 8 ; i++){
-PORTAbits.RA2 = (charactere >> i) & 0x01;
-_delay((unsigned long)((97)*(16000000/4000000.0)));
+PORTAbits.RA0 = (charactere >> i) & 0x01;
+_delay((unsigned long)((93)*(16000000/4000000.0)));
 }
 
-PORTAbits.RA2 = 1;
-_delay((unsigned long)((97)*(16000000/4000000.0)));
+PORTAbits.RA0 = 1;
+_delay((unsigned long)((93)*(16000000/4000000.0)));
 
-_delay((unsigned long)((1)*(16000000/4000.0)));
+_delay((unsigned long)((3)*(16000000/4000.0)));
 }
 
 void putch(char txData)

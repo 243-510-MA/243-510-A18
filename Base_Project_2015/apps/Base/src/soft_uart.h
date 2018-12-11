@@ -3,10 +3,10 @@
 
 #include <system.h>
 
-#define TRIS_TX TRISAbits.TRISA2
-#define LAT_TX PORTAbits.RA2
+#define TRIS_TX TRISAbits.TRISA0
+#define LAT_TX PORTAbits.RA0
 
-#define DELAIDEFOU 97
+#define DELAIDEFOU 93
 
 void puteChar(char charactere);
 

@@ -96,10 +96,10 @@
         <itemPath>../src/system_config/miwikit_pic18f46j50_24j40/system.c</itemPath>
         <itemPath>../src/EEPROM.c</itemPath>
         <itemPath>../src/RTCSPI.c</itemPath>
+        <itemPath>../src/soft_uart.c</itemPath>
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/network.c</itemPath>
-      <itemPath>../src/soft_uart.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

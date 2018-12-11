@@ -22,7 +22,7 @@
 
 //*************************************************************************
 
-#define DEVICEMODE FERMIER // Choisir ici
+#define DEVICEMODE PAN // Choisir ici
 
 //*************************************************************************
 
@@ -35,7 +35,8 @@ void main(void)
     
     Network(DEVICEMODE);
     
-    
+    LCD_Erase();
+
     if(DEVICEMODE == PAN)
     {
         Pan(); 

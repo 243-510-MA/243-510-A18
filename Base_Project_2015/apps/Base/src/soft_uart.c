@@ -14,7 +14,7 @@ void puteChar(char charactere){
     LAT_TX = 1;
     __delay_us(DELAIDEFOU);
     
-    __delay_ms(1);
+    __delay_ms(3);
 }
 
 void putch(char txData)

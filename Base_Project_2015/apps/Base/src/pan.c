@@ -1,6 +1,7 @@
 //PAN
 
 #include "pan.h"
+#include "soft_uart.h"
 #include "system.h"
 #include "codes library.h"
 #include "system_config.h"
@@ -14,7 +15,7 @@ uint32_t startPoint=0;
 
 void Pan(void){
     CS_DIR=0;
-    TRISCbits.TRISC2 = 0;
+   // TRISCbits.TRISC2 = 0;
     
     TRISBbits.TRISB1 = 1;
     TRISBbits.TRISB2 = 1;
@@ -28,13 +29,18 @@ void Pan(void){
 	int time[5];
 	int lastTime[5];
 	uint8_t flagResume=0;
-    __delay_ms(5000);
+    
+    //printf("On start le système attend un ti peu mon chouuuu\n\r");
+    
+    __delay_ms(1000);
     rtcStart();
 	//rtcClear();
-	startPoint=EEPROMinit();
-    //rtcSetTime(0,16,11,10,12,18); 
-    __delay_ms(5000);
     
+    //rtcSetTime(0,16,11,10,12,18); 
+    __delay_ms(1000);
+    
+    
+    eraseData();
     /*while(1){ 
         rtcPrintTime();
         __delay_ms(200);   
@@ -43,7 +49,7 @@ void Pan(void){
     while(true){
 		//RÃ©glage de la date et l'heure
 		if(BoutonSetTime==0){
-            PORTCbits.RC2=0;
+            //PORTCbits.RC2=0;
 			compteurSetTime++;
 			if(compteurSetTime==2000){
 				setTimeMenu();
@@ -53,7 +59,7 @@ void Pan(void){
 		else{
             compteurSetTime=0;
             
-            PORTCbits.RC2=1;
+            //PORTCbits.RC2=1;
         }
 		
 		//EEPROM Dumping over UART
@@ -66,7 +72,7 @@ void Pan(void){
 				sprintf((char *)&LCDText[16], (char*)"IN Progress");
 				LCD_Update();
 				dumpData();
-				__delay_ms(50);
+				__delay_ms(1000);
 				LCD_Erase();
 				sprintf((char *)&LCDText[0], (char*)"Bt2 = mem clear");
 				LCD_Update();
@@ -90,6 +96,7 @@ void Pan(void){
 						startPoint=EEPROMinit();
 					}
 				}
+                LCD_Erase();
 			}
 		}
 		else compteurDumpData=0;
@@ -139,7 +146,7 @@ void Pan(void){
 			time[4]=rtcReadYear();
 			
 			//print time on lcd
-			sprintf((char *)&LCDText[0], (char*)"M%cJ %d%c%d %d:%d ",'/',time[3],'/',time[2],time[1],time[0]);
+			sprintf((char *)&LCDText[0], (char*)"M%cJ %2d%c%2d %2d:%2d ",'/',time[3],'/',time[2],time[1],time[0]);
 			LCD_Update();
             //printf("M%cJ %d%c%d %d:%d ",'/',time[3],'/',time[2],time[1],time[0]);
 			
