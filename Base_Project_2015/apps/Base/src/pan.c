@@ -15,7 +15,6 @@ uint32_t startPoint=0;
 
 void Pan(void){
     CS_DIR=0;
-   // TRISCbits.TRISC2 = 0;
     
     TRISBbits.TRISB1 = 1;
     TRISBbits.TRISB2 = 1;
@@ -29,27 +28,16 @@ void Pan(void){
 	int time[5];
 	int lastTime[5];
 	uint8_t flagResume=0;
-    
-    //printf("On start le syst�me attend un ti peu mon chouuuu\n\r");
-    
+       
     __delay_ms(1000);
     rtcStart();
-	//rtcClear();
-    
-    //rtcSetTime(0,16,11,10,12,18); 
     __delay_ms(1000);
-    
-    
-    eraseData();
-    /*while(1){ 
-        rtcPrintTime();
-        __delay_ms(200);   
-    }*/
+   
+    startPoint=EEPROMinit();
 	
     while(true){
-		//Réglage de la date et l'heure
+		//Reglage de la date et l'heure
 		if(BoutonSetTime==0){
-            //PORTCbits.RC2=0;
 			compteurSetTime++;
 			if(compteurSetTime==2000){
 				setTimeMenu();
@@ -58,8 +46,6 @@ void Pan(void){
         
 		else{
             compteurSetTime=0;
-            
-            //PORTCbits.RC2=1;
         }
 		
 		//EEPROM Dumping over UART
@@ -137,7 +123,7 @@ void Pan(void){
 			MiApp_WriteData(0xAD);
 			MiApp_BroadcastPacket(false);
 						
-			lastTime[0]=time[0];//conserve la derniere valeur des minutes
+			lastTime[1]=time[1];//conserve la derniere valeur des Heures
 			
 			time[0]=rtcReadMinutes();
 			time[1]=rtcReadHour();
@@ -147,23 +133,21 @@ void Pan(void){
 			
 			//print time on lcd
 			sprintf((char *)&LCDText[0], (char*)"M%cJ %2d%c%2d %2d:%2d ",'/',time[3],'/',time[2],time[1],time[0]);
+            
 			LCD_Update();
-            //printf("M%cJ %d%c%d %d:%d ",'/',time[3],'/',time[2],time[1],time[0]);
-			
-			if (time[0]!=lastTime[0]){//determine si la minute a change
+            			
+			if (time[1]!=lastTime[1]){//determine si l'heure a change
 				for (int i=0; i<5; i++){
 					tempData.array[i]=time[i];
 				}
-				/*tempData.frame.minute=time[0];
-				tempData.frame.heure=time[1];
-				tempData.frame.jour=time[2];
-				tempData.frame.mois=time[3];
-				tempData.frame.annee=time[4];*/
-				//enregistre les donnees
-				eepromWriteDataToSave(startPoint+saveCounter*14,tempData);  				
-				eepromWriteLastAddress(startPoint+saveCounter*14);
-				saveCounter++;
-				
+				eepromWriteDataToSave(startPoint+saveCounter*14,tempData);  
+                saveCounter++;				
+				eepromWriteLastAddress(startPoint+saveCounter*14);               
+				//************************************************************//
+                //METTRE UN PRINT "tempData" VERS LE UART OU LE SPI2          //
+                //(protocole choisi) POUR L'ENVOIE DES DONNES AU MODULE       //
+                //RESPONSABLE DE LA COMMUNICATION PAR WIFI                    //
+                //************************************************************//
 				if(saveCounter==17){
 					startPoint=startPoint+saveCounter*14+18;
 					saveCounter=0;
@@ -173,7 +157,7 @@ void Pan(void){
     }
 }
 
-//Lecture de la position ou recommencer l'écritre dans la eeprom
+//Lecture de la position ou recommencer l'ecritre dans la eeprom
 uint32_t EEPROMinit (void){
 	uint32_t lastAddress=0;
 	float tempAddress=0;
@@ -190,9 +174,10 @@ uint32_t EEPROMinit (void){
 	
 	tempAddress=lastAddress/256.0;
 	pageNumber=(int)floor(tempAddress);
+    
 	pageFirstAddress=pageNumber*256;
-	saveCounter=(lastAddress-pageFirstAddress)/14;
-	return pageFirstAddress;
+    saveCounter=(lastAddress-pageFirstAddress)/14;
+    return pageFirstAddress;
 }
 
 void dumpData (void){
@@ -202,16 +187,16 @@ void dumpData (void){
 	dataCapteur readData;
 	lastAddress=eepromReadLastAddress();
 	
-	printf("minute, heure, jour, mois, annee, humidite1, humidite2, humidite3, temperature1, temperature2, temperature3, temperature4, temperature5, temperature6\n\r");
+	printf("Annee; Mois; Jour; Heure; Minute; humiditeCarte1; temperatureAirCarte1; temperatureSolCarte1; humiditeCarte2; temperatureAirCarte2; temperatureSolCarte2; humiditeCarte3; temperatureAirCarte3; temperatureSolCarte3\n\r");
 	
 	while((start+readCounter*14)<lastAddress){
 		
 		readData=eepromReadDataCapteur((start+readCounter*14));  
         __delay_ms(1);
-        printf("%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d\n\r",readData.array[0],readData.array[1],readData.array[2],readData.array[3],
-                                                                            readData.array[4],readData.array[5],readData.array[6],readData.array[7],
-                                                                            readData.array[8],readData.array[9],readData.array[10],readData.array[11],
-                                                                            readData.array[12],readData.array[13]);
+        printf("%d; %d; %d; %d; %d; %d; %d; %d; %d; %d; %d; %d; %d; %d\n\r",readData.frame.annee,readData.frame.mois, readData.frame.jour,readData.frame.heure,readData.frame.minute,
+                                                                            readData.frame.humidite1,readData.frame.temperatureAir1,readData.frame.temperatureSol1,readData.frame.humidite2,
+                                                                            readData.frame.temperatureAir2,readData.frame.temperatureSol2,readData.frame.humidite3,readData.frame.temperatureAir3,
+                                                                            readData.frame.temperatureSol3);
         readCounter++;
         if(readCounter==17){
             start=start+readCounter*14+18;
@@ -222,12 +207,14 @@ void dumpData (void){
 void eraseData (void){
 	saveCounter=0;
 	eepromWriteLastAddress(256);
+    startPoint=256;
 }
 
-setTimeMenu(void){
-	uint8_t date[5]={0,1,1,0,0};
-	//reglage annee
-	sprintf((char *)&LCDText[0], (char*)"reglage annee");
+setTimeMenu(void){	
+    uint8_t date[5]={0,1,1,0,0};
+	LCD_Erase();
+    //reglage annee
+	sprintf((char *)&LCDText[0], (char*)"Reglage Annee:");
 	LCD_Update();
 	while(BoutonSetTime==0);
 	__delay_ms(10);
@@ -240,7 +227,10 @@ setTimeMenu(void){
 			if(date[4]>99) date[4]=0;
 			sprintf((char *)&LCDText[16], (char*)"           ");//vide la ligne 2
 			LCD_Update();
-			sprintf((char *)&LCDText[16], (char*)"20%d",date[4]);
+            if (date[4]<10){
+                sprintf((char *)&LCDText[16], (char*)"Annee: 200%d",date[4]);
+            }
+            else sprintf((char *)&LCDText[16], (char*)"Annee: 20%d",date[4]);			
 			LCD_Update();
 		}
 		if(BoutonMoinsNo==0){
@@ -251,7 +241,11 @@ setTimeMenu(void){
 			if(date[4]>200) date[4]=99;
 			sprintf((char *)&LCDText[16], (char*)"               ");//vide la ligne 2
 			LCD_Update();
-			sprintf((char *)&LCDText[16], (char*)"Annee: 20%d",date[4]);
+			if (date[4]<10){
+                sprintf((char *)&LCDText[16], (char*)"Annee: 200%d",date[4]);
+            }
+            else sprintf((char *)&LCDText[16], (char*)"Annee: 20%d",date[4]);
+            //sprintf((char *)&LCDText[16], (char*)"Annee: 20%d",date[4]);
 			LCD_Update();
 		}		
 	}
@@ -260,7 +254,7 @@ setTimeMenu(void){
 	__delay_ms(10);
 	//reglage mois
 	LCD_Erase();
-	sprintf((char *)&LCDText[0], (char*)"reglage mois");
+	sprintf((char *)&LCDText[0], (char*)"Reglage Mois:");
 	LCD_Update();
 	while(BoutonSetTime==1){
 		if(BoutonDumpData_plusOk==0){
@@ -279,7 +273,7 @@ setTimeMenu(void){
 			while(BoutonMoinsNo==0);
 			__delay_ms(10);
 			date[3]--;
-			if(date[3]>200) date[3]=12;
+			if(date[3]==0) date[3]=12;
 			sprintf((char *)&LCDText[16], (char*)"               ");//vide la ligne 2
 			LCD_Update();
 			sprintf((char *)&LCDText[16], (char*)"Mois: %d",date[3]);
@@ -291,7 +285,7 @@ setTimeMenu(void){
 	__delay_ms(10);
 	//reglage jour
 	LCD_Erase();
-	sprintf((char *)&LCDText[0], (char*)"reglage jour");
+	sprintf((char *)&LCDText[0], (char*)"Reglage Jour");
 	LCD_Update();
 	while(BoutonSetTime==1){
 		if(BoutonDumpData_plusOk==0){
@@ -299,7 +293,7 @@ setTimeMenu(void){
 			while(BoutonDumpData_plusOk==0);
 			__delay_ms(10);
 			date[2]++;
-			if(date[2]>31) date[2]=0;
+			if(date[2]>31) date[2]=1;
 			sprintf((char *)&LCDText[16], (char*)"           ");//vide la ligne 2
 			LCD_Update();
 			sprintf((char *)&LCDText[16], (char*)"Jour: %d",date[2]);
@@ -310,10 +304,10 @@ setTimeMenu(void){
 			while(BoutonMoinsNo==0);
 			__delay_ms(10);
 			date[2]--;
-			if(date[2]>200) date[2]=31;
+			if(date[2]==0) date[2]=31;
 			sprintf((char *)&LCDText[16], (char*)"               ");//vide la ligne 2
 			LCD_Update();
-			sprintf((char *)&LCDText[16], (char*)"Jour: %d",date[1]);
+			sprintf((char *)&LCDText[16], (char*)"Jour: %d",date[2]);
 			LCD_Update();
 		}		
 	}
@@ -322,7 +316,7 @@ setTimeMenu(void){
 	__delay_ms(10);
 	//reglage heure
 	LCD_Erase();
-	sprintf((char *)&LCDText[0], (char*)"reglage heure");
+	sprintf((char *)&LCDText[0], (char*)"Reglage Heure");
 	LCD_Update();
 	while(BoutonSetTime==1){
 		if(BoutonDumpData_plusOk==0){
@@ -333,7 +327,7 @@ setTimeMenu(void){
 			if(date[1]>24) date[1]=0;
 			sprintf((char *)&LCDText[16], (char*)"           ");//vide la ligne 2
 			LCD_Update();
-			sprintf((char *)&LCDText[16], (char*)"heure: %d",date[1]);
+			sprintf((char *)&LCDText[16], (char*)"Heure: %d",date[1]);
 			LCD_Update();
 		}
 		if(BoutonMoinsNo==0){
@@ -344,7 +338,7 @@ setTimeMenu(void){
 			if(date[1]>200) date[1]=24;
 			sprintf((char *)&LCDText[16], (char*)"               ");//vide la ligne 2
 			LCD_Update();
-			sprintf((char *)&LCDText[16], (char*)"heure: %d",date[1]);
+			sprintf((char *)&LCDText[16], (char*)"Heure: %d",date[1]);
 			LCD_Update();
 		}		
 	}
@@ -353,7 +347,7 @@ setTimeMenu(void){
 	__delay_ms(10);
 	//reglage minute
 	LCD_Erase();
-	sprintf((char *)&LCDText[0], (char*)"reglage minute");
+	sprintf((char *)&LCDText[0], (char*)"Reglage Minute");
 	LCD_Update();
 	while(BoutonSetTime==1){
 		if(BoutonDumpData_plusOk==0){
@@ -364,7 +358,7 @@ setTimeMenu(void){
 			if(date[0]>59) date[0]=0;
 			sprintf((char *)&LCDText[16], (char*)"           ");//vide la ligne 2
 			LCD_Update();
-			sprintf((char *)&LCDText[16], (char*)"Mois: %d",date[0]);
+			sprintf((char *)&LCDText[16], (char*)"Minute: %d",date[0]);
 			LCD_Update();
 		}
 		if(BoutonMoinsNo==0){
@@ -375,7 +369,7 @@ setTimeMenu(void){
 			if(date[0]>200) date[0]=59;
 			sprintf((char *)&LCDText[16], (char*)"               ");//vide la ligne 2
 			LCD_Update();
-			sprintf((char *)&LCDText[16], (char*)"Mois: %d",date[0]);
+			sprintf((char *)&LCDText[16], (char*)"Minute: %d",date[0]);
 			LCD_Update();
 		}		
 	}

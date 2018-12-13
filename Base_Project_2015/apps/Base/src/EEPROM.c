@@ -54,7 +54,7 @@ void eepromMultiWrite(uint32_t writeStartAddress,uint8_t length,int8_t *data){
 	__delay_ms(10);
 }
 
-//Lecture simple
+//Lecture simple et retourne un signe
 int8_t eepromRead(uint32_t readAddress){
 	int8_t data=0;
 	cSEeprom=0;
@@ -65,6 +65,21 @@ int8_t eepromRead(uint32_t readAddress){
 	SPIPut2(readAddress);
 	data=SPIGet2();
 	cSEeprom=1;
+    __delay_ms(5);
+	return data;	
+}
+//lecture simple et retourne un unsigned
+uint8_t eepromReadUnsigned(uint32_t readAddress){
+	uint8_t data=0;
+	cSEeprom=0;
+	SPIPut2(0x03);//read instruction 
+	//24 bit Address
+	SPIPut2(readAddress>>16);
+	SPIPut2(readAddress>>8);
+	SPIPut2(readAddress);
+	data=SPIGet2();
+	cSEeprom=1;
+    __delay_ms(5);
 	return data;	
 }
 
@@ -100,12 +115,18 @@ void eepromWriteLastAddress(uint32_t startAddressValue){
 //Lit la valeur de l'adresse ou l'enregistrement des donnees
 //de capteur est rendu dans la eeprom.
 uint32_t eepromReadLastAddress(void){
-	uint32_t address=0;	
-	
-    address=eepromRead(0x00)<<16;
-    address=address+eepromRead(0x01)<<8;
-    address=address+eepromRead(0x02);  
-				
+	uint32_t address=0;
+    uint32_t add1=0;
+    uint32_t add2=0;
+    uint32_t add3=0;
+	add3 = eepromReadUnsigned(0x00);
+    add3 = add3<<16;
+    add2 = eepromReadUnsigned(0x01);
+    add2 = add2<<8;
+    add1 = eepromReadUnsigned(0x02);
+    
+    address = add1+add2+add3;
+      
 	return address;
 }
 
