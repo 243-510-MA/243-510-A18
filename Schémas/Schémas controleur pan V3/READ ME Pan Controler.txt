@@ -1,0 +1,19 @@
+READ ME Contrôleur PAN
+
+quelques changements ont été apportés aux schémas du contrôleur pan pour corriger certains problèmes:
+-les trous de l'écran LCD ont été légerement élargies pour facilité l'insertion.
+-le footprint et le routing du LCD ont été modifier parce que les pin 1-10 était inversés.
+-le footprint du FTDI à été changer pour celui du FT232RL.
+-le footprint du port USB à été ajuster pour facilité l'insertion.
+-les refdes de la mémoire flash et de ses résistances et condensateurs ont été ajouté sur le board.
+-le refdes du régulateur à été changé.
+-l'erreur où Vsource entrait sur la mauvaise pin du régulateur à été corrigé.
+-le routing de Vsource à été modifier pour que l'alimentation des batteries et du port USB passe par la switch ON/OFF.
+-la diode du régulateur a été bouger pour rapprocher C12 du régulateur.
+-le footprint du miwi à été modifier pour palier un short sur un via qui n'est pas couvert pas le soldermask.
+-durant le fonctionnement de la carte PIC, pour des raisons que nous ignorons, le PIC overide les pins que nous utilisions 
+ pour le TX de notre UART logiciel alors le TX à été bouger à la pin A0.
+-le header de I/O à été modifier pour enlever A0 qui est maintenant la pin TX du UART.
+-la CS de la mémoire flash était connecté à un pin NC alors il a été bouger pour pouvoir utiliser celle-ci convenablement.
+-la pin RX du UART logiciel n'était pas utilisé, alors elle n'a pas été bougé.
+
