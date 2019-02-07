@@ -8,40 +8,102 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71
 [u S768 `ul 1 `S769 1 `uc -> 4 `i `S770 1 ]
 [n S768 _MIWI_TICK Val byte v word ]
-"50 ../src/system_config/miwikit_pic18f46j50_24j40\lcd.h
-[v _LCD_Display `(v ~T0 @X0 0 ef3`*uc`uc`uc ]
-"35 ../src/system_config/miwikit_pic18f46j50_24j40\button.h
-[v _BUTTON_Pressed `(uc ~T0 @X0 0 ef ]
-"7345 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[s S320 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S320 . LATC0 LATC1 LATC2 . LATC4 LATC5 LATC6 LATC7 ]
-"7355
-[s S321 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S321 . LC0 LC1 LC2 . LC4 LC5 LC6 LC7 ]
-"7344
-[u S319 `S320 1 `S321 1 ]
-[n S319 . . . ]
-"7366
-[v _LATCbits `VS319 ~T0 @X0 0 e@3979 ]
-"7131
-[s S314 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S314 . LATA0 LATA1 LATA2 LATA3 . LATA5 LATA6 LATA7 ]
-"7141
-[s S315 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S315 . LA0 LA1 LA2 LA3 . LA5 LA6 LA7 ]
-"7130
-[u S313 `S314 1 `S315 1 ]
-[n S313 . . . ]
-"7152
-[v _LATAbits `VS313 ~T0 @X0 0 e@3977 ]
-"27 ../src/system_config/miwikit_pic18f46j50_24j40\eeprom.h
-[v _EEPROMRead `(v ~T0 @X0 0 ef3`*uc`uc`uc ]
-"29 ../src/system_config/miwikit_pic18f46j50_24j40\serial_flash.h
-[v _SSTGetID `(v ~T0 @X0 0 ef1`*uc ]
-"178 ../../../framework\miwi/miwi_api.h
-[v _MiApp_SetChannel `(uc ~T0 @X0 0 ef1`uc ]
-"320
-[v _MiApp_SearchConnection `(uc ~T0 @X0 0 ef2`uc`ul ]
+"7797 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[s S339 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S339 . TRISA0 TRISA1 TRISA2 TRISA3 . TRISA5 TRISA6 TRISA7 ]
+"7796
+[u S338 `S339 1 ]
+[n S338 . . ]
+"7808
+[v _TRISAbits `VS338 ~T0 @X0 0 e@3986 ]
+"710 ../../../framework\miwi/miwi_api.h
+[v _MiApp_MessageAvailable `(uc ~T0 @X0 0 ef ]
+"752
+[v _MiApp_DiscardMessage `(v ~T0 @X0 0 ef ]
+"5799 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[s S266 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S266 . RA0 RA1 RA2 RA3 . RA5 RA6 RA7 ]
+"5809
+[s S267 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S267 . AN0 AN1 AN2 AN3 . AN4 OSC2 OSC1 ]
+"5819
+[s S268 :5 `uc 1 :1 `uc 1 ]
+[n S268 . . NOT_SS1 ]
+"5823
+[s S269 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S269 . C1INA C2INA VREF_MINUS VREF_PLUS . nSS1 CLKO CLKI ]
+"5833
+[s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S270 . PMA6 PMA7 CVREF_MINUS C1INB . HLVDIN ]
+"5841
+[s S271 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S271 . RP0 RP1 C2INB . RCV ]
+"5848
+[s S272 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
+[n S272 . ULPWU . RP2 ]
+"5853
+[s S273 :1 `uc 1 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S273 . ULPWUIN . LVDIN . RJPU ]
+"5798
+[u S265 `S266 1 `S267 1 `S268 1 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 ]
+[n S265 . . . . . . . . . ]
+"5861
+[v _PORTAbits `VS265 ~T0 @X0 0 e@3968 ]
+"207 ../../../framework\miwi/miwi_mesh.h
+[v _TxData `uc ~T0 @X0 0 e ]
+"206
+[v _TxBuffer `uc ~T0 @X0 -> 0 `x e ]
+"552 ../../../framework\miwi/miwi_api.h
+[v _MiApp_BroadcastPacket `(uc ~T0 @X0 0 ef1`uc ]
+"649
+[s S804 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S804 . broadcast ackReq secEn repeat command srcPrsnt altSrcAddr ]
+"646
+[u S803 `uc 1 `S804 1 ]
+[n S803 . Val bits ]
+"64 ../src/system_config/miwikit_pic18f46j50_24j40\system.h
+[u S772 `uc -> 2 `i `ui 1 ]
+[n S772 . v Val ]
+"644 ../../../framework\miwi/miwi_api.h
+[s S802 `S803 1 `S772 1 `*uc 1 `*uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S802 . flags SourcePANID SourceAddress Payload PayloadSize PacketRSSI PacketLQI ]
+"950
+[v _rxMessage `S802 ~T0 @X0 0 e ]
+"194 E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"36 E:\Program Files (x86)\Microchip\xc8\v1.45\include\string.h
+[v _strcat `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
+[v F7093 `(v ~T0 @X0 1 tf1`ul ]
+"164 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
+[v __delay `JF7093 ~T0 @X0 0 e ]
+[p i __delay ]
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 16: extern void * memset(void *, int, size_t);
+[; ;string.h: 36: extern char * strcat(char *, const char *);
+[; ;string.h: 37: extern char * strcpy(char *, const char *);
+[; ;string.h: 38: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 39: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 40: extern char * strdup(const char *);
+[; ;string.h: 41: extern char * strtok(char *, const char *);
+[; ;string.h: 44: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 45: extern int strcmp(const char *, const char *);
+[; ;string.h: 46: extern int stricmp(const char *, const char *);
+[; ;string.h: 47: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 48: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 49: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 50: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 51: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 52: extern size_t strspn(const char *, const char *);
+[; ;string.h: 53: extern char * strstr(const char *, const char *);
+[; ;string.h: 54: extern char * stristr(const char *, const char *);
+[; ;string.h: 55: extern char * strerror(int);
+[; ;string.h: 56: extern size_t strlen(const char *);
+[; ;string.h: 57: extern char * strchr(const char *, int);
+[; ;string.h: 58: extern char * strichr(const char *, int);
+[; ;string.h: 59: extern char * strrchr(const char *, int);
+[; ;string.h: 60: extern char * strrichr(const char *, int);
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -6558,7 +6620,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -6676,7 +6737,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;miwikit_pic18f46j50_24j40\system.h: 67: uint16_t Val;
 [; ;miwikit_pic18f46j50_24j40\system.h: 69: }API_UINT16_UNION;
 [; ;miwikit_pic18f46j50_24j40\system.h: 122: void SYSTEM_Initialize(void);
-[; ;self_test.h: 27: void SelfTest(uint8_t);
 [; ;drv_mrf_miwi_24j40.h: 31: typedef union
 [; ;drv_mrf_miwi_24j40.h: 32: {
 [; ;drv_mrf_miwi_24j40.h: 33: uint8_t Val;
@@ -6954,364 +7014,155 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;miwi_api.h: 899: bool MiApp_InitChannelHopping( uint32_t ChannelMap);
 [; ;miwi_api.h: 941: bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
 [; ;miwi_api.h: 950: extern RECEIVED_MESSAGE rxMessage;
-"31 ../src/self_test.c
-[v _switch_val `uc ~T0 @X0 1 e ]
-[; ;self_test.c: 31: uint8_t switch_val;
-"32
-[v _EEPROM_Val `uc ~T0 @X0 -> 3 `i e ]
-[; ;self_test.c: 32: uint8_t EEPROM_Val[3];
-"33
-[v _SST_Val `uc ~T0 @X0 1 e ]
-[; ;self_test.c: 33: uint8_t SST_Val;
-"34
-[v _init_case `uc ~T0 @X0 1 e ]
-[i _init_case
+[; ;soft_uart.h: 11: void puteChar(char charactere);
+[; ;newPan.h: 24: void newPan();
+"3 ../src/newPan.c
+[v _RA2_lastState `s ~T0 @X0 1 e ]
+[i _RA2_lastState
+-> -> 0 `i `s
+]
+[; ;newPan.c: 3: short RA2_lastState = 0;
+"5
+[v _frameCount `uc ~T0 @X0 1 e ]
+[i _frameCount
 -> -> 0 `i `uc
 ]
-[; ;self_test.c: 34: uint8_t init_case = 0x00;
-"37
-[v _SelfTest `(v ~T0 @X0 1 ef1`uc ]
-"38
+[; ;newPan.c: 5: uint8_t frameCount = 0;
+"7
+[v _txBuffer `uc ~T0 @X0 -> 1000 `i e ]
+[; ;newPan.c: 7: char txBuffer[1000];
+"9
+[v _newPan `(v ~T0 @X0 1 ef ]
 {
-[; ;self_test.c: 37: void SelfTest(uint8_t myChannel)
-[; ;self_test.c: 38: {
-[e :U _SelfTest ]
-"37
-[v _myChannel `uc ~T0 @X0 1 r1 ]
-"38
+[; ;newPan.c: 9: void newPan(){
+[e :U _newPan ]
 [f ]
-[; ;self_test.c: 40: LCD_Display((char *)"   MiWi  Demo    Self Test Mode ", 0, 1);
-"40
-[e ( _LCD_Display (3 , , -> :s 1C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;self_test.c: 41: LCD_Display((char *)"SW1: Start Test SW2: Exit Test", 0, 1);
-"41
-[e ( _LCD_Display (3 , , -> :s 2C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;self_test.c: 42: init_case = 0;
-"42
-[e = _init_case -> -> 0 `i `uc ]
-[; ;self_test.c: 43: while(1)
-"43
+[; ;newPan.c: 11: TRISAbits.TRISA2 = 1;
+"11
+[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+[; ;newPan.c: 13: while(1){
+"13
 [e :U 807 ]
-[; ;self_test.c: 44: {
-"44
 {
-[; ;self_test.c: 45: switch_val = BUTTON_Pressed();
-"45
-[e = _switch_val ( _BUTTON_Pressed ..  ]
-[; ;self_test.c: 46: if(switch_val == 1)
-"46
-[e $ ! == -> _switch_val `i -> 1 `i 809  ]
-[; ;self_test.c: 47: {
-"47
+[; ;newPan.c: 16: if(MiApp_MessageAvailable()){
+"16
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 809  ]
 {
-[; ;self_test.c: 50: while(1)
-"50
-[e :U 811 ]
-[; ;self_test.c: 51: {
-"51
-{
-[; ;self_test.c: 52: LCD_Display((char *)"Testing ...", 0, 1);
-"52
-[e ( _LCD_Display (3 , , -> :s 3C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;self_test.c: 53: LATCbits.LATC2 = LATAbits.LATA6 = LATAbits.LATA7 = 0;
-"53
-[e = . . _LATCbits 0 2 = . . _LATAbits 0 6 = . . _LATAbits 0 7 -> -> 0 `i `uc ]
-[; ;self_test.c: 54: switch(init_case)
-"54
-[e $U 814  ]
-[; ;self_test.c: 55: {
-"55
-{
-[; ;self_test.c: 56: case 0:
-"56
-[e :U 815 ]
-[; ;self_test.c: 58: EEPROMRead(&(EEPROM_Val[0]), 0xFA, 3);
-"58
-[e ( _EEPROMRead (3 , , &U *U + &U _EEPROM_Val * -> -> -> 0 `i `ui `ux -> -> # *U &U _EEPROM_Val `ui `ux -> -> 250 `i `uc -> -> 3 `i `uc ]
-[; ;self_test.c: 59: if((EEPROM_Val[0] == 0x00) && (EEPROM_Val[1] == 0x00) && (EEPROM_Val[2] == 0x00))
-"59
-[e $ ! && && == -> *U + &U _EEPROM_Val * -> -> -> 0 `i `ui `ux -> -> # *U &U _EEPROM_Val `ui `ux `i -> 0 `i == -> *U + &U _EEPROM_Val * -> -> -> 1 `i `ui `ux -> -> # *U &U _EEPROM_Val `ui `ux `i -> 0 `i == -> *U + &U _EEPROM_Val * -> -> -> 2 `i `ui `ux -> -> # *U &U _EEPROM_Val `ui `ux `i -> 0 `i 816  ]
-[; ;self_test.c: 60: init_case = 255;
-"60
-[e = _init_case -> -> 255 `i `uc ]
-[e $U 817  ]
-"61
-[e :U 816 ]
-[; ;self_test.c: 61: else if((EEPROM_Val[0] == 0xFF) && (EEPROM_Val[1] == 0xFF) && (EEPROM_Val[2] == 0xFF))
-[e $ ! && && == -> *U + &U _EEPROM_Val * -> -> -> 0 `i `ui `ux -> -> # *U &U _EEPROM_Val `ui `ux `i -> 255 `i == -> *U + &U _EEPROM_Val * -> -> -> 1 `i `ui `ux -> -> # *U &U _EEPROM_Val `ui `ux `i -> 255 `i == -> *U + &U _EEPROM_Val * -> -> -> 2 `i `ui `ux -> -> # *U &U _EEPROM_Val `ui `ux `i -> 255 `i 818  ]
-[; ;self_test.c: 62: init_case = 255;
-"62
-[e = _init_case -> -> 255 `i `uc ]
-[e $U 819  ]
-"63
-[e :U 818 ]
-[; ;self_test.c: 63: else init_case++;
-[e ++ _init_case -> -> 1 `i `uc ]
-[e :U 819 ]
-[e :U 817 ]
-[; ;self_test.c: 64: break;
-"64
-[e $U 813  ]
-[; ;self_test.c: 65: case 1:
-"65
-[e :U 820 ]
-[; ;self_test.c: 67: SSTGetID(&SST_Val);
-"67
-[e ( _SSTGetID (1 &U _SST_Val ]
-[; ;self_test.c: 68: if(SST_Val == 0xBF)
-"68
-[e $ ! == -> _SST_Val `i -> 191 `i 821  ]
-[; ;self_test.c: 69: init_case++;
-"69
-[e ++ _init_case -> -> 1 `i `uc ]
-[e $U 822  ]
-"70
-[e :U 821 ]
-[; ;self_test.c: 70: else init_case = 255;
-[e = _init_case -> -> 255 `i `uc ]
-[e :U 822 ]
-[; ;self_test.c: 71: break;
-"71
-[e $U 813  ]
-[; ;self_test.c: 72: case 2:
-"72
-[e :U 823 ]
-[; ;self_test.c: 74: if (MiApp_SetChannel(myChannel) == 0)
-"74
-[e $ ! == -> ( _MiApp_SetChannel (1 _myChannel `i -> 0 `i 824  ]
-[; ;self_test.c: 75: {
-"75
-{
-[; ;self_test.c: 76: init_case = 254;
-"76
-[e = _init_case -> -> 254 `i `uc ]
-[; ;self_test.c: 77: break;
-"77
-[e $U 813  ]
-"78
+[; ;newPan.c: 17: MiApp_DiscardMessage();
+"17
+[e ( _MiApp_DiscardMessage ..  ]
+"18
 }
-[e :U 824 ]
-[; ;self_test.c: 78: }
-[; ;self_test.c: 80: {
-"80
+[e :U 809 ]
+[; ;newPan.c: 18: }
+[; ;newPan.c: 21: if( (PORTAbits.RA2 == 1) && (RA2_lastState == 0) ){
+"21
+[e $ ! && == -> . . _PORTAbits 0 2 `i -> 1 `i == -> _RA2_lastState `i -> 0 `i 810  ]
 {
-"82
-[v _Tx_Success `uc ~T0 @X0 1 a ]
-[; ;self_test.c: 82: bool Tx_Success = 0;
-[e = _Tx_Success -> -> 0 `i `uc ]
-"83
-[v _Tx_Trials `uc ~T0 @X0 1 a ]
-[; ;self_test.c: 83: uint8_t Tx_Trials = 0, scanresult = 0;
-[e = _Tx_Trials -> -> 0 `i `uc ]
-[v _scanresult `uc ~T0 @X0 1 a ]
-[e = _scanresult -> -> 0 `i `uc ]
-[; ;self_test.c: 85: while(!Tx_Success)
-"85
-[e $U 825  ]
-[e :U 826 ]
-[; ;self_test.c: 86: {
-"86
+"23
+[v _tempBuffer `uc ~T0 @X0 -> 21 `i a ]
+[; ;newPan.c: 23: char tempBuffer[21];
+[; ;newPan.c: 25: {TxData = 11;};
+"25
 {
-[; ;self_test.c: 87: if(myChannel < 8)
-"87
-[e $ ! < -> _myChannel `i -> 8 `i 828  ]
-[; ;self_test.c: 88: scanresult = MiApp_SearchConnection(10, (0x00000001 << myChannel));
-"88
-[e = _scanresult ( _MiApp_SearchConnection (2 , -> -> 10 `i `uc -> -> << -> 1 `i _myChannel `l `ul ]
-[e $U 829  ]
-"89
-[e :U 828 ]
-[; ;self_test.c: 89: else if(myChannel < 16)
-[e $ ! < -> _myChannel `i -> 16 `i 830  ]
-[; ;self_test.c: 90: scanresult = MiApp_SearchConnection(10, (0x00000100 << (myChannel-8)));
-"90
-[e = _scanresult ( _MiApp_SearchConnection (2 , -> -> 10 `i `uc -> -> << -> 256 `i - -> _myChannel `i -> 8 `i `l `ul ]
-[e $U 831  ]
-"91
-[e :U 830 ]
-[; ;self_test.c: 91: else if(myChannel < 24)
-[e $ ! < -> _myChannel `i -> 24 `i 832  ]
-[; ;self_test.c: 92: scanresult = MiApp_SearchConnection(10, (0x00010000 << (myChannel-16)));
-"92
-[e = _scanresult ( _MiApp_SearchConnection (2 , -> -> 10 `i `uc -> << -> 65536 `l - -> _myChannel `i -> 16 `i `ul ]
-[e $U 833  ]
-"93
-[e :U 832 ]
-[; ;self_test.c: 93: else
-[; ;self_test.c: 94: scanresult = MiApp_SearchConnection(10, (0x01000000 << (myChannel-24)));
-"94
-[e = _scanresult ( _MiApp_SearchConnection (2 , -> -> 10 `i `uc -> << -> 16777216 `l - -> _myChannel `i -> 24 `i `ul ]
-[e :U 833 ]
-[e :U 831 ]
-[e :U 829 ]
-[; ;self_test.c: 95: if(scanresult == 0)
-"95
-[e $ ! == -> _scanresult `i -> 0 `i 834  ]
-[; ;self_test.c: 96: {
-"96
+[e = _TxData -> -> 11 `i `uc ]
+}
+[; ;newPan.c: 26: TxBuffer[TxData++] = 0x01;
+"26
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 1 `i `uc ]
+[; ;newPan.c: 27: TxBuffer[TxData++] = 0xDE;
+"27
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 222 `i `uc ]
+[; ;newPan.c: 28: TxBuffer[TxData++] = 0xAD;
+"28
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 173 `i `uc ]
+[; ;newPan.c: 29: MiApp_BroadcastPacket(0);
+"29
+[e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
+[; ;newPan.c: 31: frameCount = 0;
+"31
+[e = _frameCount -> -> 0 `i `uc ]
+[; ;newPan.c: 33: txBuffer[0] = '\0';
+"33
+[e = *U + &U _txBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _txBuffer `ui `ux -> -> 0 `ui `uc ]
+[; ;newPan.c: 38: for(int i = 0; i < 1000 ; i++){
+"38
 {
-[; ;self_test.c: 97: Tx_Trials++;
-"97
-[e ++ _Tx_Trials -> -> 1 `i `uc ]
-[; ;self_test.c: 98: if(Tx_Trials > 2) break;
-"98
-[e $ ! > -> _Tx_Trials `i -> 2 `i 835  ]
-[e $U 827  ]
-[e :U 835 ]
-"100
-}
-[; ;self_test.c: 100: }
-[e $U 836  ]
-"101
-[e :U 834 ]
-[; ;self_test.c: 101: else Tx_Success = 1;
-[e = _Tx_Success -> -> 1 `i `uc ]
-[e :U 836 ]
-"103
-}
-[e :U 825 ]
-"85
-[e $ ! != -> _Tx_Success `i -> -> -> 0 `i `uc `i 826  ]
-[e :U 827 ]
-[; ;self_test.c: 103: }
-[; ;self_test.c: 104: if(Tx_Success) init_case = 254;
-"104
-[e $ ! != -> _Tx_Success `i -> -> -> 0 `i `uc `i 837  ]
-[e = _init_case -> -> 254 `i `uc ]
-[e $U 838  ]
-"105
-[e :U 837 ]
-[; ;self_test.c: 105: else init_case = 255;
-[e = _init_case -> -> 255 `i `uc ]
-[e :U 838 ]
-"106
-}
-[; ;self_test.c: 106: }
-[; ;self_test.c: 107: break;
-"107
-[e $U 813  ]
-[; ;self_test.c: 109: case 254: LCD_Display((char *)"Self Test Mode  Test Pass", 0, 1);
-"109
-[e :U 839 ]
-[e ( _LCD_Display (3 , , -> :s 4C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;self_test.c: 110: LATCbits.LATC2 = LATAbits.LATA6= LATAbits.LATA7 = 1;
-"110
-[e = . . _LATCbits 0 2 = . . _LATAbits 0 6 = . . _LATAbits 0 7 -> -> 1 `i `uc ]
-[; ;self_test.c: 111: init_case = 0xF0;
-"111
-[e = _init_case -> -> 240 `i `uc ]
-[; ;self_test.c: 112: break;
-"112
-[e $U 813  ]
-[; ;self_test.c: 113: case 255: LCD_Display((char *)"Self Test Mode  Test Fail", 0, 1);
-"113
-[e :U 840 ]
-[e ( _LCD_Display (3 , , -> :s 5C `*uc -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;self_test.c: 114: LATCbits.LATC2 = LATAbits.LATA6 = LATAbits.LATA7 = 1;
-"114
-[e = . . _LATCbits 0 2 = . . _LATAbits 0 6 = . . _LATAbits 0 7 -> -> 1 `i `uc ]
-[; ;self_test.c: 115: init_case = 0xF0;
-"115
-[e = _init_case -> -> 240 `i `uc ]
-[; ;self_test.c: 116: break;
-"116
-[e $U 813  ]
-[; ;self_test.c: 117: default: break;
-"117
-[e :U 841 ]
-[e $U 813  ]
-"119
-}
-[; ;self_test.c: 119: }
-[e $U 813  ]
-"54
-[e :U 814 ]
-[e [\ _init_case , $ -> -> 0 `i `uc 815
- , $ -> -> 1 `i `uc 820
- , $ -> -> 2 `i `uc 823
- , $ -> -> 254 `i `uc 839
- , $ -> -> 255 `i `uc 840
- 841 ]
-"119
-[e :U 813 ]
-[; ;self_test.c: 121: if(init_case == 0xF0)
-"121
-[e $ ! == -> _init_case `i -> 240 `i 842  ]
-[; ;self_test.c: 122: {
-"122
-{
-[; ;self_test.c: 123: while(1)
-"123
-[e :U 844 ]
-[; ;self_test.c: 124: {
-"124
-{
-[; ;self_test.c: 125: switch_val = BUTTON_Pressed();
-"125
-[e = _switch_val ( _BUTTON_Pressed ..  ]
-[; ;self_test.c: 126: if((switch_val == 1) || (switch_val == 2))
-"126
-[e $ ! || == -> _switch_val `i -> 1 `i == -> _switch_val `i -> 2 `i 846  ]
-[; ;self_test.c: 127: break;
-"127
-[e $U 845  ]
-[e :U 846 ]
-"128
-}
-[e :U 843 ]
-"123
-[e $U 844  ]
-[e :U 845 ]
-[; ;self_test.c: 128: }
-[; ;self_test.c: 129: break;
-"129
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 1000 `i 811  ]
 [e $U 812  ]
-"130
+[e :U 811 ]
+{
+[; ;newPan.c: 39: if(MiApp_MessageAvailable()){
+"39
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 814  ]
+{
+[; ;newPan.c: 41: if(rxMessage.Payload[0]==0x02){
+"41
+[e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 2 `i 815  ]
+{
+[; ;newPan.c: 42: frameCount++;
+"42
+[e ++ _frameCount -> -> 1 `i `uc ]
+[; ;newPan.c: 43: sprintf(tempBuffer,"%d;%d;%d;%d;",rxMessage.Payload[1],rxMessage.Payload[2],rxMessage.Payload[3],rxMessage.Payload[4]);
+"43
+[e ( _sprintf (1 , , , , (. , &U _tempBuffer :s 1C -> *U + . _rxMessage 3 * -> -> 1 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> *U + . _rxMessage 3 * -> -> 2 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> *U + . _rxMessage 3 * -> -> 3 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> *U + . _rxMessage 3 * -> -> 4 `i `x -> -> # *U . _rxMessage 3 `i `x `i ]
+[; ;newPan.c: 44: strcat(txBuffer, tempBuffer);
+"44
+[e ( _strcat (2 , &U _txBuffer -> &U _tempBuffer `*Cuc ]
+"45
 }
-[e :U 842 ]
-"131
+[e :U 815 ]
+[; ;newPan.c: 45: }
+[; ;newPan.c: 46: MiApp_DiscardMessage();
+"46
+[e ( _MiApp_DiscardMessage ..  ]
+"47
+}
+[e :U 814 ]
+[; ;newPan.c: 47: }
+[; ;newPan.c: 49: if(frameCount >= 50){
+"49
+[e $ ! >= -> _frameCount `i -> 50 `i 816  ]
+{
+[; ;newPan.c: 50: break;
+"50
+[e $U 812  ]
+"51
+}
+[e :U 816 ]
+[; ;newPan.c: 51: }
+[; ;newPan.c: 52: _delay((unsigned long)((100)*(16000000/4000000.0)));
+"52
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+"53
+}
+"38
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 1000 `i 811  ]
+[e :U 812 ]
+"53
+}
+"54
 }
 [e :U 810 ]
-"50
-[e $U 811  ]
-[e :U 812 ]
-[; ;self_test.c: 130: }
-[; ;self_test.c: 131: }
-[; ;self_test.c: 132: break;
-"132
-[e $U 808  ]
-"134
-}
-[; ;self_test.c: 134: }
-[e $U 847  ]
-"135
-[e :U 809 ]
-[; ;self_test.c: 135: else if(switch_val == 2)
-[e $ ! == -> _switch_val `i -> 2 `i 848  ]
-[; ;self_test.c: 136: {
-"136
-{
-[; ;self_test.c: 137: break;
-"137
-[e $U 808  ]
-"138
-}
-[e :U 848 ]
-"139
-[e :U 847 ]
+[; ;newPan.c: 53: }
+[; ;newPan.c: 54: }
+[; ;newPan.c: 55: RA2_lastState = PORTAbits.RA2;
+"55
+[e = _RA2_lastState -> . . _PORTAbits 0 2 `s ]
+"56
 }
 [e :U 806 ]
-"43
+"13
 [e $U 807  ]
 [e :U 808 ]
-[; ;self_test.c: 138: }
-[; ;self_test.c: 139: }
-[; ;self_test.c: 140: }
-"140
+[; ;newPan.c: 56: }
+[; ;newPan.c: 57: }
+"57
 [e :UE 805 ]
 }
-[a 2C 83 87 49 58 32 83 116 97 114 116 32 84 101 115 116 32 83 87 50 58 32 69 120 105 116 32 84 101 115 116 0 ]
-[a 4C 83 101 108 102 32 84 101 115 116 32 77 111 100 101 32 32 84 101 115 116 32 80 97 115 115 0 ]
-[a 5C 83 101 108 102 32 84 101 115 116 32 77 111 100 101 32 32 84 101 115 116 32 70 97 105 108 0 ]
-[a 3C 84 101 115 116 105 110 103 32 46 46 46 0 ]
-[a 1C 32 32 32 77 105 87 105 32 32 68 101 109 111 32 32 32 32 83 101 108 102 32 84 101 115 116 32 77 111 100 101 32 0 ]
+[p f _sprintf 8388736 ]
+[a 1C 37 100 59 37 100 59 37 100 59 37 100 59 0 ]
+

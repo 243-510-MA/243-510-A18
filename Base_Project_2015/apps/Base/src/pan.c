@@ -379,12 +379,3 @@ setTimeMenu(void){
 	rtcSetTime(0x00, date[0], date[1], date[2], date[3], date[4]);//enregistre l'heure
     LCD_Erase();
 }
-
-
-
-
-
-
-
-
-

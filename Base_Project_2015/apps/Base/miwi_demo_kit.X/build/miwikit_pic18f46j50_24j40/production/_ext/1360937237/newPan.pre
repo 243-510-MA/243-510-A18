@@ -1,95 +1,40 @@
 
-# 1 "../src/Board_Capteur.c"
+# 1 "../src/newPan.c"
 
-# 13 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
-typedef signed char int8_t;
+# 4 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
+typedef unsigned size_t;
 
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
+# 14 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
 
 # 36
-typedef signed long int int32_t;
-
-# 43
-typedef unsigned char uint8_t;
-
-# 49
-typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
 
 
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
 
 # 26 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8816,9 +8761,6 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 4 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
-typedef unsigned size_t;
-
 # 7 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
 typedef void * va_list[1];
 
@@ -8881,6 +8823,96 @@ extern int printf(const char *, ...);
 
 # 12 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
+
+# 13 "E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
 
 # 43 "../src/system_config/miwikit_pic18f46j50_24j40\lcd.h"
 extern uint8_t LCDText[16*2+1];
@@ -9376,159 +9408,65 @@ bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
 # 950
 extern RECEIVED_MESSAGE rxMessage;
 
-# 13 "../src/CapteurI2C.h"
-float readHumidity(int *error);
-float readTemperatureC(int *error);
-float readTemperatureF();
+# 11 "../src/soft_uart.h"
+void puteChar(char charactere);
 
-float readTemperatureRaw(int **error);
-int shiftIn(int _numBits);
-int shiftInCRC();
-void sendCommandSHT(int _command);
-void waitForResultSHT();
-int getData16SHT(int *val, char *CRC);
-void skipCrcSHT();
+# 24 "../src/newPan.h"
+void newPan();
 
-# 11 "../src/Board_Capteur.h"
-int Board_Capteur_Loop(char id_device);
-uint16_t Read_Voltage_Sensor(void);
-int8_t ReadTemperatureSensor(uint16_t Result);
+# 3 "../src/newPan.c"
+short RA2_lastState = 0;
 
-# 15 "../src/Board_Capteur.c"
-int Board_Capteur_Loop(char id_device){
-TRISAbits.TRISA6 = 0;
-TRISAbits.TRISA7 = 0;
+uint8_t frameCount = 0;
 
-_delay((unsigned long)((1000)*(16000000/4000.0)));
+char txBuffer[1000];
 
-LATAbits.LATA6 = (id_device>>1) & 0x01;
-LATAbits.LATA7 = (id_device) & 0x01;
+void newPan(){
 
-_delay((unsigned long)((3000)*(16000000/4000.0)));
+TRISAbits.TRISA2 = 1;
 
-LATAbits.LATA6 = 0;
-LATAbits.LATA7 = 0;
-
-while(1)
-{
-
-if(MiApp_MessageAvailable())
-{
+while(1){
 
 
-if(rxMessage.Payload[0] == 0x01)
-{
-
-int8_t temperatureAir = 0;
-int8_t temperatureSol = 0;
-int8_t humiditeSol = 0;
-
-temperatureAir = ReadTemperatureSensor(Read_Voltage_Sensor());
-
-int err = 0;
-
-temperatureSol = readTemperatureC(&err);
-
-if(err != 0){
-temperatureSol = -128;
+if(MiApp_MessageAvailable()){
+MiApp_DiscardMessage();
 }
 
-err = 0;
 
-humiditeSol = readHumidity(&err);
+if( (PORTAbits.RA2 == 1) && (RA2_lastState == 0) ){
 
-if(err != 0){
-humiditeSol = -128;
-}
+char tempBuffer[21];
 
 {TxData = 11;};
-TxBuffer[TxData++] = 0x02;
-TxBuffer[TxData++] = id_device;
-TxBuffer[TxData++] = temperatureAir;
-TxBuffer[TxData++] = temperatureSol;
-TxBuffer[TxData++] = humiditeSol;
+TxBuffer[TxData++] = 0x01;
+TxBuffer[TxData++] = 0xDE;
+TxBuffer[TxData++] = 0xAD;
 MiApp_BroadcastPacket(0);
 
+frameCount = 0;
 
+txBuffer[0] = '\0';
+
+
+
+
+for(int i = 0; i < 1000 ; i++){
+if(MiApp_MessageAvailable()){
+
+if(rxMessage.Payload[0]==0x02){
+frameCount++;
+sprintf(tempBuffer,"%d;%d;%d;%d;",rxMessage.Payload[1],rxMessage.Payload[2],rxMessage.Payload[3],rxMessage.Payload[4]);
+strcat(txBuffer, tempBuffer);
 }
 MiApp_DiscardMessage();
 }
 
+if(frameCount >= 50){
+break;
+}
+_delay((unsigned long)((100)*(16000000/4000000.0)));
 }
 }
-
-# 93
-int8_t ReadTemperatureSensor(uint16_t ADC_READING)
-{
-int16_t tempValue;
-double temp;
-int8_t tempHere;
-uint8_t i = 0;
-float tempAverage = 0;
-int8_t tempArray[4];
-
-
-
-ADCON0 = 0x04;
-ADCON1 = 0xBD;
-
-PIR1bits.ADIF = 0;
-PIE1bits.ADIE = 0;
-
-do
-{
-ADCON0bits.ADON = 1;
-DELAY_10us(10);
-
-ADCON0bits.GO = 1;
-while(ADCON0bits.DONE);
-
-temp = (1200.0/ADC_READING);
-tempValue = ADRES;
-temp = (temp * tempValue);
-temp = (temp - 500.0)/10.0;
-
-tempArray[i] = (int8_t) temp;
-
-ADCON0bits.ADON = 0;
-DELAY_10us(1);
-i++;
-} while(i < 4);
-
-
-for(i = 0; i<4; i++)
-{
-tempAverage = (tempAverage + tempArray[i]);
+RA2_lastState = PORTAbits.RA2;
 }
-tempAverage = (tempAverage/4);
-tempHere = (int8_t) tempAverage;
-tempAverage = (tempAverage - tempHere) * 10;
-
-if(tempAverage >= 5)
-tempHere = tempHere + 1;
-
-return (int8_t)tempHere;
-
-
-}
-
-# 164
-uint16_t Read_Voltage_Sensor(void)
-{
-ADCON0 = 0x3D;
-ADCON1 = 0xBD;
-ANCON1bits.VBGEN = 1;
-
-DELAY_10us(1000);
-
-PIR1bits.ADIF = 0;
-PIE1bits.ADIE = 0;
-
-ADCON0bits.GO = 1;
-while(ADCON0bits.DONE);
-
-ADCON0bits.ADON = 0;
-ANCON1bits.VBGEN = 0;
-
-return ADRES;
 }

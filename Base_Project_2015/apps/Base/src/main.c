@@ -13,6 +13,7 @@
 #include "fermier.h"
 #include "pan.h"
 #include "Board_Capteur.h"
+#include "newPan.h"
 
 #define BOARD_ID 1
 
@@ -39,7 +40,8 @@ void main(void)
 
     if(DEVICEMODE == PAN)
     {
-        Pan(); 
+        newPan();
+        //Pan(); 
     }
     
     else if(DEVICEMODE == BOARD_CAPTEUR)
