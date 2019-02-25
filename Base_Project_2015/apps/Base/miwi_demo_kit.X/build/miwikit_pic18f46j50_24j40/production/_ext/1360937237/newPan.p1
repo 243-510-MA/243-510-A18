@@ -7018,77 +7018,77 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;miwi_api.h: 950: extern RECEIVED_MESSAGE rxMessage;
 [; ;soft_uart.h: 11: void puteChar(char charactere);
 [; ;newPan.h: 22: void newPan();
-"8 ../src/newPan.c
+"7 ../src/newPan.c
 [v _RA2_lastState `s ~T0 @X0 1 e ]
 [i _RA2_lastState
 -> -> 0 `i `s
 ]
-[; ;newPan.c: 8: short RA2_lastState = 0;
-"10
+[; ;newPan.c: 7: short RA2_lastState = 0;
+"9
 [v _frameCount `uc ~T0 @X0 1 e ]
 [i _frameCount
 -> -> 0 `i `uc
 ]
-[; ;newPan.c: 10: uint8_t frameCount = 0;
-"12
+[; ;newPan.c: 9: uint8_t frameCount = 0;
+"11
 [v _txBuffer `uc ~T0 @X0 -> 1000 `i e ]
-[; ;newPan.c: 12: char txBuffer[1000];
-"14
+[; ;newPan.c: 11: char txBuffer[1000];
+"13
 [v _newPan `(v ~T0 @X0 1 ef ]
 {
-[; ;newPan.c: 14: void newPan(){
+[; ;newPan.c: 13: void newPan(){
 [e :U _newPan ]
 [f ]
-[; ;newPan.c: 16: TRISAbits.TRISA2 = 1;
-"16
+[; ;newPan.c: 15: TRISAbits.TRISA2 = 1;
+"15
 [e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
-[; ;newPan.c: 18: while(1){
-"18
+[; ;newPan.c: 17: while(1){
+"17
 [e :U 807 ]
 {
-[; ;newPan.c: 21: if(MiApp_MessageAvailable()){
-"21
+[; ;newPan.c: 20: if(MiApp_MessageAvailable()){
+"20
 [e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 809  ]
 {
-[; ;newPan.c: 22: MiApp_DiscardMessage();
-"22
+[; ;newPan.c: 21: MiApp_DiscardMessage();
+"21
 [e ( _MiApp_DiscardMessage ..  ]
-"23
+"22
 }
 [e :U 809 ]
-[; ;newPan.c: 23: }
-[; ;newPan.c: 27: if( (PORTAbits.RA2 == 1)&& (RA2_lastState == 0) ){
-"27
+[; ;newPan.c: 22: }
+[; ;newPan.c: 26: if( (PORTAbits.RA2 == 1)&& (RA2_lastState == 0) ){
+"26
 [e $ ! && == -> . . _PORTAbits 0 2 `i -> 1 `i == -> _RA2_lastState `i -> 0 `i 810  ]
 {
-"29
+"28
 [v _tempBuffer `uc ~T0 @X0 -> 21 `i a ]
-[; ;newPan.c: 29: char tempBuffer[21];
-[; ;newPan.c: 31: {TxData = 11;};
-"31
+[; ;newPan.c: 28: char tempBuffer[21];
+[; ;newPan.c: 30: {TxData = 11;};
+"30
 {
 [e = _TxData -> -> 11 `i `uc ]
 }
-[; ;newPan.c: 32: TxBuffer[TxData++] = 0x01;
-"32
+[; ;newPan.c: 31: TxBuffer[TxData++] = 0x01;
+"31
 [e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 1 `i `uc ]
-[; ;newPan.c: 33: TxBuffer[TxData++] = 0xDE;
-"33
+[; ;newPan.c: 32: TxBuffer[TxData++] = 0xDE;
+"32
 [e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 222 `i `uc ]
-[; ;newPan.c: 34: TxBuffer[TxData++] = 0xAD;
-"34
+[; ;newPan.c: 33: TxBuffer[TxData++] = 0xAD;
+"33
 [e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 173 `i `uc ]
-[; ;newPan.c: 35: MiApp_BroadcastPacket(0);
-"35
+[; ;newPan.c: 34: MiApp_BroadcastPacket(0);
+"34
 [e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
-[; ;newPan.c: 37: frameCount = 0;
-"37
+[; ;newPan.c: 36: frameCount = 0;
+"36
 [e = _frameCount -> -> 0 `i `uc ]
-[; ;newPan.c: 39: txBuffer[0] = '\0';
-"39
+[; ;newPan.c: 38: txBuffer[0] = '\0';
+"38
 [e = *U + &U _txBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _txBuffer `ui `ux -> -> 0 `ui `uc ]
-[; ;newPan.c: 44: for(int i = 0; i < 10000 ; i++){
-"44
+[; ;newPan.c: 43: for(int i = 0; i < 10000 ; i++){
+"43
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -7096,76 +7096,76 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 812  ]
 [e :U 811 ]
 {
-[; ;newPan.c: 45: if(MiApp_MessageAvailable()){
-"45
+[; ;newPan.c: 44: if(MiApp_MessageAvailable()){
+"44
 [e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 814  ]
 {
-[; ;newPan.c: 47: if(rxMessage.Payload[0]==0x02){
-"47
+[; ;newPan.c: 46: if(rxMessage.Payload[0]==0x02){
+"46
 [e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 2 `i 815  ]
 {
-[; ;newPan.c: 48: frameCount++;
-"48
+[; ;newPan.c: 47: frameCount++;
+"47
 [e ++ _frameCount -> -> 1 `i `uc ]
-[; ;newPan.c: 49: sprintf(tempBuffer,"%d;%d;%d;%d;\n\r",(uint8_t)rxMessage.Payload[1],(int8_t)rxMessage.Payload[2],(int8_t)rxMessage.Payload[3],(int8_t)rxMessage.Payload[4]);
-"49
+[; ;newPan.c: 48: sprintf(tempBuffer,"%d;%d;%d;%d;\n\r",(uint8_t)rxMessage.Payload[1],(int8_t)rxMessage.Payload[2],(int8_t)rxMessage.Payload[3],(int8_t)rxMessage.Payload[4]);
+"48
 [e ( _sprintf (1 , , , , (. , &U _tempBuffer :s 1C -> *U + . _rxMessage 3 * -> -> 1 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> -> *U + . _rxMessage 3 * -> -> 2 `i `x -> -> # *U . _rxMessage 3 `i `x `c `i -> -> *U + . _rxMessage 3 * -> -> 3 `i `x -> -> # *U . _rxMessage 3 `i `x `c `i -> -> *U + . _rxMessage 3 * -> -> 4 `i `x -> -> # *U . _rxMessage 3 `i `x `c `i ]
-[; ;newPan.c: 50: strcat(txBuffer, tempBuffer);
-"50
+[; ;newPan.c: 49: strcat(txBuffer, tempBuffer);
+"49
 [e ( _strcat (2 , &U _txBuffer -> &U _tempBuffer `*Cuc ]
-"51
+"50
 }
 [e :U 815 ]
-[; ;newPan.c: 51: }
-[; ;newPan.c: 52: MiApp_DiscardMessage();
-"52
+[; ;newPan.c: 50: }
+[; ;newPan.c: 51: MiApp_DiscardMessage();
+"51
 [e ( _MiApp_DiscardMessage ..  ]
-"53
+"52
 }
 [e :U 814 ]
-[; ;newPan.c: 53: }
-[; ;newPan.c: 55: if(frameCount >= 50){
-"55
+[; ;newPan.c: 52: }
+[; ;newPan.c: 54: if(frameCount >= 50){
+"54
 [e $ ! >= -> _frameCount `i -> 50 `i 816  ]
 {
-[; ;newPan.c: 56: break;
-"56
+[; ;newPan.c: 55: break;
+"55
 [e $U 812  ]
-"57
+"56
 }
 [e :U 816 ]
-[; ;newPan.c: 57: }
-[; ;newPan.c: 58: _delay((unsigned long)((100)*(16000000/4000000.0)));
-"58
+[; ;newPan.c: 56: }
+[; ;newPan.c: 57: _delay((unsigned long)((100)*(16000000/4000000.0)));
+"57
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-"59
+"58
 }
-"44
+"43
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 10000 `i 811  ]
 [e :U 812 ]
-"59
+"58
 }
-[; ;newPan.c: 59: }
-[; ;newPan.c: 60: printf(txBuffer);
-"60
+[; ;newPan.c: 58: }
+[; ;newPan.c: 59: printf(txBuffer);
+"59
 [e ( _printf -> &U _txBuffer `*Cuc ]
-"61
+"60
 }
 [e :U 810 ]
-[; ;newPan.c: 61: }
-[; ;newPan.c: 62: RA2_lastState = PORTAbits.RA2;
-"62
+[; ;newPan.c: 60: }
+[; ;newPan.c: 61: RA2_lastState = PORTAbits.RA2;
+"61
 [e = _RA2_lastState -> . . _PORTAbits 0 2 `s ]
-"63
+"62
 }
 [e :U 806 ]
-"18
+"17
 [e $U 807  ]
 [e :U 808 ]
+[; ;newPan.c: 62: }
 [; ;newPan.c: 63: }
-[; ;newPan.c: 64: }
-"64
+"63
 [e :UE 805 ]
 }
 [p f _sprintf 8388736 ]

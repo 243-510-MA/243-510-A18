@@ -9414,7 +9414,7 @@ void puteChar(char charactere);
 # 22 "../src/newPan.h"
 void newPan();
 
-# 8 "../src/newPan.c"
+# 7 "../src/newPan.c"
 short RA2_lastState = 0;
 
 uint8_t frameCount = 0;

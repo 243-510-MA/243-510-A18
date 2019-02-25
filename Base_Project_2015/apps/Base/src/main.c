@@ -40,8 +40,14 @@ void main(void)
 
     if(DEVICEMODE == PAN)
     {
-        newPan();
-        //Pan(); 
+        TRISBbits.TRISB1 = 1;
+        __delay_us(100);
+        if(PORTBbits.RB1 == 0){
+            Pan(); 
+        }
+        else{
+            newPan();
+        }
     }
     
     else if(DEVICEMODE == BOARD_CAPTEUR)
