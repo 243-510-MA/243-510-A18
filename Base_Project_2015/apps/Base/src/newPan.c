@@ -1,5 +1,9 @@
 #include "newPan.h"
 
+
+#define TIMEOUT_COUNT 10000 //each increment of TIMER_COUNT represents 1ms of time left for the sensors to answer, after that, you're too late for the party
+//1000 = 1 s
+
 short RA2_lastState = 0;
 
 uint8_t frameCount = 0;
@@ -18,7 +22,8 @@ void newPan(){
         }
         
         //Triggers on a rising edge of RA2
-        if( (PORTAbits.RA2 == 1) && (RA2_lastState == 0) ){
+      
+        if( (PORTAbits.RA2 == 1)&& (RA2_lastState == 0) ){
             
             char tempBuffer[21];
             //Wake up everyone and request some gud gud data to be sent to me
@@ -40,7 +45,7 @@ void newPan(){
                     //Standard Answer Identifier
                     if(rxMessage.Payload[0]==0x02){
                         frameCount++;
-                        sprintf(tempBuffer,"%d;%d;%d;%d;",rxMessage.Payload[1],rxMessage.Payload[2],rxMessage.Payload[3],rxMessage.Payload[4]);
+                        sprintf(tempBuffer,"%d;%d;%d;%d;\n\r",(uint8_t)rxMessage.Payload[1],(int8_t)rxMessage.Payload[2],(int8_t)rxMessage.Payload[3],(int8_t)rxMessage.Payload[4]);
                         strcat(txBuffer, tempBuffer);
                     }
                     MiApp_DiscardMessage();
@@ -51,6 +56,7 @@ void newPan(){
                 }
                 __delay_us(100);
             }
+            printf(txBuffer);
         }
         RA2_lastState = PORTAbits.RA2;
     }

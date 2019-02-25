@@ -16,9 +16,7 @@
 #include "soft_uart.h"
 
 
-#define TIMEOUT_COUNT 1000 //each increment of TIMER_COUNT represents 100us of time left for the sensors to answer, after that, you're too late for the party
-//1000 = 100 ms = 0.1 s
-//10000 = 1 s
+
 
 
 void newPan();

@@ -77,6 +77,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "164 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
 [v __delay `JF7093 ~T0 @X0 0 e ]
 [p i __delay ]
+"195 E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
@@ -7015,154 +7017,158 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;miwi_api.h: 941: bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
 [; ;miwi_api.h: 950: extern RECEIVED_MESSAGE rxMessage;
 [; ;soft_uart.h: 11: void puteChar(char charactere);
-[; ;newPan.h: 24: void newPan();
-"3 ../src/newPan.c
+[; ;newPan.h: 22: void newPan();
+"8 ../src/newPan.c
 [v _RA2_lastState `s ~T0 @X0 1 e ]
 [i _RA2_lastState
 -> -> 0 `i `s
 ]
-[; ;newPan.c: 3: short RA2_lastState = 0;
-"5
+[; ;newPan.c: 8: short RA2_lastState = 0;
+"10
 [v _frameCount `uc ~T0 @X0 1 e ]
 [i _frameCount
 -> -> 0 `i `uc
 ]
-[; ;newPan.c: 5: uint8_t frameCount = 0;
-"7
+[; ;newPan.c: 10: uint8_t frameCount = 0;
+"12
 [v _txBuffer `uc ~T0 @X0 -> 1000 `i e ]
-[; ;newPan.c: 7: char txBuffer[1000];
-"9
+[; ;newPan.c: 12: char txBuffer[1000];
+"14
 [v _newPan `(v ~T0 @X0 1 ef ]
 {
-[; ;newPan.c: 9: void newPan(){
+[; ;newPan.c: 14: void newPan(){
 [e :U _newPan ]
 [f ]
-[; ;newPan.c: 11: TRISAbits.TRISA2 = 1;
-"11
+[; ;newPan.c: 16: TRISAbits.TRISA2 = 1;
+"16
 [e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
-[; ;newPan.c: 13: while(1){
-"13
+[; ;newPan.c: 18: while(1){
+"18
 [e :U 807 ]
 {
-[; ;newPan.c: 16: if(MiApp_MessageAvailable()){
-"16
+[; ;newPan.c: 21: if(MiApp_MessageAvailable()){
+"21
 [e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 809  ]
 {
-[; ;newPan.c: 17: MiApp_DiscardMessage();
-"17
+[; ;newPan.c: 22: MiApp_DiscardMessage();
+"22
 [e ( _MiApp_DiscardMessage ..  ]
-"18
+"23
 }
 [e :U 809 ]
-[; ;newPan.c: 18: }
-[; ;newPan.c: 21: if( (PORTAbits.RA2 == 1) && (RA2_lastState == 0) ){
-"21
+[; ;newPan.c: 23: }
+[; ;newPan.c: 27: if( (PORTAbits.RA2 == 1)&& (RA2_lastState == 0) ){
+"27
 [e $ ! && == -> . . _PORTAbits 0 2 `i -> 1 `i == -> _RA2_lastState `i -> 0 `i 810  ]
 {
-"23
+"29
 [v _tempBuffer `uc ~T0 @X0 -> 21 `i a ]
-[; ;newPan.c: 23: char tempBuffer[21];
-[; ;newPan.c: 25: {TxData = 11;};
-"25
+[; ;newPan.c: 29: char tempBuffer[21];
+[; ;newPan.c: 31: {TxData = 11;};
+"31
 {
 [e = _TxData -> -> 11 `i `uc ]
 }
-[; ;newPan.c: 26: TxBuffer[TxData++] = 0x01;
-"26
+[; ;newPan.c: 32: TxBuffer[TxData++] = 0x01;
+"32
 [e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 1 `i `uc ]
-[; ;newPan.c: 27: TxBuffer[TxData++] = 0xDE;
-"27
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 222 `i `uc ]
-[; ;newPan.c: 28: TxBuffer[TxData++] = 0xAD;
-"28
-[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 173 `i `uc ]
-[; ;newPan.c: 29: MiApp_BroadcastPacket(0);
-"29
-[e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
-[; ;newPan.c: 31: frameCount = 0;
-"31
-[e = _frameCount -> -> 0 `i `uc ]
-[; ;newPan.c: 33: txBuffer[0] = '\0';
+[; ;newPan.c: 33: TxBuffer[TxData++] = 0xDE;
 "33
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 222 `i `uc ]
+[; ;newPan.c: 34: TxBuffer[TxData++] = 0xAD;
+"34
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 173 `i `uc ]
+[; ;newPan.c: 35: MiApp_BroadcastPacket(0);
+"35
+[e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
+[; ;newPan.c: 37: frameCount = 0;
+"37
+[e = _frameCount -> -> 0 `i `uc ]
+[; ;newPan.c: 39: txBuffer[0] = '\0';
+"39
 [e = *U + &U _txBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _txBuffer `ui `ux -> -> 0 `ui `uc ]
-[; ;newPan.c: 38: for(int i = 0; i < 1000 ; i++){
-"38
+[; ;newPan.c: 44: for(int i = 0; i < 10000 ; i++){
+"44
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 1000 `i 811  ]
+[e $ < _i -> 10000 `i 811  ]
 [e $U 812  ]
 [e :U 811 ]
 {
-[; ;newPan.c: 39: if(MiApp_MessageAvailable()){
-"39
+[; ;newPan.c: 45: if(MiApp_MessageAvailable()){
+"45
 [e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 814  ]
 {
-[; ;newPan.c: 41: if(rxMessage.Payload[0]==0x02){
-"41
+[; ;newPan.c: 47: if(rxMessage.Payload[0]==0x02){
+"47
 [e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 2 `i 815  ]
 {
-[; ;newPan.c: 42: frameCount++;
-"42
+[; ;newPan.c: 48: frameCount++;
+"48
 [e ++ _frameCount -> -> 1 `i `uc ]
-[; ;newPan.c: 43: sprintf(tempBuffer,"%d;%d;%d;%d;",rxMessage.Payload[1],rxMessage.Payload[2],rxMessage.Payload[3],rxMessage.Payload[4]);
-"43
-[e ( _sprintf (1 , , , , (. , &U _tempBuffer :s 1C -> *U + . _rxMessage 3 * -> -> 1 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> *U + . _rxMessage 3 * -> -> 2 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> *U + . _rxMessage 3 * -> -> 3 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> *U + . _rxMessage 3 * -> -> 4 `i `x -> -> # *U . _rxMessage 3 `i `x `i ]
-[; ;newPan.c: 44: strcat(txBuffer, tempBuffer);
-"44
-[e ( _strcat (2 , &U _txBuffer -> &U _tempBuffer `*Cuc ]
-"45
-}
-[e :U 815 ]
-[; ;newPan.c: 45: }
-[; ;newPan.c: 46: MiApp_DiscardMessage();
-"46
-[e ( _MiApp_DiscardMessage ..  ]
-"47
-}
-[e :U 814 ]
-[; ;newPan.c: 47: }
-[; ;newPan.c: 49: if(frameCount >= 50){
+[; ;newPan.c: 49: sprintf(tempBuffer,"%d;%d;%d;%d;\n\r",(uint8_t)rxMessage.Payload[1],(int8_t)rxMessage.Payload[2],(int8_t)rxMessage.Payload[3],(int8_t)rxMessage.Payload[4]);
 "49
-[e $ ! >= -> _frameCount `i -> 50 `i 816  ]
-{
-[; ;newPan.c: 50: break;
+[e ( _sprintf (1 , , , , (. , &U _tempBuffer :s 1C -> *U + . _rxMessage 3 * -> -> 1 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> -> *U + . _rxMessage 3 * -> -> 2 `i `x -> -> # *U . _rxMessage 3 `i `x `c `i -> -> *U + . _rxMessage 3 * -> -> 3 `i `x -> -> # *U . _rxMessage 3 `i `x `c `i -> -> *U + . _rxMessage 3 * -> -> 4 `i `x -> -> # *U . _rxMessage 3 `i `x `c `i ]
+[; ;newPan.c: 50: strcat(txBuffer, tempBuffer);
 "50
-[e $U 812  ]
+[e ( _strcat (2 , &U _txBuffer -> &U _tempBuffer `*Cuc ]
 "51
 }
-[e :U 816 ]
+[e :U 815 ]
 [; ;newPan.c: 51: }
-[; ;newPan.c: 52: _delay((unsigned long)((100)*(16000000/4000000.0)));
+[; ;newPan.c: 52: MiApp_DiscardMessage();
 "52
+[e ( _MiApp_DiscardMessage ..  ]
+"53
+}
+[e :U 814 ]
+[; ;newPan.c: 53: }
+[; ;newPan.c: 55: if(frameCount >= 50){
+"55
+[e $ ! >= -> _frameCount `i -> 50 `i 816  ]
+{
+[; ;newPan.c: 56: break;
+"56
+[e $U 812  ]
+"57
+}
+[e :U 816 ]
+[; ;newPan.c: 57: }
+[; ;newPan.c: 58: _delay((unsigned long)((100)*(16000000/4000000.0)));
+"58
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-"53
+"59
 }
-"38
+"44
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 1000 `i 811  ]
+[e $ < _i -> 10000 `i 811  ]
 [e :U 812 ]
-"53
+"59
 }
-"54
+[; ;newPan.c: 59: }
+[; ;newPan.c: 60: printf(txBuffer);
+"60
+[e ( _printf -> &U _txBuffer `*Cuc ]
+"61
 }
 [e :U 810 ]
-[; ;newPan.c: 53: }
-[; ;newPan.c: 54: }
-[; ;newPan.c: 55: RA2_lastState = PORTAbits.RA2;
-"55
+[; ;newPan.c: 61: }
+[; ;newPan.c: 62: RA2_lastState = PORTAbits.RA2;
+"62
 [e = _RA2_lastState -> . . _PORTAbits 0 2 `s ]
-"56
+"63
 }
 [e :U 806 ]
-"13
+"18
 [e $U 807  ]
 [e :U 808 ]
-[; ;newPan.c: 56: }
-[; ;newPan.c: 57: }
-"57
+[; ;newPan.c: 63: }
+[; ;newPan.c: 64: }
+"64
 [e :UE 805 ]
 }
 [p f _sprintf 8388736 ]
-[a 1C 37 100 59 37 100 59 37 100 59 37 100 59 0 ]
+[p f _printf 9437696 ]
+[a 1C 37 100 59 37 100 59 37 100 59 37 100 59 10 13 0 ]
 

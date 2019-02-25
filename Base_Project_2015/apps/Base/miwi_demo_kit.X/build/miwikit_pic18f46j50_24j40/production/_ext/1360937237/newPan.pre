@@ -9411,10 +9411,10 @@ extern RECEIVED_MESSAGE rxMessage;
 # 11 "../src/soft_uart.h"
 void puteChar(char charactere);
 
-# 24 "../src/newPan.h"
+# 22 "../src/newPan.h"
 void newPan();
 
-# 3 "../src/newPan.c"
+# 8 "../src/newPan.c"
 short RA2_lastState = 0;
 
 uint8_t frameCount = 0;
@@ -9433,7 +9433,8 @@ MiApp_DiscardMessage();
 }
 
 
-if( (PORTAbits.RA2 == 1) && (RA2_lastState == 0) ){
+
+if( (PORTAbits.RA2 == 1)&& (RA2_lastState == 0) ){
 
 char tempBuffer[21];
 
@@ -9450,12 +9451,12 @@ txBuffer[0] = '\0';
 
 
 
-for(int i = 0; i < 1000 ; i++){
+for(int i = 0; i < 10000 ; i++){
 if(MiApp_MessageAvailable()){
 
 if(rxMessage.Payload[0]==0x02){
 frameCount++;
-sprintf(tempBuffer,"%d;%d;%d;%d;",rxMessage.Payload[1],rxMessage.Payload[2],rxMessage.Payload[3],rxMessage.Payload[4]);
+sprintf(tempBuffer,"%d;%d;%d;%d;\n\r",(uint8_t)rxMessage.Payload[1],(int8_t)rxMessage.Payload[2],(int8_t)rxMessage.Payload[3],(int8_t)rxMessage.Payload[4]);
 strcat(txBuffer, tempBuffer);
 }
 MiApp_DiscardMessage();
@@ -9466,6 +9467,7 @@ break;
 }
 _delay((unsigned long)((100)*(16000000/4000000.0)));
 }
+printf(txBuffer);
 }
 RA2_lastState = PORTAbits.RA2;
 }
