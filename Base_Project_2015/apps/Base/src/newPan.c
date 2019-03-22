@@ -40,7 +40,7 @@ void newPan(){
             
             
             //loop for timeout
-            for(int i = 0; i < TIMEOUT_COUNT ; i++){
+            for(uint32_t i = 0; i < TIMEOUT_COUNT ; i++){
                 if(MiApp_MessageAvailable()){
                     //Standard Answer Identifier
                     if(rxMessage.Payload[0]==0x02){

@@ -8,7 +8,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71
 [u S768 `ul 1 `S769 1 `uc -> 4 `i `S770 1 ]
 [n S768 _MIWI_TICK Val byte v word ]
-"7797 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+"7797 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
 [s S339 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S339 . TRISA0 TRISA1 TRISA2 TRISA3 . TRISA5 TRISA6 TRISA7 ]
 "7796
@@ -20,7 +20,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _MiApp_MessageAvailable `(uc ~T0 @X0 0 ef ]
 "752
 [v _MiApp_DiscardMessage `(v ~T0 @X0 0 ef ]
-"5799 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+"5799 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
 [s S266 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S266 . RA0 RA1 RA2 RA3 . RA5 RA6 RA7 ]
 "5809
@@ -69,15 +69,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S802 . flags SourcePANID SourceAddress Payload PayloadSize PacketRSSI PacketLQI ]
 "950
 [v _rxMessage `S802 ~T0 @X0 0 e ]
-"194 E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
+"194 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"36 E:\Program Files (x86)\Microchip\xc8\v1.45\include\string.h
+"36 C:\Program Files (x86)\Microchip\xc8\v1.45\include\string.h
 [v _strcat `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
 [v F7093 `(v ~T0 @X0 1 tf1`ul ]
-"164 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
+"164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
 [v __delay `JF7093 ~T0 @X0 0 e ]
 [p i __delay ]
-"195 E:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
+"195 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
@@ -110,7 +110,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f46j50.h: 50: extern volatile unsigned char RPOR0 @ 0xEC6;
-"52 E:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
 [; ;pic18f46j50.h: 52: asm("RPOR0 equ 0EC6h");
 [; <" RPOR0 equ 0EC6h ;# ">
 [; ;pic18f46j50.h: 57: extern volatile unsigned char RPOR1 @ 0xEC7;
@@ -7087,12 +7087,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newPan.c: 38: txBuffer[0] = '\0';
 "38
 [e = *U + &U _txBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _txBuffer `ui `ux -> -> 0 `ui `uc ]
-[; ;newPan.c: 43: for(int i = 0; i < 10000 ; i++){
+[; ;newPan.c: 43: for(uint32_t i = 0; i < 10000 ; i++){
 "43
 {
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 10000 `i 811  ]
+[v _i `ul ~T0 @X0 1 a ]
+[e = _i -> -> -> 0 `i `l `ul ]
+[e $ < _i -> -> -> 10000 `i `l `ul 811  ]
 [e $U 812  ]
 [e :U 811 ]
 {
@@ -7141,8 +7141,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "58
 }
 "43
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 10000 `i 811  ]
+[e ++ _i -> -> -> 1 `i `l `ul ]
+[e $ < _i -> -> -> 10000 `i `l `ul 811  ]
 [e :U 812 ]
 "58
 }

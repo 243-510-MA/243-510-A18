@@ -40,15 +40,15 @@ void main(void)
 
     if(DEVICEMODE == PAN)
     {
-        TRISBbits.TRISB1 = 1;
-        __delay_us(100);
-        if(PORTBbits.RB1 == 0){
+       /* TRISBbits.TRISB1 = 1;
+       // __delay_us(100);
+       // if(PORTBbits.RB1 == 0){//if btn1 is pressed boot into oldpan
             Pan(); 
         }
-        else{
+        */
             newPan();
-        }
     }
+
     
     else if(DEVICEMODE == BOARD_CAPTEUR)
     {
