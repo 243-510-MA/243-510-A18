@@ -3,23 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/projector_screen.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/pan.h</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/fermier.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/pan.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/soft_uart.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/Board_Capteur.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/system_config/miwikit_pic18f46j50_24j40/eeprom.h</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/RTCSPI.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/main.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/soft_i2c.h</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/soft_uart.h</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/system_config/miwikit_pic18f46j50_24j40/serial_flash.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/door_unlock.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/network.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/EEPROM.c</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/system_config/miwikit_pic18f46j50_24j40/serial_flash.h</file>
-            <file>file:/C:/Users/e1625278/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/EEPROM.h</file>
+            <file>file:/C:/Users/bmalenfant/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/newPan.c</file>
+            <file>file:/C:/Users/bmalenfant/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/pan.c</file>
+            <file>file:/C:/Users/bmalenfant/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/main.c</file>
+            <file>file:/C:/Users/bmalenfant/Documents/GitHub/243-510-A18/Base_Project_2015/apps/Base/src/soft_uart.c</file>
         </group>
     </open-files>
 </project-private>

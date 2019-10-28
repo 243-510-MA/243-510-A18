@@ -1,8 +1,40 @@
 
-# 1 "../src/fermier.c"
+# 1 "../src/newPan.c"
 
-# 5 "../src/fermier.h"
-void fermier(void);
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
+typedef unsigned size_t;
+
+# 14 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 36
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8729,9 +8761,6 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
-typedef unsigned size_t;
-
 # 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
 typedef void * va_list[1];
 
@@ -9379,435 +9408,67 @@ bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
 # 950
 extern RECEIVED_MESSAGE rxMessage;
 
-# 20 "../src/EEPROM.h"
-typedef union{
-struct{
-int8_t minute;
-int8_t heure;
-int8_t jour;
-int8_t mois;
-int8_t annee;
-int8_t humidite1;
-int8_t humidite2;
-int8_t humidite3;
-int8_t temperatureAir1;
-int8_t temperatureAir2;
-int8_t temperatureAir3;
-int8_t temperatureSol1;
-int8_t temperatureSol2;
-int8_t temperatureSol3;
-}frame;
-int8_t array[14];
-}dataCapteur;
+# 11 "../src/soft_uart.h"
+void puteChar(char charactere);
+
+# 22 "../src/newPan.h"
+void newPan();
+
+# 7 "../src/newPan.c"
+short RA2_lastState = 0;
+
+uint8_t frameCount = 0;
+
+char txBuffer[1000];
+
+void newPan(){
+
+TRISAbits.TRISA2 = 1;
+
+while(1){
 
 
-void eepromWrite(uint32_t writeAddress,int8_t data);
-
-# 51
-void eepromMultiWrite(uint32_t writeStartAddress,uint8_t length,int8_t *data);
-
-# 60
-int8_t eepromRead(uint32_t readAddress);
-
-# 69
-uint8_t eepromReadUnsigned(uint32_t readAddress);
-
-
-void eepromWriteLastAddress(uint32_t startAddressValue);
-
-# 82
-uint32_t eepromReadLastAddress(void);
-
-# 95
-dataCapteur eepromReadDataCapteur(uint32_t startAddress);
-
-# 105
-void eepromWriteDataToSave(uint32_t writeStartAddress, dataCapteur data);
-
-# 25 "../src/fermier.c"
-void affichage (void);
-void asking_data(void);
-void receiving_data(void);
-
-
-int etat = 1;
-uint8_t flag=1;
-int8_t temperature1;
-int8_t temperature2;
-int8_t temperature3;
-int8_t temperature4;
-int8_t temperature5;
-int8_t temperature6;
-int8_t humidite1;
-int8_t humidite2;
-int8_t humidite3;
-
-
-
-
-void fermier(void)
-{
-sprintf((char *)&LCDText, (char*)" Module fermier ");
-LCD_Update();
-{ unsigned long _dcnt; unsigned long _ms; _ms = 2000; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-LCD_Erase();
-
-
-while(1)
-{
-asking_data();
-
-if(MiApp_MessageAvailable())
-{
-
-receiving_data();
-}
+if(MiApp_MessageAvailable()){
 MiApp_DiscardMessage();
-affichage ();
-
-}
 }
 
 
 
-void asking_data(void)
-{
+if( (PORTAbits.RA2 == 1)&& (RA2_lastState == 0) ){
+
+char tempBuffer[21];
+
 {TxData = 11;};
 TxBuffer[TxData++] = 0x01;
 TxBuffer[TxData++] = 0xDE;
 TxBuffer[TxData++] = 0xAD;
-MiApp_BroadcastPacket(1);
-}
+MiApp_BroadcastPacket(0);
 
-# 83
-void receiving_data(void)
-{
-if (rxMessage.Payload[0]== 0x02)
-{
-if (rxMessage.Payload[1]== 0x01)
-{
-temperature1 = rxMessage.Payload[2];
-temperature2 = rxMessage.Payload[3];
-humidite1 = rxMessage.Payload[4];
-}
-else if (rxMessage.Payload[1]== 0x02)
-{
-temperature3 = rxMessage.Payload[2];
-temperature4 = rxMessage.Payload[3];
-humidite2 = rxMessage.Payload[4];
-}
-else if (rxMessage.Payload[1]== 0x03)
-{
-temperature5 = rxMessage.Payload[2];
-temperature6 = rxMessage.Payload[3];
-humidite3 = rxMessage.Payload[4];
+frameCount = 0;
+
+txBuffer[0] = '\0';
+
+
+
+
+for(uint32_t i = 0; i < 10000 ; i++){
+if(MiApp_MessageAvailable()){
+
+if(rxMessage.Payload[0]==0x02){
+frameCount++;
+sprintf(tempBuffer,"%d;%d;%d;%d;\n\r",(uint8_t)rxMessage.Payload[1],(int8_t)rxMessage.Payload[2],(int8_t)rxMessage.Payload[3],(int8_t)rxMessage.Payload[4]);
+strcat(txBuffer, tempBuffer);
 }
 MiApp_DiscardMessage();
 }
-}
 
-# 114
-void affichage (void)
-{
-int switch_val = BUTTON_Pressed();
-switch (etat)
-{
-case 1 :
-
-LCD_Erase();
-sprintf((char *)&LCDText, (char*)"Capteur 1");
-LCD_Update();
-flag = 0;
-
-if (flag == 0)
-{
-sprintf((char *)&LCDText[16], (char*)"Temp air : %d", temperature1);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 2;
-flag = 1;
+if(frameCount >= 50){
 break;
 }
-if (switch_val == 1)
-{
-etat = 3;
-flag = 1;
-break;
+_delay((unsigned long)((100)*(16000000/4000000.0)));
 }
-if(MiApp_MessageAvailable())
-{
-
-
-receiving_data();
+printf(txBuffer);
 }
-MiApp_DiscardMessage();
+RA2_lastState = PORTAbits.RA2;
 }
 }
-if (flag == 0)
-{
-
-sprintf((char *)&LCDText[16], (char*)"Temp sol : %d", temperature2);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 2;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 3;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-if (flag == 0)
-{
-
-sprintf((char *)&LCDText[16], (char*)"Humidity : %d", humidite1);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 2;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 3;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-
-break;
-
-
-
-case 2 :
-
-LCD_Erase();
-sprintf((char *)&LCDText, (char*)"Capteur 2");
-LCD_Update();
-flag = 0;
-
-
-if (flag == 0)
-{
-
-sprintf((char *)&LCDText[16], (char*)"Temp air : %d", temperature3);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 3;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 1;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-if (flag == 0)
-{
-sprintf((char *)&LCDText[16], (char*)"Temp sol : %d", temperature4);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 3;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 1;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-if (flag == 0)
-{
-sprintf((char *)&LCDText[16], (char*)"Humidity : %d", humidite2);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 3;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 1;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-
-break;
-
-
-case 3 :
-
-LCD_Erase();
-sprintf((char *)&LCDText, (char*)"Capteur 3");
-LCD_Update();
-flag = 0;
-
-if (flag == 0)
-{
-sprintf((char *)&LCDText[16], (char*)"Temp air : %d", temperature5);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 1;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 2;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-if (flag == 0)
-{
-sprintf((char *)&LCDText[16], (char*)"Temp sol : %d", temperature6);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 1;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 2;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-if (flag == 0)
-{
-sprintf((char *)&LCDText[16], (char*)"Humidity : %d", humidite3);
-LCD_Update();
-
-for (int i=0 ; i<1500 ; i++ )
-{
-{ unsigned long _dcnt; unsigned long _ms; _ms = 1; while(_ms) { _dcnt=((unsigned long)(0.001/(1.0/((16000000)/4))/6)); while(_dcnt--); _ms--; } };
-switch_val = BUTTON_Pressed();
-if (switch_val == 2)
-{
-etat = 1;
-flag = 1;
-break;
-}
-if (switch_val == 1)
-{
-etat = 2;
-flag = 1;
-break;
-}
-if(MiApp_MessageAvailable())
-{
-
-
-receiving_data();
-}
-MiApp_DiscardMessage();
-}
-}
-
-break;
-}
-}
-

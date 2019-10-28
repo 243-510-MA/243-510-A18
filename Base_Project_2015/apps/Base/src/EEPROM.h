@@ -66,6 +66,8 @@ int8_t eepromRead(uint32_t readAddress);
 	Output: data (le byte lue)	
 }*/
 
+uint8_t eepromReadUnsigned(uint32_t readAddress);
+
 
 void eepromWriteLastAddress(uint32_t startAddressValue);
 /*{

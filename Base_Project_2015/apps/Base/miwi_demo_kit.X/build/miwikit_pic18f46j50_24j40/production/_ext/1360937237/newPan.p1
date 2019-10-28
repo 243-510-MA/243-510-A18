@@ -8,75 +8,104 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71
 [u S768 `ul 1 `S769 1 `uc -> 4 `i `S770 1 ]
 [n S768 _MIWI_TICK Val byte v word ]
-"6750 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
-[s S299 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S299 . RE0 RE1 RE2 . REPU RDPU ]
-"6758
-[s S300 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S300 . AN5 AN6 AN7 ]
-"6763
-[s S301 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S301 . PMPRD PMPWR PMPCS ]
-"6768
-[s S302 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S302 . PD2 PC2 CCP10 . CCP6E CCP2E ]
-"6776
-[s S303 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S303 . RDE WRE CS . PB1E PA2E ]
-"6784
-[s S304 :2 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S304 . . PB2 . RE6 RE7 ]
-"6749
-[u S298 `S299 1 `S300 1 `S301 1 `S302 1 `S303 1 `S304 1 ]
-[n S298 . . . . . . . ]
-"6792
-[v _PORTEbits `VS298 ~T0 @X0 0 e@3972 ]
-"32 ../src/system_config/miwikit_pic18f46j50_24j40\spi.h
-[v _SPIPut2 `(v ~T0 @X0 0 ef1`uc ]
-[v F7044 `(v ~T0 @X0 1 tf1`ul ]
+"7797 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[s S339 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S339 . TRISA0 TRISA1 TRISA2 TRISA3 . TRISA5 TRISA6 TRISA7 ]
+"7796
+[u S338 `S339 1 ]
+[n S338 . . ]
+"7808
+[v _TRISAbits `VS338 ~T0 @X0 0 e@3986 ]
+"710 ../../../framework\miwi/miwi_api.h
+[v _MiApp_MessageAvailable `(uc ~T0 @X0 0 ef ]
+"752
+[v _MiApp_DiscardMessage `(v ~T0 @X0 0 ef ]
+"5799 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46j50.h
+[s S266 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S266 . RA0 RA1 RA2 RA3 . RA5 RA6 RA7 ]
+"5809
+[s S267 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S267 . AN0 AN1 AN2 AN3 . AN4 OSC2 OSC1 ]
+"5819
+[s S268 :5 `uc 1 :1 `uc 1 ]
+[n S268 . . NOT_SS1 ]
+"5823
+[s S269 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S269 . C1INA C2INA VREF_MINUS VREF_PLUS . nSS1 CLKO CLKI ]
+"5833
+[s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S270 . PMA6 PMA7 CVREF_MINUS C1INB . HLVDIN ]
+"5841
+[s S271 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S271 . RP0 RP1 C2INB . RCV ]
+"5848
+[s S272 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
+[n S272 . ULPWU . RP2 ]
+"5853
+[s S273 :1 `uc 1 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S273 . ULPWUIN . LVDIN . RJPU ]
+"5798
+[u S265 `S266 1 `S267 1 `S268 1 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 ]
+[n S265 . . . . . . . . . ]
+"5861
+[v _PORTAbits `VS265 ~T0 @X0 0 e@3968 ]
+"207 ../../../framework\miwi/miwi_mesh.h
+[v _TxData `uc ~T0 @X0 0 e ]
+"206
+[v _TxBuffer `uc ~T0 @X0 -> 0 `x e ]
+"552 ../../../framework\miwi/miwi_api.h
+[v _MiApp_BroadcastPacket `(uc ~T0 @X0 0 ef1`uc ]
+"649
+[s S804 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S804 . broadcast ackReq secEn repeat command srcPrsnt altSrcAddr ]
+"646
+[u S803 `uc 1 `S804 1 ]
+[n S803 . Val bits ]
+"64 ../src/system_config/miwikit_pic18f46j50_24j40\system.h
+[u S772 `uc -> 2 `i `ui 1 ]
+[n S772 . v Val ]
+"644 ../../../framework\miwi/miwi_api.h
+[s S802 `S803 1 `S772 1 `*uc 1 `*uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S802 . flags SourcePANID SourceAddress Payload PayloadSize PacketRSSI PacketLQI ]
+"950
+[v _rxMessage `S802 ~T0 @X0 0 e ]
+"194 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"36 C:\Program Files (x86)\Microchip\xc8\v1.45\include\string.h
+[v _strcat `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
+[v F7093 `(v ~T0 @X0 1 tf1`ul ]
 "164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
-[v __delay `JF7044 ~T0 @X0 0 e ]
+[v __delay `JF7093 ~T0 @X0 0 e ]
 [p i __delay ]
-"33 ../src/system_config/miwikit_pic18f46j50_24j40\spi.h
-[v _SPIGet2 `(uc ~T0 @X0 0 ef ]
-"21 ../src/EEPROM.h
-[s S774 `c 1 `c 1 `c 1 `c 1 `c 1 `c 1 `c 1 `c 1 `c 1 `c 1 `c 1 `c 1 `c 1 `c 1 ]
-[n S774 . minute heure jour mois annee humidite1 humidite2 humidite3 temperatureAir1 temperatureAir2 temperatureAir3 temperatureSol1 temperatureSol2 temperatureSol3 ]
-"20
-[u S773 `S774 1 `c -> 14 `i ]
-[n S773 . frame array ]
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;miwikit_pic18f46j50_24j40\spi.h: 29: void SPIPut(uint8_t v);
-[; ;miwikit_pic18f46j50_24j40\spi.h: 30: uint8_t SPIGet(void);
-[; ;miwikit_pic18f46j50_24j40\spi.h: 32: void SPIPut2(uint8_t v);
-[; ;miwikit_pic18f46j50_24j40\spi.h: 33: uint8_t SPIGet2(void);
+"195 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 16: extern void * memset(void *, int, size_t);
+[; ;string.h: 36: extern char * strcat(char *, const char *);
+[; ;string.h: 37: extern char * strcpy(char *, const char *);
+[; ;string.h: 38: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 39: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 40: extern char * strdup(const char *);
+[; ;string.h: 41: extern char * strtok(char *, const char *);
+[; ;string.h: 44: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 45: extern int strcmp(const char *, const char *);
+[; ;string.h: 46: extern int stricmp(const char *, const char *);
+[; ;string.h: 47: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 48: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 49: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 50: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 51: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 52: extern size_t strspn(const char *, const char *);
+[; ;string.h: 53: extern char * strstr(const char *, const char *);
+[; ;string.h: 54: extern char * stristr(const char *, const char *);
+[; ;string.h: 55: extern char * strerror(int);
+[; ;string.h: 56: extern size_t strlen(const char *);
+[; ;string.h: 57: extern char * strchr(const char *, int);
+[; ;string.h: 58: extern char * strichr(const char *, int);
+[; ;string.h: 59: extern char * strrchr(const char *, int);
+[; ;string.h: 60: extern char * strrichr(const char *, int);
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -6593,7 +6622,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -6624,6 +6652,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 43: extern uint8_t LCDText[16*2+1];
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 45: void LCD_Initialize(void);
 [; ;miwikit_pic18f46j50_24j40\lcd.h: 46: void LCD_Update(void);
@@ -6667,6 +6723,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _switch1PressTime `S768 ~T0 @X0 1 e ]
 [; ;miwikit_pic18f46j50_24j40\button.h: 33: MIWI_TICK switch1PressTime;
 [; ;miwikit_pic18f46j50_24j40\button.h: 35: uint8_t BUTTON_Pressed(void);
+[; ;miwikit_pic18f46j50_24j40\spi.h: 29: void SPIPut(uint8_t v);
+[; ;miwikit_pic18f46j50_24j40\spi.h: 30: uint8_t SPIGet(void);
+[; ;miwikit_pic18f46j50_24j40\spi.h: 32: void SPIPut2(uint8_t v);
+[; ;miwikit_pic18f46j50_24j40\spi.h: 33: uint8_t SPIGet2(void);
 [; ;miwikit_pic18f46j50_24j40\system.h: 54: typedef union
 [; ;miwikit_pic18f46j50_24j40\system.h: 55: {
 [; ;miwikit_pic18f46j50_24j40\system.h: 57: uint8_t v[4];
@@ -6679,503 +6739,436 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;miwikit_pic18f46j50_24j40\system.h: 67: uint16_t Val;
 [; ;miwikit_pic18f46j50_24j40\system.h: 69: }API_UINT16_UNION;
 [; ;miwikit_pic18f46j50_24j40\system.h: 122: void SYSTEM_Initialize(void);
-[; ;EEPROM.h: 20: typedef union{
-[; ;EEPROM.h: 21: struct{
-[; ;EEPROM.h: 22: int8_t minute;
-[; ;EEPROM.h: 23: int8_t heure;
-[; ;EEPROM.h: 24: int8_t jour;
-[; ;EEPROM.h: 25: int8_t mois;
-[; ;EEPROM.h: 26: int8_t annee;
-[; ;EEPROM.h: 27: int8_t humidite1;
-[; ;EEPROM.h: 28: int8_t humidite2;
-[; ;EEPROM.h: 29: int8_t humidite3;
-[; ;EEPROM.h: 30: int8_t temperatureAir1;
-[; ;EEPROM.h: 31: int8_t temperatureAir2;
-[; ;EEPROM.h: 32: int8_t temperatureAir3;
-[; ;EEPROM.h: 33: int8_t temperatureSol1;
-[; ;EEPROM.h: 34: int8_t temperatureSol2;
-[; ;EEPROM.h: 35: int8_t temperatureSol3;
-[; ;EEPROM.h: 36: }frame;
-[; ;EEPROM.h: 37: int8_t array[14];
-[; ;EEPROM.h: 38: }dataCapteur;
-[; ;EEPROM.h: 41: void eepromWrite(uint32_t writeAddress,int8_t data);
-[; ;EEPROM.h: 51: void eepromMultiWrite(uint32_t writeStartAddress,uint8_t length,int8_t *data);
-[; ;EEPROM.h: 60: int8_t eepromRead(uint32_t readAddress);
-[; ;EEPROM.h: 69: uint8_t eepromReadUnsigned(uint32_t readAddress);
-[; ;EEPROM.h: 72: void eepromWriteLastAddress(uint32_t startAddressValue);
-[; ;EEPROM.h: 82: uint32_t eepromReadLastAddress(void);
-[; ;EEPROM.h: 95: dataCapteur eepromReadDataCapteur(uint32_t startAddress);
-[; ;EEPROM.h: 105: void eepromWriteDataToSave(uint32_t writeStartAddress, dataCapteur data);
-"12 ../src/EEPROM.c
-[v _eepromWrite `(v ~T0 @X0 1 ef2`ul`c ]
-{
-[; ;EEPROM.c: 12: void eepromWrite(uint32_t writeAddress,int8_t data){
-[e :U _eepromWrite ]
-[v _writeAddress `ul ~T0 @X0 1 r1 ]
-[v _data `c ~T0 @X0 1 r2 ]
-[f ]
-[; ;EEPROM.c: 14: PORTEbits.RE2=0;
-"14
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 15: SPIPut2(0x06);
-"15
-[e ( _SPIPut2 (1 -> -> 6 `i `uc ]
-[; ;EEPROM.c: 16: PORTEbits.RE2=1;
-"16
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 18: PORTEbits.RE2=0;
-"18
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 19: SPIPut2(0x02);
-"19
-[e ( _SPIPut2 (1 -> -> 2 `i `uc ]
-[; ;EEPROM.c: 21: SPIPut2(writeAddress>>16);
-"21
-[e ( _SPIPut2 (1 -> >> _writeAddress -> 16 `i `uc ]
-[; ;EEPROM.c: 22: SPIPut2(writeAddress>>8);
-"22
-[e ( _SPIPut2 (1 -> >> _writeAddress -> 8 `i `uc ]
-[; ;EEPROM.c: 23: SPIPut2(writeAddress);
-"23
-[e ( _SPIPut2 (1 -> _writeAddress `uc ]
-[; ;EEPROM.c: 24: SPIPut2(data);
-"24
-[e ( _SPIPut2 (1 -> _data `uc ]
-[; ;EEPROM.c: 25: PORTEbits.RE2=1;
-"25
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 27: PORTEbits.RE2=0;
-"27
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 28: SPIPut2(0x04);
-"28
-[e ( _SPIPut2 (1 -> -> 4 `i `uc ]
-[; ;EEPROM.c: 29: PORTEbits.RE2=1;
-"29
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 30: _delay((unsigned long)((10)*(16000000/4000.0)));
-"30
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-[; ;EEPROM.c: 31: }
-"31
-[e :UE 775 ]
-}
-"34
-[v _eepromMultiWrite `(v ~T0 @X0 1 ef3`ul`uc`*c ]
-{
-[; ;EEPROM.c: 34: void eepromMultiWrite(uint32_t writeStartAddress,uint8_t length,int8_t *data){
-[e :U _eepromMultiWrite ]
-[v _writeStartAddress `ul ~T0 @X0 1 r1 ]
-[v _length `uc ~T0 @X0 1 r2 ]
-[v _data `*c ~T0 @X0 1 r3 ]
-[f ]
-[; ;EEPROM.c: 36: PORTEbits.RE2=0;
-"36
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 37: SPIPut2(0x06);
-"37
-[e ( _SPIPut2 (1 -> -> 6 `i `uc ]
-[; ;EEPROM.c: 38: PORTEbits.RE2=1;
-"38
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 40: PORTEbits.RE2=0;
-"40
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 41: SPIPut2(0x02);
-"41
-[e ( _SPIPut2 (1 -> -> 2 `i `uc ]
-[; ;EEPROM.c: 43: SPIPut2(writeStartAddress>>16);
-"43
-[e ( _SPIPut2 (1 -> >> _writeStartAddress -> 16 `i `uc ]
-[; ;EEPROM.c: 44: SPIPut2(writeStartAddress>>8);
-"44
-[e ( _SPIPut2 (1 -> >> _writeStartAddress -> 8 `i `uc ]
-[; ;EEPROM.c: 45: SPIPut2(writeStartAddress);
-"45
-[e ( _SPIPut2 (1 -> _writeStartAddress `uc ]
-[; ;EEPROM.c: 46: for(uint8_t i=0; i<length; i++){
-"46
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $U 780  ]
-[e :U 777 ]
-{
-[; ;EEPROM.c: 47: SPIPut2(data[i]);
-"47
-[e ( _SPIPut2 (1 -> *U + _data * -> _i `ux -> -> # *U _data `ui `ux `uc ]
-"48
-}
-"46
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 780 ]
-[e $ < -> _i `i -> _length `i 777  ]
-[e :U 778 ]
-"48
-}
-[; ;EEPROM.c: 48: }
-[; ;EEPROM.c: 49: PORTEbits.RE2=1;
-"49
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 51: PORTEbits.RE2=0;
-"51
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 52: SPIPut2(0x04);
-"52
-[e ( _SPIPut2 (1 -> -> 4 `i `uc ]
-[; ;EEPROM.c: 53: PORTEbits.RE2=1;
-"53
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 54: _delay((unsigned long)((10)*(16000000/4000.0)));
-"54
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-[; ;EEPROM.c: 55: }
-"55
-[e :UE 776 ]
-}
-"58
-[v _eepromRead `(c ~T0 @X0 1 ef1`ul ]
-{
-[; ;EEPROM.c: 58: int8_t eepromRead(uint32_t readAddress){
-[e :U _eepromRead ]
-[v _readAddress `ul ~T0 @X0 1 r1 ]
-[f ]
-"59
-[v _data `c ~T0 @X0 1 a ]
-[; ;EEPROM.c: 59: int8_t data=0;
-[e = _data -> -> 0 `i `c ]
-[; ;EEPROM.c: 60: PORTEbits.RE2=0;
-"60
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 61: SPIPut2(0x03);
-"61
-[e ( _SPIPut2 (1 -> -> 3 `i `uc ]
-[; ;EEPROM.c: 63: SPIPut2(readAddress>>16);
-"63
-[e ( _SPIPut2 (1 -> >> _readAddress -> 16 `i `uc ]
-[; ;EEPROM.c: 64: SPIPut2(readAddress>>8);
-"64
-[e ( _SPIPut2 (1 -> >> _readAddress -> 8 `i `uc ]
-[; ;EEPROM.c: 65: SPIPut2(readAddress);
-"65
-[e ( _SPIPut2 (1 -> _readAddress `uc ]
-[; ;EEPROM.c: 66: data=SPIGet2();
-"66
-[e = _data -> ( _SPIGet2 ..  `c ]
-[; ;EEPROM.c: 67: PORTEbits.RE2=1;
-"67
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 68: _delay((unsigned long)((5)*(16000000/4000.0)));
-"68
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-[; ;EEPROM.c: 69: return data;
-"69
-[e ) _data ]
-[e $UE 781  ]
-[; ;EEPROM.c: 70: }
-"70
-[e :UE 781 ]
-}
-"72
-[v _eepromReadUnsigned `(uc ~T0 @X0 1 ef1`ul ]
-{
-[; ;EEPROM.c: 72: uint8_t eepromReadUnsigned(uint32_t readAddress){
-[e :U _eepromReadUnsigned ]
-[v _readAddress `ul ~T0 @X0 1 r1 ]
-[f ]
-"73
-[v _data `uc ~T0 @X0 1 a ]
-[; ;EEPROM.c: 73: uint8_t data=0;
-[e = _data -> -> 0 `i `uc ]
-[; ;EEPROM.c: 74: PORTEbits.RE2=0;
-"74
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 75: SPIPut2(0x03);
-"75
-[e ( _SPIPut2 (1 -> -> 3 `i `uc ]
-[; ;EEPROM.c: 77: SPIPut2(readAddress>>16);
-"77
-[e ( _SPIPut2 (1 -> >> _readAddress -> 16 `i `uc ]
-[; ;EEPROM.c: 78: SPIPut2(readAddress>>8);
-"78
-[e ( _SPIPut2 (1 -> >> _readAddress -> 8 `i `uc ]
-[; ;EEPROM.c: 79: SPIPut2(readAddress);
-"79
-[e ( _SPIPut2 (1 -> _readAddress `uc ]
-[; ;EEPROM.c: 80: data=SPIGet2();
-"80
-[e = _data ( _SPIGet2 ..  ]
-[; ;EEPROM.c: 81: PORTEbits.RE2=1;
-"81
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 82: _delay((unsigned long)((5)*(16000000/4000.0)));
-"82
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-[; ;EEPROM.c: 83: return data;
-"83
-[e ) _data ]
-[e $UE 782  ]
-[; ;EEPROM.c: 84: }
-"84
-[e :UE 782 ]
-}
-"88
-[v _eepromWriteLastAddress `(v ~T0 @X0 1 ef1`ul ]
-{
-[; ;EEPROM.c: 88: void eepromWriteLastAddress(uint32_t startAddressValue){
-[e :U _eepromWriteLastAddress ]
-[v _startAddressValue `ul ~T0 @X0 1 r1 ]
-[f ]
-[v F7244 `uc ~T0 @X0 -> 3 `i s ]
-[i F7244
-:U ..
-"89
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
+[; ;drv_mrf_miwi_24j40.h: 31: typedef union
+[; ;drv_mrf_miwi_24j40.h: 32: {
+[; ;drv_mrf_miwi_24j40.h: 33: uint8_t Val;
+[; ;drv_mrf_miwi_24j40.h: 34: struct
+[; ;drv_mrf_miwi_24j40.h: 35: {
+[; ;drv_mrf_miwi_24j40.h: 36: uint8_t RF_TXIF :1;
+[; ;drv_mrf_miwi_24j40.h: 37: uint8_t :2;
+[; ;drv_mrf_miwi_24j40.h: 38: uint8_t RF_RXIF :1;
+[; ;drv_mrf_miwi_24j40.h: 39: uint8_t SECIF :1;
+[; ;drv_mrf_miwi_24j40.h: 40: uint8_t :4;
+[; ;drv_mrf_miwi_24j40.h: 41: }bits;
+[; ;drv_mrf_miwi_24j40.h: 42: } MRF24J40_IFREG;
+[; ;drv_mrf_miwi_24j40.h: 44: typedef union
+[; ;drv_mrf_miwi_24j40.h: 45: {
+[; ;drv_mrf_miwi_24j40.h: 46: uint8_t Val;
+[; ;drv_mrf_miwi_24j40.h: 47: struct
+[; ;drv_mrf_miwi_24j40.h: 48: {
+[; ;drv_mrf_miwi_24j40.h: 49: uint8_t TX_BUSY : 1;
+[; ;drv_mrf_miwi_24j40.h: 50: uint8_t TX_PENDING_ACK : 1;
+[; ;drv_mrf_miwi_24j40.h: 51: uint8_t TX_FAIL : 1;
+[; ;drv_mrf_miwi_24j40.h: 52: uint8_t RX_SECURITY : 1;
+[; ;drv_mrf_miwi_24j40.h: 53: uint8_t RX_IGNORE_SECURITY : 1;
+[; ;drv_mrf_miwi_24j40.h: 54: uint8_t RX_BUFFERED : 1;
+[; ;drv_mrf_miwi_24j40.h: 55: uint8_t SEC_IF : 1;
+[; ;drv_mrf_miwi_24j40.h: 56: } bits;
+[; ;drv_mrf_miwi_24j40.h: 57: } MRF24J40_STATUS;
+[; ;drv_mrf_miwi.h: 84: typedef union _DRIVER_UINT8_UNION_
+[; ;drv_mrf_miwi.h: 85: {
+[; ;drv_mrf_miwi.h: 86: uint8_t Val;
+[; ;drv_mrf_miwi.h: 87: struct
+[; ;drv_mrf_miwi.h: 88: {
+[; ;drv_mrf_miwi.h: 89: uint8_t b0:1;
+[; ;drv_mrf_miwi.h: 90: uint8_t b1:1;
+[; ;drv_mrf_miwi.h: 91: uint8_t b2:1;
+[; ;drv_mrf_miwi.h: 92: uint8_t b3:1;
+[; ;drv_mrf_miwi.h: 93: uint8_t b4:1;
+[; ;drv_mrf_miwi.h: 94: uint8_t b5:1;
+[; ;drv_mrf_miwi.h: 95: uint8_t b6:1;
+[; ;drv_mrf_miwi.h: 96: uint8_t b7:1;
+[; ;drv_mrf_miwi.h: 97: } bits;
+[; ;drv_mrf_miwi.h: 99: } DRIVER_UINT8_UNION;
+[; ;drv_mrf_miwi.h: 106: typedef struct
+[; ;drv_mrf_miwi.h: 107: {
+[; ;drv_mrf_miwi.h: 108: union
+[; ;drv_mrf_miwi.h: 109: {
+[; ;drv_mrf_miwi.h: 110: uint8_t Val;
+[; ;drv_mrf_miwi.h: 111: struct
+[; ;drv_mrf_miwi.h: 112: {
+[; ;drv_mrf_miwi.h: 113: uint8_t packetType : 2;
+[; ;drv_mrf_miwi.h: 118: uint8_t broadcast : 1;
+[; ;drv_mrf_miwi.h: 119: uint8_t secEn : 1;
+[; ;drv_mrf_miwi.h: 120: uint8_t repeat : 1;
+[; ;drv_mrf_miwi.h: 121: uint8_t ackReq : 1;
+[; ;drv_mrf_miwi.h: 122: uint8_t destPrsnt : 1;
+[; ;drv_mrf_miwi.h: 123: uint8_t sourcePrsnt : 1;
+[; ;drv_mrf_miwi.h: 124: } bits;
+[; ;drv_mrf_miwi.h: 125: } flags;
+[; ;drv_mrf_miwi.h: 127: uint8_t *DestAddress;
+[; ;drv_mrf_miwi.h: 129: bool altDestAddr;
+[; ;drv_mrf_miwi.h: 130: bool altSrcAddr;
+[; ;drv_mrf_miwi.h: 131: API_UINT16_UNION DestPANID;
+[; ;drv_mrf_miwi.h: 134: } MAC_TRANS_PARAM;
+[; ;drv_mrf_miwi.h: 142: typedef struct
+[; ;drv_mrf_miwi.h: 143: {
+[; ;drv_mrf_miwi.h: 144: union
+[; ;drv_mrf_miwi.h: 145: {
+[; ;drv_mrf_miwi.h: 146: uint8_t Val;
+[; ;drv_mrf_miwi.h: 147: struct
+[; ;drv_mrf_miwi.h: 148: {
+[; ;drv_mrf_miwi.h: 149: uint8_t packetType :2;
+[; ;drv_mrf_miwi.h: 154: uint8_t broadcast :1;
+[; ;drv_mrf_miwi.h: 155: uint8_t secEn :1;
+[; ;drv_mrf_miwi.h: 156: uint8_t repeat :1;
+[; ;drv_mrf_miwi.h: 157: uint8_t ackReq :1;
+[; ;drv_mrf_miwi.h: 158: uint8_t destPrsnt :1;
+[; ;drv_mrf_miwi.h: 159: uint8_t sourcePrsnt :1;
+[; ;drv_mrf_miwi.h: 160: } bits;
+[; ;drv_mrf_miwi.h: 161: } flags;
+[; ;drv_mrf_miwi.h: 163: uint8_t * SourceAddress;
+[; ;drv_mrf_miwi.h: 164: uint8_t * Payload;
+[; ;drv_mrf_miwi.h: 165: uint8_t PayloadLen;
+[; ;drv_mrf_miwi.h: 166: uint8_t RSSIValue;
+[; ;drv_mrf_miwi.h: 167: uint8_t LQIValue;
+[; ;drv_mrf_miwi.h: 169: bool altSourceAddress;
+[; ;drv_mrf_miwi.h: 170: API_UINT16_UNION SourcePANID;
+[; ;drv_mrf_miwi.h: 172: } MAC_RECEIVED_PACKET;
+[; ;drv_mrf_miwi.h: 179: typedef struct
+[; ;drv_mrf_miwi.h: 180: {
+[; ;drv_mrf_miwi.h: 181: union
+[; ;drv_mrf_miwi.h: 182: {
+[; ;drv_mrf_miwi.h: 183: uint8_t Val;
+[; ;drv_mrf_miwi.h: 184: struct
+[; ;drv_mrf_miwi.h: 185: {
+[; ;drv_mrf_miwi.h: 186: uint8_t RepeaterMode :1;
+[; ;drv_mrf_miwi.h: 187: uint8_t CCAEnable :1;
+[; ;drv_mrf_miwi.h: 188: uint8_t NetworkFreezer :1;
+[; ;drv_mrf_miwi.h: 189: uint8_t PAddrLength :4;
+[; ;drv_mrf_miwi.h: 190: } bits;
+[; ;drv_mrf_miwi.h: 191: } actionFlags;
+[; ;drv_mrf_miwi.h: 193: uint8_t *PAddress;
+[; ;drv_mrf_miwi.h: 195: } MACINIT_PARAM;
+[; ;drv_mrf_miwi.h: 197: extern MAC_RECEIVED_PACKET MACRxPacket;
+[; ;drv_mrf_miwi.h: 239: bool MiMAC_SetChannel(uint8_t channel, uint8_t offsetFreq);
+[; ;drv_mrf_miwi.h: 274: bool MiMAC_SetPower(uint8_t outputPower);
+[; ;drv_mrf_miwi.h: 313: bool MiMAC_SetAltAddress(uint8_t *Address, uint8_t *PANID);
+[; ;drv_mrf_miwi.h: 345: bool MiMAC_Init(MACINIT_PARAM initValue);
+[; ;drv_mrf_miwi.h: 380: uint8_t MiMAC_ChannelAssessment(uint8_t AssessmentMode);
+[; ;drv_mrf_miwi.h: 418: void MiMAC_DiscardPacket(void);
+[; ;drv_mrf_miwi.h: 458: bool MiMAC_ReceivedPacket(void);
+[; ;drv_mrf_miwi.h: 494: bool MiMAC_SendPacket(MAC_TRANS_PARAM transParam, uint8_t *MACPayload, uint8_t MACPayloadLen);
+[; ;drv_mrf_miwi.h: 538: bool MiMAC_PowerState(uint8_t PowerState);
+[; ;drv_mrf_miwi.h: 549: void UserInterruptHandler(void);
+[; ;miwi_mesh.h: 44: void MiWiTasks(void);
+[; ;miwi_mesh.h: 45: uint8_t findNextNetworkEntry(void);
+[; ;miwi_mesh.h: 46: void ClearNetworkTable(void);
+[; ;miwi_mesh.h: 47: uint8_t SearchForLongAddress(void);
+[; ;miwi_mesh.h: 48: uint8_t SearchForShortAddress(void);
+[; ;miwi_mesh.h: 49: void SendIndirectPacket(uint8_t *Address, uint8_t *AltAddress, bool isAltAddress);
+[; ;miwi_mesh.h: 50: uint8_t AddNodeToNetworkTable(void);
+[; ;miwi_mesh.h: 51: void DiscoverNodeByEUI(void);
+[; ;miwi_mesh.h: 52: void OpenSocket(void);
+[; ;miwi_mesh.h: 53: bool isSameAddress( uint8_t *Address1,  uint8_t *Address2);
+[; ;miwi_mesh.h: 54: void DumpConnection(uint8_t index);
+[; ;miwi_mesh.h: 55: bool UnicastShortAddress(uint8_t *DestAddress);
+[; ;miwi_mesh.h: 125: typedef union _MIWI_STATE_MACHINE
+[; ;miwi_mesh.h: 126: {
+[; ;miwi_mesh.h: 127: uint16_t Val;
+[; ;miwi_mesh.h: 128: struct {
+[; ;miwi_mesh.h: 129: uint8_t searchingForNetwork :1;
+[; ;miwi_mesh.h: 130: uint8_t memberOfNetwork :1;
+[; ;miwi_mesh.h: 131: uint8_t RxHasUserData :1;
+[; ;miwi_mesh.h: 132: uint8_t MiWiAckInProgress :1;
+[; ;miwi_mesh.h: 133: uint8_t saveConnection :1;
+[; ;miwi_mesh.h: 134: uint8_t EUISearching :1;
+[; ;miwi_mesh.h: 135: uint8_t DataRequesting :1;
+[; ;miwi_mesh.h: 136: uint8_t Resynning :1;
+[; ;miwi_mesh.h: 137: uint8_t Sleeping :1;
+[; ;miwi_mesh.h: 138: } bits;
+[; ;miwi_mesh.h: 139: } MIWI_STATE_MACHINE;
+[; ;miwi_mesh.h: 142: typedef struct _OPEN_SOCKET
+[; ;miwi_mesh.h: 143: {
+[; ;miwi_mesh.h: 144: union _OPEN_SOCKET_STATUS
+[; ;miwi_mesh.h: 145: {
+[; ;miwi_mesh.h: 146: struct _OPEN_SOCKET_STATUS_bits
+[; ;miwi_mesh.h: 147: {
+[; ;miwi_mesh.h: 148: uint8_t matchFound :1;
+[; ;miwi_mesh.h: 149: uint8_t requestIsOpen :1;
+[; ;miwi_mesh.h: 150: uint8_t itIsMe :1;
+[; ;miwi_mesh.h: 151: } bits;
+[; ;miwi_mesh.h: 152: uint8_t Val;
+[; ;miwi_mesh.h: 153: } status;
+[; ;miwi_mesh.h: 154: uint8_t socketHandle;
+[; ;miwi_mesh.h: 155: API_UINT16_UNION ShortAddress1;
+[; ;miwi_mesh.h: 157: uint8_t LongAddress1[8];
+[; ;miwi_mesh.h: 159: uint8_t AdditionalNodeID1[1];
+[; ;miwi_mesh.h: 162: API_UINT16_UNION ShortAddress2;
+[; ;miwi_mesh.h: 163: uint8_t LongAddress2[8];
+[; ;miwi_mesh.h: 165: MIWI_TICK socketStart;
+[; ;miwi_mesh.h: 166: } OPEN_SOCKET;
+[; ;miwi_mesh.h: 174: typedef struct
+[; ;miwi_mesh.h: 175: {
+[; ;miwi_mesh.h: 176: MIWI_TICK TickStart;
+[; ;miwi_mesh.h: 179: API_UINT16_UNION DestPANID;
+[; ;miwi_mesh.h: 181: uint8_t DestAddress[8];
+[; ;miwi_mesh.h: 182: union
+[; ;miwi_mesh.h: 183: {
+[; ;miwi_mesh.h: 184: uint8_t Val;
+[; ;miwi_mesh.h: 185: struct
+[; ;miwi_mesh.h: 186: {
+[; ;miwi_mesh.h: 187: uint8_t isValid : 1;
+[; ;miwi_mesh.h: 188: uint8_t isBroadcast : 1;
+[; ;miwi_mesh.h: 189: uint8_t isCommand : 1;
+[; ;miwi_mesh.h: 190: uint8_t isSecured : 1;
+[; ;miwi_mesh.h: 191: uint8_t isAltAddr : 1;
+[; ;miwi_mesh.h: 192: } bits;
+[; ;miwi_mesh.h: 193: } flags;
+[; ;miwi_mesh.h: 194: uint8_t PayLoadSize;
+[; ;miwi_mesh.h: 198: uint8_t PayLoad[40+11];
+[; ;miwi_mesh.h: 200: } INDIRECT_MESSAGE;
+[; ;miwi_mesh.h: 205: extern MIWI_STATE_MACHINE MiWiStateMachine;
+[; ;miwi_mesh.h: 206: extern uint8_t TxBuffer[];
+[; ;miwi_mesh.h: 207: extern uint8_t TxData;
+[; ;miwi_mesh.h: 208: extern API_UINT16_UNION myPANID;
+[; ;miwi_mesh.h: 209: extern API_UINT16_UNION myShortAddress;
+[; ;miwi_mesh.h: 210: extern uint8_t myParent;
+[; ;miwi_mesh.h: 211: extern uint8_t tempLongAddress[8];
+[; ;miwi_mesh.h: 212: extern API_UINT16_UNION tempShortAddress;
+[; ;miwi_mesh.h: 213: extern OPEN_SOCKET openSocketInfo;
+[; ;miwi_api.h: 51: typedef union __CONNECTION_STATUS
+[; ;miwi_api.h: 52: {
+[; ;miwi_api.h: 53: uint8_t Val;
+[; ;miwi_api.h: 54: struct _CONNECTION_STAUTS_bits
+[; ;miwi_api.h: 55: {
+[; ;miwi_api.h: 56: uint8_t RXOnWhenIdle :1;
+[; ;miwi_api.h: 57: uint8_t directConnection :1;
+[; ;miwi_api.h: 58: uint8_t longAddressValid :1;
+[; ;miwi_api.h: 59: uint8_t shortAddressValid :1;
+[; ;miwi_api.h: 60: uint8_t FinishJoin :1;
+[; ;miwi_api.h: 61: uint8_t isFamily :1;
+[; ;miwi_api.h: 62: uint8_t filler :1;
+[; ;miwi_api.h: 63: uint8_t isValid :1;
+[; ;miwi_api.h: 64: } bits;
+[; ;miwi_api.h: 65: } CONNECTION_STATUS;
+[; ;miwi_api.h: 78: typedef struct __CONNECTION_ENTRY
+[; ;miwi_api.h: 79: {
+[; ;miwi_api.h: 81: API_UINT16_UNION PANID;
+[; ;miwi_api.h: 82: API_UINT16_UNION AltAddress;
+[; ;miwi_api.h: 84: uint8_t Address[8];
+[; ;miwi_api.h: 86: CONNECTION_STATUS status;
+[; ;miwi_api.h: 89: uint8_t PeerInfo[1];
+[; ;miwi_api.h: 91: } CONNECTION_ENTRY;
+[; ;miwi_api.h: 93: extern CONNECTION_ENTRY ConnectionTable[10];
+[; ;miwi_api.h: 95: extern uint8_t currentChannel;
+[; ;miwi_api.h: 136: bool MiApp_ProtocolInit(bool bNetworkFreezer);
+[; ;miwi_api.h: 178: bool MiApp_SetChannel(uint8_t Channel);
+[; ;miwi_api.h: 236: bool MiApp_StartConnection( uint8_t Mode, uint8_t ScanDuration, uint32_t ChannelMap);
+[; ;miwi_api.h: 246: typedef struct
+[; ;miwi_api.h: 247: {
+[; ;miwi_api.h: 248: uint8_t Channel;
+[; ;miwi_api.h: 249: uint8_t Address[8];
+[; ;miwi_api.h: 250: API_UINT16_UNION PANID;
+[; ;miwi_api.h: 251: uint8_t RSSIValue;
+[; ;miwi_api.h: 252: uint8_t LQIValue;
+[; ;miwi_api.h: 253: union
+[; ;miwi_api.h: 254: {
+[; ;miwi_api.h: 255: uint8_t Val;
+[; ;miwi_api.h: 256: struct
+[; ;miwi_api.h: 257: {
+[; ;miwi_api.h: 258: uint8_t Role: 2;
+[; ;miwi_api.h: 259: uint8_t Sleep: 1;
+[; ;miwi_api.h: 260: uint8_t SecurityEn: 1;
+[; ;miwi_api.h: 261: uint8_t RepeatEn: 1;
+[; ;miwi_api.h: 262: uint8_t AllowJoin: 1;
+[; ;miwi_api.h: 263: uint8_t Direct: 1;
+[; ;miwi_api.h: 264: uint8_t altSrcAddr: 1;
+[; ;miwi_api.h: 265: } bits;
+[; ;miwi_api.h: 266: } Capability;
+[; ;miwi_api.h: 268: uint8_t PeerInfo[1];
+[; ;miwi_api.h: 270: } ACTIVE_SCAN_RESULT;
+[; ;miwi_api.h: 273: extern ACTIVE_SCAN_RESULT ActiveScanResults[4];
+[; ;miwi_api.h: 320: uint8_t MiApp_SearchConnection(uint8_t ScanDuration, uint32_t ChannelMap);
+[; ;miwi_api.h: 374: uint8_t MiApp_EstablishConnection(uint8_t ActiveScanIndex, uint8_t Mode);
+[; ;miwi_api.h: 411: void MiApp_RemoveConnection(uint8_t ConnectionIndex);
+[; ;miwi_api.h: 457: void MiApp_ConnectionMode(uint8_t Mode);
+[; ;miwi_api.h: 552: bool MiApp_BroadcastPacket(bool SecEn );
+[; ;miwi_api.h: 591: bool MiApp_UnicastConnection(uint8_t ConnectionIndex, bool SecEn);
+[; ;miwi_api.h: 631: bool MiApp_UnicastAddress(uint8_t *DestinationAddress, bool PermanentAddr, bool SecEn);
+[; ;miwi_api.h: 643: typedef struct
+[; ;miwi_api.h: 644: {
+[; ;miwi_api.h: 645: union
+[; ;miwi_api.h: 646: {
+[; ;miwi_api.h: 647: uint8_t Val;
+[; ;miwi_api.h: 648: struct
+[; ;miwi_api.h: 649: {
+[; ;miwi_api.h: 650: uint8_t broadcast: 2;
+[; ;miwi_api.h: 651: uint8_t ackReq: 1;
+[; ;miwi_api.h: 652: uint8_t secEn: 1;
+[; ;miwi_api.h: 653: uint8_t repeat: 1;
+[; ;miwi_api.h: 654: uint8_t command: 1;
+[; ;miwi_api.h: 655: uint8_t srcPrsnt: 1;
+[; ;miwi_api.h: 656: uint8_t altSrcAddr: 1;
+[; ;miwi_api.h: 657: } bits;
+[; ;miwi_api.h: 658: } flags;
+[; ;miwi_api.h: 660: API_UINT16_UNION SourcePANID;
+[; ;miwi_api.h: 661: uint8_t *SourceAddress;
+[; ;miwi_api.h: 662: uint8_t *Payload;
+[; ;miwi_api.h: 663: uint8_t PayloadSize;
+[; ;miwi_api.h: 664: uint8_t PacketRSSI;
+[; ;miwi_api.h: 665: uint8_t PacketLQI;
+[; ;miwi_api.h: 667: } RECEIVED_MESSAGE;
+[; ;miwi_api.h: 710: bool MiApp_MessageAvailable(void);
+[; ;miwi_api.h: 752: void MiApp_DiscardMessage(void);
+[; ;miwi_api.h: 800: uint8_t MiApp_NoiseDetection(uint32_t ChannelMap, uint8_t ScanDuration, uint8_t DetectionMode,  uint8_t *NoiseLevel);
+[; ;miwi_api.h: 858: uint8_t MiApp_TransceiverPowerState(uint8_t Mode);
+[; ;miwi_api.h: 899: bool MiApp_InitChannelHopping( uint32_t ChannelMap);
+[; ;miwi_api.h: 941: bool MiApp_ResyncConnection(uint8_t ConnectionIndex, uint32_t ChannelMap);
+[; ;miwi_api.h: 950: extern RECEIVED_MESSAGE rxMessage;
+[; ;soft_uart.h: 11: void puteChar(char charactere);
+[; ;newPan.h: 22: void newPan();
+"7 ../src/newPan.c
+[v _RA2_lastState `s ~T0 @X0 1 e ]
+[i _RA2_lastState
+-> -> 0 `i `s
 ]
-[v _address `uc ~T0 @X0 -> 3 `i a ]
-[; ;EEPROM.c: 89: uint8_t address[3]={0,0,0};
-[e = _address F7244 ]
-[; ;EEPROM.c: 90: address[2]=startAddressValue;
-"90
-[e = *U + &U _address * -> -> -> 2 `i `ui `ux -> -> # *U &U _address `ui `ux -> _startAddressValue `uc ]
-[; ;EEPROM.c: 91: address[1]=startAddressValue>>8;
-"91
-[e = *U + &U _address * -> -> -> 1 `i `ui `ux -> -> # *U &U _address `ui `ux -> >> _startAddressValue -> 8 `i `uc ]
-[; ;EEPROM.c: 92: address[0]=startAddressValue>>16;
-"92
-[e = *U + &U _address * -> -> -> 0 `i `ui `ux -> -> # *U &U _address `ui `ux -> >> _startAddressValue -> 16 `i `uc ]
-[; ;EEPROM.c: 94: PORTEbits.RE2=0;
-"94
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 95: SPIPut2(0x06);
-"95
-[e ( _SPIPut2 (1 -> -> 6 `i `uc ]
-[; ;EEPROM.c: 96: PORTEbits.RE2=1;
-"96
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 98: PORTEbits.RE2=0;
-"98
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 99: SPIPut2(0x02);
-"99
-[e ( _SPIPut2 (1 -> -> 2 `i `uc ]
-[; ;EEPROM.c: 101: SPIPut2(0);
-"101
-[e ( _SPIPut2 (1 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 102: SPIPut2(0);
-"102
-[e ( _SPIPut2 (1 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 103: SPIPut2(0);
-"103
-[e ( _SPIPut2 (1 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 104: for(uint8_t i=0; i<3; i++){
-"104
+[; ;newPan.c: 7: short RA2_lastState = 0;
+"9
+[v _frameCount `uc ~T0 @X0 1 e ]
+[i _frameCount
+-> -> 0 `i `uc
+]
+[; ;newPan.c: 9: uint8_t frameCount = 0;
+"11
+[v _txBuffer `uc ~T0 @X0 -> 1000 `i e ]
+[; ;newPan.c: 11: char txBuffer[1000];
+"13
+[v _newPan `(v ~T0 @X0 1 ef ]
 {
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 3 `i 784  ]
-[e $U 785  ]
-[e :U 784 ]
-{
-[; ;EEPROM.c: 105: SPIPut2(address[i]);
-"105
-[e ( _SPIPut2 (1 *U + &U _address * -> _i `ux -> -> # *U &U _address `ui `ux ]
-"106
-}
-"104
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 3 `i 784  ]
-[e :U 785 ]
-"106
-}
-[; ;EEPROM.c: 106: }
-[; ;EEPROM.c: 107: PORTEbits.RE2=1;
-"107
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 109: PORTEbits.RE2=0;
-"109
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 110: SPIPut2(0x04);
-"110
-[e ( _SPIPut2 (1 -> -> 4 `i `uc ]
-[; ;EEPROM.c: 111: PORTEbits.RE2=1;
-"111
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 112: _delay((unsigned long)((10)*(16000000/4000.0)));
-"112
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-[; ;EEPROM.c: 113: }
-"113
-[e :UE 783 ]
-}
-"117
-[v _eepromReadLastAddress `(ul ~T0 @X0 1 ef ]
-{
-[; ;EEPROM.c: 117: uint32_t eepromReadLastAddress(void){
-[e :U _eepromReadLastAddress ]
+[; ;newPan.c: 13: void newPan(){
+[e :U _newPan ]
 [f ]
-"118
-[v _address `ul ~T0 @X0 1 a ]
-[; ;EEPROM.c: 118: uint32_t address=0;
-[e = _address -> -> -> 0 `i `l `ul ]
-"119
-[v _add1 `ul ~T0 @X0 1 a ]
-[; ;EEPROM.c: 119: uint32_t add1=0;
-[e = _add1 -> -> -> 0 `i `l `ul ]
-"120
-[v _add2 `ul ~T0 @X0 1 a ]
-[; ;EEPROM.c: 120: uint32_t add2=0;
-[e = _add2 -> -> -> 0 `i `l `ul ]
-"121
-[v _add3 `ul ~T0 @X0 1 a ]
-[; ;EEPROM.c: 121: uint32_t add3=0;
-[e = _add3 -> -> -> 0 `i `l `ul ]
-[; ;EEPROM.c: 122: add3 = eepromReadUnsigned(0x00);
-"122
-[e = _add3 -> ( _eepromReadUnsigned (1 -> -> -> 0 `i `l `ul `ul ]
-[; ;EEPROM.c: 123: add3 = add3<<16;
-"123
-[e = _add3 << _add3 -> 16 `i ]
-[; ;EEPROM.c: 124: add2 = eepromReadUnsigned(0x01);
-"124
-[e = _add2 -> ( _eepromReadUnsigned (1 -> -> -> 1 `i `l `ul `ul ]
-[; ;EEPROM.c: 125: add2 = add2<<8;
-"125
-[e = _add2 << _add2 -> 8 `i ]
-[; ;EEPROM.c: 126: add1 = eepromReadUnsigned(0x02);
-"126
-[e = _add1 -> ( _eepromReadUnsigned (1 -> -> -> 2 `i `l `ul `ul ]
-[; ;EEPROM.c: 128: address = add1+add2+add3;
-"128
-[e = _address + + _add1 _add2 _add3 ]
-[; ;EEPROM.c: 130: return address;
-"130
-[e ) _address ]
-[e $UE 787  ]
-[; ;EEPROM.c: 131: }
-"131
-[e :UE 787 ]
-}
-"134
-[v _eepromReadDataCapteur `(S773 ~T0 @X0 1 ef1`ul ]
+[; ;newPan.c: 15: TRISAbits.TRISA2 = 1;
+"15
+[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+[; ;newPan.c: 17: while(1){
+"17
+[e :U 807 ]
 {
-[; ;EEPROM.c: 134: dataCapteur eepromReadDataCapteur(uint32_t startAddress){
-[e :U _eepromReadDataCapteur ]
-[v _startAddress `ul ~T0 @X0 1 r1 ]
-[f ]
-"135
-[v _data `S773 ~T0 @X0 1 a ]
-[; ;EEPROM.c: 135: dataCapteur data;
-[; ;EEPROM.c: 136: PORTEbits.RE2=0;
-"136
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 137: SPIPut2(0x03);
-"137
-[e ( _SPIPut2 (1 -> -> 3 `i `uc ]
-[; ;EEPROM.c: 139: SPIPut2(startAddress>>16);
-"139
-[e ( _SPIPut2 (1 -> >> _startAddress -> 16 `i `uc ]
-[; ;EEPROM.c: 140: SPIPut2(startAddress>>8);
-"140
-[e ( _SPIPut2 (1 -> >> _startAddress -> 8 `i `uc ]
-[; ;EEPROM.c: 141: SPIPut2(startAddress);
-"141
-[e ( _SPIPut2 (1 -> _startAddress `uc ]
-[; ;EEPROM.c: 143: for(uint8_t i=0; i<14; i++){
-"143
+[; ;newPan.c: 20: if(MiApp_MessageAvailable()){
+"20
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 809  ]
 {
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 14 `i 789  ]
-[e $U 790  ]
-[e :U 789 ]
+[; ;newPan.c: 21: MiApp_DiscardMessage();
+"21
+[e ( _MiApp_DiscardMessage ..  ]
+"22
+}
+[e :U 809 ]
+[; ;newPan.c: 22: }
+[; ;newPan.c: 26: if( (PORTAbits.RA2 == 1)&& (RA2_lastState == 0) ){
+"26
+[e $ ! && == -> . . _PORTAbits 0 2 `i -> 1 `i == -> _RA2_lastState `i -> 0 `i 810  ]
 {
-[; ;EEPROM.c: 144: data.array[i]=SPIGet2();
-"144
-[e = *U + &U . _data 1 * -> _i `ux -> -> # *U &U . _data 1 `ui `ux -> ( _SPIGet2 ..  `c ]
-"145
-}
-"143
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 14 `i 789  ]
-[e :U 790 ]
-"145
-}
-[; ;EEPROM.c: 145: }
-[; ;EEPROM.c: 147: PORTEbits.RE2=1;
-"147
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 148: return data;
-"148
-[e ) _data ]
-[e $UE 788  ]
-[; ;EEPROM.c: 149: }
-"149
-[e :UE 788 ]
-}
-"152
-[v _eepromWriteDataToSave `(v ~T0 @X0 1 ef2`ul`S773 ]
+"28
+[v _tempBuffer `uc ~T0 @X0 -> 21 `i a ]
+[; ;newPan.c: 28: char tempBuffer[21];
+[; ;newPan.c: 30: {TxData = 11;};
+"30
 {
-[; ;EEPROM.c: 152: void eepromWriteDataToSave(uint32_t writeStartAddress, dataCapteur data){
-[e :U _eepromWriteDataToSave ]
-[v _writeStartAddress `ul ~T0 @X0 1 r1 ]
-[v _data `S773 ~T0 @X0 1 r2 ]
-[f ]
-[; ;EEPROM.c: 153: PORTEbits.RE2=0;
-"153
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 154: SPIPut2(0x06);
-"154
-[e ( _SPIPut2 (1 -> -> 6 `i `uc ]
-[; ;EEPROM.c: 155: PORTEbits.RE2=1;
-"155
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 157: PORTEbits.RE2=0;
-"157
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 158: SPIPut2(0x02);
-"158
-[e ( _SPIPut2 (1 -> -> 2 `i `uc ]
-[; ;EEPROM.c: 160: SPIPut2(writeStartAddress>>16);
-"160
-[e ( _SPIPut2 (1 -> >> _writeStartAddress -> 16 `i `uc ]
-[; ;EEPROM.c: 161: SPIPut2(writeStartAddress>>8);
-"161
-[e ( _SPIPut2 (1 -> >> _writeStartAddress -> 8 `i `uc ]
-[; ;EEPROM.c: 162: SPIPut2(writeStartAddress);
-"162
-[e ( _SPIPut2 (1 -> _writeStartAddress `uc ]
-[; ;EEPROM.c: 164: for(uint8_t i=0; i<14; i++){
-"164
+[e = _TxData -> -> 11 `i `uc ]
+}
+[; ;newPan.c: 31: TxBuffer[TxData++] = 0x01;
+"31
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 1 `i `uc ]
+[; ;newPan.c: 32: TxBuffer[TxData++] = 0xDE;
+"32
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 222 `i `uc ]
+[; ;newPan.c: 33: TxBuffer[TxData++] = 0xAD;
+"33
+[e = *U + &U _TxBuffer * -> ++ _TxData -> -> 1 `i `uc `ux -> -> # *U &U _TxBuffer `ui `ux -> -> 173 `i `uc ]
+[; ;newPan.c: 34: MiApp_BroadcastPacket(0);
+"34
+[e ( _MiApp_BroadcastPacket (1 -> -> 0 `i `uc ]
+[; ;newPan.c: 36: frameCount = 0;
+"36
+[e = _frameCount -> -> 0 `i `uc ]
+[; ;newPan.c: 38: txBuffer[0] = '\0';
+"38
+[e = *U + &U _txBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _txBuffer `ui `ux -> -> 0 `ui `uc ]
+[; ;newPan.c: 43: for(uint32_t i = 0; i < 10000 ; i++){
+"43
 {
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 14 `i 793  ]
-[e $U 794  ]
-[e :U 793 ]
+[v _i `ul ~T0 @X0 1 a ]
+[e = _i -> -> -> 0 `i `l `ul ]
+[e $ < _i -> -> -> 10000 `i `l `ul 811  ]
+[e $U 812  ]
+[e :U 811 ]
 {
-[; ;EEPROM.c: 165: SPIPut2(data.array[i]);
-"165
-[e ( _SPIPut2 (1 -> *U + &U . _data 1 * -> _i `ux -> -> # *U &U . _data 1 `ui `ux `uc ]
-"166
+[; ;newPan.c: 44: if(MiApp_MessageAvailable()){
+"44
+[e $ ! != -> ( _MiApp_MessageAvailable ..  `i -> -> -> 0 `i `uc `i 814  ]
+{
+[; ;newPan.c: 46: if(rxMessage.Payload[0]==0x02){
+"46
+[e $ ! == -> *U + . _rxMessage 3 * -> -> 0 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> 2 `i 815  ]
+{
+[; ;newPan.c: 47: frameCount++;
+"47
+[e ++ _frameCount -> -> 1 `i `uc ]
+[; ;newPan.c: 48: sprintf(tempBuffer,"%d;%d;%d;%d;\n\r",(uint8_t)rxMessage.Payload[1],(int8_t)rxMessage.Payload[2],(int8_t)rxMessage.Payload[3],(int8_t)rxMessage.Payload[4]);
+"48
+[e ( _sprintf (1 , , , , (. , &U _tempBuffer :s 1C -> *U + . _rxMessage 3 * -> -> 1 `i `x -> -> # *U . _rxMessage 3 `i `x `i -> -> *U + . _rxMessage 3 * -> -> 2 `i `x -> -> # *U . _rxMessage 3 `i `x `c `i -> -> *U + . _rxMessage 3 * -> -> 3 `i `x -> -> # *U . _rxMessage 3 `i `x `c `i -> -> *U + . _rxMessage 3 * -> -> 4 `i `x -> -> # *U . _rxMessage 3 `i `x `c `i ]
+[; ;newPan.c: 49: strcat(txBuffer, tempBuffer);
+"49
+[e ( _strcat (2 , &U _txBuffer -> &U _tempBuffer `*Cuc ]
+"50
 }
-"164
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 14 `i 793  ]
-[e :U 794 ]
-"166
+[e :U 815 ]
+[; ;newPan.c: 50: }
+[; ;newPan.c: 51: MiApp_DiscardMessage();
+"51
+[e ( _MiApp_DiscardMessage ..  ]
+"52
 }
-[; ;EEPROM.c: 166: }
-[; ;EEPROM.c: 168: PORTEbits.RE2=1;
-"168
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 169: _delay((unsigned long)((10)*(16000000/4000.0)));
-"169
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-[; ;EEPROM.c: 170: }
-"170
-[e :UE 792 ]
+[e :U 814 ]
+[; ;newPan.c: 52: }
+[; ;newPan.c: 54: if(frameCount >= 50){
+"54
+[e $ ! >= -> _frameCount `i -> 50 `i 816  ]
+{
+[; ;newPan.c: 55: break;
+"55
+[e $U 812  ]
+"56
 }
+[e :U 816 ]
+[; ;newPan.c: 56: }
+[; ;newPan.c: 57: _delay((unsigned long)((100)*(16000000/4000000.0)));
+"57
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+"58
+}
+"43
+[e ++ _i -> -> -> 1 `i `l `ul ]
+[e $ < _i -> -> -> 10000 `i `l `ul 811  ]
+[e :U 812 ]
+"58
+}
+[; ;newPan.c: 58: }
+[; ;newPan.c: 59: printf(txBuffer);
+"59
+[e ( _printf -> &U _txBuffer `*Cuc ]
+"60
+}
+[e :U 810 ]
+[; ;newPan.c: 60: }
+[; ;newPan.c: 61: RA2_lastState = PORTAbits.RA2;
+"61
+[e = _RA2_lastState -> . . _PORTAbits 0 2 `s ]
+"62
+}
+[e :U 806 ]
+"17
+[e $U 807  ]
+[e :U 808 ]
+[; ;newPan.c: 62: }
+[; ;newPan.c: 63: }
+"63
+[e :UE 805 ]
+}
+[p f _sprintf 8388736 ]
+[p f _printf 9437696 ]
+[a 1C 37 100 59 37 100 59 37 100 59 37 100 59 10 13 0 ]
+

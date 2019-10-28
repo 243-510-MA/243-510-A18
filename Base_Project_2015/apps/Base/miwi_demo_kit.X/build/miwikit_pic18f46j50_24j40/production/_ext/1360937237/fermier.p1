@@ -6982,10 +6982,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;EEPROM.h: 41: void eepromWrite(uint32_t writeAddress,int8_t data);
 [; ;EEPROM.h: 51: void eepromMultiWrite(uint32_t writeStartAddress,uint8_t length,int8_t *data);
 [; ;EEPROM.h: 60: int8_t eepromRead(uint32_t readAddress);
-[; ;EEPROM.h: 70: void eepromWriteLastAddress(uint32_t startAddressValue);
-[; ;EEPROM.h: 80: uint32_t eepromReadLastAddress(void);
-[; ;EEPROM.h: 93: dataCapteur eepromReadDataCapteur(uint32_t startAddress);
-[; ;EEPROM.h: 103: void eepromWriteDataToSave(uint32_t writeStartAddress, dataCapteur data);
+[; ;EEPROM.h: 69: uint8_t eepromReadUnsigned(uint32_t readAddress);
+[; ;EEPROM.h: 72: void eepromWriteLastAddress(uint32_t startAddressValue);
+[; ;EEPROM.h: 82: uint32_t eepromReadLastAddress(void);
+[; ;EEPROM.h: 95: dataCapteur eepromReadDataCapteur(uint32_t startAddress);
+[; ;EEPROM.h: 105: void eepromWriteDataToSave(uint32_t writeStartAddress, dataCapteur data);
 [; ;fermier.c: 25: void affichage (void);
 [; ;fermier.c: 26: void asking_data(void);
 [; ;fermier.c: 27: void receiving_data(void);

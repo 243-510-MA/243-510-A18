@@ -13,6 +13,7 @@
 #include "fermier.h"
 #include "pan.h"
 #include "Board_Capteur.h"
+#include "newPan.h"
 
 #define BOARD_ID 1
 
@@ -39,8 +40,15 @@ void main(void)
 
     if(DEVICEMODE == PAN)
     {
-        Pan(); 
+       /* TRISBbits.TRISB1 = 1;
+       // __delay_us(100);
+       // if(PORTBbits.RB1 == 0){//if btn1 is pressed boot into oldpan
+            Pan(); 
+        }
+        */
+            newPan();
     }
+
     
     else if(DEVICEMODE == BOARD_CAPTEUR)
     {
