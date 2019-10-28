@@ -1,0 +1,9 @@
+Annee;Mois;Jour;Heure;Minute;humiditeCarte1;temperatureAirCarte1;temperatureSolCarte1;humiditeCarte2;temperatureAirCarte2;temperatureSolCarte2;humiditeCarte3;temperatureAirCarte3;temperatureSolCarte3
+18;12;12;16;0;93;3;4;87;0;-7;-128;1;-128
+18;12;12;17;0;94;0;3;86;-2;-8;-128;-2;-128
+18;12;12;18;0;95;0;2;86;-3;-9;-128;-3;-128
+18;12;12;19;0;95;0;2;85;-3;-9;-128;-4;-128
+18;12;12;20;0;95;-2;1;85;-4;-10;-128;-5;-128
+18;12;12;21;0;95;-1;1;84;-3;-10;-128;-5;-128
+18;12;14;12;32;34;-43;-63;90;-106;-59;-19;-97;112
+19;1;27;21;56;51;-43;-31;82;-106;-59;-19;-97;112
